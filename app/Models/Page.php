@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @mixin IdeHelperPage
+ */
 class Page extends Model
 {
     use HasFactory;
