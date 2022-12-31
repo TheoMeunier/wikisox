@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\ChapterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +15,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
+
+    Route::controller(BookController::class)->prefix('/books')->name('book.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/create', 'store')->name('store');
+        Route::get('/edit/{book}', 'edit')->name('edit');
+        Route::post('/edit/{book}', 'update')->name('update');
+
+        Route::controller(ChapterController::class)->prefix('/{book}')->name('chapter.')->group(function () {
+            Route::get('/', 'index')->name('index');
+        });
+    });
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
