@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApiBookController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
 use Illuminate\Support\Facades\Route;
@@ -16,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });
-
 
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -40,6 +41,14 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
+// Api local
+Route::middleware(['auth'])->prefix('/api')->group(function () {
+    Route::controller(ApiBookController::class)->prefix('/books')->group(function () {
+        Route::get('/', 'index');
+        Route::post('/likes/{book}', 'like');
+        Route::delete('/delete/{book}', 'delete');
+    });
+});
 
 
-require __DIR__.'/auth.php';
+
