@@ -21,15 +21,14 @@
                         </div>
 
                         <div>
-                            <x-label for="description" :value="__('input.label.description')"/>
-                            <textarea name="description" id="description" cols="30"
-                                      rows="10">{{ old('description') }}</textarea>
-                        </div>
-
-                        <div>
                             <x-label for="image" :value="__('input.label.image')"/>
                             <x-input id="image" class="block mt-1 w-full" type="text" name="image" :value="old('image')"
                                      required autofocus/>
+                        </div>
+
+                        <div>
+                            <x-label for="description" :value="__('input.label.description')"/>
+                            <x-forms.textarea name="description" id="description">{{ old('description') }}</x-forms.textarea>
                         </div>
 
                         <div class="flex items-center justify-end mt-4">
