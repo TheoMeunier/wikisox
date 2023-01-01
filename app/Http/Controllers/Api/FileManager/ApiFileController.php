@@ -63,7 +63,7 @@ class ApiFileController extends AbstractFileManagerController
             'id'        => $file,
             'name'      => $info['basename'],
             'url'       => $disk->url($file),
-            'folder'    => pathinfo_dirname($info),
+            'folder'    => $info['dirname'] === '.' ? null : $info['dirname'],
             'thumbnail' => $disk->url($file),
         ];
     }

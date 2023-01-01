@@ -64,7 +64,7 @@ class ApiFolderController extends AbstractFileManagerController
         return [
             'id'     => $folders,
             'name'   => $pathinfo['filename'],
-            'parent' => pathinfo_dirname($pathinfo),
+            'parent' => $pathinfo['dirname'] === '.' ? null : $pathinfo['dirname'],
         ];
     }
 }
