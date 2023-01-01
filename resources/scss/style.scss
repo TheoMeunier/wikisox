@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+
+$breakpoint-laptop: 1538px;
+$breakpoint-small-laptop: 1024px;
+$breakpoint-small-screen: 961px;
+$breakpoint-tablet: 769px;
+$breakpoint-phone: 769px;
+
+//modules
+@import "modules/card";
+@import "modules/input";
+@import "modules/typo";
+@import "home";
+
+//tools
+@import "tools/flex";
+
 // Icons
 @import '~@fortawesome/fontawesome-free/css/fontawesome';
 @import '~@fortawesome/fontawesome-free/css/regular';

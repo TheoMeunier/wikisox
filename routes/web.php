@@ -44,8 +44,8 @@ Route::middleware(['auth'])->group(function () {
 // Api local
 Route::middleware(['auth'])->prefix('/api')->group(function () {
     Route::controller(ApiBookController::class)->prefix('/books')->group(function () {
-        Route::get('/', 'index');
-        Route::post('/likes/{book}', 'like');
+        Route::get('/{q?}', 'index');
+        Route::post('/like/{book}', 'like');
         Route::delete('/delete/{book}', 'delete');
     });
 });

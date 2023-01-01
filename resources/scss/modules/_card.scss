@@ -1,0 +1,32 @@
+%card,
+.card {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
+.card__like {
+  box-shadow: 0 0 0 4px rgba(255, 197, 0, 0.35);
+}
+
+.card__ing {
+  img {
+    @apply rounded-t-lg;
+    min-height: 225px;
+    max-height: 225px;
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
+.card__body {
+  @apply mt-3 p-5;
+}
+
+.card__title {
+  @apply text-2xl font-bold tracking-tight text-gray-900;
+}
+
+.card__text {
+  @apply my-3 font-normal;
+}

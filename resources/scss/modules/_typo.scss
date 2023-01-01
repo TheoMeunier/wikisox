@@ -1,0 +1,31 @@
+h1 {
+  @apply text-5xl;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply text-3xl;
+}
+
+h4 {
+  @apply text-2xl;
+}
+
+h5 {
+  @apply text-xl;
+}
+
+.link {
+  @apply text-blue-600 hover:underline;
+}
+
+.text__secondary {
+  @apply text-gray-500;
+}
+
+.text__warning {
+  @apply text-yellow-400;
+}

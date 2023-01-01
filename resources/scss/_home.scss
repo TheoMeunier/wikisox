@@ -1,0 +1,27 @@
+.home {
+  @apply grid grid-cols-6 gap-4;
+}
+
+.home .main {
+  @apply col-span-4;
+}
+
+.articles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media screen and (max-width: $breakpoint-laptop) {
+  .home {
+    @apply grid grid-cols-5 gap-4;
+  }
+
+  .articles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .home .main {
+    @apply col-span-3;
+  }
+}
