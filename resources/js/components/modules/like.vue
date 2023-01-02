@@ -29,7 +29,7 @@ const props = defineProps({
 
 const like = async () => {
   try {
-    await axios.post('/api/' + props.params + '/like/' + props.data.id)
+    await axios.post('/webapi/' + props.params + '/like/' + props.data.id)
   } catch (e) {
     console.log(e)
   }

@@ -27,6 +27,7 @@ class BookResource extends JsonResource
             'image' => $this->image,
             'username' => $this->user->name,
             'created_at' => Carbon::parse($this->created_at)->diffForHumans(),
+            'url' => route('book.index') . '/' . $this->slug,
             'like' => $this->like
         ];
     }

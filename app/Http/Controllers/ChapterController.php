@@ -8,9 +8,13 @@ use App\Models\Chapter;
 
 class ChapterController extends Controller
 {
-    public function index(Book $book)
+    public function index(string $slug)
     {
-        return view('chapter.index', compact($book));
+        $book = Book::where('slug', '=', $slug)->first();
+
+        return view('chapter.index', [
+            'book' => $book
+        ]);
     }
 
     public function create(Book $book)

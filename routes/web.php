@@ -35,14 +35,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/edit/{book}', 'edit')->name('edit');
         Route::post('/edit/{book}', 'update')->name('update');
 
-        Route::controller(ChapterController::class)->prefix('/{book}')->name('chapter.')->group(function () {
+        Route::controller(ChapterController::class)->prefix('/{slug}')->name('chapter.')->group(function () {
             Route::get('/', 'index')->name('index');
         });
     });
 });
 
 // Api local
-Route::middleware(['auth'])->prefix('/api')->group(function () {
+Route::middleware(['auth'])->prefix('/webapi')->group(function () {
     Route::controller(ApiBookController::class)->prefix('/books')->group(function () {
         Route::get('/{q?}', 'index');
         Route::post('/like/{book}', 'like');
