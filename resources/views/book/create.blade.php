@@ -28,7 +28,7 @@
                             </div>
                             <div class="w-2/4">
                                 <x-label for="image" :value="__('input.label.image')"/>
-                                <x-forms.image/>
+                                <x-forms.image :name="'image'" value="{{ old('image')}}" />
                             </div>
                         </div>
 

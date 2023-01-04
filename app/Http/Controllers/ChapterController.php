@@ -12,7 +12,7 @@ class ChapterController extends Controller
     {
         $book = Book::where('slug', '=', $slug)->first();
 
-        return view('chapter.index', [
+        return view('book.show', [
             'book' => $book
         ]);
     }

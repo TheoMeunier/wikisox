@@ -20,6 +20,9 @@ class BookController extends Controller
         return view('book.index');
     }
 
+    /**
+     * @return Application|Factory|View
+     */
     public function create()
     {
         return view('book.create');
@@ -42,20 +45,35 @@ class BookController extends Controller
         return redirect()->route('book.index');
     }
 
-    public function edit(Book $book)
+    /**
+     * @param string $slug
+     * @return Application|Factory|View
+     */
+    public function edit(string $slug)
     {
-        return view('book.edit');
+        $book = Book::where('slug' , '=', $slug)->first();
+
+        return view('book.edit', [
+            'book' => $book
+        ]);
     }
 
-    public function update(Request $request, Book $book)
+    /**
+     * @param Request $request
+     * @param string $slug
+     * @return RedirectResponse
+     */
+    public function update(Request $request, string $slug)
     {
-        Book::update([
+        $book = Book::where('slug', '=', $slug)->first();
+
+        $book->update([
             'name' => $request->get('name'),
             'slug' => Str::slug($request->get('name')),
             'image' => $request->get('image'),
             'description' => $request->get('description'),
         ]);
 
-        return redirect()->route('book.chapter.index', ['book' => $book]);
+        return redirect()->route('book.chapter.index', ['slug' => $book->slug]);
     }
 }

@@ -17,5 +17,9 @@ export default function useBooks() {
         }
     }
 
-    return {books, getBooks, search}
+    const deleteBook = async (slug) => {
+        await axios.delete('/webapi/books/delete' + slug)
+    }
+
+    return {books, getBooks, deleteBook, search}
 }

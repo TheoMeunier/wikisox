@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApiBookController;
+use App\Http\Controllers\Api\ApiChapterController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,22 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::controller(BookController::class)->prefix('/books')->name('book.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/create', 'store')->name('store');
+        Route::get('/{slug}/edit', 'edit')->name('edit');
+        Route::post('/{slug}/edit', 'update')->name('update');
+
+        Route::controller(ChapterController::class)->prefix('/{slug}')->name('chapter.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/create', 'store')->name('store');
+           /* Route::get('/edit/{chapter}', 'store')->name('edit');
+            Route::post('/edit/{chapter}', 'store')->name('store');*/
+        });
+    });
     Route::get('/', function () {
         return view('welcome');
     });
@@ -27,18 +44,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth'])->name('dashboard');
-
-    Route::controller(BookController::class)->prefix('/books')->name('book.')->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/create', 'create')->name('create');
-        Route::post('/create', 'store')->name('store');
-        Route::get('/edit/{book}', 'edit')->name('edit');
-        Route::post('/edit/{book}', 'update')->name('update');
-
-        Route::controller(ChapterController::class)->prefix('/{slug}')->name('chapter.')->group(function () {
-            Route::get('/', 'index')->name('index');
-        });
-    });
 });
 
 // Api local
@@ -47,6 +52,12 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
         Route::get('/{q?}', 'index');
         Route::post('/like/{book}', 'like');
         Route::delete('/delete/{book}', 'delete');
+
+        Route::controller(ApiChapterController::class)->prefix('/chapters/{slug}')->group(function () {
+            Route::get('/{q?}', 'index');
+            Route::post('/like/{chapter}', 'like');
+            Route::delete('/delete/{chapter}', 'delete');
+        });
     });
 });
 
