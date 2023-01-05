@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="mt-10">
                                     <x-label for="description" :value="__('input.label.description')"/>
-                                    <x-forms.textarea name="description" id="description">{{ old('description') }}</x-forms.textarea>
+                                    <x-forms.textarea name="description" id="description" value="{{ old('description') }}"></x-forms.textarea>
                                 </div>
                             </div>
                             <div class="w-2/4">
