@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\Book;
+use App\Models\Chapter;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -17,8 +18,7 @@ class ChapterResource extends JsonResource
      */
     public function toArray($request): array
     {
-        /** @var Book $this
-         */
+        /** @var Chapter $this */
         return [
             'id' => $this->id,
             'name' => $this->name,

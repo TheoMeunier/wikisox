@@ -26,7 +26,7 @@ class ApiChapterController extends Controller
     public function index(Request $request)
     {
         $chapters = Chapter::where('name', 'LIKE', "%$request->q%")
-            ->with(['auth', 'book', 'likes'])
+            ->with(['user', 'book', 'likes'])
             ->paginate(12);
 
         return ChapterResource::collection($chapters);
