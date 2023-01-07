@@ -33,17 +33,14 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/create', 'create')->name('create');
             Route::post('/create', 'store')->name('store');
-           /* Route::get('/edit/{chapter}', 'store')->name('edit');
-            Route::post('/edit/{chapter}', 'store')->name('store');*/
+            /*Route::get('/{chapter}/edit', 'store')->name('edit');
+            Route::post('/{chapter}/edit', 'store')->name('store');*/
         });
     });
-    Route::get('/', function () {
-        return view('welcome');
-    });
 
-    Route::get('/dashboard', function () {
+    Route::get('/', function () {
         return view('dashboard');
-    })->middleware(['auth'])->name('dashboard');
+    })->name('dashboard');
 });
 
 // Api local
@@ -52,12 +49,12 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
         Route::get('/{q?}', 'index');
         Route::post('/like/{book}', 'like');
         Route::delete('/delete/{book}', 'delete');
+    });
 
-        Route::controller(ApiChapterController::class)->prefix('/chapters/{slug}')->group(function () {
-            Route::get('/{q?}', 'index');
-            Route::post('/like/{chapter}', 'like');
-            Route::delete('/delete/{chapter}', 'delete');
-        });
+    Route::controller(ApiChapterController::class)->prefix('/chapters')->group(function () {
+        Route::get('/{q?}', 'index');
+        Route::post('/like/{chapter}', 'like');
+        Route::delete('/delete/{chapter}', 'delete');
     });
 });
 

@@ -3,14 +3,14 @@ import {ref} from "vue";
 export default function useChapters() {
     const chapters = ref([])
 
-    const getChapters = async (page, slug) => {
-        let response = await axios.get('/webapi/books/chapters/' + slug + '?page=' + page)
+    const getChapters = async (page) => {
+        let response = await axios.get('/webapi/chapters' + '?page=' + page)
         chapters.value = response.data
     }
 
-    const search = async (query, slug) => {
+    const search = async (query) => {
         if (query.length > 3) {
-            let response = await axios.get('/webapi/books/chapters/' + slug + '/' + query)
+            let response = await axios.get('/webapi/chapters/' + query)
             chapters.value = response.data
         } else {
             await getChapters()
