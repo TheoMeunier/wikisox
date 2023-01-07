@@ -22,6 +22,10 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
 
+    Route::controller(ChapterController::class)->prefix('/chapter')->name('chapter.')->group(function () {
+        Route::post('/{slug}/edit', 'update')->name('update');
+    });
+
     Route::controller(BookController::class)->prefix('/books')->name('book.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
@@ -33,8 +37,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/create', 'create')->name('create');
             Route::post('/create', 'store')->name('store');
-            /*Route::get('/{chapter}/edit', 'store')->name('edit');
-            Route::post('/{chapter}/edit', 'store')->name('store');*/
+            Route::get('/{slugChapter}/edit', 'edit')->name('edit');
         });
     });
 

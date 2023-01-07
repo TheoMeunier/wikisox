@@ -60,13 +60,33 @@ class ChapterController extends Controller
         return redirect()->route('book.chapter.index', ['slug' => $book->slug]);
     }
 
-    public function edit(Book $book, Chapter $chapter)
+    public function edit(string $slug, string $slugChapter)
     {
-        return view('chapter.edit', compact($book, $chapter));
+        $chapter = Chapter::where('slug', '=', $slugChapter)
+            ->with('book')
+            ->first();
+
+        return view('chapter.edit', [
+            'chapter' => $chapter
+        ]);
     }
 
-    public function update(ChapterRequest $request, Chapter $chapter)
+    /**
+     * @param ChapterRequest $request
+     * @param string $slug
+     * @return RedirectResponse
+     */
+    public function update(ChapterRequest $request, string $slug,)
     {
-        // TODO:: update chapter
+        $chapter = Chapter::where('slug', '=', $slug)->first();
+
+        $chapter->update([
+            'name' => $request->get('name'),
+            'slug' => Str::slug($request->get('name')),
+            'image' => $request->get('image'),
+            'description' => $request->get('description')
+        ]);
+
+        return redirect()->route('book.chapter.index', ['slug' => $chapter->book->slug]);
     }
 }
