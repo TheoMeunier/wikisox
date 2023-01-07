@@ -23,11 +23,16 @@ class ApiChapterController extends Controller
      * @param Request $request
      * @return AnonymousResourceCollection
      */
-    public function index(Request $request)
+    public function index(Request $request, string $slug)
     {
-        $chapters = Chapter::where('name', 'LIKE', "%$request->q%")
+        $book = Book::where('slug', '=', $slug)->first();
+
+        $chapters = Chapter::where('book_id', '=', $book->id)
+            ->where('name', 'LIKE', "%$request->q%")
             ->with(['user', 'book', 'likes'])
             ->paginate(12);
+
+        //dd($chapters);
 
         return ChapterResource::collection($chapters);
     }

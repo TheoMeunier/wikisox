@@ -52,12 +52,18 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
         Route::get('/{q?}', 'index');
         Route::post('/like/{book}', 'like');
         Route::delete('/delete/{book}', 'delete');
+
+        Route::controller(ApiChapterController::class)->prefix('/chapters/{slug}')->group(function () {
+            Route::get('/{q?}', 'index');
+            Route::post('/like/{chapter}', 'like');
+            Route::delete('/delete/{chapter}', 'delete');
+        });
     });
 
-    Route::controller(ApiChapterController::class)->prefix('/chapters')->group(function () {
+    Route::controller(ApiChapterController::class)->prefix('/pages')->group(function () {
         Route::get('/{q?}', 'index');
-        Route::post('/like/{chapter}', 'like');
-        Route::delete('/delete/{chapter}', 'delete');
+        Route::post('/like/{pages}', 'like');
+        Route::delete('/delete/{pages}', 'delete');
     });
 });
 
