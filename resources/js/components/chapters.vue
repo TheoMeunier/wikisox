@@ -17,7 +17,7 @@ onMounted(() => {
 })
 
 const searchBook = async () => {
-  await search(query.value)
+  await search(query.value, props.slug)
 }
 </script>
 
