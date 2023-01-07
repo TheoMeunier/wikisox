@@ -18,9 +18,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ApiChapterController extends Controller
 {
-
     /**
      * @param Request $request
+     * @param string $slug
      * @return AnonymousResourceCollection
      */
     public function index(Request $request, string $slug)
@@ -29,10 +29,8 @@ class ApiChapterController extends Controller
 
         $chapters = Chapter::where('book_id', '=', $book->id)
             ->where('name', 'LIKE', "%$request->q%")
-            ->with(['user', 'book', 'likes'])
+            ->with(['user', 'likes'])
             ->paginate(12);
-
-        //dd($chapters);
 
         return ChapterResource::collection($chapters);
     }
