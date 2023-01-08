@@ -4,11 +4,11 @@ import 'filemanager-element/FileManager.css'
 const filemanager = document.querySelector('file-manager'),
     btnopen = document.querySelector('#btn-open-filemanager'),
     inputImage = document.querySelector('#input-image-filemanager'),
-    image = document.querySelector('#img-filemanager')
-    //sleep = ms => new Promise(r => setTimeout(r, ms))
+    image = document.querySelector('#img-filemanager'),
+    sleep = ms => new Promise(r => setTimeout(r, ms))
 
-/*let imageSelected = null,
-    isFilemanagerOpen = false*/
+let imageSelected = null,
+    isFilemanagerOpen = false
 
 if (btnopen) {
     btnopen.addEventListener('click', (e) => {
@@ -22,14 +22,13 @@ if (filemanager) {
             btnopen.classList.remove('d-none')
         }
         filemanager.setAttribute('hidden', '')
-        //isFilemanagerOpen = false
+        isFilemanagerOpen = false
     })
 
     filemanager.addEventListener('selectfile', e => {
         if (null !== inputImage) {
             inputImage.value = e.detail.url
             image.src = e.detail.url
-            console.log(inputImage.value)
         } else {}
 
         if (null !== btnopen) {
@@ -37,11 +36,11 @@ if (filemanager) {
         }
 
         filemanager.setAttribute('hidden', '')
-        //isFilemanagerOpen = false
+        isFilemanagerOpen = false
     })
 }
 
-/*async function myImage() {
+async function myImage() {
     if (false === isFilemanagerOpen && null === imageSelected) {
         return null
     }
@@ -52,9 +51,9 @@ if (filemanager) {
     }
 
     return imageSelected
-}*/
+}
 
-/*
+
 export async function copyImage(editor) {
     let cm = editor.codemirror,
         selectedText = cm.getSelection()
@@ -70,6 +69,5 @@ export async function copyImage(editor) {
 
     imageSelected = null
 }
-*/
 
 FileManager.register()

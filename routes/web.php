@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Api\ApiBookController;
 use App\Http\Controllers\Api\ApiChapterController;
+use App\Http\Controllers\Api\ApiPageController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +28,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/{slug}/edit', 'update')->name('update');
     });
 
+    Route::controller(PageController::class)->prefix('/page')->name('pages.')->group(function () {
+        Route::post('/{slug}', 'update')->name('update');
+    });
+
     Route::controller(BookController::class)->prefix('/books')->name('book.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
@@ -38,6 +44,14 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/create', 'create')->name('create');
             Route::post('/create', 'store')->name('store');
             Route::get('/{slugChapter}/edit', 'edit')->name('edit');
+
+            Route::controller(PageController::class)->prefix('/{slugChapter}')->name('page.')->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/create', 'store')->name('store');
+                Route::get('/{slugPage}', 'show')->name('show');
+                Route::get('/{slugPage}/edit', 'edit')->name('edit');
+            });
         });
     });
 
@@ -57,13 +71,13 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
             Route::get('/{q?}', 'index');
             Route::post('/like/{chapter}', 'like');
             Route::delete('/delete/{chapter}', 'delete');
-        });
-    });
 
-    Route::controller(ApiChapterController::class)->prefix('/pages')->group(function () {
-        Route::get('/{q?}', 'index');
-        Route::post('/like/{pages}', 'like');
-        Route::delete('/delete/{pages}', 'delete');
+            Route::controller(ApiPageController::class)->prefix('/pages/{slugChapter}')->group(function () {
+                Route::get('/{q?}', 'index');
+                Route::post('/like/{page}', 'like');
+                Route::delete('/delete/{page}', 'delete');
+            });
+        });
     });
 });
 

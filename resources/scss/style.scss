@@ -18,6 +18,10 @@ $breakpoint-phone: 769px;
 //tools
 @import "tools/flex";
 
+//libs
+@import "libs/simplemde";
+@import "libs/highlight";
+
 // Icons
 @import '~@fortawesome/fontawesome-free/css/fontawesome';
 @import '~@fortawesome/fontawesome-free/css/regular';
