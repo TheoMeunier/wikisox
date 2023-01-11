@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Pages') }}
+            {{ Breadcrumbs::render('page', $book, $chapter, $page) }}
         </h2>
     </x-slot>
 
@@ -12,13 +12,13 @@
                     <x-markdown :anchors="false">
                         {!! $page->content !!}
                     </x-markdown>
-    
+
                    {{-- {!! Illuminate\Support\Str::markdown($page->content) !!}--}}
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div>
         <div class="card mt-3 mr-2">
             <div class="card__body">

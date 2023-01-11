@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PageRequest;
+use App\Models\Book;
 use App\Models\Chapter;
 use App\Models\Page;
 use Illuminate\Contracts\Foundation\Application;
@@ -23,10 +24,10 @@ class PageController extends Controller
         $chapter = Chapter::where('slug', '=', $slugChapter)
             ->first();
 
-        return view('page.index', [
-            'chapter' => $chapter,
-            'book' => $slug
-        ]);
+        $book = Book::where('slug', '=', $slug)
+            ->first();
+
+        return view('page.index', compact('book', 'chapter'));
     }
 
     /**
@@ -37,13 +38,11 @@ class PageController extends Controller
      */
     public function show(string $slug, string $slugChapter, $slugPage)
     {
+        $book = Book::where('slug', '=', $slug)->first();
+        $chapter = Chapter::where('slug', '=', $slugChapter)->first();
         $page = Page::where('slug', '=', $slugPage)->first();
 
-        return view('page.show', [
-            'book' => $slug,
-            'chapter' => $slugChapter,
-            'page' => $page
-        ]);
+        return view('page.show', compact('book', 'chapter', 'page'));
     }
 
     /**

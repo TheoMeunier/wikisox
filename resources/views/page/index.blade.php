@@ -1,20 +1,20 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Pages') }}
-        </h2>
+        <div class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ Breadcrumbs::render('chapter', $book, $chapter) }}
+        </div>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <Pages title="{{ $chapter->name }}" book="{{ $book }}" chapter="{{ $chapter->slug }}"/>
+                    <Pages title="{{ $chapter->name }}" book="{{ $book->slug }}" chapter="{{ $chapter->slug }}"/>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div>
         <div class="card mt-3 mr-2">
             <div class="card__body">
@@ -36,4 +36,5 @@
                 </div>
             </div>
         </div>
+    </div>
 </x-app-layout>
