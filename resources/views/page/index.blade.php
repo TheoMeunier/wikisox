@@ -21,14 +21,14 @@
                 <h5 class="ms-3">{{ __('title.action') }}</h5>
                 <div class="mt-3">
                     <div class="mb-3">
-                        <a href="{{ route('book.chapter.page.create', ['slug' => $book, 'slugChapter' => $chapter->slug]) }}">
+                        <a href="{{ route('book.chapter.page.create', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}">
                             <i class="fa-solid fa-plus mr-2"></i>
                             {{ __('button.chapter.create') }}
                         </a>
                     </div>
                     <hr/>
                     <div class="my-3">
-                        <a href="{{ route('book.chapter.edit', ['slug' => $book, 'slugChapter' => $chapter->slug]) }}">
+                        <a href="{{ route('book.chapter.edit', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}">
                             <i class="fa-solid fa-pen-to-square mr-2"></i>
                             {{ __('button.book.edit') }}
                         </a>

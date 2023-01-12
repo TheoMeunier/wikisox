@@ -52,13 +52,13 @@ class PageController extends Controller
      */
     public function create(string $slug, string $slugChapter)
     {
-        $chapter = Chapter::where('slug', '=', $slugChapter)
-            ->with('book')
+        $book = Book::where('slug', '=', $slug)
             ->first();
 
-        return view('page.create', [
-            'chapter' => $chapter
-        ]);
+        $chapter = Chapter::where('slug', '=', $slugChapter)
+            ->first();
+
+        return view('page.create', compact('book', 'chapter'));
     }
 
     /**
@@ -91,13 +91,16 @@ class PageController extends Controller
      */
     public function edit(string $slug, string $slugChapter, string $slugPage)
     {
-        $page = Page::where('slug', '=', $slugPage)
-            ->with('chapter')
+        $book = Book::where('slug', '=', $slug)
             ->first();
 
-        return view('page.edit', [
-            'page' => $page,
-        ]);
+        $chapter = Chapter::where('slug', '=', $slugChapter)
+            ->first();
+
+        $page = Page::where('slug', '=', $slugPage)
+            ->first();
+
+        return view('page.edit', compact('book', 'chapter', 'page'));
     }
 
     /**

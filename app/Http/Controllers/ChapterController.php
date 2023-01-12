@@ -62,13 +62,13 @@ class ChapterController extends Controller
 
     public function edit(string $slug, string $slugChapter)
     {
-        $chapter = Chapter::where('slug', '=', $slugChapter)
-            ->with('book')
+        $book = Book::where('slug', '=', $slug)
             ->first();
 
-        return view('chapter.edit', [
-            'chapter' => $chapter
-        ]);
+        $chapter = Chapter::where('slug', '=', $slugChapter)
+            ->first();
+
+        return view('chapter.edit', compact('book', 'chapter'));
     }
 
     /**

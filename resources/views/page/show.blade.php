@@ -25,7 +25,7 @@
                 <h5 class="ms-3">{{ __('title.action') }}</h5>
                 <div class="mt-3">
                     <div class="my-3">
-                        <a href="{{ route('book.chapter.page.edit', ['slug' => $book, 'slugChapter' => $chapter, 'slugPage' => $page->slug]) }}">
+                        <a href="{{ route('book.chapter.page.edit', ['slug' => $book->slug, 'slugChapter' => $chapter->slug, 'slugPage' => $page->slug]) }}">
                             <i class="fa-solid fa-pen-to-square mr-2"></i>
                             {{ __('button.book.edit') }}
                         </a>
