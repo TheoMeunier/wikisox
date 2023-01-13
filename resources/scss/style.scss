@@ -23,6 +23,11 @@ $breakpoint-phone: 769px;
 @import "libs/simplemde";
 @import "libs/highlight";
 
+//Admin
+@import "admin/dashboard";
+@import "admin/navbar";
+@import "admin/sidebar";
+
 // Icons
 @import '~@fortawesome/fontawesome-free/css/fontawesome';
 @import '~@fortawesome/fontawesome-free/css/regular';

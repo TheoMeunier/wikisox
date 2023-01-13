@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Api\ApiBookController;
 use App\Http\Controllers\Api\ApiChapterController;
 use App\Http\Controllers\Api\ApiPageController;
@@ -53,6 +54,10 @@ Route::middleware(['auth'])->group(function () {
                 Route::get('/{slugPage}/edit', 'edit')->name('edit');
             });
         });
+    });
+
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/', [AdminController::class, 'index'])->name('index');
     });
 
     Route::get('/', function () {

@@ -1,0 +1,35 @@
+.sidebar {
+    padding: 0 16px;
+    background-color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar__section {
+    border-bottom: 2px solid #e0e0e3;
+    padding: 16px 0;
+}
+
+.sidebar__link {
+    color: #6b7280;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 8px 0;
+
+    a {
+        margin-left: 8px;
+    }
+
+    span {
+        margin-left: 8px;
+    }
+}
+
+.sidebar__link:hover {
+    color: var(--black);
+    background-color: #f3f4f6;
+    border-radius: 8px;
+}
