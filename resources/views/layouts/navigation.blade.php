@@ -55,7 +55,7 @@
                             </x-dropdown-link>
                         </form>
                         <hr>
-                        <x-dropdown-link :href="route('logout')" class="text-red-600">
+                        <x-dropdown-link :href="route('admin.index')" class="text-red-600">
                             <i class="fa-solid fa-gear mr-2"></i>Administration
                         </x-dropdown-link>
                     </x-slot>
