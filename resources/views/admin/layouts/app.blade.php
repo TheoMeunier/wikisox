@@ -18,7 +18,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body class="font-sans antialiased dashboard">
-<div class="dashboard">
+<div class="dashboard"  id="app">
     @include('admin.layouts.navigation')
 
     <!-- page Heading -->

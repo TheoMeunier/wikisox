@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminlogController;
+use App\Http\Controllers\Api\Admin\ApiAdminlogController;
 use App\Http\Controllers\Api\ApiBookController;
 use App\Http\Controllers\Api\ApiChapterController;
 use App\Http\Controllers\Api\ApiPageController;
@@ -58,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
+        Route::get('/logs', [AdminlogController::class, 'index'])->name('logs.index');
     });
 
     Route::get('/', function () {
@@ -83,6 +86,10 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
                 Route::delete('/delete/{page}', 'delete');
             });
         });
+    });
+
+    Route::prefix('/admin')->group(function() {
+        Route::get('/logs', [ApiAdminlogController::class, 'index']);
     });
 });
 

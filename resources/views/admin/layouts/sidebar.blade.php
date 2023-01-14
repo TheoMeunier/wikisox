@@ -21,7 +21,7 @@
             </a>
         </li>
         <li class="sidebar__link">
-            <a href="#">
+            <a href="{{ route('admin.logs.index') }}">
                 <i class="fa-solid fa-box-archive"></i>
                 <span>{{  __('nav.logs') }}</span>
             </a>
