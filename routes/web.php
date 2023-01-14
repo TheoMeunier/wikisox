@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminlogController;
-use App\Http\Controllers\Api\Admin\ApiAdminlogController;
+use App\Http\Controllers\Api\Admin\ApiAdminLogController;
 use App\Http\Controllers\Api\ApiBookController;
 use App\Http\Controllers\Api\ApiChapterController;
 use App\Http\Controllers\Api\ApiPageController;
@@ -89,7 +89,7 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
     });
 
     Route::prefix('/admin')->group(function() {
-        Route::get('/logs', [ApiAdminlogController::class, 'index']);
+        Route::get('/logs', [ApiAdminLogController::class, 'index']);
     });
 });
 
