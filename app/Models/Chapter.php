@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @mixin IdeHelperChapter
@@ -16,6 +18,7 @@ class Chapter extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use LogsActivity;
 
     /**
      * @var string[]
@@ -60,5 +63,11 @@ class Chapter extends Model
     public function pages(): HasMany
     {
         return $this->hasMany(Page::class);
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        $logOption = new LogOptions();
+        return $logOption->logAll()->logOnlyDirty();
     }
 }

@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @mixin IdeHelperBook
@@ -16,6 +18,7 @@ class Book extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use LogsActivity;
 
     /**
      * @var string[]
@@ -52,5 +55,11 @@ class Book extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        $logOption = new LogOptions();
+        return $logOption->logAll()->logOnlyDirty();
     }
 }
