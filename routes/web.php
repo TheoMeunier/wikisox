@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Admin\ApiAdminLogController;
 use App\Http\Controllers\Api\ApiBookController;
 use App\Http\Controllers\Api\ApiChapterController;
 use App\Http\Controllers\Api\ApiPageController;
+use App\Http\Controllers\Api\Tools\ApiTransController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\PageController;
@@ -91,6 +92,8 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
     Route::prefix('/admin')->group(function() {
         Route::get('/logs', [ApiAdminLogController::class, 'index']);
     });
+
+    Route::get('/trans', ApiTransController::class);
 });
 
 
