@@ -41,10 +41,10 @@
             </a>
         </li>
         <li class="sidebar__link">
-            <router-link :to="{ name: 'admin.views' }">
+            <a href="{{ route('admin.pages.index') }}">
                 <i class="fa-sharp fa-solid fa-file-circle-check"></i>
                 <span>{{  __('nav.pages') }}</span>
-            </router-link>
+            </a>
         </li>
     </ul>
 </div>

@@ -9,6 +9,7 @@ import Logs from "./components/admin/log.vue";
 import {createPinia} from "pinia";
 import AdminBooks from "./components/admin/books.vue";
 import AdminChapters from "./components/admin/adminChapters.vue";
+import AdminPages from "./components/admin/adminPages.vue";
 
 const app = createApp();
 const pinia = createPinia()
@@ -22,5 +23,6 @@ app.component('Pages', Pages)
 app.component('Logs', Logs)
 app.component('Books', AdminBooks)
 app.component('adminChapters', AdminChapters)
+app.component('adminPages', AdminPages)
 
 app.mount('#app')

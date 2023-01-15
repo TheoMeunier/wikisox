@@ -4,9 +4,11 @@ use App\Http\Controllers\Admin\AdminBookController;
 use App\Http\Controllers\Admin\AdminChapterController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminlogController;
+use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Api\Admin\ApiAdminBookController;
 use App\Http\Controllers\Api\Admin\ApiAdminChapterController;
 use App\Http\Controllers\Api\Admin\ApiAdminLogController;
+use App\Http\Controllers\Api\Admin\ApiAdminPageController;
 use App\Http\Controllers\Api\ApiBookController;
 use App\Http\Controllers\Api\ApiChapterController;
 use App\Http\Controllers\Api\ApiPageController;
@@ -78,6 +80,12 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{slug}/edit', 'edit')->name('edit');
             Route::post('/{slug}/edit', 'update')->name('update');
         });
+
+        Route::controller(AdminPageController::class)->prefix('/pages')->name('pages.')->group(function() {
+            Route::get('/', 'index')->name('index');
+            Route::get('/{slug}/edit', 'edit')->name('edit');
+            Route::post('/{slug}/edit', 'update')->name('update');
+        });
     });
 
     Route::get('/', function () {
@@ -115,6 +123,8 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
         Route::controller(ApiAdminChapterController::class)->prefix('/chapters')->group(function() {
             Route::get('/{q?}', 'index');
         });
+
+        Route::get('/pages/{q?}', [ApiAdminPageController::class, 'index']);
     });
 
     Route::get('/trans', ApiTransController::class);
