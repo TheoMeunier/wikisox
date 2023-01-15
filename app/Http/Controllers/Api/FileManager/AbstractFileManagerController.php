@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class AbstractFileManagerController extends Controller
 {
+    /**
+     * @return Filesystem
+     */
     protected function filesysteme(): Filesystem
     {
         return Storage::disk('public');

@@ -3,19 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\BookResource;
 use App\Http\Resources\ChapterResource;
 use App\Models\Book;
 use App\Models\Chapter;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Str;
-use Symfony\Component\HttpFoundation\Request;
-
 class ApiChapterController extends Controller
 {
     /**
@@ -25,7 +18,7 @@ class ApiChapterController extends Controller
      */
     public function index(Request $request, string $slug)
     {
-        $book = Book::where('slug', '=', $slug)->first();
+        $book = Book::where('slug', '=', $slug)->firstOrFail();
 
         $chapters = Chapter::where('book_id', '=', $book->id)
             ->where('name', 'LIKE', "%$request->q%")
@@ -39,7 +32,7 @@ class ApiChapterController extends Controller
      * @param  Chapter  $chapter
      * @return JsonResponse
      */
-    public function like(Chapter $chapter)
+    public function like(Chapter $chapter): JsonResponse
     {
         $chapter->like ? $chapter->likes()->delete() : $chapter->likes()->create(['user_id' => auth()->id()]);
 
@@ -50,7 +43,7 @@ class ApiChapterController extends Controller
      * @param  string  $slug
      * @return JsonResponse
      */
-    public function delete(string $slug)
+    public function delete(string $slug): JsonResponse
     {
         if ($slug) {
             $chapter = Chapter::where('slug', '=', $slug);

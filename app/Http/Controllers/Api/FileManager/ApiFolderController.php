@@ -26,7 +26,7 @@ class ApiFolderController extends AbstractFileManagerController
      * @param  Request  $request
      * @return Collection
      */
-    public function index(Request $request)
+    public function index(Request $request): Collection
     {
         $parent = (string) $request->query->get('parent', null);
 
@@ -43,7 +43,7 @@ class ApiFolderController extends AbstractFileManagerController
      * @param  FolderCreateRequest  $request
      * @return array
      */
-    public function store(FolderCreateRequest $request)
+    public function store(FolderCreateRequest $request): array
     {
         /** @var array $data */
         $data = $request->validated();
@@ -64,7 +64,7 @@ class ApiFolderController extends AbstractFileManagerController
         return [
             'id'     => $folders,
             'name'   => $pathinfo['filename'],
-            'parent' => $pathinfo['dirname'] === '.' ? null : $pathinfo['dirname'],
+            'parent' => pathinfo_dirname($pathinfo),
         ];
     }
 }

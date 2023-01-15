@@ -13,6 +13,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @mixin IdeHelperBook
+ * @property-read User $user
  */
 class Book extends Model
 {

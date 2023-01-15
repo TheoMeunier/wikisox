@@ -32,7 +32,7 @@ class BookController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         Book::create([
            'name' => $request->get('name'),
@@ -51,7 +51,7 @@ class BookController extends Controller
      */
     public function edit(string $slug)
     {
-        $book = Book::where('slug' , '=', $slug)->first();
+        $book = Book::where('slug' , '=', $slug)->firstOrFail();
 
         return view('book.edit', [
             'book' => $book
@@ -63,9 +63,9 @@ class BookController extends Controller
      * @param string $slug
      * @return RedirectResponse
      */
-    public function update(Request $request, string $slug)
+    public function update(Request $request, string $slug): RedirectResponse
     {
-        $book = Book::where('slug', '=', $slug)->first();
+        $book = Book::where('slug', '=', $slug)->firstOrFail();
 
         $book->update([
             'name' => $request->get('name'),

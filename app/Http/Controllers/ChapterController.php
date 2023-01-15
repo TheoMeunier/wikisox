@@ -44,9 +44,9 @@ class ChapterController extends Controller
      * @param string $slug
      * @return RedirectResponse
      */
-    public function store(ChapterRequest $request, string $slug)
+    public function store(ChapterRequest $request, string $slug): RedirectResponse
     {
-        $book = Book::where('slug', '=', $slug)->first();
+        $book = Book::where('slug', '=', $slug)->firstOrFail();
 
         Chapter::create([
             'name' => $request->get('name'),
@@ -60,6 +60,11 @@ class ChapterController extends Controller
         return redirect()->route('book.chapter.index', ['slug' => $book->slug]);
     }
 
+    /**
+     * @param string $slug
+     * @param string $slugChapter
+     * @return Application|Factory|View
+     */
     public function edit(string $slug, string $slugChapter)
     {
         $book = Book::where('slug', '=', $slug)
@@ -76,15 +81,16 @@ class ChapterController extends Controller
      * @param string $slug
      * @return RedirectResponse
      */
-    public function update(ChapterRequest $request, string $slug,)
+    public function update(ChapterRequest $request, string $slug): RedirectResponse
     {
-        $chapter = Chapter::where('slug', '=', $slug)->first();
+        $chapter = Chapter::with('book')
+            ->where('slug', '=', $slug)->firstOrFail();
 
         $chapter->update([
             'name' => $request->get('name'),
             'slug' => Str::slug($request->get('name')),
             'image' => $request->get('image'),
-            'description' => $request->get('description')
+            'description' => $request->get('description'),
         ]);
 
         return redirect()->route('book.chapter.index', ['slug' => $chapter->book->slug]);

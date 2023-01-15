@@ -9,6 +9,7 @@ use App\Models\Chapter;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Str;
 
 class AdminChapterController extends Controller
@@ -27,14 +28,19 @@ class AdminChapterController extends Controller
      */
     public function edit(string $slug)
     {
-        $chapter = Chapter::where('slug', '=', $slug)->first();
+        $chapter = Chapter::where('slug', '=', $slug)->firstOrFail();
 
         return view('admin.chapters.edit', compact('chapter'));
     }
 
-    public function update(ChapterRequest $request, string $slug)
+    /**
+     * @param ChapterRequest $request
+     * @param string $slug
+     * @return RedirectResponse
+     */
+    public function update(ChapterRequest $request, string $slug): RedirectResponse
     {
-        $chapter = Chapter::where('slug', '=', $slug)->first();
+        $chapter = Chapter::where('slug', '=', $slug)->firstOrFail();
 
         $chapter->update([
             'name' => $request->get('name'),

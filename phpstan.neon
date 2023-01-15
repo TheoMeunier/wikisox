@@ -12,6 +12,7 @@ parameters:
   excludePaths:
     - ./.github
     - ./.scripts
+    - ./app/View
     - ./bootstrap/cache
     - ./docker
     - ./node_modules

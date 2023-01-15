@@ -12,6 +12,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @mixin IdeHelperUser
+ * @property-read Page $page
+ * @property-read Chapter $chapter
+ * @property-read Book $book
  */
 class User extends Authenticatable
 {
@@ -56,7 +59,10 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function getActivitylogOptions(): LogOptions
+    /**
+     * @return LogOptions
+     */
+    public function getActivityLogOptions(): LogOptions
     {
         $logOption = new LogOptions();
         return $logOption->logAll()->logOnlyDirty();

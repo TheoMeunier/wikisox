@@ -10,6 +10,7 @@ use App\Models\Page;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Str;
 
 class AdminPageController extends Controller
@@ -28,14 +29,19 @@ class AdminPageController extends Controller
      */
     public function edit(string $slug)
     {
-        $page = Page::where('slug', '=', $slug)->first();
+        $page = Page::where('slug', '=', $slug)->firstOrFail();
 
         return view('admin.pages.edit', compact('page'));
     }
 
-    public function update(PageRequest $request, string $slug)
+    /**
+     * @param PageRequest $request
+     * @param string $slug
+     * @return RedirectResponse
+     */
+    public function update(PageRequest $request, string $slug): RedirectResponse
     {
-        $page = Page::where('slug', '=', $slug)->first();
+        $page = Page::where('slug', '=', $slug)->firstOrFail();
 
         $page->update([
             'name' => $request->get('name'),

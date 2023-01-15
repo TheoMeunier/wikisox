@@ -8,6 +8,7 @@ use App\Models\Book;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Str;
 
 class AdminBookController extends Controller
@@ -26,14 +27,19 @@ class AdminBookController extends Controller
      */
     public function edit(string $slug)
     {
-        $book = Book::where('slug', '=', $slug)->first();
+        $book = Book::where('slug', '=', $slug)->firstOrFail();
 
         return view('admin.books.edit', compact('book'));
     }
 
-    public function update(BookRequest $request, string $slug)
+    /**
+     * @param BookRequest $request
+     * @param string $slug
+     * @return RedirectResponse
+     */
+    public function update(BookRequest $request, string $slug): RedirectResponse
     {
-        $book = Book::where('slug', '=', $slug)->first();
+        $book = Book::where('slug', '=', $slug)->firstOrFail();
 
         $book->update([
             'name' => $request->get('name'),

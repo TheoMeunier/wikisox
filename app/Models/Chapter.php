@@ -13,6 +13,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @mixin IdeHelperChapter
+ * @property-read Book $book
+ * @property-read User $user
  */
 class Chapter extends Model
 {
@@ -65,7 +67,10 @@ class Chapter extends Model
         return $this->hasMany(Page::class);
     }
 
-    public function getActivitylogOptions(): LogOptions
+    /**
+     * @return LogOptions
+     */
+    public function getActivityLogOptions(): LogOptions
     {
         $logOption = new LogOptions();
         return $logOption->logAll()->logOnlyDirty();

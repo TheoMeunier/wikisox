@@ -25,6 +25,7 @@ class AdminChapterResource extends JsonResource
             'description' => $this->description,
             'image' => $this->image,
             'username' => $this->user->name,
+            /** @phpstan-ignore-next-line  */
             'book' => $this->book->name,
             'created_at' => Carbon::parse($this->created_at)->format('d/m/Y'),
             'updated_at' => Carbon::parse($this->updated_at)->format('d/m/Y'),

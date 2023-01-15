@@ -37,16 +37,19 @@ class ApiFileController extends AbstractFileManagerController
     }
 
     /**
-     * @param  UploadFileRequest  $request
-     * @return array
+     * @param UploadFileRequest $request
+     * @return array<int>
      */
-    public function store(UploadFileRequest $request)
+    public function store(UploadFileRequest $request): array
     {
+        /** @var \Illuminate\Http\UploadedFile $file */
         $file     = $request->file('file');
         $folder   = $request->post('folder');
         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        /** @phpstan-ignore-next-line  */
         $path     = $file->storeAs($folder, $filename.'_'.$file->hashName(), 'public');
 
+        /** @phpstan-ignore-next-line  */
         return $this->toArray($path);
     }
 
@@ -63,7 +66,7 @@ class ApiFileController extends AbstractFileManagerController
             'id'        => $file,
             'name'      => $info['basename'],
             'url'       => $disk->url($file),
-            'folder'    => $info['dirname'] === '.' ? null : $info['dirname'],
+            'folder'    => pathinfo_dirname($info),
             'thumbnail' => $disk->url($file),
         ];
     }

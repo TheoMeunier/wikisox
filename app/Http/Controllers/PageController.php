@@ -33,10 +33,10 @@ class PageController extends Controller
     /**
      * @param string $slug
      * @param string $slugChapter
-     * @param $slugPage
+     * @param string $slugPage
      * @return Application|Factory|View
      */
-    public function show(string $slug, string $slugChapter, $slugPage)
+    public function show(string $slug, string $slugChapter, string $slugPage)
     {
         $book = Book::where('slug', '=', $slug)->first();
         $chapter = Chapter::where('slug', '=', $slugChapter)->first();
@@ -67,10 +67,10 @@ class PageController extends Controller
      * @param string $slugChapter
      * @return RedirectResponse
      */
-    public function store(PageRequest $request, string $slug, string $slugChapter)
+    public function store(PageRequest $request, string $slug, string $slugChapter): RedirectResponse
     {
         $chapter = Chapter::where('slug', '=', $slugChapter)
-            ->first();
+            ->firstOrFail();
 
         Page::create([
             'name' => $request->get('name'),
@@ -79,6 +79,7 @@ class PageController extends Controller
             'user_id' => auth()->id(),
             'chapter_id' => $chapter->id
         ]);
+
 
         return redirect()->route('book.chapter.page.index', ['slug' => $slug, 'slugChapter' => $slugChapter]);
     }
@@ -108,9 +109,9 @@ class PageController extends Controller
      * @param string $slug
      * @return RedirectResponse
      */
-    public function update(PageRequest $request, string $slug)
+    public function update(PageRequest $request, string $slug): RedirectResponse
     {
-        $page = Page::where('slug', '=', $slug)->first();
+        $page = Page::where('slug', '=', $slug)->firstOrFail();
 
         $page->update([
             'name' => $request->get('name'),
@@ -118,6 +119,10 @@ class PageController extends Controller
             'content' => $request->get('content'),
         ]);
 
-        return redirect()->route('book.chapter.page.show', ['slug' => $page->chapter->book->slug, 'slugChapter' => $page->chapter->slug, 'slugPage' => $page->slug]);
+        return redirect()->route('book.chapter.page.show', [
+            'slug' => $page->chapter->book->slug,
+            'slugChapter' => $page->chapter->slug,
+            'slugPage' => $page->slug
+        ]);
     }
 }

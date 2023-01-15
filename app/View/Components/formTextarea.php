@@ -8,6 +8,9 @@ use Illuminate\View\Component;
 
 class formTextarea extends Component
 {
+    /**
+     * @var string
+     */
     private string $value;
 
     /**
@@ -17,6 +20,7 @@ class formTextarea extends Component
      */
     public function __construct(string $value)
     {
+
         $this->value = $value;
     }
 
