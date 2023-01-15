@@ -35,7 +35,7 @@
             </a>
         </li>
         <li class="sidebar__link">
-            <a href="#">
+            <a href="{{ route('admin.chapters.index') }}">
                 <i class="fa-solid fa-book-open"></i>
                 <span>{{  __('nav.chapters') }}</span>
             </a>
