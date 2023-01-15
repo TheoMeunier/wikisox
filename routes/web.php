@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminBookController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminlogController;
+use App\Http\Controllers\Api\Admin\ApiAdminBookController;
 use App\Http\Controllers\Api\Admin\ApiAdminLogController;
 use App\Http\Controllers\Api\ApiBookController;
 use App\Http\Controllers\Api\ApiChapterController;
@@ -62,6 +64,12 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
         Route::get('/logs', [AdminlogController::class, 'index'])->name('logs.index');
+
+        Route::controller(AdminBookController::class)->prefix('/books')->name('book.')->group(function() {
+            Route::get('/', 'index')->name('index');
+            Route::get('/{slug}/edit', 'edit')->name('edit');
+            Route::post('/{slug}/edit', 'update')->name('update');
+        });
     });
 
     Route::get('/', function () {
@@ -91,6 +99,10 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
 
     Route::prefix('/admin')->group(function() {
         Route::get('/logs', [ApiAdminLogController::class, 'index']);
+
+        Route::controller(ApiAdminBookController::class)->prefix('/books')->group(function() {
+            Route::get('/{q?}', 'index');
+        });
     });
 
     Route::get('/trans', ApiTransController::class);

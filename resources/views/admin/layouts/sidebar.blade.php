@@ -29,7 +29,7 @@
     </ul>
     <ul class="sidebar__section">
         <li class="sidebar__link">
-            <a href="#">
+            <a href="{{ route('admin.book.index') }}">
                 <i class="fa-solid fa-book-bookmark"></i>
                 <span>{{  __('nav.books') }}</span>
             </a>
