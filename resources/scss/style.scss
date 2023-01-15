@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 $breakpoint-laptop: 1538px;
 $breakpoint-small-laptop: 1024px;
 $breakpoint-small-screen: 961px;
@@ -10,24 +9,24 @@ $breakpoint-tablet: 769px;
 $breakpoint-phone: 769px;
 
 //modules
-@import "modules/card";
-@import "modules/input";
-@import "modules/typo";
-@import "modules/breadcrumb";
-@import "modules/table";
-@import "home";
+@import 'modules/card';
+@import 'modules/input';
+@import 'modules/typo';
+@import 'modules/breadcrumb';
+@import 'modules/table';
+@import 'home';
 
 //tools
-@import "tools/flex";
+@import 'tools/flex';
 
 //libs
-@import "libs/simplemde";
-@import "libs/highlight";
+@import 'libs/simplemde';
+@import 'libs/highlight';
 
 //Admin
-@import "admin/dashboard";
-@import "admin/navbar";
-@import "admin/sidebar";
+@import 'admin/dashboard';
+@import 'admin/navbar';
+@import 'admin/sidebar';
 
 // Icons
 @import '~@fortawesome/fontawesome-free/css/fontawesome';

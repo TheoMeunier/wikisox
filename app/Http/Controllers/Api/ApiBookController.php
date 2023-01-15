@@ -12,9 +12,8 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ApiBookController extends Controller
 {
-
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return AnonymousResourceCollection
      */
     public function index(Request $request): AnonymousResourceCollection
@@ -48,9 +47,11 @@ class ApiBookController extends Controller
 
             if ($book !== null) {
                 $book->delete();
+
                 return redirect()->route('book.index');
             }
         }
+
         return response()->json('Error in your Deleted!');
     }
 }

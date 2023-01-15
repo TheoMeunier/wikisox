@@ -17,17 +17,17 @@ class BookResource extends JsonResource
      */
     public function toArray($request): array
     {
-        /** @var Book $this */
+        /* @var Book $this */
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'slug' => $this->slug,
+            'id'          => $this->id,
+            'name'        => $this->name,
+            'slug'        => $this->slug,
             'description' => $this->description,
-            'image' => $this->image,
-            'username' => $this->user->name,
-            'created_at' => Carbon::parse($this->created_at)->diffForHumans(),
-            'url' => route('book.index') . '/' . $this->slug,
-            'like' => $this->like
+            'image'       => $this->image,
+            'username'    => $this->user->name,
+            'created_at'  => Carbon::parse($this->created_at)->diffForHumans(),
+            'url'         => route('book.index').'/'.$this->slug,
+            'like'        => $this->like,
         ];
     }
 }

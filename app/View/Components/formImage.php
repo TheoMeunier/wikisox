@@ -9,6 +9,7 @@ use Illuminate\View\Component;
 class formImage extends Component
 {
     private string $name;
+
     private string $value;
 
     /**
@@ -18,7 +19,7 @@ class formImage extends Component
      */
     public function __construct(string $name, string $value)
     {
-        $this->name = $name;
+        $this->name  = $name;
         $this->value = $value;
     }
 

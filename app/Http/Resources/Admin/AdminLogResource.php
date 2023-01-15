@@ -18,21 +18,21 @@ class AdminLogResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return array|Arrayable|JsonSerializable
      */
     public function toArray($request): array|JsonSerializable|Arrayable
     {
-        /** @var Activity $this */
+        /* @var Activity $this */
         return [
             'id' => $this->id,
-            /** @phpstan-ignore-next-line  */
-            'event' => $this->event,
+            /* @phpstan-ignore-next-line  */
+            'event'    => $this->event,
             'username' => $this->causer->name ?? 'Server',
-            /** @phpstan-ignore-next-line  */
+            /* @phpstan-ignore-next-line  */
             'subject_name' => $this->subject->name,
-            'created_at' => Carbon::parse($this->created_at)->format('d/m/Y'),
-            'updated_at' => Carbon::parse($this->updated_at)->format('d/m/Y'),
+            'created_at'   => Carbon::parse($this->created_at)->format('d/m/Y'),
+            'updated_at'   => Carbon::parse($this->updated_at)->format('d/m/Y'),
         ];
     }
 }

@@ -1,22 +1,22 @@
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  border-radius: 5px;
-  color: #abb2bf;
-  background: #252a37;
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    border-radius: 5px;
+    color: #abb2bf;
+    background: #252a37;
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: #56565a;
-  font-style: italic;
+    color: #56565a;
+    font-style: italic;
 }
 
 .hljs-doctag,
 .hljs-formula,
 .hljs-keyword {
-  color: #c678dd;
+    color: #c678dd;
 }
 
 .hljs-deletion,
@@ -24,11 +24,11 @@
 .hljs-section,
 .hljs-selector-tag,
 .hljs-subst {
-  color: #e06c75;
+    color: #e06c75;
 }
 
 .hljs-literal {
-  color: #56b6c2;
+    color: #56b6c2;
 }
 
 .hljs-addition,
@@ -36,12 +36,12 @@
 .hljs-meta-string,
 .hljs-regexp,
 .hljs-string {
-  color: #98c379;
+    color: #98c379;
 }
 
 .hljs-built_in,
 .hljs-class .hljs-title {
-  color: #e6c07b;
+    color: #e6c07b;
 }
 
 .hljs-attr,
@@ -52,7 +52,7 @@
 .hljs-template-variable,
 .hljs-type,
 .hljs-variable {
-  color: #d19a66;
+    color: #d19a66;
 }
 
 .hljs-bullet,
@@ -61,48 +61,48 @@
 .hljs-selector-id,
 .hljs-symbol,
 .hljs-title {
-  color: #61aeee;
+    color: #61aeee;
 }
 
 .hljs-emphasis {
-  font-style: italic;
+    font-style: italic;
 }
 
 .hljs-strong {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .hljs-link {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* for block of numbers */
 .hljs-ln-numbers {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
-  text-align: center;
-  color: #ccc;
-  border-right: 1px solid #CCC;
-  vertical-align: top;
-  padding-right: 5px;
+    text-align: center;
+    color: #ccc;
+    border-right: 1px solid #ccc;
+    vertical-align: top;
+    padding-right: 5px;
 
-  /* your custom style here */
+    /* your custom style here */
 }
 
 /* for block of code */
 .hljs-ln-code {
-  padding-left: 10px;
+    padding-left: 10px;
 }
 
 code {
-  @apply bg-blue-100 rounded-lg;
+    @apply bg-blue-100 rounded-lg;
 
-  @at-root li#{&} {
-    @apply my-2;
-  }
+    @at-root li#{&} {
+        @apply my-2;
+    }
 }

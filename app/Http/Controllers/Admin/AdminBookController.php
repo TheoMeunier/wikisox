@@ -22,7 +22,7 @@ class AdminBookController extends Controller
     }
 
     /**
-     * @param string $slug
+     * @param  string  $slug
      * @return Application|Factory|View
      */
     public function edit(string $slug)
@@ -33,8 +33,8 @@ class AdminBookController extends Controller
     }
 
     /**
-     * @param BookRequest $request
-     * @param string $slug
+     * @param  BookRequest  $request
+     * @param  string  $slug
      * @return RedirectResponse
      */
     public function update(BookRequest $request, string $slug): RedirectResponse
@@ -42,9 +42,9 @@ class AdminBookController extends Controller
         $book = Book::where('slug', '=', $slug)->firstOrFail();
 
         $book->update([
-            'name' => $request->get('name'),
-            'slug' => Str::slug($request->get('name')),
-            'image' => $request->get('image'),
+            'name'        => $request->get('name'),
+            'slug'        => Str::slug($request->get('name')),
+            'image'       => $request->get('image'),
             'description' => $request->get('description'),
         ]);
 

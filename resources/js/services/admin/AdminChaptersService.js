@@ -1,14 +1,14 @@
-import {ref} from "vue";
+import { ref } from 'vue'
 
 export default function useAdminChapter() {
     const chapters = ref([])
 
-    const getChapters = async (page) => {
+    const getChapters = async page => {
         let response = await axios.get('/webapi/admin/chapters?page=' + page)
         chapters.value = response.data
     }
 
-    const search = async (query) => {
+    const search = async query => {
         if (query.length > 3) {
             let response = await axios.get('/webapi/admin/chapters/' + query)
             chapters.value = response.data
@@ -17,9 +17,9 @@ export default function useAdminChapter() {
         }
     }
 
-    const deleteBook = async (slug) => {
+    const deleteBook = async slug => {
         await axios.delete('/webapi/books/delete' + slug)
     }
 
-    return {chapters, getChapters, deleteBook, search}
+    return { chapters, getChapters, deleteBook, search }
 }

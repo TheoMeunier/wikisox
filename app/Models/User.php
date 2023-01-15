@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,6 +11,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @mixin IdeHelperUser
+ *
  * @property-read Page $page
  * @property-read Chapter $chapter
  * @property-read Book $book
@@ -65,6 +65,7 @@ class User extends Authenticatable
     public function getActivityLogOptions(): LogOptions
     {
         $logOption = new LogOptions();
+
         return $logOption->logAll()->logOnlyDirty();
     }
 }

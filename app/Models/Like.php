@@ -29,6 +29,7 @@ class Like extends Model
     public function getActivitylogOptions(): LogOptions
     {
         $logOption = new LogOptions();
+
         return $logOption->logAll()->logOnlyDirty();
     }
 }

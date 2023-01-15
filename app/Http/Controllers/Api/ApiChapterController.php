@@ -9,11 +9,12 @@ use App\Models\Chapter;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+
 class ApiChapterController extends Controller
 {
     /**
-     * @param Request $request
-     * @param string $slug
+     * @param  Request  $request
+     * @param  string  $slug
      * @return AnonymousResourceCollection
      */
     public function index(Request $request, string $slug)
@@ -50,9 +51,11 @@ class ApiChapterController extends Controller
 
             if ($chapter !== null) {
                 $chapter->delete();
+
                 return response()->json('Chapter Deleted!');
             }
         }
+
         return response()->json('Error in your Deleted!');
     }
 }

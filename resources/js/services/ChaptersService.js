@@ -1,4 +1,4 @@
-import {ref} from "vue";
+import { ref } from 'vue'
 
 export default function useChapters() {
     const chapters = ref([])
@@ -17,5 +17,5 @@ export default function useChapters() {
         }
     }
 
-    return {chapters, getChapters, search}
+    return { chapters, getChapters, search }
 }

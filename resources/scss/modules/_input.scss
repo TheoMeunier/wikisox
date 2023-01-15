@@ -1,54 +1,54 @@
 //label
 label {
-  @apply block my-2 text-sm font-medium text-gray-500;
-  text-align: left !important;
+    @apply block my-2 text-sm font-medium text-gray-500;
+    text-align: left !important;
 }
 
 .form-check-label {
-  @apply ml-2  mb-2 text-sm font-medium text-gray-900 dark:text-gray-300;
+    @apply ml-2  mb-2 text-sm font-medium text-gray-900 dark:text-gray-300;
 }
 
 //input
 .form-control {
-  @apply rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full;
-  background: #f3f3f3;
+    @apply rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full;
+    background: #f3f3f3;
 }
 
 .form__select {
-  @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
 }
 
 textarea .form-control {
-  @apply block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+    @apply block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
 }
 
 .form-check-input {
-  @apply w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600;
+    @apply w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600;
 }
 
 .input__icon {
-  @apply relative;
+    @apply relative;
 
-  .input__icon__icon {
-    @apply flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none;
-  }
+    .input__icon__icon {
+        @apply flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none;
+    }
 
-  input {
-    @apply rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full pl-10;
-    background: #f3f3f3;
-  }
+    input {
+        @apply rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full pl-10;
+        background: #f3f3f3;
+    }
 }
 
 .input__error {
-  @apply border border-red-500 text-red-900;
+    @apply border border-red-500 text-red-900;
 }
 
 .input__message__error {
-  @apply mt-2 text-sm text-red-600 dark:text-red-500;
+    @apply mt-2 text-sm text-red-600 dark:text-red-500;
 }
 
 .form__btn__input {
-  input {
-    display: none;
-  }
+    input {
+        display: none;
+    }
 }

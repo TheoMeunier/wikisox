@@ -11,13 +11,13 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 class ApiAdminPageController extends Controller
 {
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return AnonymousResourceCollection
      */
     public function index(Request $request): AnonymousResourceCollection
     {
         $pages = Page::with(['user', 'likes', 'chapter'])
-            ->where('name','LIKE', "%$request->q%")
+            ->where('name', 'LIKE', "%$request->q%")
             ->orderBy('created_at', 'DESC')
             ->paginate(8);
 

@@ -1,4 +1,4 @@
-import {ref} from "vue";
+import { ref } from 'vue'
 
 export default function usePages() {
     const pages = ref([])
@@ -17,5 +17,5 @@ export default function usePages() {
         }
     }
 
-    return {pages, getPages, search}
+    return { pages, getPages, search }
 }

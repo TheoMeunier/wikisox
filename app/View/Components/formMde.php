@@ -9,6 +9,7 @@ use Illuminate\View\Component;
 class formMde extends Component
 {
     private string $name;
+
     private string $value;
 
     /**
@@ -18,7 +19,7 @@ class formMde extends Component
      */
     public function __construct(string $name, string $value)
     {
-        $this->name = $name;
+        $this->name  = $name;
         $this->value = $value;
     }
 

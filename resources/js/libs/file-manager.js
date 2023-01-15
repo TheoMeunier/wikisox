@@ -11,7 +11,7 @@ let imageSelected = null,
     isFilemanagerOpen = false
 
 if (btnopen) {
-    btnopen.addEventListener('click', (e) => {
+    btnopen.addEventListener('click', e => {
         filemanager.removeAttribute('hidden')
     })
 }
@@ -29,7 +29,8 @@ if (filemanager) {
         if (null !== inputImage) {
             inputImage.value = e.detail.url
             image.src = e.detail.url
-        } else {}
+        } else {
+        }
 
         if (null !== btnopen) {
             btnopen.classList.remove('d-none')
@@ -52,7 +53,6 @@ async function myImage() {
 
     return imageSelected
 }
-
 
 export async function copyImage(editor) {
     let cm = editor.codemirror,

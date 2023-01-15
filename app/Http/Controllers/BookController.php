@@ -29,38 +29,38 @@ class BookController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function store(Request $request): RedirectResponse
     {
         Book::create([
-           'name' => $request->get('name'),
-           'slug' => Str::slug($request->get('name')),
-           'image' => $request->get('image'),
-           'description' => $request->get('description'),
-            'user_id' => auth()->id()
+            'name'        => $request->get('name'),
+            'slug'        => Str::slug($request->get('name')),
+            'image'       => $request->get('image'),
+            'description' => $request->get('description'),
+            'user_id'     => auth()->id(),
         ]);
 
         return redirect()->route('book.index');
     }
 
     /**
-     * @param string $slug
+     * @param  string  $slug
      * @return Application|Factory|View
      */
     public function edit(string $slug)
     {
-        $book = Book::where('slug' , '=', $slug)->firstOrFail();
+        $book = Book::where('slug', '=', $slug)->firstOrFail();
 
         return view('book.edit', [
-            'book' => $book
+            'book' => $book,
         ]);
     }
 
     /**
-     * @param Request $request
-     * @param string $slug
+     * @param  Request  $request
+     * @param  string  $slug
      * @return RedirectResponse
      */
     public function update(Request $request, string $slug): RedirectResponse
@@ -68,9 +68,9 @@ class BookController extends Controller
         $book = Book::where('slug', '=', $slug)->firstOrFail();
 
         $book->update([
-            'name' => $request->get('name'),
-            'slug' => Str::slug($request->get('name')),
-            'image' => $request->get('image'),
+            'name'        => $request->get('name'),
+            'slug'        => Str::slug($request->get('name')),
+            'image'       => $request->get('image'),
             'description' => $request->get('description'),
         ]);
 

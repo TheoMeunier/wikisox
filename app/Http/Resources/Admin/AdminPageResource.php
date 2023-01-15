@@ -19,7 +19,7 @@ class AdminPageResource extends JsonResource
      */
     public function toArray($request): array|JsonSerializable|Arrayable
     {
-        /** @var Page $this */
+        /* @var Page $this */
         return [
             'id'         => $this->id,
             'name'       => $this->name,
@@ -28,7 +28,7 @@ class AdminPageResource extends JsonResource
             'username'   => $this->user->name,
             'created_at' => Carbon::parse($this->created_at)->format('d/m/Y'),
             'updated_at' => Carbon::parse($this->updated_at)->format('d/m/Y'),
-            'url'        => route('admin.pages.index') . '/' . $this->slug . '/edit',
+            'url'        => route('admin.pages.index').'/'.$this->slug.'/edit',
             'like'       => $this->like,
         ];
     }

@@ -99,9 +99,6 @@
             "sort_algorithm": "alpha",
             "imports_order": ["const", "class", "function"]
         },
-        "ordered_class_elements": {
-            "sort_algorithm": "alpha"
-        },
         "phpdoc_indent": true,
         "phpdoc_line_span": true,
         "phpdoc_no_access": true,

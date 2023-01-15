@@ -11,13 +11,13 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 class ApiAdminBookController extends Controller
 {
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return AnonymousResourceCollection
      */
     public function index(Request $request): AnonymousResourceCollection
     {
         $books = Book::with(['user', 'likes'])
-            ->where('name','LIKE', "%$request->q%")
+            ->where('name', 'LIKE', "%$request->q%")
             ->orderBy('created_at', 'DESC')
             ->paginate(8);
 

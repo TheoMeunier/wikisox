@@ -29,11 +29,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
-
     Route::controller(ChapterController::class)->prefix('/chapter')->name('chapter.')->group(function () {
         Route::post('/{slug}/edit', 'update')->name('update');
     });
@@ -69,7 +67,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
         Route::get('/logs', [AdminlogController::class, 'index'])->name('logs.index');
 
-        Route::controller(AdminBookController::class)->prefix('/books')->name('book.')->group(function() {
+        Route::controller(AdminBookController::class)->prefix('/books')->name('book.')->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/{slug}/edit', 'edit')->name('edit');
             Route::post('/{slug}/edit', 'update')->name('update');
@@ -81,7 +79,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/{slug}/edit', 'update')->name('update');
         });
 
-        Route::controller(AdminPageController::class)->prefix('/pages')->name('pages.')->group(function() {
+        Route::controller(AdminPageController::class)->prefix('/pages')->name('pages.')->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/{slug}/edit', 'edit')->name('edit');
             Route::post('/{slug}/edit', 'update')->name('update');
@@ -113,14 +111,14 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
         });
     });
 
-    Route::prefix('/admin')->group(function() {
+    Route::prefix('/admin')->group(function () {
         Route::get('/logs', [ApiAdminLogController::class, 'index']);
 
-        Route::controller(ApiAdminBookController::class)->prefix('/books')->group(function() {
+        Route::controller(ApiAdminBookController::class)->prefix('/books')->group(function () {
             Route::get('/{q?}', 'index');
         });
 
-        Route::controller(ApiAdminChapterController::class)->prefix('/chapters')->group(function() {
+        Route::controller(ApiAdminChapterController::class)->prefix('/chapters')->group(function () {
             Route::get('/{q?}', 'index');
         });
 
@@ -129,6 +127,3 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
 
     Route::get('/trans', ApiTransController::class);
 });
-
-
-

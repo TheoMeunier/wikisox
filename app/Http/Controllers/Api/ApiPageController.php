@@ -13,9 +13,9 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 class ApiPageController extends Controller
 {
     /**
-     * @param Request $request
-     * @param string $slug
-     * @param string $slugChapter
+     * @param  Request  $request
+     * @param  string  $slug
+     * @param  string  $slugChapter
      * @return AnonymousResourceCollection
      */
     public function index(Request $request, string $slug, string $slugChapter): AnonymousResourceCollection
@@ -23,7 +23,7 @@ class ApiPageController extends Controller
         $chapter = Chapter::where('slug', '=', $slugChapter)->firstOrFail();
 
         $pages = Page::where('chapter_id', '=', $chapter->id)
-            ->where('name', 'LIKE', "%" .$request->q. "%")
+            ->where('name', 'LIKE', '%'.$request->q.'%')
             ->with(['user', 'likes'])
             ->paginate(12);
 

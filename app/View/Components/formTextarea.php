@@ -20,7 +20,6 @@ class formTextarea extends Component
      */
     public function __construct(string $value)
     {
-
         $this->value = $value;
     }
 

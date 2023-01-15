@@ -37,7 +37,7 @@ class ApiFileController extends AbstractFileManagerController
     }
 
     /**
-     * @param UploadFileRequest $request
+     * @param  UploadFileRequest  $request
      * @return array<int>
      */
     public function store(UploadFileRequest $request): array
@@ -49,7 +49,7 @@ class ApiFileController extends AbstractFileManagerController
         /** @phpstan-ignore-next-line  */
         $path     = $file->storeAs($folder, $filename.'_'.$file->hashName(), 'public');
 
-        /** @phpstan-ignore-next-line  */
+        /* @phpstan-ignore-next-line  */
         return $this->toArray($path);
     }
 
