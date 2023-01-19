@@ -53,9 +53,7 @@ class BookController extends Controller
     {
         $book = Book::where('slug', '=', $slug)->firstOrFail();
 
-        return view('book.edit', [
-            'book' => $book,
-        ]);
+        return view('book.edit', compact('book'));
     }
 
     /**

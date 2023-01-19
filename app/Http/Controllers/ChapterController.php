@@ -21,9 +21,7 @@ class ChapterController extends Controller
     {
         $book = Book::where('slug', '=', $slug)->first();
 
-        return view('book.show', [
-            'book' => $book,
-        ]);
+        return view('book.show', compact('book'));
     }
 
     /**
@@ -34,9 +32,7 @@ class ChapterController extends Controller
     {
         $book = Book::where('slug', '=', $slug)->first();
 
-        return view('chapter.create', [
-            'book' => $book,
-        ]);
+        return view('chapter.create', compact('book'));
     }
 
     /**
