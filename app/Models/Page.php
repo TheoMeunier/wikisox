@@ -11,11 +11,10 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
- * @mixin IdeHelperPage
- *
  * @property-read Chapter $chapter
  * @property-read Book $book
  * @property-read User $user
+ * @mixin IdeHelperPage
  */
 class Page extends Model
 {
