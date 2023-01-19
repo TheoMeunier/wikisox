@@ -17,7 +17,7 @@ class AdminBookResource extends JsonResource
      */
     public function toArray($request): array
     {
-        /* @var Book $this */
+        /** @var Book $this */
         return [
             'id'          => $this->id,
             'name'        => $this->name,

@@ -17,7 +17,7 @@ class PageResource extends JsonResource
      */
     public function toArray($request): array
     {
-        /* @var Page $this */
+        /** @var Page $this */
         return [
             'id'          => $this->id,
             'name'        => $this->name,

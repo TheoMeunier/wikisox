@@ -23,7 +23,7 @@ class AdminLogResource extends JsonResource
      */
     public function toArray($request): array|JsonSerializable|Arrayable
     {
-        /* @var Activity $this */
+        /** @var Activity $this */
         return [
             'id' => $this->id,
             /* @phpstan-ignore-next-line  */

@@ -17,7 +17,7 @@ class ChapterResource extends JsonResource
      */
     public function toArray($request): array
     {
-        /* @var Chapter $this */
+        /** @var Chapter $this */
         return [
             'id'          => $this->id,
             'name'        => $this->name,

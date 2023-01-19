@@ -19,7 +19,7 @@ class AdminPageResource extends JsonResource
      */
     public function toArray($request): array|JsonSerializable|Arrayable
     {
-        /* @var Page $this */
+        /** @var Page $this */
         return [
             'id'         => $this->id,
             'name'       => $this->name,
