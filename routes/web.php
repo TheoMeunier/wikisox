@@ -5,10 +5,12 @@ use App\Http\Controllers\Admin\AdminChapterController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminlogController;
 use App\Http\Controllers\Admin\AdminPageController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Api\Admin\ApiAdminBookController;
 use App\Http\Controllers\Api\Admin\ApiAdminChapterController;
 use App\Http\Controllers\Api\Admin\ApiAdminLogController;
 use App\Http\Controllers\Api\Admin\ApiAdminPageController;
+use App\Http\Controllers\Api\Admin\ApiAdminUserController;
 use App\Http\Controllers\Api\ApiBookController;
 use App\Http\Controllers\Api\ApiChapterController;
 use App\Http\Controllers\Api\ApiPageController;
@@ -84,6 +86,14 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{slug}/edit', 'edit')->name('edit');
             Route::post('/{slug}/edit', 'update')->name('update');
         });
+
+        Route::controller(AdminUserController::class)->prefix('/users')->name('users.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/create', 'store')->name('store');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::post('/edit/{id}', 'update')->name('update');
+        });
     });
 
     Route::get('/', function () {
@@ -123,6 +133,8 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
         });
 
         Route::get('/pages/{q?}', [ApiAdminPageController::class, 'index']);
+
+        Route::get('/users/{q?}', [ApiAdminUserController::class, 'index']);
     });
 
     Route::get('/trans', ApiTransController::class);

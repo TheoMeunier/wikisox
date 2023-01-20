@@ -9,7 +9,7 @@
     </ul>
     <ul class="sidebar__section">
         <li class="sidebar__link">
-            <a href="#">
+            <a href="{{ route('admin.users.index') }}">
                 <i class="fa-solid fa-user"></i>
                 <span>{{  __('nav.users') }}</span>
             </a>

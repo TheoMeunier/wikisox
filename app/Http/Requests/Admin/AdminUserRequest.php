@@ -23,10 +23,15 @@ class AdminUserRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules =  [
             'name'        => 'required|min:3',
             'email'       => 'required|email',
-            'roles'       => 'required',
         ];
+
+        if ($this->route('admin.users.store')) {
+            $rules[] = ['password' => 'required|confirmed|min:6'];
+        }
+
+        return $rules;
     }
 }
