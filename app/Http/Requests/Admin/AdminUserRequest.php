@@ -19,7 +19,7 @@ class AdminUserRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @returns array<int|string, array<string, string>|string>
      */
     public function rules(): array
     {

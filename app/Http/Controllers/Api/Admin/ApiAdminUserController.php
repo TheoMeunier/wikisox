@@ -6,9 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Admin\AdminUserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ApiAdminUserController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return AnonymousResourceCollection
+     */
     public function index(Request $request)
     {
         $users = User::with(['role'])
