@@ -10,7 +10,7 @@ import Logs from './components/admin/log.vue'
 import AdminBooks from './components/admin/adminBooks.vue'
 import AdminChapters from './components/admin/adminChapters.vue'
 import AdminPages from './components/admin/adminPages.vue'
-import AdminUser from "./components/admin/adminUser.vue";
+import AdminUser from './components/admin/adminUser.vue'
 
 const app = createApp()
 const pinia = createPinia()

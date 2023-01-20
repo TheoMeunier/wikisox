@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminUserRequest;
-use App\Http\Resources\Admin\AdminUserResource;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -27,26 +26,26 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        return view("admin.users.create");
+        return view('admin.users.create');
     }
 
     /**
-     * @param AdminUserRequest $request
+     * @param  AdminUserRequest  $request
      * @return RedirectResponse
      */
     public function store(AdminUserRequest $request)
     {
         User::create([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => Hash::make($request->get('password'))
+            'name'     => $request->get('name'),
+            'email'    => $request->get('email'),
+            'password' => Hash::make($request->get('password')),
         ]);
 
         return redirect()->route('admin.users.index');
     }
 
     /**
-     * @param int $id
+     * @param  int  $id
      * @return Application|Factory|View
      */
     public function edit(int $id)
@@ -57,8 +56,8 @@ class AdminUserController extends Controller
     }
 
     /**
-     * @param AdminUserRequest $request
-     * @param int $id
+     * @param  AdminUserRequest  $request
+     * @param  int  $id
      * @return RedirectResponse
      */
     public function update(AdminUserRequest $request, int $id)
@@ -66,7 +65,7 @@ class AdminUserController extends Controller
         $user = User::findOrFail($id);
 
         $user->update([
-            'name' => $request->get('name'),
+            'name'  => $request->get('name'),
             'email' => $request->get('email'),
         ]);
 

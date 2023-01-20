@@ -11,7 +11,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 class ApiAdminUserController extends Controller
 {
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return AnonymousResourceCollection
      */
     public function index(Request $request)

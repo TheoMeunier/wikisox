@@ -1,11 +1,11 @@
 .btn {
-    @apply inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest focus:outline-none focus:ring  disabled:opacity-25 transition ease-in-out duration-150
+    @apply inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest focus:outline-none focus:ring  disabled:opacity-25 transition ease-in-out duration-150;
 }
 
 .btn__primary {
-    @apply bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 ring-gray-300
+    @apply bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 ring-gray-300;
 }
 
 .btn__danger {
-    @apply bg-red-800 hover:bg-red-700 active:bg-red-900 focus:border-red-900 ring-red-300
+    @apply bg-red-800 hover:bg-red-700 active:bg-red-900 focus:border-red-900 ring-red-300;
 }
