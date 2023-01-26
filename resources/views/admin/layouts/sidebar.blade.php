@@ -15,7 +15,7 @@
             </a>
         </li>
         <li class="sidebar__link">
-            <a href="#">
+            <a href="{{ route('admin.roles.index') }}">
                 <i class="fa-solid fa-user-gear"></i>
                 <span>{{  __('nav.roles') }}</span>
             </a>

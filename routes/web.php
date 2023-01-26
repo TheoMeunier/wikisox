@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminChapterController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminlogController;
 use App\Http\Controllers\Admin\AdminPageController;
+use App\Http\Controllers\Admin\AdminRoleController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Api\Admin\ApiAdminBookController;
 use App\Http\Controllers\Api\Admin\ApiAdminChapterController;
@@ -88,6 +89,14 @@ Route::middleware(['auth'])->group(function () {
         });
 
         Route::controller(AdminUserController::class)->prefix('/users')->name('users.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/create', 'store')->name('store');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::post('/edit/{id}', 'update')->name('update');
+        });
+
+        Route::controller(AdminRoleController::class)->prefix('/roles')->name('roles.')->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/create', 'create')->name('create');
             Route::post('/create', 'store')->name('store');

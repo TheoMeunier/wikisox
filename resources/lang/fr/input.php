@@ -5,6 +5,7 @@ return [
         'name'             => 'Nom',
         'image'            => 'Image',
         'description'      => 'Description',
+        'short-description' => 'Courte description',
         'content'          => 'Contenu',
         'user'             => 'Utilisateurs',
         'email'            => 'Email',

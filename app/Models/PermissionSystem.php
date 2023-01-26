@@ -19,11 +19,6 @@ class PermissionSystem extends Model
     protected $fillable = ['name', 'description'];
 
     /**
-     * @var string
-     */
-    protected $table = 'permissions_systems';
-
-    /**
      * @var bool
      */
     public $timestamps = false;

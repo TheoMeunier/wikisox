@@ -19,11 +19,6 @@ class PermissionResource extends Model
     protected $fillable = ['name', 'description'];
 
     /**
-     * @var string
-     */
-    protected $table = 'permissions_resources';
-
-    /**
      * @var bool
      */
     public $timestamps = false;
