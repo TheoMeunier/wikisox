@@ -51,7 +51,7 @@
                             </td>
                             <td>
                                 <p class="flex align-center">
-                                    <a href="{{ route('admin.roles.edit', ['role' => $role->id]) }}" class="text-gray-900 whitespace-no-wrap">
+                                    <a href="{{ route('admin.roles.edit', ['id' => $role->id]) }}" class="text-gray-900 whitespace-no-wrap">
                                         <i class="fa-solid fa-pen-to-square mr-2"></i>
                                     </a>
                                 </p>
