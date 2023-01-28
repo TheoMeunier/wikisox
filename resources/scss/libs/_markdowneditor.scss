@@ -1,0 +1,105 @@
+$buttonBg: rgba(236, 240, 241, 1.0);
+$buttonTextColor: #626262;
+$toolbarBg: #fafafa;
+$toolbarBorder: #d8d7d7;
+$outputAreaBg: #FFFFFF;
+$previewMessageFontColor: #686868;
+$previewMessageBg: #d6d6d6;
+
+#markdown-editor {
+    width: 100%;
+
+    .toolbar {
+        background: $toolbarBg;
+        border: 1px solid $toolbarBorder;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        padding: .2rem 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon {
+            background: transparent;
+            border: none;
+            color: $buttonTextColor;
+            font-family: sans-serif;
+            font-size: .8rem;
+            cursor: pointer;
+            padding: .7rem;
+
+            &:hover,
+            &.active {
+                background: darken($toolbarBg, 5%);
+                border-radius: 5px;
+                box-shadow: 0 0 2px lighten($toolbarBg, 5%) inset;
+                outline: 0px;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .group {
+            margin-right: 4px;
+            display: flex;
+            justify-content: start;
+        }
+    }
+
+    #input-output {
+        height: 400px;
+        width: 100%;
+        position: relative;
+
+        #input-area {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 10px;
+            border: 1px solid #d8d8d8;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 2px #eaeaea;
+            resize: none;
+
+            &:focus,
+            &:active {
+                outline: 0px;
+            }
+        }
+
+        #output-area {
+            background: $outputAreaBg;
+            border-radius: 0 0 10px 10px;
+            display: none;
+            font-family: sans-serif;
+            padding: 10px;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            overflow-y: scroll;
+        }
+
+        p.preview-message {
+            background: $previewMessageBg;
+            border-radius: 10px 10px 0 0;
+            color: $previewMessageFontColor;
+            font-family: sans-serif;
+            position: absolute;
+            top: 93%;
+            right: 0%;
+            padding: .5rem 1rem;
+            user-select: none;
+            display: none;
+            opacity: .5;
+        }
+
+        .show {
+            display: block !important;
+        }
+    }
+}
