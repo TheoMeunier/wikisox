@@ -1,7 +1,5 @@
 import {FileManager} from 'filemanager-element';
 import 'filemanager-element/FileManager.css'
-import "@fortawesome/fontawesome-free/css/all.css";
-import "@fortawesome/fontawesome-free/js/all.js";
 
 // -------------------------------------------
 // DEFAULT INPUT AND OUTPUT AREA
