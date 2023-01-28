@@ -37,8 +37,8 @@ const searchBook = async () => {
         <div class="articles mt-6">
             <slot v-for="chapter in chapters.data" :key="chapter.id">
                 <article class="card" :class="chapter.like !== false ? 'card__like' : ''">
-                    <a :href="chapter.url + '/' + slug + '/' + chapter.slug">
-                        <img :src="chapter.image" :alt="chapter.name" />
+                    <a :href="chapter.url + '/' + slug + '/' + chapter.slug" class="card__img">
+                        <img :src="chapter.image" :alt="chapter.name" width="280" height="100"/>
                     </a>
                     <div class="card__body">
                         <h5 class="card__title">{{ chapter.name }}</h5>
