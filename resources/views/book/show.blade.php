@@ -8,7 +8,7 @@
     <div class="grid grid-cols-6 py-12">
         <div></div>
 
-        <div class="col-span-4 mx-auto min-w-10/12">
+        <div class="col-span-4 mx-auto w-full">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <Chapters title="{{ $book->name }}" slug="{{ $book->slug }}"/>
