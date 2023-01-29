@@ -18,33 +18,48 @@ const strikethroughButton = document.querySelector(' #strikethrough')
 const linkButton = document.querySelector('#link');
 
 
-preview.addEventListener('click', () => {
-    output(parse(textarea.value));
+if (preview) {
+    preview.addEventListener('click', () => {
+        output(parse(textarea.value));
 
-    outputArea.classList.toggle('show');
-    previewMessage.classList.toggle('show');
-    preview.classList.toggle('active');
-});
+        outputArea.classList.toggle('show');
+        previewMessage.classList.toggle('show');
+        preview.classList.toggle('active');
+    });
+}
 
-boldButton.addEventListener('click', () =>
-    insertText(textarea, '****', 'demo', 2, 6)
-);
+if (boldButton) {
+    boldButton.addEventListener('click', () =>
+        insertText(textarea, '****', 'demo', 2, 6)
+    );
+}
 
-italicButton.addEventListener('click', () =>
-    insertText(textarea, '**', 'demo', 1, 5)
-);
+if (italicButton) {
+    italicButton.addEventListener('click', () =>
+        insertText(textarea, '**', 'demo', 1, 5)
+    );
+}
 
-codeButton.addEventListener('click', () =>
-    insertText(textarea, '``````', 'demo', 3, 7)
-);
 
-strikethroughButton.addEventListener('click', () => {
-    insertText(textarea, '~~', 'demo', 2, 6)
-});
+if (codeButton) {
+    codeButton.addEventListener('click', () =>
+        insertText(textarea, '``````', 'demo', 3, 7)
+    );
+}
 
-linkButton.addEventListener('click', () =>
-    insertText(textarea, '[](http://...)', 'url text', 1, 9)
-);
+if (strikethroughButton) {
+    strikethroughButton.addEventListener('click', () => {
+        insertText(textarea, '~~', 'demo', 2, 6)
+    });
+}
+
+
+if (linkButton) {
+    linkButton.addEventListener('click', () =>
+        insertText(textarea, '[](http://...)', 'url text', 1, 9)
+    );
+}
+
 
 // -------------------------------------------
 
@@ -260,22 +275,26 @@ function parse(content) {
 const fileManager = document.querySelector('file-manager');
 const image = document.querySelector('#image');
 
-image.addEventListener('click', () => {
-        fileManager.removeAttribute('hidden');
-    }
-);
+if (image) {
+    image.addEventListener('click', () => {
+            fileManager.removeAttribute('hidden');
+        }
+    );
+}
 
 // add image
-fileManager.addEventListener('selectfile', e => {
-    const syntax = '![' + e.detail.url + '](' + e.detail.url + ')';
-    insertText( textarea, syntax )
+if (fileManager) {
+    fileManager.addEventListener('selectfile', e => {
+        const syntax = '![' + e.detail.url + '](' + e.detail.url + ')';
+        insertText(textarea, syntax)
 
-    fileManager.setAttribute('hidden', '')
-})
+        fileManager.setAttribute('hidden', '')
+    })
 
-// Close filemanager
-fileManager.addEventListener('close', () => {
-    fileManager.setAttribute('hidden', '')
-})
+    // Close filemanager
+    fileManager.addEventListener('close', () => {
+        fileManager.setAttribute('hidden', '')
+    })
+}
 
 FileManager.register();
