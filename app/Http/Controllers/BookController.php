@@ -42,7 +42,9 @@ class BookController extends Controller
             'user_id'     => auth()->id(),
         ]);
 
-        return redirect()->route('book.index');
+        return redirect()
+            ->route('book.index')
+            ->with('success', __('flash.book.create'));
     }
 
     /**
@@ -72,6 +74,8 @@ class BookController extends Controller
             'description' => $request->get('description'),
         ]);
 
-        return redirect()->route('book.chapter.index', ['slug' => $book->slug]);
+        return redirect()
+            ->route('book.chapter.index', ['slug' => $book->slug])
+            ->with('success', __('flash.book.update'));
     }
 }

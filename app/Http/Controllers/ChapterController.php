@@ -53,7 +53,9 @@ class ChapterController extends Controller
             'user_id'     => auth()->id(),
         ]);
 
-        return redirect()->route('book.chapter.index', ['slug' => $book->slug]);
+        return redirect()
+            ->route('book.chapter.index', ['slug' => $book->slug])
+            ->with('success', __('flash.chapter.create'));
     }
 
     /**
@@ -89,6 +91,8 @@ class ChapterController extends Controller
             'description' => $request->get('description'),
         ]);
 
-        return redirect()->route('book.chapter.index', ['slug' => $chapter->book->slug]);
+        return redirect()
+            ->route('book.chapter.index', ['slug' => $chapter->book->slug])
+            ->with('success', __('flash.chapter.update'));
     }
 }

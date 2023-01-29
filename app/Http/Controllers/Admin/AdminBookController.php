@@ -48,6 +48,8 @@ class AdminBookController extends Controller
             'description' => $request->get('description'),
         ]);
 
-        return redirect()->route('admin.book.index');
+        return redirect()
+            ->route('admin.book.index')
+            ->with('success', __('flash.book.update'));
     }
 }

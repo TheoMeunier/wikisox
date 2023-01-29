@@ -48,6 +48,8 @@ class AdminChapterController extends Controller
             'description' => $request->get('description'),
         ]);
 
-        return redirect()->route('admin.chapters.index');
+        return redirect()
+            ->route('admin.chapters.index')
+            ->with('success', __('flash.chapter.update'));
     }
 }

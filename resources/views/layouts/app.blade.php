@@ -20,6 +20,7 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100" id="app">
             @include('layouts.navigation')
+            @include('components._flash')
 
             <!-- page Heading -->
             <header class="bg-white shadow">

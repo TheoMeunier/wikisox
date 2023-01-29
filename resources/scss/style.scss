@@ -9,6 +9,7 @@ $breakpoint-tablet: 769px;
 $breakpoint-phone: 769px;
 
 //modules
+@import 'modules/alert';
 @import 'modules/card';
 @import 'modules/input';
 @import 'modules/typo';

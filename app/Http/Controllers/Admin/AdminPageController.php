@@ -47,6 +47,8 @@ class AdminPageController extends Controller
             'content' => $request->get('content'),
         ]);
 
-        return redirect()->route('admin.pages.index');
+        return redirect()
+            ->route('admin.pages.index')
+            ->with('success', __('flash.page.update'));
     }
 }

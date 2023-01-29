@@ -80,7 +80,9 @@ class PageController extends Controller
             'chapter_id' => $chapter->id,
         ]);
 
-        return redirect()->route('book.chapter.page.index', ['slug' => $slug, 'slugChapter' => $slugChapter]);
+        return redirect()
+            ->route('book.chapter.page.index', ['slug' => $slug, 'slugChapter' => $slugChapter])
+            ->with('success', __('flash.page.create'));
     }
 
     /**
@@ -118,10 +120,12 @@ class PageController extends Controller
             'content' => $request->get('content'),
         ]);
 
-        return redirect()->route('book.chapter.page.show', [
-            'slug'        => $page->chapter->book->slug,
-            'slugChapter' => $page->chapter->slug,
-            'slugPage'    => $page->slug,
-        ]);
+        return redirect()
+            ->route('book.chapter.page.show', [
+                'slug'        => $page->chapter->book->slug,
+                'slugChapter' => $page->chapter->slug,
+                'slugPage'    => $page->slug,
+            ])
+            ->with('success', __('flash.page.update'));
     }
 }

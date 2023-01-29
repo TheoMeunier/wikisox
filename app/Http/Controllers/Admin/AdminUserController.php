@@ -41,7 +41,9 @@ class AdminUserController extends Controller
             'password' => Hash::make($request->get('password')),
         ]);
 
-        return redirect()->route('admin.users.index');
+        return redirect()
+            ->route('admin.users.index')
+            ->with('success', __('flash.user.create'));
     }
 
     /**
@@ -69,6 +71,8 @@ class AdminUserController extends Controller
             'email' => $request->get('email'),
         ]);
 
-        return redirect()->route('admin.users.index');
+        return redirect()
+            ->route('admin.users.index')
+            ->with('success', __('flash.user.update'));
     }
 }
