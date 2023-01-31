@@ -8,7 +8,7 @@ const props = defineProps({
     title: String,
 })
 
-const { books, getBooks, search } = useBooks()
+const { books, getBooks, search, likeBook } = useBooks()
 const query = ref('')
 
 onMounted(() => {
@@ -17,6 +17,10 @@ onMounted(() => {
 
 const searchBook = async () => {
     await search(query.value)
+}
+
+const like = async (id) => {
+    await likeBook(id)
 }
 </script>
 
@@ -53,7 +57,12 @@ const searchBook = async () => {
                                 <i class="fa-regular fa-clock mr-2"></i>
                                 {{ book.created_at }}
                             </span>
-                            <Like :data="book" :params="'books'" />
+                            <a class="cursor-pointer"
+                                  @click="like(book.id)"
+                                  :class="book.like !== false ? 'text-yellow-400' : 'text-gray-500'"
+                            >
+                                <i class="fa-star mr-2" :class="book.like !== false ? 'fa-solid' : 'fa-regular'"></i>
+                            </a>
                         </p>
                     </div>
                 </article>

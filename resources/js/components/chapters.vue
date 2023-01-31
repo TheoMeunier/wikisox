@@ -9,7 +9,7 @@ const props = defineProps({
     slug: String,
 })
 
-const { chapters, getChapters, search } = useChapters()
+const { chapters, getChapters, search, likeChapter } = useChapters()
 const query = ref('')
 
 onMounted(() => {
@@ -18,6 +18,10 @@ onMounted(() => {
 
 const searchBook = async () => {
     await search(query.value, props.slug)
+}
+
+const like = async (id) => {
+    await likeChapter(id, props.slug)
 }
 </script>
 
@@ -48,7 +52,12 @@ const searchBook = async () => {
                                 <i class="fa-regular fa-clock mr-2"></i>
                                 {{ chapter.created_at }}
                             </span>
-                            <Like :data="chapter" :params="'books'" />
+                            <a class="cursor-pointer"
+                               @click="like(chapter.id)"
+                               :class="chapter.like !== false ? 'text-yellow-400' : 'text-gray-500'"
+                            >
+                                <i class="fa-star mr-2" :class="chapter.like !== false ? 'fa-solid' : 'fa-regular'"></i>
+                            </a>
                         </p>
                     </div>
                 </article>

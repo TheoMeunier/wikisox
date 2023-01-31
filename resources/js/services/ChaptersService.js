@@ -17,5 +17,10 @@ export default function useChapters() {
         }
     }
 
-    return { chapters, getChapters, search }
+    const likeChapter = async (id, slug, data) => {
+        await axios.post('/webapi/chapters/like/' + id, data)
+        await getChapters(1, slug)
+    }
+
+    return { chapters, getChapters, search, likeChapter }
 }

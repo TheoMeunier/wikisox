@@ -17,9 +17,14 @@ export default function useBooks() {
         }
     }
 
+    const likeBook = async (id, data) => {
+        await axios.post('/webapi/books/like/' + id, data)
+        await getBooks(1)
+    }
+
     const deleteBook = async slug => {
         await axios.delete('/webapi/books/delete' + slug)
     }
 
-    return { books, getBooks, deleteBook, search }
+    return { books, getBooks, deleteBook, search, likeBook }
 }

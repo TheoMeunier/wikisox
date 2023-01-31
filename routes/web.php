@@ -130,6 +130,10 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
         });
     });
 
+    Route::controller(ApiChapterController::class)->prefix('/chapters')->group(function () {
+        Route::post('/like/{chapter}', 'like');
+    });
+
     Route::prefix('/admin')->group(function () {
         Route::get('/logs', [ApiAdminLogController::class, 'index']);
 

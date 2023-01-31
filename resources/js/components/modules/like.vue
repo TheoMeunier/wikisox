@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { data } from 'autoprefixer'
+import {data} from "autoprefixer";
 
 const props = defineProps({
     data: {},
@@ -22,10 +22,10 @@ const props = defineProps({
 })
 
 const like = async () => {
-    try {
+    /*try {
         await axios.post('/webapi/' + props.params + '/like/' + props.data.id)
     } catch (e) {
         console.log(e)
-    }
+    }*/
 }
 </script>
