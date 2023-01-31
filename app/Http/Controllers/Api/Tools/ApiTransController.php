@@ -19,7 +19,7 @@ class ApiTransController extends Controller
             $lang = config('app.locale');
 
             /** @var array $files */
-            $files   = glob(resource_path('lang/'.$lang.'/*.php'));
+            $files   = glob(resource_path('lang/'.$lang.'/js.php'));
             $strings = [];
 
             foreach ($files as $file) {

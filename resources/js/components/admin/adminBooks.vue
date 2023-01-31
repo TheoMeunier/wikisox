@@ -82,7 +82,6 @@
 import ModalBookDelete from '../modal/admin/ModalBookDelete.vue'
 import useAdminBook from '../../services/admin/AdminBooksService'
 import { onMounted, ref } from 'vue'
-import { useTransStore } from '../../Store/trans'
 
 const { books, getBooks, search, deleteBook } = useAdminBook()
 const query = ref('')

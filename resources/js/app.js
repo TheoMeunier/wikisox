@@ -1,6 +1,6 @@
 import './bootstrap'
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import {computed, createApp} from 'vue'
+import {createPinia, mapState} from 'pinia'
 
 import Books from './components/books.vue'
 import Chapters from './components/chapters.vue'
@@ -11,10 +11,10 @@ import AdminBooks from './components/admin/adminBooks.vue'
 import AdminChapters from './components/admin/adminChapters.vue'
 import AdminPages from './components/admin/adminPages.vue'
 import AdminUser from './components/admin/adminUser.vue'
+import {useTransStore} from "./Store/trans";
 
-const app = createApp()
 const pinia = createPinia()
-
+const app = createApp(undefined, undefined)
 app.use(pinia)
 
 app.component('Books', Books)

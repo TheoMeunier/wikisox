@@ -2,10 +2,11 @@
 
 if (! function_exists('numberFormat')) {
     /**
-     * @param  float  $number
+     * Format the number with the passed value.
+     *
      * @return string
      */
-    function numberFormat(float $number): string
+    function numberFormat(float $number)
     {
         return number_format($number, 0, ',', ' ');
     }
@@ -13,13 +14,12 @@ if (! function_exists('numberFormat')) {
 
 if (! function_exists('recursive_array_replace')) {
     /**
-     * @param  string  $find
-     * @param  string  $replace
-     * @param $array
-     * @param  bool  $inKey
+     * recursive_array_replace.
+     *
+     * @param  mixed  $array
      * @return array|string
      */
-    function recursive_array_replace(string $find, string $replace, array $array, bool $inKey = false): array|string
+    function recursive_array_replace(string $find, string $replace, $array, bool $inKey = false)
     {
         if (! is_array($array)) {
             if ($inKey) {
@@ -51,8 +51,10 @@ if (! function_exists('recursive_array_replace')) {
 
 if (! function_exists('pathinfo_dirname')) {
     /**
-     * @param  array  $info
-     * @return string|null
+     * pathinfo_dirname.
+     *
+     * @param    $array
+     * @return null|string
      */
     function pathinfo_dirname(array $info): ?string
     {

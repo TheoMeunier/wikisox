@@ -29,7 +29,13 @@ const searchBook = async () => {
                 <div class="input__icon__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchBook" placeholder="search" />
+                <input v-model="query"
+                       type="text"
+                       class="input__icon__input w-64"
+                       id="example-search-input"
+                       @keyup="searchBook"
+                       placeholder="search"
+                />
             </form>
         </div>
 
