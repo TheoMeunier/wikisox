@@ -19,15 +19,15 @@
 
         <div class="pl-16">
             <div class="mb-3">
-                <a href="{{ route('book.chapter.create', ['slug' => $book->slug]) }}" class="text-blue-500">
+                <a href="{{ route('book.chapter.page.create', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}" class="text-blue-500">
                     <i class="fa-solid fa-plus mr-2"></i>
-                    {{ __('button.chapter.create') }}
+                    {{ __('button.page.create') }}
                 </a>
             </div>
             <div class="my-6">
-                <a href="{{ route('book.edit', ['slug' => $book->slug]) }}" class="text-blue-500">
+                <a href="{{ route('book.chapter.edit', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}" class="text-blue-500">
                     <i class="fa-solid fa-pen-to-square mr-2"></i>
-                    {{ __('button.book.edit') }}
+                    {{ __('button.chapter.edit') }}
                 </a>
             </div>
         </div>
