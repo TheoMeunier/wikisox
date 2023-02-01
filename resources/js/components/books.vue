@@ -19,7 +19,7 @@ const searchBook = async () => {
     await search(query.value)
 }
 
-const like = async (id) => {
+const like = async id => {
     await likeBook(id)
 }
 </script>
@@ -33,13 +33,7 @@ const like = async (id) => {
                 <div class="input__icon__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <input v-model="query"
-                       type="text"
-                       class="input__icon__input w-64"
-                       id="example-search-input"
-                       @keyup="searchBook"
-                       placeholder="search"
-                />
+                <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchBook" placeholder="search" />
             </form>
         </div>
 
@@ -47,7 +41,7 @@ const like = async (id) => {
             <slot v-for="book in books.data" :key="book.id">
                 <article class="card" :class="book.like !== false ? 'card__like' : ''">
                     <a :href="book.url" class="card__img">
-                        <img :src="book.image" :alt="book.name" width="280" height="100"/>
+                        <img :src="book.image" :alt="book.name" width="280" height="100" />
                     </a>
                     <div class="card__body">
                         <h5 class="card__title">{{ book.name }}</h5>
@@ -57,10 +51,7 @@ const like = async (id) => {
                                 <i class="fa-regular fa-clock mr-2"></i>
                                 {{ book.created_at }}
                             </span>
-                            <a class="cursor-pointer"
-                                  @click="like(book.id)"
-                                  :class="book.like !== false ? 'text-yellow-400' : 'text-gray-500'"
-                            >
+                            <a class="cursor-pointer" @click="like(book.id)" :class="book.like !== false ? 'text-yellow-400' : 'text-gray-500'">
                                 <i class="fa-star mr-2" :class="book.like !== false ? 'fa-solid' : 'fa-regular'"></i>
                             </a>
                         </p>

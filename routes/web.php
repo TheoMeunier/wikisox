@@ -15,10 +15,13 @@ use App\Http\Controllers\Api\Admin\ApiAdminUserController;
 use App\Http\Controllers\Api\ApiBookController;
 use App\Http\Controllers\Api\ApiChapterController;
 use App\Http\Controllers\Api\ApiPageController;
+use App\Http\Controllers\Api\ApiProfileController;
+use App\Http\Controllers\Api\Tools\ApiAuthController;
 use App\Http\Controllers\Api\Tools\ApiTransController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +44,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::controller(PageController::class)->prefix('/page')->name('pages.')->group(function () {
         Route::post('/{slug}', 'update')->name('update');
+    });
+
+    Route::controller(ProfileController::class)->prefix('/profile')->name('profile.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/edit', 'edit')->name('edit');
     });
 
     Route::controller(BookController::class)->prefix('/books')->name('book.')->group(function () {
@@ -134,6 +142,11 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
         Route::post('/like/{chapter}', 'like');
     });
 
+    Route::controller(ApiProfileController::class)->prefix('/profile')->group(function () {
+        Route::put('/update', 'update');
+        Route::put('/update/password', 'updatePassword');
+    });
+
     Route::prefix('/admin')->group(function () {
         Route::get('/logs', [ApiAdminLogController::class, 'index']);
 
@@ -151,4 +164,5 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
     });
 
     Route::get('/trans', ApiTransController::class);
+    Route::get('/auth', [ApiAuthController::class, 'index']);
 });

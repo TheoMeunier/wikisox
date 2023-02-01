@@ -34,8 +34,7 @@ return [
     'user' => [
         'create' => "L'utilisateur à bien été créé",
         'update' => "L'utilisateur à bien été modifié",
-        'delete' => "L'utilisateur à bien été supprimé"
-    ]
+        'delete' => "L'utilisateur à bien été supprimé",
+    ],
 
 ];
-

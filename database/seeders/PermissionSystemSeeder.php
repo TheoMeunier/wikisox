@@ -15,7 +15,7 @@ class PermissionSystemSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            'name' => 'access_dashbord',
+            'name'        => 'access_dashbord',
             'description' => 'Acces au dashbord',
         ];
 

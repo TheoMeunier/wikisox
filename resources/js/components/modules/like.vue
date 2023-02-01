@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import {data} from "autoprefixer";
+import { data } from 'autoprefixer'
 
 const props = defineProps({
     data: {},

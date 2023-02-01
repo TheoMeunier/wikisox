@@ -30,7 +30,7 @@ class AdminRoleController extends Controller
      */
     public function create()
     {
-        $systems = PermissionSystem::all();
+        $systems   = PermissionSystem::all();
         $resources = PermissionResource::all();
 
         return view('admin.roles.create', compact('systems', 'resources'));
@@ -48,17 +48,17 @@ class AdminRoleController extends Controller
 
         $resources = PermissionResource::all();
 
-        return view('admin.roles.edit', compact('role','systems', 'resources'));
+        return view('admin.roles.edit', compact('role', 'systems', 'resources'));
     }
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function store(Request $request): RedirectResponse
     {
         $role = Role::create([
-            'name' => $request->get('name'),
+            'name'        => $request->get('name'),
             'description' => $request->get('description'),
         ]);
 
@@ -74,8 +74,8 @@ class AdminRoleController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @param int $id
+     * @param  Request  $request
+     * @param  int  $id
      * @return RedirectResponse
      */
     public function update(Request $request, int $id): RedirectResponse
@@ -84,7 +84,7 @@ class AdminRoleController extends Controller
         dd($request);
 
         $role->update([
-            'name' => $request->get('name'),
+            'name'        => $request->get('name'),
             'description' => $request->get('description'),
         ]);
 
