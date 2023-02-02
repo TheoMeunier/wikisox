@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\UpdatePassword;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\Response;
 
 class ApiProfileController extends Controller
@@ -42,6 +44,8 @@ class ApiProfileController extends Controller
                 'password' => Hash::make($request->get('password')),
             ]);
         }
+
+        Mail::to($user->email)->send(new UpdatePassword());
 
         return response()->json([
             'message' => 'Password updated successfully',
