@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="font-semibold text-xl text-gray-800 leading-tight">
-            Modifier mon profile
+            {{ __('page/profile.title') }}
         </div>
     </x-slot>
 
@@ -12,7 +12,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h4>
                         <i class="fa-solid fa-user mr-3"></i>
-                        {{ __('page/profile.title.information') }}
+                        {{ __('page/profile.information') }}
                     </h4>
 
                     <Profile-Edit/>
@@ -26,10 +26,30 @@
             <div class="p-6 bg-white border-b border-gray-200">
                 <h4>
                     <i class="fa-solid fa-lock mr-3"></i>
-                    {{ __('page/profile.title.password') }}
+                    {{ __('page/profile.password') }}
                 </h4>
 
                 <Profile-Password-Edit/>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-12">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 bg-white border-b border-gray-200">
+                <h4 class="text__danger">
+                    <i class="fa-solid fa-lock mr-3"></i>
+                    {{ __('page/profile.delete.title') }}
+                </h4>
+
+                <div class="mt-3">
+                    <p>{{ __('page/profile.delete.descriptionFirst') }}</p>
+                    <p>{{ __('page/profile.delete.descriptionSeconde') }}</p>
+                </div>
+
+                <div class="flex justify-end">
+                    <Delete-Account/>
+                </div>
             </div>
         </div>
     </div>

@@ -6,6 +6,14 @@
     @apply bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 ring-gray-300;
 }
 
+.btn__secondary {
+    @apply bg-gray-600 hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 ring-gray-300;
+}
+
 .btn__danger {
-    @apply bg-red-800 hover:bg-red-700 active:bg-red-900 focus:border-red-900 ring-red-300;
+    @apply bg-red-600 hover:bg-red-700 active:bg-red-900 focus:border-red-900 ring-red-300;
+}
+
+.btn__icon {
+    @apply cursor-pointer hover:bg-gray-200 px-2 py-0.5 rounded-full;
 }

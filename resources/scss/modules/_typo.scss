@@ -26,6 +26,10 @@ h5 {
     @apply text-gray-500;
 }
 
+.text__danger {
+    @apply text-red-500;
+}
+
 .text__warning {
     @apply text-yellow-400;
 }
