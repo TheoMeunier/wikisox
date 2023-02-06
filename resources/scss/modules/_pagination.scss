@@ -7,7 +7,12 @@
 }
 
 .pagination .active {
-    @apply z-10 py-2 px-2.5 leading-tight text-blue-500 rounded-l-md rounded-r-md mr-1.5 border border-blue-300 hover:bg-white hover:text-bleu-500;
+    @apply z-10 py-2 px-2.5 leading-tight text-blue-500 rounded-l-md rounded-r-md mr-1.5 border border-blue-300;
+
+    &:hover {
+        background-color: #FFF;
+        color: #2563eb;
+    }
 }
 
 
