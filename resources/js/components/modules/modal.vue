@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="card__footer flex justify-end">
-                    <button @click="isOpen = false" class="btn btn__secondary mr-2">Close</button>
+                    <button @click="isOpen = false" class="btn btn__secondary mr-2">{{ i18n.button.close }}</button>
                     <slot name="button_action" />
                 </div>
             </div>
@@ -30,11 +30,15 @@
 
 <script setup>
 import { ref } from 'vue'
+import lang from "../../services/tools/lang";
+
 const props = defineProps({
     sizeModal: {
         type: String,
         default: 'w-1/4',
     },
 })
+
+const i18n = lang()
 const isOpen = ref(false)
 </script>
