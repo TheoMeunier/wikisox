@@ -4,21 +4,28 @@
             <div class="input__icon__icon">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchUser" placeholder="search" />
+            <input
+                v-model="query"
+                type="text"
+                class="input__icon__input w-64"
+                id="example-search-input"
+                @keyup="searchUser"
+                :placeholder="i18n.search"
+            />
         </form>
     </div>
     <div class="card__body">
         <table class="min-w-full leading-normal">
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>email</th>
-                    <th>roles</th>
-                    <th>verifier</th>
-                    <th>createdAt</th>
-                    <th>updatedAt</th>
-                    <th>action</th>
+                    <th>{{ i18n.table.id }}</th>
+                    <th>{{ i18n.table.name }}</th>
+                    <th>{{ i18n.table.email }}</th>
+                    <th>{{ i18n.table.roles }}</th>
+                    <th>{{ i18n.table.verify }}</th>
+                    <th>{{ i18n.table.createdAt }}</th>
+                    <th>{{ i18n.table.updatedAt }}</th>
+                    <th>{{ i18n.table.action.index }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,9 +59,11 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useAdminUser } from '../../services/admin/AdminUserService'
+import lang from "../../services/tools/lang";
 
 const { users, getUsers, search } = useAdminUser()
 const query = ref('')
+const i18n = lang()
 
 onMounted(() => {
     getUsers(1)

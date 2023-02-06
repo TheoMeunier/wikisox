@@ -4,6 +4,7 @@ import Like from './modules/like.vue'
 import { onMounted, ref } from 'vue'
 import useChapters from '../services/ChaptersService'
 import usePages from '../services/PagesService'
+import lang from "../services/tools/lang";
 
 const props = defineProps({
     title: String,
@@ -13,6 +14,7 @@ const props = defineProps({
 
 const { pages, getPages, search } = usePages()
 const query = ref('')
+const i18n = lang()
 
 onMounted(() => {
     getPages(1, props.book, props.chapter)
@@ -32,7 +34,7 @@ const searchBook = async () => {
                 <div class="input__icon__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchBook" placeholder="search" />
+                <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchBook" :placeholder="i18n.search" />
             </form>
         </div>
 

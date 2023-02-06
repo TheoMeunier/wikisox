@@ -4,12 +4,12 @@
             <table class="min-w-full leading-normal">
                 <thead>
                     <tr>
-                        <th>lang.i18n.table.id</th>
-                        <th>lang.i18n.table.username</th>
-                        <th>lang.i18n.table.action</th>
-                        <th>lang.i18n.table.subject_name</th>
-                        <th>lang.i18n.table.createdAt</th>
-                        <th>lang.i18n.table.updatedAt</th>
+                        <th>{{ i18n.table.id }}</th>
+                        <th>{{ i18n.table.username }}</th>
+                        <th>{{ i18n.table.action.index }}</th>
+                        <th>{{ i18n.table.subjectName }}</th>
+                        <th>{{ i18n.table.createdAt }}</th>
+                        <th>{{ i18n.table.updatedAt }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,8 +56,10 @@
 import Pagination from 'laravel-vue-pagination'
 import useLogs from '../../services/admin/logsServices'
 import { onMounted } from 'vue'
+import lang from "../../services/tools/lang";
 
 const { logs, getLogs } = useLogs()
+const i18n = lang()
 
 onMounted(() => {
     getLogs(1)

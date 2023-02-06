@@ -4,22 +4,29 @@
             <div class="input__icon__icon">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchPage" placeholder="search" />
+            <input
+                v-model="query"
+                type="text"
+                class="input__icon__input w-64"
+                id="example-search-input"
+                @keyup="searchPage"
+                :placeholder="i18n.search"
+            />
         </form>
     </div>
     <div class="card__body">
         <table class="min-w-full leading-normal">
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>slug</th>
-                    <th>chapter</th>
-                    <th>like</th>
-                    <th>createdTo</th>
-                    <th>createdAt</th>
-                    <th>updatedAt</th>
-                    <th>action</th>
+                    <th>{{ i18n.table.id }}</th>
+                    <th>{{ i18n.table.name }}</th>
+                    <th>{{ i18n.table.slug }}</th>
+                    <th>{{ i18n.table.description }}</th>
+                    <th>{{ i18n.table.like }}</th>
+                    <th>{{ i18n.table.createTo }}</th>
+                    <th>{{ i18n.table.createdAt }}</th>
+                    <th>{{ i18n.table.updatedAt }}</th>
+                    <th>{{ i18n.table.action.index }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,9 +62,11 @@
 import Pagination from 'laravel-vue-pagination'
 import useAdminPage from '../../services/admin/AdminPagesService'
 import { onMounted, ref } from 'vue'
+import lang from "../../services/tools/lang";
 
 const { pages, getPages, search } = useAdminPage()
 const query = ref('')
+const i18n = lang()
 
 onMounted(() => {
     getPages(1)

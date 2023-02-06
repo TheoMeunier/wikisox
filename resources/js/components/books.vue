@@ -3,6 +3,8 @@ import Pagination from 'laravel-vue-pagination'
 import Like from './modules/like.vue'
 import useBooks from '../services/booksService'
 import { onMounted, ref } from 'vue'
+import "../services/tools/lang";
+import lang from "../services/tools/lang";
 
 const props = defineProps({
     title: String,
@@ -10,6 +12,7 @@ const props = defineProps({
 
 const { books, getBooks, search, likeBook } = useBooks()
 const query = ref('')
+const i18n = lang()
 
 onMounted(() => {
     getBooks(1)
@@ -33,7 +36,7 @@ const like = async id => {
                 <div class="input__icon__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchBook" placeholder="search" />
+                <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchBook" :placeholder="i18n.search" />
             </form>
         </div>
 
