@@ -81,9 +81,14 @@
             </tbody>
         </table>
     </div>
+
+    <div class="d-flex justify-content-center">
+        <Pagination :data="chapters" :limit="4" @pagination-change-page="getChapters"></Pagination>
+    </div>
 </template>
 
 <script setup>
+import Pagination from 'laravel-vue-pagination'
 import useAdminChapter from '../../services/admin/AdminChaptersService'
 import { onMounted, ref } from 'vue'
 

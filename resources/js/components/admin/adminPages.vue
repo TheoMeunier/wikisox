@@ -45,9 +45,14 @@
             </tbody>
         </table>
     </div>
+
+    <div class="d-flex justify-content-center">
+        <Pagination :data="pages" :limit="4" @pagination-change-page="getPages"></Pagination>
+    </div>
 </template>
 
 <script setup>
+import Pagination from 'laravel-vue-pagination'
 import useAdminPage from '../../services/admin/AdminPagesService'
 import { onMounted, ref } from 'vue'
 

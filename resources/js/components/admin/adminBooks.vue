@@ -76,9 +76,14 @@
             </tbody>
         </table>
     </div>
+
+    <div class="d-flex justify-content-center">
+        <Pagination :data="books" @pagination-change-page="getBooks"></Pagination>
+    </div>
 </template>
 
 <script setup>
+import Pagination from 'laravel-vue-pagination'
 import ModalBookDelete from '../modal/admin/ModalBookDelete.vue'
 import useAdminBook from '../../services/admin/AdminBooksService'
 import { onMounted, ref } from 'vue'
