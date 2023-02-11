@@ -17,7 +17,7 @@
 <script setup>
 import useAuthUser from '../../services/AuthService'
 import { onMounted } from 'vue'
-import lang from "../../services/tools/lang";
+import lang from '../../services/tools/lang'
 
 const { auth, getAuthUser, updateUser } = useAuthUser()
 const i18n = lang()

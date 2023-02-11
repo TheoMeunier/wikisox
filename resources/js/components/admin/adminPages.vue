@@ -4,14 +4,7 @@
             <div class="input__icon__icon">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <input
-                v-model="query"
-                type="text"
-                class="input__icon__input w-64"
-                id="example-search-input"
-                @keyup="searchPage"
-                :placeholder="i18n.search"
-            />
+            <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchPage" :placeholder="i18n.search" />
         </form>
     </div>
     <div class="card__body">
@@ -64,7 +57,7 @@ import Pagination from 'laravel-vue-pagination'
 import useAdminPage from '../../services/admin/AdminPagesService'
 import AdminModalPageDelete from '../modal/admin/AdminModalPageDelete'
 import { onMounted, ref } from 'vue'
-import lang from "../../services/tools/lang";
+import lang from '../../services/tools/lang'
 
 const { pages, getPages, search } = useAdminPage()
 const query = ref('')

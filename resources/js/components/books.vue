@@ -1,10 +1,9 @@
 <script setup>
 import Pagination from 'laravel-vue-pagination'
-import Like from './modules/like.vue'
 import useBooks from '../services/booksService'
 import { onMounted, ref } from 'vue'
-import "../services/tools/lang";
-import lang from "../services/tools/lang";
+import '../services/tools/lang'
+import lang from '../services/tools/lang'
 
 const { books, getBooks, search, likeBook } = useBooks()
 const query = ref('')

@@ -4,14 +4,7 @@
             <div class="input__icon__icon">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <input
-                v-model="query"
-                type="text"
-                class="input__icon__input w-64"
-                id="example-search-input"
-                @keyup="searchUser"
-                :placeholder="i18n.search"
-            />
+            <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchUser" :placeholder="i18n.search" />
         </form>
     </div>
     <div class="card__body">
@@ -59,7 +52,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useAdminUser } from '../../services/admin/AdminUserService'
-import lang from "../../services/tools/lang";
+import lang from '../../services/tools/lang'
 
 const { users, getUsers, search } = useAdminUser()
 const query = ref('')

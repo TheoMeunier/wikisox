@@ -19,8 +19,8 @@
 <script setup>
 import Modal from '../modules/modal'
 import useBooks from '../../services/booksService'
-import lang from "../../services/tools/lang";
-import useAdminChapter from "../../services/admin/AdminChaptersService";
+import lang from '../../services/tools/lang'
+import useAdminChapter from '../../services/admin/AdminChaptersService'
 const props = defineProps({
     chapter: {},
 })

@@ -1,9 +1,8 @@
 <script setup>
 import Pagination from 'laravel-vue-pagination'
-import Like from './modules/like.vue'
 import { onMounted, ref } from 'vue'
 import useChapters from '../services/ChaptersService'
-import lang from "../services/tools/lang";
+import lang from '../services/tools/lang'
 
 const props = defineProps({
     slug: String,

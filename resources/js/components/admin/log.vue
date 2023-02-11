@@ -56,7 +56,7 @@
 import Pagination from 'laravel-vue-pagination'
 import useLogs from '../../services/admin/logsServices'
 import { onMounted } from 'vue'
-import lang from "../../services/tools/lang";
+import lang from '../../services/tools/lang'
 
 const { logs, getLogs } = useLogs()
 const i18n = lang()

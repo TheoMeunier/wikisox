@@ -30,7 +30,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import lang from "../../services/tools/lang";
+import lang from '../../services/tools/lang'
 
 const props = defineProps({
     sizeModal: {

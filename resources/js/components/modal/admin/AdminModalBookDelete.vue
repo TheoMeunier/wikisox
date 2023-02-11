@@ -18,8 +18,8 @@
 
 <script setup>
 import Modal from '../../modules/modal.vue'
-import lang from "../../../services/tools/lang";
-import useAdminBook from "../../../services/admin/AdminBooksService";
+import lang from '../../../services/tools/lang'
+import useAdminBook from '../../../services/admin/AdminBooksService'
 const props = defineProps({
     book: {},
 })

@@ -19,9 +19,9 @@
 <script setup>
 import Modal from '../modules/modal'
 import useBooks from '../../services/booksService'
-import lang from "../../services/tools/lang";
-import usePages from "../../services/PagesService";
-import useAdminPage from "../../services/admin/AdminPagesService";
+import lang from '../../services/tools/lang'
+import usePages from '../../services/PagesService'
+import useAdminPage from '../../services/admin/AdminPagesService'
 const props = defineProps({
     page: {},
 })

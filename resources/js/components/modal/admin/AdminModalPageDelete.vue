@@ -18,8 +18,8 @@
 
 <script setup>
 import Modal from '../../modules/modal'
-import lang from "../../../services/tools/lang";
-import useAdminPage from "../../../services/admin/AdminPagesService";
+import lang from '../../../services/tools/lang'
+import useAdminPage from '../../../services/admin/AdminPagesService'
 
 const props = defineProps({
     page: {},

@@ -17,7 +17,7 @@
 <script setup>
 import useAuthUser from '../../services/AuthService'
 import { reactive } from 'vue'
-import lang from "../../services/tools/lang";
+import lang from '../../services/tools/lang'
 
 const { updatePassword } = useAuthUser()
 const i18n = lang()
