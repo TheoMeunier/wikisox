@@ -41,8 +41,14 @@ export const data = {
     },
     "title": {
         "deleteAccount": "Supprimer mon compte",
+        "deleteBook": "Supprimer le livre",
+        "deleteChapter": "Supprimer le chapitre",
+        "deletePage": "Supprimer la page",
     },
     "modal": {
         "deleteAccount": "Voulez vous vraiment supprimer votre compte ?",
+        "deleteBook": "Voulez vous vraiment supprimer ce livre ?",
+        "deleteChapter": "Voulez vous vraiment supprimer ce chapitre ?",
+        "deletePage": "Voulez vous vraiment supprimer cette page ?",
     }
 }

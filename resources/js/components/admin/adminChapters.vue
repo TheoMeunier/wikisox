@@ -81,6 +81,7 @@
                                 <a :href="chapter.url" class="text-gray-900 whitespace-no-wrap">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                 </a>
+                                <AdminModalChapterDelete :chapter="chapter" @delete-chapter="deleteMyChapter(chapter)" />
                             </p>
                         </td>
                     </tr>
@@ -97,6 +98,7 @@
 <script setup>
 import Pagination from 'laravel-vue-pagination'
 import useAdminChapter from '../../services/admin/AdminChaptersService'
+import AdminModalChapterDelete from "../modal/admin/AdminModalChapterDelete.vue"
 import { onMounted, ref } from 'vue'
 import lang from "../../services/tools/lang";
 

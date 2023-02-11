@@ -15,7 +15,6 @@ import { useTransStore } from './Store/trans'
 import ProfileEdit from './components/profile/profileEdit.vue'
 import ProfilePasswordEdit from './components/profile/profilePasswordEdit.vue'
 import DeleteAccount from "./components/profile/deleteAccount.vue";
-import lang from "./services/tools/lang";
 
 const pinia = createPinia()
 const app = createApp(undefined, undefined)
@@ -35,5 +34,3 @@ app.component('adminPages', AdminPages)
 app.component('adminUsers', AdminUser)
 
 app.mount('#app')
-
-lang()

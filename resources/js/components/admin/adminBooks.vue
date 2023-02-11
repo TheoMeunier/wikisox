@@ -75,7 +75,7 @@
                                 <a :href="book.url" class="text-gray-900 whitespace-no-wrap">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                 </a>
-                                <ModalBookDelete :book="book" @delete-book="deleteMyBook(book)" />
+                                <AdminModalBookDelete :book="book" @delete-book="deleteMyBook(book)" />
                             </p>
                         </td>
                     </tr>
@@ -91,7 +91,7 @@
 
 <script setup>
 import Pagination from 'laravel-vue-pagination'
-import ModalBookDelete from '../modal/admin/ModalBookDelete.vue'
+import AdminModalBookDelete from '../modal/admin/AdminModalBookDelete.vue'
 import useAdminBook from '../../services/admin/AdminBooksService'
 import { onMounted, ref } from 'vue'
 import lang from "../../services/tools/lang";
