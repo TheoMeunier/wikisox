@@ -45,6 +45,7 @@
                         <td class="flex items-center">
                             <a :href="page.url">
                                 <i class="fa-solid fa-pen-to-square mr-2"></i>
+                                <AdminModalPageDelete :page="page" @delete-page="deleteMyPage(Page)" />
                             </a>
                         </td>
                     </tr>
@@ -61,6 +62,7 @@
 <script setup>
 import Pagination from 'laravel-vue-pagination'
 import useAdminPage from '../../services/admin/AdminPagesService'
+import AdminModalPageDelete from '../modal/admin/AdminModalPageDelete'
 import { onMounted, ref } from 'vue'
 import lang from "../../services/tools/lang";
 
