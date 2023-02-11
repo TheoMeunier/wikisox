@@ -24,5 +24,12 @@ return [
         'close'   => 'Annuler',
         'like'    => 'Ajouter au favoris',
         'dislike' => 'Supprimer des favoris',
+        'login'   => 'Se connecter',
+        'register'   => 'Créer un compte',
+        'confirmPassword'   => 'Confirmer mon mot de passe',
+        'updatePassword' => 'Modifier mon mot de passe',
+        'resetPassword'   => 'Modifier mon mot de passe',
+        'forgotPassword' => 'Mot de passe oublié ?',
+        'alreadyHaveAccount' => 'Vous avez déjà un compte ?',
     ],
 ];

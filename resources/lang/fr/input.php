@@ -12,6 +12,7 @@ return [
         'password'          => 'Mot de passe',
         'confirm-password'  => 'Confirmation mot de passe',
         'pseudo'            => 'Pseudo',
+        'remember_me'       => 'Se souvenir de moi',
     ],
 
     'placeholder' => [
