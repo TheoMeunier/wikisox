@@ -12,6 +12,12 @@
     gap: 16px;
 }
 
+.articles__books {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
 @media screen and (max-width: $breakpoint-laptop) {
     .home {
         @apply grid grid-cols-5 gap-4;

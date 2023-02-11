@@ -33,7 +33,7 @@ const like = async id => {
             </form>
         </div>
 
-        <div class="articles mt-6">
+        <div class="articles__books mt-6">
             <slot v-for="book in books.data" :key="book.id">
                 <article class="card" :class="book.like !== false ? 'card__like' : ''">
                     <a :href="book.url" class="card__img">
