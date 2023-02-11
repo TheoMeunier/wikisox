@@ -19,7 +19,7 @@ export default function useBooks() {
 
     const likeBook = async (id, data) => {
         await axios.post('/webapi/books/like/' + id, data)
-        await getBooks(1)
+        await getBooks(books.value.meta.current_page)
     }
 
     const deleteBook = async slug => {
