@@ -39,7 +39,7 @@ class Book extends Model
      */
     public function getLikeAttribute(): bool
     {
-        return ! is_null($this->likes()->first());
+        return ! is_null($this->likes->first());
     }
 
     /**
