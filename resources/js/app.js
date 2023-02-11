@@ -1,6 +1,5 @@
 import './bootstrap'
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
 
 import Books from './components/books.vue'
 import Chapters from './components/chapters.vue'
