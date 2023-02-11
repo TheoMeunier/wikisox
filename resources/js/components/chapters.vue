@@ -6,7 +6,6 @@ import useChapters from '../services/ChaptersService'
 import lang from "../services/tools/lang";
 
 const props = defineProps({
-    title: String,
     slug: String,
 })
 
@@ -29,9 +28,7 @@ const like = async id => {
 
 <template>
     <main class="main" id="main">
-        <div class="mt-2 mb-5 justify__between">
-            <h1>{{ title }}</h1>
-
+        <div class="mt-2 mb-5 flex justify-end">
             <form class="input__icon">
                 <div class="input__icon__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>

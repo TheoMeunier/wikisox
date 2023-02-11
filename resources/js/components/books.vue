@@ -6,10 +6,6 @@ import { onMounted, ref } from 'vue'
 import "../services/tools/lang";
 import lang from "../services/tools/lang";
 
-const props = defineProps({
-    title: String,
-})
-
 const { books, getBooks, search, likeBook } = useBooks()
 const query = ref('')
 const i18n = lang()
@@ -29,9 +25,7 @@ const like = async id => {
 
 <template>
     <main class="main" id="main">
-        <div class="mt-2 mb-5 justify__between">
-            <h1>{{ title }}</h1>
-
+        <div class="mt-2 mb-5 flex justify-end">
             <form class="input__icon">
                 <div class="input__icon__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
