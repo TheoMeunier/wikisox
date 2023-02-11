@@ -14,9 +14,10 @@ class ApiAdminUserController extends Controller
      * @param  Request  $request
      * @return AnonymousResourceCollection
      */
-    public function index(Request $request)
+    public function index(Request $request): AnonymousResourceCollection
     {
-        $users = User::with(['role'])
+        $users = User::query()
+            ->with(['role'])
             ->where(function ($query) use ($request) {
                 $query->orWhere('name', 'LIKE', "%$request->q%")
                     ->orWhere('email', 'LIKE', "%$request->q%");

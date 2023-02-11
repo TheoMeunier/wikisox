@@ -14,7 +14,8 @@ class ApiAdminLogController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        $logs = Activity::with(['subject', 'causer'])
+        $logs = Activity::query()
+            ->with(['subject', 'causer'])
             ->orderBy('created_at', 'DESC')
             ->paginate(8);
 

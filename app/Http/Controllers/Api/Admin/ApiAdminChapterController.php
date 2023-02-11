@@ -16,7 +16,8 @@ class ApiAdminChapterController extends Controller
      */
     public function index(Request $request): AnonymousResourceCollection
     {
-        $chapters = Chapter::with(['user', 'book', 'likes'])
+        $chapters = Chapter::query()
+            ->with(['user', 'book', 'likes'])
             ->where('name', 'LIKE', "%$request->q%")
             ->orderBy('created_at', 'DESC')
             ->paginate(8);

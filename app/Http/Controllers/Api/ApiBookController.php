@@ -18,7 +18,8 @@ class ApiBookController extends Controller
      */
     public function index(Request $request): AnonymousResourceCollection
     {
-        $books = Book::where('name', 'LIKE', "%$request->q%")
+        $books = Book::query()
+            ->where('name', 'LIKE', "%$request->q%")
             ->with(['user', 'likes'])
             ->paginate(12);
 
@@ -43,7 +44,8 @@ class ApiBookController extends Controller
     public function delete(string $slug)
     {
         if ($slug) {
-            $book = Book::where('slug', '=', $slug);
+            $book = Book::query()
+                ->where('slug', '=', $slug);
 
             if ($book !== null) {
                 $book->delete();

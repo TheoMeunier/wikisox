@@ -16,7 +16,8 @@ class ApiAdminPageController extends Controller
      */
     public function index(Request $request): AnonymousResourceCollection
     {
-        $pages = Page::with(['user', 'likes', 'chapter'])
+        $pages = Page::query()
+            ->with(['user', 'likes', 'chapter'])
             ->where('name', 'LIKE', "%$request->q%")
             ->orderBy('created_at', 'DESC')
             ->paginate(8);

@@ -16,7 +16,8 @@ class ApiAdminBookController extends Controller
      */
     public function index(Request $request): AnonymousResourceCollection
     {
-        $books = Book::with(['user', 'likes'])
+        $books = Book::query()
+            ->with(['user', 'likes'])
             ->where('name', 'LIKE', "%$request->q%")
             ->orderBy('created_at', 'DESC')
             ->paginate(8);

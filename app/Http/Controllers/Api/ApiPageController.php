@@ -20,9 +20,12 @@ class ApiPageController extends Controller
      */
     public function index(Request $request, string $slug, string $slugChapter): AnonymousResourceCollection
     {
-        $chapter = Chapter::where('slug', '=', $slugChapter)->firstOrFail();
+        $chapter = Chapter::query()
+            ->where('slug', '=', $slugChapter)
+            ->firstOrFail();
 
-        $pages = Page::where('chapter_id', '=', $chapter->id)
+        $pages = Page::query()
+            ->where('chapter_id', '=', $chapter->id)
             ->where('name', 'LIKE', '%'.$request->q.'%')
             ->with(['user', 'likes'])
             ->paginate(12);

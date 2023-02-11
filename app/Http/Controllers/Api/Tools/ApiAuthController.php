@@ -14,7 +14,9 @@ class ApiAuthController extends Controller
      */
     public function index(): AuthResource
     {
-        $user = User::where('id', '=', Auth::id())->firstOrFail();
+        $user = User::query()
+            ->where('id', '=', Auth::id())
+            ->firstOrFail();
 
         return AuthResource::make($user);
     }
