@@ -9,4 +9,6 @@ return [
     'users'        => 'Utilisateurs',
     'roles'        => 'Roles',
     'logs'         => 'Logs',
+    'create_to'    => 'Créer par :',
+    'created_at'   => 'Créer le :',
 ];

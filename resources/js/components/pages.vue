@@ -5,7 +5,6 @@ import usePages from '../services/PagesService'
 import lang from '../services/tools/lang'
 
 const props = defineProps({
-    title: String,
     book: String,
     chapter: String,
 })
@@ -26,8 +25,6 @@ const searchBook = async () => {
 <template>
     <main class="main" id="main">
         <div class="mt-2 mb-5 justify__between">
-            <h1>{{ title }}</h1>
-
             <form class="input__icon">
                 <div class="input__icon__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
