@@ -13,8 +13,8 @@
             <form action="{{ route('chapter.update', ['slug' => $chapter->slug ]) }}" method="POST">
                 @csrf
 
-                <div class="flex gap-5">
-                    <div class="w-3/4">
+                <div class="grid grid-cols-3 gap-5">
+                    <div class="col-span-2">
                         <div>
                             <x-label for="name" :value="__('input.label.name')"/>
                             <x-input id="name" class="block mt-1 w-full" type="text" name="name"
@@ -27,7 +27,7 @@
                                               value="{{ $chapter->description }}"></x-forms.textarea>
                         </div>
                     </div>
-                    <div class="w-2/4">
+                    <div>
                         <x-label for="image" :value="__('input.label.image')"/>
                         <x-forms.image :name="'image'" value="{{ $chapter->image }}"/>
                     </div>
