@@ -6,6 +6,7 @@ use App\Models\Book;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Str;
 
 class BookResource extends JsonResource
 {
@@ -20,9 +21,9 @@ class BookResource extends JsonResource
         /** @var Book $this */
         return [
             'id'          => $this->id,
-            'name'        => $this->name,
+            'name'        => Str::limit($this->name, 20),
             'slug'        => $this->slug,
-            'description' => $this->description,
+            'description' => Str::limit($this->description, 60),
             'image'       => $this->image,
             'username'    => $this->user->name,
             'created_at'  => Carbon::parse($this->created_at)->diffForHumans(),
