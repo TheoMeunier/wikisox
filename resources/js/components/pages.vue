@@ -24,7 +24,7 @@ const searchBook = async () => {
 
 <template>
     <main class="main" id="main">
-        <div class="mt-2 mb-5 justify__between">
+        <div class="mt-2 mb-5 flex justify-end">
             <form class="input__icon">
                 <div class="input__icon__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
