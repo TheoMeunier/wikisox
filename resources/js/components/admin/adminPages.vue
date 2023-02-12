@@ -35,11 +35,11 @@
                         <td>{{ page.username }}</td>
                         <td>{{ page.created_at }}</td>
                         <td>{{ page.updated_at }}</td>
-                        <td class="flex items-center">
+                        <td class="flex justify-start items-center">
                             <a :href="page.url">
                                 <i class="fa-solid fa-pen-to-square mr-2"></i>
-                                <AdminModalPageDelete :page="page" @delete-page="deleteMyPage(Page)" />
                             </a>
+                            <AdminModalPageDelete :page="page" @delete-page="deleteMyPage(Page)" />
                         </td>
                     </tr>
                 </slot>
@@ -59,7 +59,7 @@ import AdminModalPageDelete from '../modal/admin/AdminModalPageDelete'
 import { onMounted, ref } from 'vue'
 import lang from '../../services/tools/lang'
 
-const { pages, getPages, search } = useAdminPage()
+const { pages, getPages, search, deletePage } = useAdminPage()
 const query = ref('')
 const i18n = lang()
 
@@ -69,5 +69,9 @@ onMounted(() => {
 
 const searchPage = async () => {
     await search(query.value)
+}
+
+const deleteMyPage = async (page) => {
+    await deletePage(page.slug)
 }
 </script>

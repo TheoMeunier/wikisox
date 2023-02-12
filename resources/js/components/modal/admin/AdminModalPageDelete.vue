@@ -27,6 +27,8 @@ const props = defineProps({
 
 const { deletePage } = useAdminPage()
 const i18n = lang()
+const emit = defineEmits(['delete-page'])
+
 const deleteMyPage = async slug => {
     await deletePage(slug)
 }

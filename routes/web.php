@@ -158,11 +158,13 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
             Route::get('/{q?}', 'index');
         });
 
-        Route::get('/pages/{q?}', [ApiAdminPageController::class, 'index']);
+        Route::controller(ApiAdminPageController::class)->prefix('/pages')->group(function () {
+            Route::get('/{q?}', 'index');
+            Route::delete('/delete/{slug}', 'delete');
+        });
 
         Route::get('/users/{q?}', [ApiAdminUserController::class, 'index']);
     });
 
-    Route::get('/trans', ApiTransController::class);
     Route::get('/auth', [ApiAuthController::class, 'index']);
 });

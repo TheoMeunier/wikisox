@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Admin\AdminPageResource;
 use App\Models\Page;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -23,5 +24,17 @@ class ApiAdminPageController extends Controller
             ->paginate(8);
 
         return AdminPageResource::collection($pages);
+    }
+
+    /**
+     * @param string $slug
+     * @return JsonResponse
+     */
+    public function delete(string $slug): JsonResponse
+    {
+        $page = Page::query()->where('slug', $slug)->firstOrFail();
+        $page->delete();
+
+        return response()->json(['message' => 'Page deleted']);
     }
 }

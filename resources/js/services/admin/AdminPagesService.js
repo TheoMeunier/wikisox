@@ -18,7 +18,8 @@ export default function useAdminPage() {
     }
 
     const deletePage = async slug => {
-        await axios.delete('/webapi/books/delete' + slug)
+        await axios.delete('/webapi/admin/pages/delete/' + slug)
+        await getPages(1)
     }
 
     return { pages, getPages, deletePage, search }
