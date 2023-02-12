@@ -11,5 +11,16 @@
         <ul>
             <li>{{ auth()->user()->name }}</li>
         </ul>
+        <ul class="admin__navbar__item">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <a href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+            </form>
+        </ul>
     </div>
 </nav>
