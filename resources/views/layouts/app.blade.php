@@ -1,5 +1,4 @@
 <x-base-layout>
-    <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100" id="app">
         @include('layouts.navigation')
         @include('components._flash')
@@ -16,5 +15,4 @@
             {{ $slot }}
         </main>
     </div>
-    </body>
 </x-base-layout>

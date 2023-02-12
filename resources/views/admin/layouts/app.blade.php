@@ -1,5 +1,4 @@
 <x-base-layout>
-    <body class="font-sans antialiased">
     <div class="dashboard" id="app">
         @include('admin.layouts.navigation')
 
@@ -10,5 +9,4 @@
             </div>
         </main>
     </div>
-    </body>
 </x-base-layout>
