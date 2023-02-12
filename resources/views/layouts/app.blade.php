@@ -1,38 +1,20 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="{{ asset('js/index.js') }}" defer></script>
-
-        <!-- Styles -->
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    </head>
+<x-base-layout>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100" id="app">
-            @include('layouts.navigation')
-            @include('components._flash')
+    <div class="min-h-screen bg-gray-100" id="app">
+        @include('layouts.navigation')
+        @include('components._flash')
 
-            <!-- page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-8xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+        <!-- page Heading -->
+        <header class="bg-white shadow">
+            <div class="max-w-8xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
+            </div>
+        </header>
 
-            <!-- page Content -->
-            <main class="py-14 max-w-8xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $slot }}
-            </main>
-        </div>
+        <!-- page Content -->
+        <main class="py-14 max-w-8xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            {{ $slot }}
+        </main>
+    </div>
     </body>
-</html>
+</x-base-layout>
