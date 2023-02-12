@@ -16,7 +16,8 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    padding: 8px 0;
+    padding: 6px 0;
+    margin-top: 4px;
 
     a {
         margin-left: 8px;
@@ -25,6 +26,10 @@
     span {
         margin-left: 8px;
     }
+}
+
+.sidebar__link__active {
+    @apply text-indigo-500 bg-indigo-100 rounded-md;
 }
 
 .sidebar__link:hover {
