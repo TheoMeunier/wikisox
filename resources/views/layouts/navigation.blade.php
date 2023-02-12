@@ -4,7 +4,7 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center ">
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
@@ -15,7 +15,7 @@
                     <x-nav-link :href="route('book.index')" :active="request()->routeIs('book.index')">
                         {{ __('title.books') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('book.index')" :active="request()->routeIs('book.index')">
+                    <x-nav-link :href="route('book.index')" :active="request()->routeIs('chapter.index')">
                         {{ __('title.chapters') }}
                     </x-nav-link>
                 </div>
