@@ -9,10 +9,12 @@
         <div class="p-6 bg-white border-b border-gray-200">
             <div class="justify__between">
                 <h1>{{ $page->name }}</h1>
-                <a class="btn btn__primary" href="{{ route('book.chapter.page.edit', ['slug' => $book->slug, 'slugChapter' => $chapter->slug, 'slugPage' => $page->slug]) }}">
-                    <i class="fa-solid fa-pen-to-square mr-2"></i>
-                    {{ __('button.book.edit') }}
-                </a>
+                @can('page edit')
+                    <a class="btn btn__primary" href="{{ route('book.chapter.page.edit', ['slug' => $book->slug, 'slugChapter' => $chapter->slug, 'slugPage' => $page->slug]) }}">
+                        <i class="fa-solid fa-pen-to-square mr-2"></i>
+                        {{ __('button.book.edit') }}
+                    </a>
+                @endcan
             </div>
 
             <div class="prose prose-img:rounded-xl prose-a:text-blue-600 max-w-none">

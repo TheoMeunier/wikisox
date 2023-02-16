@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class AdminUserController extends Controller
 {
@@ -26,20 +27,23 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        $roles = Role::all();
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
      * @param  AdminUserRequest  $request
      * @return RedirectResponse
      */
-    public function store(AdminUserRequest $request)
+    public function store(AdminUserRequest $request): RedirectResponse
     {
-        User::create([
+        $user = User::create([
             'name'     => $request->get('name'),
             'email'    => $request->get('email'),
             'password' => Hash::make($request->get('password')),
         ]);
+
+        $this->addRole($user, $request->get('role'));
 
         return redirect()
             ->route('admin.users.index')
@@ -53,8 +57,9 @@ class AdminUserController extends Controller
     public function edit(int $id)
     {
         $user = User::findOrFail($id);
+        $roles = Role::all();
 
-        return view('admin.users.edit', compact('user'));
+        return view('admin.users.edit', compact('user','roles'));
     }
 
     /**
@@ -62,7 +67,7 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return RedirectResponse
      */
-    public function update(AdminUserRequest $request, int $id)
+    public function update(AdminUserRequest $request, int $id): RedirectResponse
     {
         $user = User::findOrFail($id);
 
@@ -71,8 +76,35 @@ class AdminUserController extends Controller
             'email' => $request->get('email'),
         ]);
 
+        if ($user->roles()->first() !== null) {
+            $this->removeRole($user, $user->roles()->first());
+        }
+
+        $this->addRole($user, $request->get('role'));
+
         return redirect()
             ->route('admin.users.index')
             ->with('success', __('flash.user.update'));
+    }
+
+    /**
+     * @param User $user
+     * @param string $role
+     * @return void
+     */
+    private function addRole (User $user, string $role): void
+    {
+        $role = Role::findOrFail($role);
+        $user->assignRole($role);
+    }
+
+    /**
+     * @param User $user
+     * @param Role $role
+     * @return void
+     */
+    private function removeRole (User $user, Role $role): void
+    {
+        $user->removeRole($role);
     }
 }

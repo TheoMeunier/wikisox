@@ -9,27 +9,35 @@
         <div class="p-6 bg-white border-b border-gray-200">
             <div class="justify__between">
                 <h1>{{ $chapter->name }}</h1>
-                <a href="{{ route('book.chapter.page.create', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}" class="btn btn__primary">
-                    <i class="fa-solid fa-plus mr-2"></i>
-                    {{ __('button.page.create') }}
-                </a>
+                @can('page create')
+                    <a href="{{ route('book.chapter.page.create', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}" class="btn btn__primary">
+                        <i class="fa-solid fa-plus mr-2"></i>
+                        {{ __('button.page.create') }}
+                    </a>
+                @endcan
             </div>
 
             <div class="grid grid-cols-5 gap-4">
                 <div class="mt-14 flex flex-col">
-                    <div class="flex flex-col">
-                        <h4>{{ __('title.action') }}</h4>
-                        <a href="{{ route('book.chapter.edit', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}" class="text-blue-500 mt-6">
-                            <i class="fa-solid fa-pen-to-square mr-2"></i>
-                            {{ __('button.chapter.edit') }}
-                        </a>
-                        <a href="#" class="text-red-500 mt-6">
-                            <i class="fa-solid fa-trash-can mr-2"></i>
-                            {{ __('button.chapter.delete') }}
-                        </a>
-                    </div>
+                    @can(['chapter edit', 'chapter delete'])
+                        <div class="flex flex-col mt-4 mb-14">
+                            <h4>{{ __('title.action') }}</h4>
+                           @can('chapter edit')
+                                <a href="{{ route('book.chapter.edit', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}" class="text-blue-500 mt-6">
+                                    <i class="fa-solid fa-pen-to-square mr-2"></i>
+                                    {{ __('button.chapter.edit') }}
+                                </a>
+                           @endcan
+                            @can('chapter delete')
+                                <a href="#" class="text-red-500 mt-6">
+                                    <i class="fa-solid fa-trash-can mr-2"></i>
+                                    {{ __('button.chapter.delete') }}
+                                </a>
+                            @endcan
+                        </div>
+                    @endcan
 
-                    <div class="mt-14">
+                    <div>
                         <h4>{{ __('title.info') }}</h4>
                         <p class="text-gray-500 mt-6">
                             <i class="fa-solid fa-user mr-2"></i>

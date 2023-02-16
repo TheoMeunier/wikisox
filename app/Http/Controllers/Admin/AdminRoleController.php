@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\PermissionResource;
-use App\Models\PermissionSystem;
-use App\Models\Role;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class AdminRoleController extends Controller
 {
@@ -19,9 +18,7 @@ class AdminRoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::with('relationResource', 'relationSystem')
-            ->get();
-
+        $roles = Role::all();
         return view('admin.roles.index', compact('roles'));
     }
 
@@ -30,10 +27,9 @@ class AdminRoleController extends Controller
      */
     public function create()
     {
-        $systems   = PermissionSystem::all();
-        $resources = PermissionResource::all();
+        $permissions   = Permission::all();
 
-        return view('admin.roles.create', compact('systems', 'resources'));
+        return view('admin.roles.create', compact('permissions'));
     }
 
     /**
@@ -41,14 +37,10 @@ class AdminRoleController extends Controller
      */
     public function edit(int $id)
     {
-        $role = Role::with(['relationResource', 'relationSystem'])
-            ->findOrFail($id);
+        $role = Role::findOrFail($id);
+        $permissions = Permission::all();
 
-        $systems = PermissionSystem::all();
-
-        $resources = PermissionResource::all();
-
-        return view('admin.roles.edit', compact('role', 'systems', 'resources'));
+        return view('admin.roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -59,15 +51,10 @@ class AdminRoleController extends Controller
     {
         $role = Role::create([
             'name'        => $request->get('name'),
-            'description' => $request->get('description'),
         ]);
 
-        foreach ($request->get('resources') ?: [] as $resource) {
-            $role->relationResource()->attach($resource);
-        }
-
-        foreach ($request->get('systems') ?: [] as $system) {
-            $role->relationSystem()->attach($system);
+        foreach ($request->get('permissions') ?: [] as $permission) {
+           $role->givePermissionTo($permission);
         }
 
         return redirect()->route('admin.roles.index');
@@ -81,19 +68,13 @@ class AdminRoleController extends Controller
     public function update(Request $request, int $id): RedirectResponse
     {
         $role = Role::findOrFail($id);
-        dd($request);
 
         $role->update([
             'name'        => $request->get('name'),
-            'description' => $request->get('description'),
         ]);
 
         foreach ($request->get('resources') ?: [] as $resource) {
             $role->relationResource()->attach($resource);
-        }
-
-        foreach ($request->get('systems') ?: [] as $system) {
-            $role->relationSystem()->attach($system);
         }
 
         return redirect()->route('admin.roles.index');

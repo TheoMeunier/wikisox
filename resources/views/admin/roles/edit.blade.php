@@ -13,37 +13,19 @@
                                  required autofocus/>
                     </div>
 
-                    <div class="mt-10">
-                        <x-label for="description" :value="__('input.label.short-description')"/>
-                        <x-input id="name" class="block mt-1 w-full" type="text" name="description"
-                                 value="{{ $role->description }}"
-                                 required autofocus/>
-                    </div>
-
-                    <div>
-                        @foreach($systems as $system)
-                            <label class="flex justify-start items-center cursor-pointer relative p-2">
-                                {{ $system->name }}
-                                <input type="checkbox" class="peer hidden" name="systems[]"
-                                       value="{{ $system->id }}"
-                                    {{ in_array($role->roleSystem[0], $system->id, true) ? 'checked' : '' }}>
-                                <span
-                                    class="bg-gray-300 w-11 h-7 rounded-full flex flex-shrink-0 items-center after:bg-white after:w-5 after:h-5 after:rounded-full p-1 peer-checked:bg-gray-800 peer-checked:after:translate-x-4 ease-in-out duration-300 after:duration-300 ml-2"></span>
-                            </label>
-                        @endforeach
-                    </div>
-
                     <div>
                         <div class="flex justify-between align-items flex-wrap">
-                            @foreach($resources as $resource)
-                                <div class="w-1/4">
+                            @foreach($permissions as $permission)
+                                <div class="w-1/3">
                                     <label class="flex justify-start items-center cursor-pointer relative p-2">
-                                        {{ $resource->name }}
-                                        @foreach($role->relationResource as $roleResource)
-                                            <input type="checkbox" class="peer hidden" name="resources[]"
-                                                   value="{{ $resource->id }}"
-                                                {{ $resource->id ===  $roleResource->id ? 'checked ' : ''}}>
-                                        @endforeach
+                                        {{ $permission->name }}
+                                        <input
+                                            type="checkbox"
+                                            class="peer hidden"
+                                            name="permissions[]" value="{{ $permission->id }}"
+                                            @if(in_array($permission->id, $role->permissions->pluck('id')->toArray())) checked
+                                            @endif
+                                        >
                                         <span
                                             class="bg-gray-300 w-11 h-7 rounded-full flex flex-shrink-0 items-center after:bg-white after:w-5 after:h-5 after:rounded-full p-1 peer-checked:bg-gray-800 peer-checked:after:translate-x-4 ease-in-out duration-300 after:duration-300 ml-2"></span>
                                     </label>
@@ -54,7 +36,7 @@
 
                     <div class="flex items-center justify-end mt-4">
                         <x-button class="ml-3">
-                            {{ __('button.action.create') }}
+                            {{ __('button.action.edit') }}
                         </x-button>
                     </div>
                 </form>

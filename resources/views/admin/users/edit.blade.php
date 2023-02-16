@@ -18,6 +18,16 @@
                              required autofocus/>
                 </div>
 
+                <div>
+                    <x-label for="role" :value="__('input.label.roles')"/>
+                    <select name="role" class="form-control" id="role">
+                        <option value="">--Please choose an option--</option>
+                        @foreach($roles as $role)
+                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="flex items-center justify-end mt-4">
                     <x-button class="ml-3">
                         {{ __('button.action.edit') }}

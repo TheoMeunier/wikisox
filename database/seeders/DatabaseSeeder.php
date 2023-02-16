@@ -41,9 +41,8 @@ class DatabaseSeeder extends Seeder
             )
             ->create();
 
-       /* $this->call([
-            PermissionSystemSeeder::class,
-            PermissionsResourcesSeed::class,
-        ]);*/
+       $this->call([
+            PermissionsSeed::class,
+        ]);
     }
 }

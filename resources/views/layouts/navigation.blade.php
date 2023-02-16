@@ -56,10 +56,12 @@
                                 <i class="fa-solid fa-arrow-right-from-bracket mr-2"></i>{{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
-                        <hr>
-                        <x-dropdown-link :href="route('admin.index')" class="text-red-600">
-                            <i class="fa-solid fa-gear mr-2"></i>Administration
-                        </x-dropdown-link>
+                        @hasrole('admin')
+                            <hr>
+                            <x-dropdown-link :href="route('admin.index')" class="text-red-600">
+                                <i class="fa-solid fa-gear mr-2"></i>Administration
+                            </x-dropdown-link>
+                        @endhasrole
                     </x-slot>
                 </x-dropdown>
             </div>

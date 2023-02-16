@@ -10,7 +10,7 @@ export function useAdminUser() {
 
     const search = async query => {
         if (query.length > 3) {
-            let response = await axios.get('/webapi/admin/pages/' + query)
+            let response = await axios.get('/webapi/admin/users/' + query)
             users.value = response.data
         } else {
             await getUsers(1)

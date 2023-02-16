@@ -19,14 +19,26 @@
                 </div>
 
                 <div>
+                    <x-label for="role" :value="__('input.label.roles')"/>
+                    <select name="role" class="form-control" id="role">
+                        <option value="">--Please choose an option--</option>
+                        @foreach($roles as $role)
+                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div>
                     <x-label for="password" :value="__('input.label.password')"/>
-                    <x-input id="password" class="block mt-1 w-full" type="password" name="password" value="{{ old('password') }}"
+                    <x-input id="password" class="block mt-1 w-full" type="password" name="password"
+                             value="{{ old('password') }}"
                              required autofocus/>
                 </div>
 
                 <div>
                     <x-label for="password" :value="__('input.label.confirm-password')"/>
-                    <x-input id="password" class="block mt-1 w-full" type="password" name="password_confirmation" value="{{ old('password') }}"
+                    <x-input id="password" class="block mt-1 w-full" type="password" name="password_confirmation"
+                             value="{{ old('password') }}"
                              required autofocus/>
                 </div>
 

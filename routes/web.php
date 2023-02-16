@@ -17,7 +17,6 @@ use App\Http\Controllers\Api\ApiChapterController;
 use App\Http\Controllers\Api\ApiPageController;
 use App\Http\Controllers\Api\ApiProfileController;
 use App\Http\Controllers\Api\Tools\ApiAuthController;
-use App\Http\Controllers\Api\Tools\ApiTransController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\PageController;
@@ -39,11 +38,11 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
     Route::controller(ChapterController::class)->prefix('/chapter')->name('chapter.')->group(function () {
-        Route::post('/{slug}/edit', 'update')->name('update');
+        Route::post('/{slug}/edit', 'update')->name('update')->middleware('can:chapter edit');
     });
 
     Route::controller(PageController::class)->prefix('/page')->name('pages.')->group(function () {
-        Route::post('/{slug}', 'update')->name('update');
+        Route::post('/{slug}', 'update')->name('update')->middleware('can:page edit');
     });
 
     Route::controller(ProfileController::class)->prefix('/profile')->name('profile.')->group(function () {
@@ -53,28 +52,28 @@ Route::middleware(['auth'])->group(function () {
 
     Route::controller(BookController::class)->prefix('/books')->name('book.')->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/create', 'create')->name('create');
-        Route::post('/create', 'store')->name('store');
-        Route::get('/{slug}/edit', 'edit')->name('edit');
-        Route::post('/{slug}/edit', 'update')->name('update');
+        Route::get('/create', 'create')->name('create')->middleware('can:book create');
+        Route::post('/create', 'store')->name('store')->middleware('can:book create');
+        Route::get('/{slug}/edit', 'edit')->name('edit')->middleware('can:book edit');
+        Route::post('/{slug}/edit', 'update')->name('update')->middleware('can:book edit');
 
         Route::controller(ChapterController::class)->prefix('/{slug}')->name('chapter.')->group(function () {
             Route::get('/', 'index')->name('index');
-            Route::get('/create', 'create')->name('create');
-            Route::post('/create', 'store')->name('store');
-            Route::get('/{slugChapter}/edit', 'edit')->name('edit');
+            Route::get('/create', 'create')->name('create')->middleware('can:chapter create');
+            Route::post('/create', 'store')->name('store')->middleware('can:chapter create');
+            Route::get('/{slugChapter}/edit', 'edit')->name('edit')->middleware('can:chapter edit');
 
             Route::controller(PageController::class)->prefix('/{slugChapter}')->name('page.')->group(function () {
                 Route::get('/', 'index')->name('index');
-                Route::get('/create', 'create')->name('create');
-                Route::post('/create', 'store')->name('store');
+                Route::get('/create', 'create')->name('create')->middleware('can:page create');
+                Route::post('/create', 'store')->name('store')->middleware('can:page create');
                 Route::get('/{slugPage}', 'show')->name('show');
-                Route::get('/{slugPage}/edit', 'edit')->name('edit');
+                Route::get('/{slugPage}/edit', 'edit')->name('edit')->middleware('can:page edit');
             });
         });
     });
 
-    Route::prefix('admin')->name('admin.')->group(function () {
+    Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
         Route::get('/logs', [AdminlogController::class, 'index'])->name('logs.index');
 

@@ -9,10 +9,12 @@
         <div class="p-6 bg-white border-b border-gray-200" style="width: 100%">
             <div class="justify__between ">
                 <h1>{{ __('title.books') }}</h1>
-                <a href="{{ route('book.create') }}" class="btn btn__primary">
-                    <i class="fa-solid fa-plus mr-2"></i>
-                    {{ __('button.book.create') }}
-                </a>
+                @can('book create')
+                    <a href="{{ route('book.create') }}" class="btn btn__primary">
+                        <i class="fa-solid fa-plus mr-2"></i>
+                        {{ __('button.book.create') }}
+                    </a>
+                @endcan
             </div>
 
             <Books/>
