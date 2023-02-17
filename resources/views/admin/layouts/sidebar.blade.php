@@ -1,7 +1,7 @@
 <div class="sidebar">
     <ul class="sidebar__section">
-        <li class="sidebar__link">
-            <a href="#" class="">
+        <li class="sidebar__link @if(request()->routeIs('admin.index')) sidebar__link__active @endif">
+            <a href="{{ route('admin.index') }}">
                 <i class="fa-solid fa-house"></i>
                 <span>Dashboard</span>
             </a>

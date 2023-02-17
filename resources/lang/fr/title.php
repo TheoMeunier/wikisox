@@ -12,6 +12,7 @@ return [
     'roles'    => 'Mes Roles',
     'users'    => 'Mes Utilisateurs',
     'logs'     => 'Les Logs',
+    'dashboard' => 'Dashboard',
 
     'book' => [
         'create' => 'Créer un livre',
