@@ -57,7 +57,8 @@ class AdminRoleController extends Controller
            $role->givePermissionTo($permission);
         }
 
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('admin.roles.index')
+            ->with('success', __('flash.role.create'));
     }
 
     /**

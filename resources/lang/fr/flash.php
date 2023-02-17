@@ -37,4 +37,10 @@ return [
         'delete' => "L'utilisateur à bien été supprimé",
     ],
 
+    'role' => [
+        'create' => "Le role à bien été créé",
+        'update' => "Le role à bien été modifié",
+        'delete' => "Le role à bien été supprimé",
+    ],
+
 ];
