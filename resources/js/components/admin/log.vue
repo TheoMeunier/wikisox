@@ -46,7 +46,7 @@
             </table>
 
             <div class="d-flex justify-content-center">
-                <Pagination :data="logs" @pagination-change-page="getLogs"> </Pagination>
+                <Pagination :data="logs" :limit="4" @pagination-change-page="getLogs"> </Pagination>
             </div>
         </div>
     </div>

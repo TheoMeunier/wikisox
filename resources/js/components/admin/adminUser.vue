@@ -47,9 +47,14 @@
             </tbody>
         </table>
     </div>
+
+    <div class="d-flex justify-content-center">
+        <Pagination :data="users" :limit="4" @pagination-change-page="getUsers"></Pagination>
+    </div>
 </template>
 
 <script setup>
+import Pagination from 'laravel-vue-pagination'
 import { onMounted, ref } from 'vue'
 import { useAdminUser } from '../../services/admin/AdminUserService'
 import lang from '../../services/tools/lang'
