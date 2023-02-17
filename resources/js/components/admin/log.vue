@@ -21,19 +21,19 @@
                                 <p v-if="log.event === 'created'" class="whitespace-no-wrap">
                                     <span class="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
                                         <span class="absolute inset-0 rounded-full bg-green-200 opacity-50" />
-                                        <span class="relative"> lang.i18n.tag.created </span>
+                                        <span class="relative">{{ i18n.table.action.create }}</span>
                                     </span>
                                 </p>
                                 <p v-else-if="log.event === 'updated'" class="whitespace-no-wrap">
                                     <span class="relative inline-block px-3 py-1 font-semibold leading-tight text-orange-900">
                                         <span class="absolute inset-0 rounded-full bg-orange-200 opacity-50" />
-                                        <span class="relative"> lang.i18n.tag.updated </span>
+                                        <span class="relative">{{ i18n.table.action.update }}</span>
                                     </span>
                                 </p>
                                 <p v-else-if="log.event === 'deleted'" class="whitespace-no-wrap">
                                     <span class="relative inline-block px-3 py-1 font-semibold leading-tight text-red-900">
                                         <span class="absolute inset-0 rounded-full bg-red-200 opacity-50" />
-                                        <span class="relative"> lang.i18n.tag.deleted </span>
+                                        <span class="relative">{{ i18n.table.action.delete }}</span>
                                     </span>
                                 </p>
                             </td>
