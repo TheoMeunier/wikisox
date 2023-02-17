@@ -11,6 +11,8 @@ use Database\Factories\ChapterFactory;
 use Database\Factories\PageFactory;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,6 +24,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
+        //dev
         User::factory()
             ->count(10)
             ->has(Book::factory()
@@ -41,8 +44,17 @@ class DatabaseSeeder extends Seeder
             )
             ->create();
 
-       $this->call([
+        $this->call([
             PermissionsSeed::class,
         ]);
+
+        //prod
+        $role = Role::create(['name' => 'admin']);
+        foreach (Permission::all() as $permission) {
+            $role->givePermissionTo($permission);
+        }
+
+        $user = User::factory()->count(1)->create();
+        $user->assignRole($role);
     }
 }
