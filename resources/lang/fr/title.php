@@ -14,6 +14,12 @@ return [
     'logs'     => 'Les Logs',
     'dashboard' => 'Dashboard',
 
+    'profile' => [
+        'books' => 'Mes Livres',
+        'chapters' => 'Mes Chapitres',
+        'pages' => 'Mes Pages',
+    ],
+
     'book' => [
         'create' => 'Créer un livre',
         'edit'   => 'Modifier mon livre',
