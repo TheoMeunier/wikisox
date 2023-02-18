@@ -15,6 +15,7 @@ return [
     'dashboard' => 'Dashboard',
 
     'profile' => [
+        'index' => 'Mon Profil',
         'books' => 'Mes Livres',
         'chapters' => 'Mes Chapitres',
         'pages' => 'Mes Pages',
