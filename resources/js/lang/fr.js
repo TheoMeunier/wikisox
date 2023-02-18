@@ -21,6 +21,7 @@ export const data = {
             "update": "Modifier",
             "delete": "Supprimer",
         },
+        "notVerify": "Non Vérifier",
         "tittle": "Nom Article",
         "createdAt": "Créer le",
         "updatedAt": "Modifier le",

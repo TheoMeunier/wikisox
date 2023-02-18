@@ -30,17 +30,19 @@
                         <td>Mon Roles</td>
                         <td>
                             <span class="relative inline-block px-3 py-1 font-semibold leading-tight" :class="user.verify === null ? 'text-red-900' : 'text-green-900'">
-                                <span class="absolute inset-0 rounded-full opacity-50" :class="false ? 'bg-red-200' : 'bg-green-200'"> </span>
-                                <span v-if="false" class="relative">not verify</span>
-                                <span v-else class="relative">verify</span>
+                                <span class="absolute inset-0 rounded-full opacity-50" :class="user.verify === null ? 'bg-red-200' : 'bg-green-200'"> </span>
+                                <span v-if="user.verify === null" class="relative">{{ i18n.table.notVerify }}</span>
+                                <span v-else class="relative">{{ i18n.table.verify }}</span>
                             </span>
                         </td>
                         <td>{{ user.created_at }}</td>
                         <td>{{ user.updated_at }}</td>
-                        <td class="flex items-center pointer">
-                            <a :href="user.edit">
-                                <i class="fa-solid fa-pen-to-square mr-2"></i>
-                            </a>
+                        <td>
+                            <p  class="flex items-center pointer">
+                                <a :href="user.edit">
+                                    <i class="fa-solid fa-pen-to-square mr-2"></i>
+                                </a>
+                            </p>
                         </td>
                     </tr>
                 </slot>
