@@ -15,7 +15,6 @@
                     <tr>
                         <th>{{ __('table.id') }}</th>
                         <th>{{ __('table.name') }}</th>
-                        <th>{{ __('table.description') }}</th>
                         <th>{{ __('table.createdAt') }}</th>
                         <th>{{ __('table.updatedAt') }}</th>
                         <th>{{ __('table.action') }}</th>
@@ -36,11 +35,6 @@
                             </td>
                             <td>
                                 <p class="text-gray-900 whitespace-no-wrap">
-                                    {{ $role->description }}
-                                </p>
-                            </td>
-                            <td>
-                                <p class="text-gray-900 whitespace-no-wrap">
                                     {{ $role->created_at->format('d/m/Y') }}
                                 </p>
                             </td>
@@ -50,11 +44,14 @@
                                 </p>
                             </td>
                             <td>
-                                <p class="flex align-center">
-                                    <a href="{{ route('admin.roles.edit', ['id' => $role->id]) }}" class="text-gray-900 whitespace-no-wrap">
-                                        <i class="fa-solid fa-pen-to-square mr-2"></i>
-                                    </a>
-                                </p>
+                                @if($role->id !== 1)
+                                    <p class="flex align-center">
+                                        <a href="{{ route('admin.roles.edit', ['id' => $role->id]) }}"
+                                           class="text-gray-900 whitespace-no-wrap">
+                                            <i class="fa-solid fa-pen-to-square mr-2"></i>
+                                        </a>
+                                    </p>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
