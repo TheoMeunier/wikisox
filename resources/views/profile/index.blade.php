@@ -34,7 +34,7 @@
     </section>
 
     <section class="card card__body mb-8">
-        <h2>{{ __('title.profile.books') }}</h2>
+        <h2 class="h3">{{ __('title.profile.books') }}</h2>
 
         @if($books->count() > 0)
             <div class="grid grid-cols-4 gap-5 mt-3">
@@ -62,7 +62,7 @@
     </section>
 
     <section class="card card__body mb-8">
-        <h2>{{ __('title.profile.chapters') }}</h2>
+        <h2 class="h3">{{ __('title.profile.chapters') }}</h2>
 
         @if($chapters->count() > 0)
             <div class="grid grid-cols-4 gap-5 mt-3">
@@ -90,7 +90,7 @@
     </section>
 
     <section class="card card__body mb-8">
-        <h2>{{ __('title.profile.pages') }}</h2>
+        <h2 class="h3">{{ __('title.profile.pages') }}</h2>
 
         @if($pages->count() > 0)
             <div class="grid grid-cols-4 gap-5 mt-3">
