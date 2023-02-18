@@ -18,18 +18,26 @@
                         <div>
                             <x-label for="name" :value="__('input.label.name')"/>
                             <x-input id="name" class="block mt-1 w-full" type="text" name="name"
-                                     value="{{ $chapter->name }}"
-                                     required autofocus/>
+                                     value="{{ $chapter->name }}"/>
+                            @error('name')
+                            <div class="text-red-500">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mt-10">
                             <x-label for="description" :value="__('input.label.description')"/>
                             <x-forms.textarea name="description" id="description"
                                               value="{{ $chapter->description }}"></x-forms.textarea>
+                            @error('description')
+                            <div class="text-red-500">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div>
                         <x-label for="image" :value="__('input.label.image')"/>
                         <x-forms.image :name="'image'" value="{{ $chapter->image }}"/>
+                        @error('image')
+                        <div class="text-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 

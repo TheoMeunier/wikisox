@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BookRequest;
 use App\Models\Book;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -29,10 +30,10 @@ class BookController extends Controller
     }
 
     /**
-     * @param  Request  $request
+     * @param  BookRequest  $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(BookRequest $request): RedirectResponse
     {
         Book::create([
             'name'        => $request->get('name'),
@@ -59,11 +60,11 @@ class BookController extends Controller
     }
 
     /**
-     * @param  Request  $request
+     * @param  BookRequest  $request
      * @param  string  $slug
      * @return RedirectResponse
      */
-    public function update(Request $request, string $slug): RedirectResponse
+    public function update(BookRequest $request, string $slug): RedirectResponse
     {
         $book = Book::where('slug', '=', $slug)->firstOrFail();
 

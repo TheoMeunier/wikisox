@@ -26,6 +26,7 @@ class AdminUserRequest extends FormRequest
         $rules =  [
             'name'        => 'required|min:3',
             'email'       => 'required|email',
+            'role'        => 'required',
         ];
 
         if ($this->route('admin.users.store')) {

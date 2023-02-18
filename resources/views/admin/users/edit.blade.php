@@ -8,14 +8,20 @@
 
                 <div>
                     <x-label for="name" :value="__('input.label.name')"/>
-                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $user->name }}"
-                             required autofocus/>
+                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $user->name }}"/>
+                    @error('name')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
+
                 </div>
 
                 <div>
                     <x-label for="email" :value="__('input.label.email')"/>
-                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" value="{{ $user->email }}"
-                             required autofocus/>
+                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" value="{{ $user->email }}"/>
+
+                    @error('email')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div>
@@ -26,6 +32,10 @@
                             <option value="{{ $role->id }}">{{ $role->name }}</option>
                         @endforeach
                     </select>
+
+                    @error('role')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="flex items-center justify-end mt-4">

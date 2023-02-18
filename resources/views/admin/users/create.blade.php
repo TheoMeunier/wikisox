@@ -8,14 +8,18 @@
 
                 <div>
                     <x-label for="name" :value="__('input.label.name')"/>
-                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ old('name') }}"
-                             required autofocus/>
+                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ old('name') }}"/>
+                    @error('name')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div>
                     <x-label for="email" :value="__('input.label.email')"/>
-                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" value="{{ old('email') }}"
-                             required autofocus/>
+                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" value="{{ old('email') }}"/>
+                    @error('email')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div>
@@ -26,20 +30,27 @@
                             <option value="{{ $role->id }}">{{ $role->name }}</option>
                         @endforeach
                     </select>
+                    @error('role')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div>
                     <x-label for="password" :value="__('input.label.password')"/>
                     <x-input id="password" class="block mt-1 w-full" type="password" name="password"
-                             value="{{ old('password') }}"
-                             required autofocus/>
+                             value="{{ old('password') }}"/>
+                    @error('password')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div>
                     <x-label for="password" :value="__('input.label.confirm-password')"/>
                     <x-input id="password" class="block mt-1 w-full" type="password" name="password_confirmation"
-                             value="{{ old('password') }}"
-                             required autofocus/>
+                             value="{{ old('password') }}"/>
+                    @error('password')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="flex items-center justify-end mt-4">

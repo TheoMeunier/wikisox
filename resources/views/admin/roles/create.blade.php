@@ -9,8 +9,11 @@
 
                     <div>
                         <x-label for="name" :value="__('input.label.name')"/>
-                        <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ old('name') }}"
-                                 required autofocus/>
+                        <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ old('name') }}"/>
+
+                        @error('name')
+                        <div class="text-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div>

@@ -15,12 +15,17 @@
                 <div>
                     <div>
                         <x-label for="name" :value="__('input.label.name')"/>
-                        <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $page->name}}"
-                                 required autofocus/>
+                        <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $page->name}}"/>
+                        @error('name')
+                        <div class="text-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mt-10">
                         <x-label for="description" :value="__('input.label.description')"/>
                         <x-forms.mde name="content" value="{!!  $page->content  !!}"></x-forms.mde>
+                        @error('content')
+                        <div class="text-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
