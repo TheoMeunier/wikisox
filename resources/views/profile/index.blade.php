@@ -93,21 +93,19 @@
         <h2 class="h3">{{ __('title.profile.pages') }}</h2>
 
         @if($pages->count() > 0)
-            <div class="grid grid-cols-4 gap-5 mt-3">
-                @foreach($pages as $page)
-                    <div>
-                        <article class="card">
-                            <div class="card__body justify__between">
-                                <h5 class="card__title border-left">{{ $page->name }}</h5>
-                                <span class="text__secondary">
+            @foreach($pages as $page)
+                <div>
+                    <article class="card">
+                        <div class="card__body justify__between">
+                            <h5 class="card__title border-left">{{ $page->name }}</h5>
+                            <span class="text__secondary">
                                 <i class="fa-regular fa-clock mr-2"></i>
                                 {{ $page->created_at->diffForHumans() }}
                             </span>
-                            </div>
-                        </article>
-                    </div>
-                @endforeach
-            </div>
+                        </div>
+                    </article>
+                </div>
+            @endforeach
         @else
             <p class="text-center my-4">{{ auth()->user()->name }} {{ __('page/profile.dont_create', ['param' => 'pages']) }}</p>
         @endif
