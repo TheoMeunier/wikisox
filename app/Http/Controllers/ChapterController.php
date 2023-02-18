@@ -95,4 +95,18 @@ class ChapterController extends Controller
             ->route('book.chapter.index', ['slug' => $chapter->book->slug])
             ->with('success', __('flash.chapter.update'));
     }
+
+    /**
+     * @param string $slug
+     * @return RedirectResponse
+     */
+    public function delete(string $slug): RedirectResponse
+    {
+        $chapter = Chapter::query()->where('slug', '=', $slug)->firstOrFail();
+        $chapter->delete();
+
+        return redirect()
+            ->route('book.chapter.index', ['slug' => $chapter->book->slug])
+            ->with('success', __('flash.chapter.delete'));
+    }
 }

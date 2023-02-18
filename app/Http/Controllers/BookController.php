@@ -78,4 +78,14 @@ class BookController extends Controller
             ->route('book.chapter.index', ['slug' => $book->slug])
             ->with('success', __('flash.book.update'));
     }
+
+    public function delete(string $slug)
+    {
+        $book = Book::query()->where('slug', '=', $slug)->firstOrFail();
+        $book->delete();
+
+        return redirect()
+            ->route('book.index')
+            ->with('success', __('flash.book.delete'));
+    }
 }

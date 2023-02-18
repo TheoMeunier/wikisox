@@ -39,10 +39,12 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function () {
     Route::controller(ChapterController::class)->prefix('/chapter')->name('chapter.')->group(function () {
         Route::post('/{slug}/edit', 'update')->name('update')->middleware('can:chapter edit');
+        Route::delete('/{slug}/delete', 'delete')->name('delete')->middleware('can:chapter delete');
     });
 
     Route::controller(PageController::class)->prefix('/page')->name('pages.')->group(function () {
         Route::post('/{slug}', 'update')->name('update')->middleware('can:page edit');
+        Route::delete('/{slug}/delete', 'delete')->name('delete')->middleware('can:page delete');
     });
 
     Route::controller(ProfileController::class)->prefix('/profile')->name('profile.')->group(function () {
@@ -56,6 +58,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/create', 'store')->name('store')->middleware('can:book create');
         Route::get('/{slug}/edit', 'edit')->name('edit')->middleware('can:book edit');
         Route::post('/{slug}/edit', 'update')->name('update')->middleware('can:book edit');
+        Route::delete('/{slug}/delete', 'delete')->name('delete')->middleware('can:book delete');
 
         Route::controller(ChapterController::class)->prefix('/{slug}')->name('chapter.')->group(function () {
             Route::get('/', 'index')->name('index');

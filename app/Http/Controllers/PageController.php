@@ -128,4 +128,21 @@ class PageController extends Controller
             ])
             ->with('success', __('flash.page.update'));
     }
+
+    /**
+     * @param string $slug
+     * @return RedirectResponse
+     */
+    public function delete(string $slug): RedirectResponse
+    {
+        $page = Page::query()->where('slug', '=', $slug)->firstOrFail();
+        $page->delete();
+
+        return redirect()
+            ->route('book.chapter.page.index', [
+                'slug'        => $page->chapter->book->slug,
+                'slugChapter' => $page->chapter->slug,
+            ])
+            ->with('success', __('flash.page.delete'));
+    }
 }

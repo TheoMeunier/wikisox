@@ -22,16 +22,20 @@
                         <div class="flex flex-col">
                             <h4>{{ __('title.action') }}</h4>
                             @can('book edit')
-                                <a href="{{ route('book.edit', ['slug' => $book->slug]) }}" class="text-blue-500 mt-6">
+                                <a href="{{ route('book.edit', ['slug' => $book->slug]) }}" class="text-blue-500 my-6">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                     {{ __('button.book.edit') }}
                                 </a>
                             @endcan
                             @can('book delete')
-                                <a href="{{ route('book.edit', ['slug' => $book->slug]) }}" class="text-red-500 mt-6">
-                                    <i class="fa-solid fa-trash-can mr-2"></i>
-                                    {{ __('button.book.delete') }}
-                                </a>
+                                <form method="post" action="{{ route('book.delete', ['slug' => $book->slug]) }}" style="display: inline-block" onsubmit="return confirm('Etes vous vraiment sur ?')">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button class="text-red-500">
+                                        <i class="fa-solid fa-trash-can mr-2"></i>
+                                        {{ __('button.book.delete') }}
+                                    </button>
+                                </form>
                             @endcan
                         </div>
                     @endcan
