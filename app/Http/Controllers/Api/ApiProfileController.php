@@ -19,6 +19,11 @@ class ApiProfileController extends Controller
      */
     public function update(Request $request): JsonResponse
     {
+        $request->validate([
+            'name' => 'required|min:4',
+            'email' => 'required|email'
+        ]);
+
         $user = User::where('id', '=', auth()->id())->firstOrFail();
 
         $user->update([
@@ -37,6 +42,10 @@ class ApiProfileController extends Controller
      */
     public function updatePassword(Request $request): JsonResponse
     {
+        $request->validate([
+            'password' => 'required|confirmed|min:6'
+        ]);
+
         $user = User::where('id', '=', auth()->id())->firstOrFail();
 
         if ($request->get('password') === $request->get('confirm_password')) {

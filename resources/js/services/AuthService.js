@@ -2,9 +2,13 @@ import { ref } from 'vue'
 
 export default function useAuthUser() {
     const auth = ref([])
-    const errors = ref({
+    const errorsEdit = ref({
         name: '',
         email: '',
+    })
+    const errorsPassword = ref({
+        password: '',
+        password_confirmation: '',
     })
 
     const getAuthUser = async () => {
@@ -17,7 +21,7 @@ export default function useAuthUser() {
             await axios.put(`/webapi/profile/update`, auth.value)
         } catch (e) {
             for (const key in e.response.data.errors) {
-                errors.value[key] += e.response.data.errors[key][0] + ' '
+                errorsEdit.value[key] += e.response.data.errors[key][0] + ' '
             }
         }
     }
@@ -27,10 +31,10 @@ export default function useAuthUser() {
             await axios.put(`/webapi/profile/update/password`, data)
         } catch (e) {
             for (const key in e.response.data.errors) {
-                errors.value[key] += e.response.data.errors[key][0] + ' '
+                errorsPassword.value[key] += e.response.data.errors[key][0] + ' '
             }
         }
     }
 
-    return { auth, getAuthUser, updateUser, updatePassword, errors }
+    return { auth, getAuthUser, updateUser, updatePassword, errorsEdit, errorsPassword }
 }

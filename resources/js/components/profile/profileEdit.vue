@@ -3,10 +3,17 @@
         <div>
             <label for="name">{{ i18n.input.name }}</label>
             <input type="text" class="form-control block mt-1" v-model="auth.name" />
+
+            <div v-if="errorsEdit.name !== null">
+                <p class="text-red-500">{{ errorsEdit.name }}</p>
+            </div>
         </div>
         <div>
             <label for="email">{{ i18n.input.email }}</label>
             <input type="email" class="form-control block mt-1" v-model="auth.email" />
+            <div v-if="errorsEdit.email !== null">
+                <p class="text-red-500">{{ errorsEdit.email }}</p>
+            </div>
         </div>
     </div>
     <div class="flex justify-end mt-3">
@@ -19,7 +26,7 @@ import useAuthUser from '../../services/AuthService'
 import { onMounted } from 'vue'
 import lang from '../../services/tools/lang'
 
-const { auth, getAuthUser, updateUser } = useAuthUser()
+const { auth, errorsEdit, getAuthUser, updateUser } = useAuthUser()
 const i18n = lang()
 
 onMounted(() => {
