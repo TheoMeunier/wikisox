@@ -6,7 +6,7 @@
                     id="img-filemanager"
                     class="mx-auto"
                     style="min-width: 315px; max-width: 315px; height: 200px"
-                    src="{{ $value !== null ? $value : ''}}"
+                    src="{{ asset('images/donwload.svg') ?? $value}}"
                     alt="download"
             />
         </div>
