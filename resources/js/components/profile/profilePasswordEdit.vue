@@ -8,8 +8,8 @@
             </div>
         </div>
         <div>
-            <label for="confirmation">{{ i18n.input.confirmationPassword }}</label>
-            <input type="password" class="form-control block mt-1" v-model="form.confirm_password" />
+            <label for="password_confirmation">{{ i18n.input.confirmationPassword }}</label>
+            <input type="password" class="form-control block mt-1" v-model="form.password_confirmation" />
             <div v-if="errorsPassword.password_confirmation !== null">
                 <p class="text-red-500">{{ errorsPassword.password_confirmation }}</p>
             </div>
@@ -30,12 +30,12 @@ const i18n = lang()
 
 const form = reactive({
     password: '',
-    confirm_password: '',
+    password_confirmation: '',
 })
 
 const reset = () => {
     form.password = ''
-    form.confirm_password = ''
+    form.password_confirmation = ''
 }
 
 const update = async () => {
