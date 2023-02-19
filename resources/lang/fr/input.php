@@ -20,4 +20,8 @@ return [
         'search'       => 'Rechercher',
         'openthismenu' => 'Ouvrir le menu',
     ],
+
+    'select' => [
+        'role' => '-- Sélectionner un rôle --',
+    ]
 ];

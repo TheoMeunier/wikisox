@@ -25,7 +25,7 @@
                 <div>
                     <x-label for="role" :value="__('input.label.roles')"/>
                     <select name="role" class="form-control" id="role">
-                        <option value="">--Please choose an option--</option>
+                        <option value="">{{ __('input.select.role') }}</option>
                         @foreach($roles as $role)
                             <option value="{{ $role->id }}">{{ $role->name }}</option>
                         @endforeach

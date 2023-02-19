@@ -9,10 +9,10 @@
                 <div>
                     <x-label for="name" :value="__('input.label.name')"/>
                     <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $user->name }}"/>
+
                     @error('name')
                     <div class="text-red-500">{{ $message }}</div>
                     @enderror
-
                 </div>
 
                 <div>
@@ -27,9 +27,9 @@
                 <div>
                     <x-label for="role" :value="__('input.label.roles')"/>
                     <select name="role" class="form-control" id="role">
-                        <option value="">--Please choose an option--</option>
+                        <option value="">{{ __('input.select.role') }}</option>
                         @foreach($roles as $role)
-                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                            <option value="{{ $role->id }}" {{ in_array($role->id, $user->roles->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $role->name }}</option>
                         @endforeach
                     </select>
 

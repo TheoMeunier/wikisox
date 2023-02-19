@@ -27,7 +27,7 @@
                         <td>{{ user.id }}</td>
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
-                        <td>Mon Roles</td>
+                        <td>{{ user.role }}</td>
                         <td>
                             <span class="relative inline-block px-3 py-1 font-semibold leading-tight" :class="user.verify === null ? 'text-red-900' : 'text-green-900'">
                                 <span class="absolute inset-0 rounded-full opacity-50" :class="user.verify === null ? 'bg-red-200' : 'bg-green-200'"> </span>
