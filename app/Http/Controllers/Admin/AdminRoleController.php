@@ -28,7 +28,7 @@ class AdminRoleController extends Controller
      */
     public function create()
     {
-        $permissions   = Permission::all();
+        $permissions = Permission::all();
 
         return view('admin.roles.create', compact('permissions'));
     }
@@ -45,17 +45,17 @@ class AdminRoleController extends Controller
     }
 
     /**
-     * @param  AdminRoleRequest  $request
+     * @param AdminRoleRequest $request
      * @return RedirectResponse
      */
     public function store(AdminRoleRequest $request): RedirectResponse
     {
         $role = Role::create([
-            'name'        => $request->get('name'),
+            'name' => $request->get('name'),
         ]);
 
-        foreach ($request->get('permissions') ?: [] as $permission) {
-           $role->givePermissionTo($permission);
+        if ($request->get('permissions') !== null) {
+            $role->syncPermissions($request->get('permissions'));
         }
 
         return redirect()->route('admin.roles.index')
@@ -63,8 +63,8 @@ class AdminRoleController extends Controller
     }
 
     /**
-     * @param  AdminRoleRequest  $request
-     * @param  int  $id
+     * @param AdminRoleRequest $request
+     * @param int $id
      * @return RedirectResponse
      */
     public function update(AdminRoleRequest $request, int $id): RedirectResponse
@@ -72,13 +72,12 @@ class AdminRoleController extends Controller
         $role = Role::findOrFail($id);
 
         $role->update([
-            'name'        => $request->get('name'),
+            'name' => $request->get('name'),
         ]);
 
-        foreach ($request->get('resources') ?: [] as $resource) {
-            $role->relationResource()->attach($resource);
-        }
+        $role->syncPermissions($request->get('permissions'));
 
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('admin.roles.index')
+            ->with('success', __('flash.role.update'));
     }
 }
