@@ -12,7 +12,6 @@ import AdminPages from './components/admin/adminPages.vue'
 import AdminUser from './components/admin/adminUser.vue'
 import ProfileEdit from './components/profile/profileEdit.vue'
 import ProfilePasswordEdit from './components/profile/profilePasswordEdit.vue'
-import DeleteAccount from './components/profile/deleteAccount.vue'
 
 const app = createApp(undefined, undefined)
 
@@ -23,7 +22,6 @@ app.component('Pages', Pages)
 app.component('Logs', Logs)
 app.component('profileEdit', ProfileEdit)
 app.component('profilePasswordEdit', ProfilePasswordEdit)
-app.component('deleteAccount', DeleteAccount)
 app.component('adminBooks', AdminBooks)
 app.component('adminChapters', AdminChapters)
 app.component('adminPages', AdminPages)

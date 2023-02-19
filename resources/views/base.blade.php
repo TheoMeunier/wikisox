@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link rel="icon" href="{{ asset('images/logo.svg') }}" type="image/x-icon">
+    <meta name="description" content="Application wiki">
+    <meta name="author" content="Théo Meunier">
+    <meta name="robots" content="index, follow">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
