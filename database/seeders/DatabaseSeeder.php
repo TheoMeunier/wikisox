@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
     {
 
         //dev
-        User::factory()
+        /*User::factory()
             ->count(10)
             ->has(Book::factory()
                 ->count(10)
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
                     )
                 )
             )
-            ->create();
+            ->create();*/
 
         $this->call([
             PermissionsSeed::class,
