@@ -11,6 +11,8 @@ use Database\Factories\ChapterFactory;
 use Database\Factories\PageFactory;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -44,17 +46,26 @@ class DatabaseSeeder extends Seeder
             )
             ->create();*/
 
+
+
+        //prod
         $this->call([
             PermissionsSeed::class,
         ]);
 
-        //prod
         $role = Role::create(['name' => 'admin']);
-        foreach (Permission::all() as $permission) {
-            $role->givePermissionTo($permission);
-        }
+        $permissions = Permission::all();
 
-        $user = User::factory()->count(1)->create();
+        $role->syncPermissions($permissions);
+
+        $user = User::create([
+            'name'              => 'Administrator',
+            'email'             => 'admin@isoxbook.fr',
+            'email_verified_at' => now(),
+            'password'          => Hash::make('admin'),
+            'remember_token'    => Str::random(10),
+        ]);
+
         $user->assignRole($role);
     }
 }
