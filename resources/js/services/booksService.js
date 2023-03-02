@@ -5,6 +5,7 @@ export default function useBooks() {
 
     const getBooks = async page => {
         let response = await axios.get('/webapi/books?page=' + page)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         books.value = response.data
     }
 

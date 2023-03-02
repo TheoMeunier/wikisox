@@ -5,6 +5,7 @@ export default function useChapters() {
 
     const getChapters = async (page, slug) => {
         let response = await axios.get('/webapi/books/chapters/' + slug + '?page=' + page)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         chapters.value = response.data
     }
 

@@ -5,6 +5,7 @@ export default function usePages() {
 
     const getPages = async (page, slug, slugChapter) => {
         let response = await axios.get('/webapi/books/chapters/' + slug + '/pages/' + slugChapter + '?page=' + page)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         pages.value = response.data
     }
 
