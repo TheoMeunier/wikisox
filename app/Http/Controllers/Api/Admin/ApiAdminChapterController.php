@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Admin\AdminChapterResource;
 use App\Models\Chapter;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -23,5 +24,20 @@ class ApiAdminChapterController extends Controller
             ->paginate(6);
 
         return AdminChapterResource::collection($chapters);
+    }
+
+    /**
+     * @param string $slug
+     * @return JsonResponse
+     */
+    public function delete (string $slug)
+    {
+        $chapter = Chapter::query()
+            ->where('slug', '=', $slug)
+            ->firstOrFail();
+
+        $chapter->delete();
+
+        return response()->json('Chapter delete');
     }
 }

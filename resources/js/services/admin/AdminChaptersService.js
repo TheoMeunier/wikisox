@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+import {get} from "lodash/object";
 
 export default function useAdminChapter() {
     const chapters = ref([])
@@ -17,9 +18,10 @@ export default function useAdminChapter() {
         }
     }
 
-    const deleteBook = async slug => {
-        await axios.delete('/webapi/books/delete' + slug)
+    const deleteChapter = async slug => {
+        await axios.delete('/webapi/admin/chapters/delete/' + slug)
+        await getChapters(1)
     }
 
-    return { chapters, getChapters, deleteBook, search }
+    return { chapters, getChapters, deleteChapter, search }
 }

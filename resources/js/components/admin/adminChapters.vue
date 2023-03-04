@@ -74,7 +74,7 @@
                                 <a :href="chapter.url" class="text-gray-900 whitespace-no-wrap">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                 </a>
-                                <AdminModalChapterDelete :chapter="chapter" @delete-chapter="deleteMyChapter(chapter)" />
+                                <button @click.prevent="deleteMyChapter(chapter.slug)"><i class="fa-solid fa-trash-can"></i></button>
                             </p>
                         </td>
                     </tr>
@@ -95,7 +95,7 @@ import AdminModalChapterDelete from '../modal/admin/AdminModalChapterDelete.vue'
 import { onMounted, ref } from 'vue'
 import lang from '../../services/tools/lang'
 
-const { chapters, getChapters, search } = useAdminChapter()
+const { chapters, getChapters, search, deleteChapter } = useAdminChapter()
 const query = ref('')
 const i18n = lang()
 
@@ -105,5 +105,11 @@ onMounted(() => {
 
 const searchChapter = async () => {
     await search(query.value)
+}
+
+const deleteMyChapter = async (slug) => {
+    if (confirm('voulez vous vraiment supprimer ce chaptire ?')) {
+        await deleteChapter(slug)
+    }
 }
 </script>

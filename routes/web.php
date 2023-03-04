@@ -158,6 +158,7 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
 
         Route::controller(ApiAdminChapterController::class)->prefix('/chapters')->group(function () {
             Route::get('/{q?}', 'index');
+            Route::delete('/delete/{slug}', 'delete');
         });
 
         Route::controller(ApiAdminPageController::class)->prefix('/pages')->group(function () {
