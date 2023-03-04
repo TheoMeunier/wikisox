@@ -39,7 +39,7 @@
                             <a :href="page.url">
                                 <i class="fa-solid fa-pen-to-square mr-2"></i>
                             </a>
-                            <AdminModalPageDelete :page="page" @delete-page="deleteMyPage(Page)" />
+                            <button @click.prevent="deleteMyPage(page.slug)">delete</button>
                         </td>
                     </tr>
                 </slot>
@@ -71,7 +71,9 @@ const searchPage = async () => {
     await search(query.value)
 }
 
-const deleteMyPage = async (page) => {
-    await deletePage(page.slug)
+const deleteMyPage = async (slug) => {
+    if (confirm('voulez vous vraiment supprimer cette page ?')) {
+        await deletePage(slug)
+    }
 }
 </script>

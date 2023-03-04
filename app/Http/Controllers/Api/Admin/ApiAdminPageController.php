@@ -32,7 +32,10 @@ class ApiAdminPageController extends Controller
      */
     public function delete(string $slug): JsonResponse
     {
-        $page = Page::query()->where('slug', $slug)->firstOrFail();
+        $page = Page::query()
+            ->where('slug', $slug)
+            ->firstOrFail();
+
         $page->delete();
 
         return response()->json(['message' => 'Page deleted']);
