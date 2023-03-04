@@ -17,8 +17,8 @@ const searchBook = async () => {
     await search(query.value)
 }
 
-const like = async id => {
-    await likeBook(id)
+const like = async (index) => {
+    await likeBook(index)
 }
 </script>
 
@@ -34,7 +34,7 @@ const like = async id => {
         </div>
 
         <div class="articles__books mt-6">
-            <slot v-for="book in books.data" :key="book.id">
+            <slot v-for="(book, index) in books.data" :key="book.id">
                 <article class="card" :class="book.like !== false ? 'card__like' : ''">
                     <a :href="book.url" class="card__img">
                         <img :src="book.image" :alt="book.name" width="280" height="100" />
@@ -47,7 +47,7 @@ const like = async id => {
                                 <i class="fa-regular fa-clock mr-2"></i>
                                 {{ book.created_at }}
                             </span>
-                            <a class="cursor-pointer" @click="like(book.id)" :class="book.like !== false ? 'text-yellow-400' : 'text-gray-500'">
+                            <a class="cursor-pointer" @click.prevent="like(index)" :class="book.like !== false ? 'text-yellow-400' : 'text-gray-500'">
                                 <i class="fa-star mr-2" :class="book.like !== false ? 'fa-solid' : 'fa-regular'"></i>
                             </a>
                         </p>
