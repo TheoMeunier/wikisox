@@ -39,7 +39,9 @@
                             <a :href="page.url">
                                 <i class="fa-solid fa-pen-to-square mr-2"></i>
                             </a>
-                            <button @click.prevent="deleteMyPage(page.slug)">delete</button>
+                            <button @click.prevent="deleteMyPage(page.slug)">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
                         </td>
                     </tr>
                 </slot>
