@@ -20,7 +20,7 @@ class ApiAdminChapterController extends Controller
             ->with(['user', 'book', 'likes'])
             ->where('name', 'LIKE', "%$request->q%")
             ->orderBy('created_at', 'DESC')
-            ->paginate(8);
+            ->paginate(6);
 
         return AdminChapterResource::collection($chapters);
     }

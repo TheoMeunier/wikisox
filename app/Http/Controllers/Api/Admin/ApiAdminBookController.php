@@ -20,7 +20,7 @@ class ApiAdminBookController extends Controller
             ->with(['user', 'likes'])
             ->where('name', 'LIKE', "%$request->q%")
             ->orderBy('created_at', 'DESC')
-            ->paginate(8);
+            ->paginate(6);
 
         return AdminBookResource::collection($books);
     }
