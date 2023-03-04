@@ -26,9 +26,5 @@ export default function useBooks() {
         books.value.data[index].like = !book.like
     }
 
-    const deleteBook = async slug => {
-        await axios.delete('/webapi/books/delete' + slug)
-    }
-
-    return { books, getBooks, deleteBook, search, likeBook }
+    return { books, getBooks, search, likeBook }
 }
