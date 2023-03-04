@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ApiProfileController extends Controller
 {
     /**
-     * @param  Request  $request
+     * @param Request $request
      * @return JsonResponse
      */
     public function update(Request $request): JsonResponse
@@ -27,7 +27,7 @@ class ApiProfileController extends Controller
         $user = User::where('id', '=', auth()->id())->firstOrFail();
 
         $user->update([
-            'name'  => $request->get('name'),
+            'name' => $request->get('name'),
             'email' => $request->get('email'),
         ]);
 
@@ -37,7 +37,7 @@ class ApiProfileController extends Controller
     }
 
     /**
-     * @param  Request  $request
+     * @param Request $request
      * @return JsonResponse
      */
     public function updatePassword(Request $request): JsonResponse
@@ -48,11 +48,9 @@ class ApiProfileController extends Controller
 
         $user = User::where('id', '=', auth()->id())->firstOrFail();
 
-        if ($request->get('password') === $request->get('confirm_password')) {
-            $user->update([
-                'password' => Hash::make($request->get('password')),
-            ]);
-        }
+        $user->update([
+            'password' => Hash::make($request->get('password')),
+        ]);
 
         Mail::to($user->email)->send(new UpdatePassword());
 
