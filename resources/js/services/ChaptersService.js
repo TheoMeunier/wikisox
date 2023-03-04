@@ -1,11 +1,12 @@
 import { ref } from 'vue'
+import {scrollToTop} from "./tools/utils";
 
 export default function useChapters() {
     const chapters = ref([])
 
     const getChapters = async (page, slug) => {
         let response = await axios.get('/webapi/books/chapters/' + slug + '?page=' + page)
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        scrollToTop()
         chapters.value = response.data
     }
 
