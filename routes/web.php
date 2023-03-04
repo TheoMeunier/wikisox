@@ -125,17 +125,14 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
     Route::controller(ApiBookController::class)->prefix('/books')->group(function () {
         Route::get('/{q?}', 'index');
         Route::post('/like/{book}', 'like');
-        Route::delete('/delete/{book}', 'delete');
 
         Route::controller(ApiChapterController::class)->prefix('/chapters/{slug}')->group(function () {
             Route::get('/{q?}', 'index');
             Route::post('/like/{chapter}', 'like');
-            Route::delete('/delete/{chapter}', 'delete');
 
             Route::controller(ApiPageController::class)->prefix('/pages/{slugChapter}')->group(function () {
                 Route::get('/{q?}', 'index');
                 Route::post('/like/{page}', 'like');
-                Route::delete('/delete/{page}', 'delete');
             });
         });
     });

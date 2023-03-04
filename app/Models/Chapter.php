@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Dyrynda\Database\Support\CascadeSoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -75,5 +76,13 @@ class Chapter extends Model
         $logOption = new LogOptions();
 
         return $logOption->logAll()->logOnlyDirty();
+    }
+
+    protected static function boot() {
+        parent::boot();
+
+        static::deleting(function($chapter) {
+            $chapter->pages()->delete();
+        });
     }
 }
