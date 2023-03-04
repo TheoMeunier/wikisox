@@ -20,8 +20,8 @@ const searchBook = async () => {
     await search(query.value, props.slug)
 }
 
-const like = async id => {
-    await likeChapter(id, props.slug)
+const like = async index => {
+    await likeChapter(index)
 }
 </script>
 
@@ -37,7 +37,7 @@ const like = async id => {
         </div>
 
         <div class="articles mt-6">
-            <slot v-for="chapter in chapters.data" :key="chapter.id">
+            <slot v-for="(chapter, index) in chapters.data" :key="chapter.id">
                 <article class="card" :class="chapter.like !== false ? 'card__like' : ''">
                     <a :href="chapter.url + '/' + slug + '/' + chapter.slug" class="card__img">
                         <img :src="chapter.image" :alt="chapter.name" width="280" height="100" />
@@ -50,7 +50,7 @@ const like = async id => {
                                 <i class="fa-regular fa-clock mr-2"></i>
                                 {{ chapter.created_at }}
                             </span>
-                            <a class="cursor-pointer" @click="like(chapter.id)" :class="chapter.like !== false ? 'text-yellow-400' : 'text-gray-500'">
+                            <a class="cursor-pointer" @click="like(index)" :class="chapter.like !== false ? 'text-yellow-400' : 'text-gray-500'">
                                 <i class="fa-star mr-2" :class="chapter.like !== false ? 'fa-solid' : 'fa-regular'"></i>
                             </a>
                         </p>
