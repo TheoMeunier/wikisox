@@ -68,7 +68,9 @@
                                 <a :href="book.url" class="text-gray-900 whitespace-no-wrap">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                 </a>
-                                <AdminModalBookDelete :book="book" @delete-book="deleteMyBook(book)" />
+                                <button @click.prevent="deleteMyBook(book.slug)">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
                             </p>
                         </td>
                     </tr>
@@ -101,7 +103,9 @@ const searchBook = async () => {
     await search(query.value)
 }
 
-const deleteMyBook = async book => {
-    await deleteBook(book.slug)
+const deleteMyBook = async slug => {
+    if (confirm('voulez vous vraiment supprimer ce livre ?')) {
+        await deleteBook(slug)
+    }
 }
 </script>

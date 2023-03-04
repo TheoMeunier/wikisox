@@ -18,7 +18,8 @@ export default function useAdminBook() {
     }
 
     const deleteBook = async slug => {
-        await axios.delete('/webapi/books/delete' + slug)
+        await axios.delete('/webapi/admin/books/delete/' + slug)
+        await getBooks(1)
     }
 
     return { books, getBooks, deleteBook, search }

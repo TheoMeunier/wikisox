@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Admin\AdminBookResource;
 use App\Models\Book;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -23,5 +24,20 @@ class ApiAdminBookController extends Controller
             ->paginate(6);
 
         return AdminBookResource::collection($books);
+    }
+
+    /**
+     * @param string $slug
+     * @return JsonResponse
+     */
+    public function delete (string $slug)
+    {
+        $book = Book::query()
+            ->where('slug', '=', $slug)
+            ->firstOrFail();
+
+        $book->delete();
+
+        return response()->json('Chapter delete');
     }
 }
