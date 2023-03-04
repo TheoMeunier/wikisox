@@ -1,7 +1,7 @@
 .PHONY: help
 .DEFAULT_GOAL = help
 
-dc = docker-compose
+dc = docker compose
 de = $(dc) exec
 
 ## —— Docker 🐳  ———————————————————————————————————————————————————————————————
@@ -12,6 +12,8 @@ start:	## project installation
 	$(de) php bash -c 'yarn  && yarn dev'
 	$(de) php bash -c 'php artisan key:generate'
 	$(de) php bash -c 'php artisan migrate'
+	$(de) php bash -c 'php artisan storage:link'
+	$(de) php bash -c 'php artisan db:seed'
 
 .PHONY: build
 build:	## Installation of the production project
