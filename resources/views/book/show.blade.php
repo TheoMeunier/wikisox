@@ -18,11 +18,11 @@
             </div>
             <div class="grid grid-cols-5 gap-4">
                 <div class="mt-14 flex flex-col">
-                    @can(['book edit', 'book delete'])
-                        <div class="flex flex-col">
+                    @canany(['book edit', 'book delete'])
+                        <div class="flex flex-col mt-4 mb-14">
                             <h4>{{ __('title.action') }}</h4>
                             @can('book edit')
-                                <a href="{{ route('book.edit', ['slug' => $book->slug]) }}" class="text-blue-500 my-6">
+                                <a href="{{ route('book.edit', ['slug' => $book->slug]) }}" class="text-blue-500 mt-6">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                     {{ __('button.book.edit') }}
                                 </a>
@@ -31,16 +31,16 @@
                                 <form method="post" action="{{ route('book.delete', ['slug' => $book->slug]) }}" style="display: inline-block" onsubmit="return confirm('Etes vous vraiment sur ?')">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button class="text-red-500">
+                                    <button class="text-red-500 mt-6">
                                         <i class="fa-solid fa-trash-can mr-2"></i>
                                         {{ __('button.book.delete') }}
                                     </button>
                                 </form>
                             @endcan
                         </div>
-                    @endcan
+                    @endcanany
 
-                    <div class="mt-14">
+                    <div>
                         <h4>{{ __('title.info') }}</h4>
                         <p class="text-gray-500 mt-6">
                             <i class="fa-solid fa-user mr-2"></i>

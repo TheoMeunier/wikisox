@@ -19,7 +19,7 @@
 
             <div class="grid grid-cols-5 gap-4">
                 <div class="mt-14 flex flex-col">
-                    @can(['chapter edit', 'chapter delete'])
+                    @canany(['chapter edit', 'chapter delete'])
                         <div class="flex flex-col mt-4 mb-14">
                             <h4>{{ __('title.action') }}</h4>
                            @can('chapter edit')
@@ -39,7 +39,7 @@
                                 </form>
                             @endcan
                         </div>
-                    @endcan
+                    @endcanany
 
                     <div>
                         <h4>{{ __('title.info') }}</h4>
