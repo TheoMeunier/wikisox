@@ -28,7 +28,7 @@ class UpdatePassword extends Mailable
     public function build()
     {
         return $this
-            ->from('exemple@gmail.com', 'Exemple')
+            ->from(env('MAIL_FROM_ADDRESS'), 'Wiki')
             ->view('mail.update_password');
     }
 }
