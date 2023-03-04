@@ -1,11 +1,12 @@
 import { ref } from 'vue'
+import {scrollToTop} from "./tools/utils";
 
 export default function useBooks() {
     const books = ref([])
 
     const getBooks = async page => {
         let response = await axios.get('/webapi/books?page=' + page)
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        scrollToTop()
         books.value = response.data
     }
 
@@ -18,9 +19,11 @@ export default function useBooks() {
         }
     }
 
-    const likeBook = async (id, data) => {
-        await axios.post('/webapi/books/like/' + id, data)
-        await getBooks(books.value.meta.current_page)
+    const likeBook = async (index) => {
+        let book = books.value.data[index]
+        await axios.post('/webapi/books/like/' + book.id)
+
+        books.value.data[index].like = !book.like
     }
 
     const deleteBook = async slug => {
