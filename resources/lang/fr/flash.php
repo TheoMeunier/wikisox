@@ -43,4 +43,10 @@ return [
         'delete' => "Le role à bien été supprimé",
     ],
 
+    'confirm' => [
+        'deleteChapter' => 'Voulez vous vraiment supprimer ce chapitre ?',
+        'deletePage' => 'Voulez vous vraiment supprimer cette page ?',
+        'deleteBook' => 'Voulez vous vraiment supprimer ce livre ?',
+    ]
+
 ];

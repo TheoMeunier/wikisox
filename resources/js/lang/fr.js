@@ -51,5 +51,10 @@ export const data = {
         "deleteBook": "Voulez vous vraiment supprimer ce livre ?",
         "deleteChapter": "Voulez vous vraiment supprimer ce chapitre ?",
         "deletePage": "Voulez vous vraiment supprimer cette page ?",
+    },
+    "confirm": {
+        "deleteChapter": "Voulez vous vraiment supprimer ce chapitre ?",
+        "deletePage": "Voulez vous vraiment supprimer cette page ?",
+        "deleteBook": "Voulez vous vraiment supprimer ce livre ?",
     }
 }

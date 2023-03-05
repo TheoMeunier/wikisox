@@ -74,7 +74,7 @@ const searchPage = async () => {
 }
 
 const deleteMyPage = async (slug) => {
-    if (confirm('voulez vous vraiment supprimer cette page ?')) {
+    if (confirm(i18n.confirm.deletePage)) {
         await deletePage(slug)
     }
 }

@@ -108,7 +108,7 @@ const searchChapter = async () => {
 }
 
 const deleteMyChapter = async (slug) => {
-    if (confirm('voulez vous vraiment supprimer ce chaptire ?')) {
+    if (confirm(i18n.confirm.deleteChapter)) {
         await deleteChapter(slug)
     }
 }

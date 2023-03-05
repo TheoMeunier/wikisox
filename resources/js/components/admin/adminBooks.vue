@@ -104,7 +104,7 @@ const searchBook = async () => {
 }
 
 const deleteMyBook = async slug => {
-    if (confirm('voulez vous vraiment supprimer ce livre ?')) {
+    if (confirm(i18n.confirm.deleteBook)) {
         await deleteBook(slug)
     }
 }
