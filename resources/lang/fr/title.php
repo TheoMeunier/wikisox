@@ -13,6 +13,7 @@ return [
     'users'    => 'Mes Utilisateurs',
     'logs'     => 'Les Logs',
     'dashboard' => 'Dashboard',
+    'image'     => 'Mes Images',
 
     'profile' => [
         'index' => 'Mon Profil',

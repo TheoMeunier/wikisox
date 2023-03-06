@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminBookController;
 use App\Http\Controllers\Admin\AdminChapterController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminFileController;
 use App\Http\Controllers\Admin\AdminlogController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\AdminRoleController;
@@ -79,6 +80,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
         Route::get('/logs', [AdminlogController::class, 'index'])->name('logs.index');
+        Route::get('/image', AdminFileController::class)->name('image');
 
         Route::controller(AdminBookController::class)->prefix('/books')->name('book.')->group(function () {
             Route::get('/', 'index')->name('index');

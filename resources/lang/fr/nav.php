@@ -13,4 +13,5 @@ return [
     'created_at'   => 'Créer le :',
     'logout'       => 'Se déconnecter',
     'administration' => 'Administration',
+    'image' => 'Images'
 ];

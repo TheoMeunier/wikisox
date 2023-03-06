@@ -12,6 +12,7 @@ import AdminPages from './components/admin/adminPages.vue'
 import AdminUser from './components/admin/adminUser.vue'
 import ProfileEdit from './components/profile/profileEdit.vue'
 import ProfilePasswordEdit from './components/profile/profilePasswordEdit.vue'
+import AdminImages from "./components/admin/AdminImages.vue";
 
 const app = createApp(undefined, undefined)
 
@@ -26,5 +27,6 @@ app.component('adminBooks', AdminBooks)
 app.component('adminChapters', AdminChapters)
 app.component('adminPages', AdminPages)
 app.component('adminUsers', AdminUser)
+app.component('adminImages', AdminImages)
 
 app.mount('#app')

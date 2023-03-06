@@ -46,5 +46,11 @@
                 <span>{{  __('nav.pages') }}</span>
             </a>
         </li>
+        <li class="sidebar__link @if(request()->routeIs('admin.image')) sidebar__link__active @endif">
+            <a href="{{ route('admin.image') }}">
+                <i class="fa-solid fa-image"></i>
+                <span>{{  __('nav.image') }}</span>
+            </a>
+        </li>
     </ul>
 </div>
