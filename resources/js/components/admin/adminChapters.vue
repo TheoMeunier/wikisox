@@ -91,7 +91,6 @@
 <script setup>
 import Pagination from 'laravel-vue-pagination'
 import useAdminChapter from '../../services/admin/AdminChaptersService'
-import AdminModalChapterDelete from '../modal/admin/AdminModalChapterDelete.vue'
 import { onMounted, ref } from 'vue'
 import lang from '../../services/tools/lang'
 
