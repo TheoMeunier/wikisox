@@ -11,7 +11,7 @@
                            class="input__icon__input w-64"
                            id="example-search-input"
                            @keyup="files = searchImage(search, selectFolder, folders['root']?.files)"
-                           placeholder="i18n.search"
+                           :placeholder="i18n.search"
                     />
                 </form>
             </div>
@@ -38,10 +38,11 @@
                                 <i class="fa-solid fa-plus"></i>
                             </slot>
                             <slot v-else>
-                                <div class="py-1">
+                                <div class="py-1 flex items-center gap-4">
                                     <i class="fa-solid fa-folder-open"></i>
-                                    <input type="text" v-model="newFolder.name" required>
+                                    <input type="text" class="form-control" v-model="newFolder.name" required>
                                 </div>
+
                                 <i class="fa-solid fa-arrow-right" @click.stop="createNewFolder"></i>
                             </slot>
                         </div>
@@ -68,9 +69,9 @@
 
                 <slot v-else>
                     <div class="w-full flex justify-center items-center flex-col text-gray-400">
-                        <p class="text-2xl py-3">Ce dossier est vide</p>
-                        <p class="text-xl py-4">Déposer un fichier ici pour le téléverser <i class="fa-solid fa-file-arrow-down ml-2"></i></p>
-                        <button class="btn btn__danger" v-if="selectFolder && !search.length" @click.prevent="removeMyFolder">Supprimer le dossier</button>
+                        <p class="text-2xl py-3">{{ i18n.filemanager.emptyFolder }}</p>
+                        <p class="text-xl py-4">{{ i18n.filemanager.uploadFile }}<i class="fa-solid fa-file-arrow-down ml-2"></i></p>
+                        <button class="btn btn__danger" v-if="selectFolder && !search.length" @click.prevent="removeMyFolder">{{ i18n.filemanager.buttonDeleteFolder }}</button>
                     </div>
                 </slot>
             </div>
@@ -88,9 +89,11 @@ import {onMounted, reactive, ref} from "vue";
 import useAdminImage from "../../services/admin/filemanager/AdminImagesService";
 import useDropAndDrop from "../../services/admin/filemanager/DrapAndDrop";
 import searchImage from "../../services/admin/filemanager/SearchImage";
+import lang from "../../services/tools/lang";
 
 const {folders, files, getFolders, createFolder, uploadFile ,addFileToFolder, removeFolder, removeFile} = useAdminImage()
 const {dragOver, dragLeave, over} = useDropAndDrop()
+const i18n = lang()
 
 onMounted(() => {
     getFolders()
@@ -119,6 +122,7 @@ const addFolder = async () => {
 const createNewFolder = async () => {
    if (newFolder.name) {
        await createFolder({...newFolder})
+       newFolder.name = ''
    } else {
        folders.value.shift()
    }

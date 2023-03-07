@@ -56,5 +56,10 @@ export const data = {
         "deleteChapter": "Voulez vous vraiment supprimer ce chapitre ?",
         "deletePage": "Voulez vous vraiment supprimer cette page ?",
         "deleteBook": "Voulez vous vraiment supprimer ce livre ?",
+    },
+    "filemanager" : {
+        'emptyFolder': "Ce dossier est vide",
+        'uploadFile': 'Déposer un fichier ici pour le téléverser',
+        'buttonDeleteFolder': "Supprimer le dossier"
     }
 }
