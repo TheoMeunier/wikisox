@@ -86,7 +86,6 @@
 
 <script setup>
 import Pagination from 'laravel-vue-pagination'
-import AdminModalBookDelete from '../modal/admin/AdminModalBookDelete.vue'
 import useAdminBook from '../../services/admin/AdminBooksService'
 import { onMounted, ref } from 'vue'
 import lang from '../../services/tools/lang'
