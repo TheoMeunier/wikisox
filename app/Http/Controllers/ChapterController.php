@@ -19,7 +19,10 @@ class ChapterController extends Controller
      */
     public function index(string $slug)
     {
-        $book = Book::where('slug', '=', $slug)->first();
+        $book = Book::query()
+            ->with('chapters')
+            ->where('slug', '=', $slug)
+            ->first();
 
         return view('book.show', compact('book'));
     }

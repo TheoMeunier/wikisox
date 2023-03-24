@@ -21,7 +21,9 @@ class PageController extends Controller
      */
     public function index(string $slug, string $slugChapter)
     {
-        $chapter = Chapter::where('slug', '=', $slugChapter)
+        $chapter = Chapter::query()
+            ->with('pages')
+            ->where('slug', '=', $slugChapter)
             ->first();
 
         $book = Book::where('slug', '=', $slug)

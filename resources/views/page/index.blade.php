@@ -10,7 +10,8 @@
             <div class="justify__between">
                 <h1>{{ $chapter->name }}</h1>
                 @can('page create')
-                    <a href="{{ route('book.chapter.page.create', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}" class="btn btn__primary">
+                    <a href="{{ route('book.chapter.page.create', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}"
+                       class="btn btn__primary">
                         <i class="fa-solid fa-plus mr-2"></i>
                         {{ __('button.page.create') }}
                     </a>
@@ -22,14 +23,17 @@
                     @canany(['chapter edit', 'chapter delete'])
                         <div class="flex flex-col mt-4 mb-14">
                             <h4>{{ __('title.action') }}</h4>
-                           @can('chapter edit')
-                                <a href="{{ route('book.chapter.edit', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}" class="text-blue-500 my-6">
+                            @can('chapter edit')
+                                <a href="{{ route('book.chapter.edit', ['slug' => $book->slug, 'slugChapter' => $chapter->slug]) }}"
+                                   class="text-blue-500 my-6">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                     {{ __('button.chapter.edit') }}
                                 </a>
-                           @endcan
+                            @endcan
                             @can('chapter delete')
-                                <form method="post" action="{{ route('chapter.delete', ['slug' => $chapter->slug]) }}" style="display: inline-block" onsubmit="return confirm('Etes vous vraiment sur ?')">
+                                <form method="post" action="{{ route('chapter.delete', ['slug' => $chapter->slug]) }}"
+                                      style="display: inline-block"
+                                      onsubmit="return confirm('Etes vous vraiment sur ?')">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button class="text-red-500">
@@ -53,8 +57,15 @@
                         </p>
                     </div>
                 </div>
+
                 <div class="col-span-4">
-                    <Pages book="{{ $book->slug }}" chapter="{{ $chapter->slug }}"/>
+                    @if($chapter->pages->count() > 0)
+                        <Pages book="{{ $book->slug }}" chapter="{{ $chapter->slug }}"/>
+                    @else
+                        <div class="text-center">
+                            <p class="my-12">{{ __('flash.page.empty') }}</p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

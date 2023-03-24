@@ -53,7 +53,13 @@
                     </div>
                 </div>
                 <div class="col-span-4">
-                    <Chapters title="{{ $book->name }}" slug="{{ $book->slug }}"/>
+                    @if($book->chapters->count() > 0)
+                        <Chapters title="{{ $book->name }}" slug="{{ $book->slug }}"/>
+                    @else
+                        <div class="text-center">
+                            <p class="my-12">{{ __('flash.chapter.empty') }}</p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

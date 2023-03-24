@@ -17,7 +17,13 @@
                 @endcan
             </div>
 
-            <Books/>
+            @if($books > 0)
+                <Books/>
+            @else
+                <div class="text-center">
+                    <p class="my-12">{{ __('flash.book.empty') }}</p>
+                </div>
+            @endif
         </div>
     </div>
 
