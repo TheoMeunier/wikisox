@@ -81,7 +81,11 @@ class BookController extends Controller
             ->with('success', __('flash.book.update'));
     }
 
-    public function delete(string $slug)
+    /**
+     * @param string $slug
+     * @return RedirectResponse
+     */
+    public function delete(string $slug): RedirectResponse
     {
         $book = Book::query()->where('slug', '=', $slug)->firstOrFail();
         $book->delete();
