@@ -33,7 +33,6 @@
 }
 
 .sidebar__link:hover {
-    color: var(--black);
-    background-color: #f3f4f6;
+    @apply text-indigo-500 bg-indigo-100;
     border-radius: 8px;
 }
