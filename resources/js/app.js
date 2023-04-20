@@ -12,8 +12,12 @@ import AdminUser from './components/admin/adminUser.vue'
 import ProfileEdit from './components/profile/profileEdit.vue'
 import ProfilePasswordEdit from './components/profile/profilePasswordEdit.vue'
 import AdminImages from "./components/admin/AdminImages.vue";
+import {createPinia} from "pinia";
 
+const pinia = createPinia()
 const app = createApp(undefined, undefined)
+
+app.use(pinia)
 
 app.component('Books', Books)
 app.component('Chapters', Chapters)

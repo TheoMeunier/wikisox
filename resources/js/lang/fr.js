@@ -58,8 +58,23 @@ export const data = {
         "deleteBook": "Voulez vous vraiment supprimer ce livre ?",
     },
     "filemanager" : {
-        'emptyFolder': "Ce dossier est vide",
-        'uploadFile': 'Déposer un fichier ici pour le téléverser',
-        'buttonDeleteFolder': "Supprimer le dossier"
+        "search": 'Rechercher',
+        "drop_file": "Déposer un fichier ici pour l'ajouter.",
+        "folder": {
+            "empty_folder": "Ce dossier est vide.",
+            "btn_delete_folder": 'Supprimer le dossier.',
+            "input_name_folder": 'Nom dossier.',
+            "confirm_delete": "Voulez-vous vraiment supprimer le dossier ?"
+        },
+        "file": {
+            "confirm_delete": "Voulez-vous vraiment supprimer ce fichier ?"
+        },
+        "flash": {
+            "file_upload": 'Fichier à bien été uploader',
+            "file_upload_error": "Error lors de l'upload",
+            "file_delete": 'Fichier à bien été supprimer',
+            "folder_create": 'Dossier à bien été créer',
+            "folder_delete": 'Dossier à bien été supprimer'
+        }
     }
 }
