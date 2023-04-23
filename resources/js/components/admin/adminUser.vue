@@ -4,7 +4,7 @@
             <div class="input__icon__icon">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchUser" :placeholder="i18n.search" />
+            <input v-model="store.query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="store.searchUser" :placeholder="i18n.search" />
         </form>
     </div>
     <div class="card__body">
@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <slot v-for="user in users.data" :key="user.id">
+                <slot v-for="user in store.users.data" :key="user.id">
                     <tr>
                         <td>{{ user.id }}</td>
                         <td>{{ user.name }}</td>
@@ -51,25 +51,20 @@
     </div>
 
     <div class="d-flex justify-content-center">
-        <Pagination :data="users" :limit="4" @pagination-change-page="getUsers"></Pagination>
+        <Pagination :data="store.users" :limit="4" @pagination-change-page="store.getUsers"></Pagination>
     </div>
 </template>
 
 <script setup>
 import Pagination from 'laravel-vue-pagination'
-import { onMounted, ref } from 'vue'
-import { useAdminUser } from '../../services/admin/AdminUserService'
+import { onMounted } from 'vue'
 import lang from '../../services/tools/lang'
+import {useAdminUsersStore} from "../../stores/admin/AdminUsersStore";
 
-const { users, getUsers, search } = useAdminUser()
-const query = ref('')
+const store = useAdminUsersStore()
 const i18n = lang()
 
 onMounted(() => {
-    getUsers(1)
+    store.getUsers(1)
 })
-
-const searchUser = async () => {
-    await search(query.value)
-}
 </script>

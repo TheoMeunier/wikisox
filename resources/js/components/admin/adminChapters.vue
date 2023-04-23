@@ -4,7 +4,7 @@
             <div class="input__icon__icon">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchChapter" :placeholder="i18n.search" />
+            <input v-model="store.query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="store.searchChapter" :placeholder="i18n.search" />
         </form>
     </div>
     <div class="card__body">
@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <slot v-for="chapter in chapters.data" :key="chapter.id">
+                <slot v-for="chapter in store.chapters.data" :key="chapter.id">
                     <tr>
                         <td>
                             <p class="text-gray-900 whitespace-no-wrap">
@@ -74,7 +74,7 @@
                                 <a :href="chapter.url" class="text-gray-900 whitespace-no-wrap">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                 </a>
-                                <button @click.prevent="deleteMyChapter(chapter.slug)"><i class="fa-solid fa-trash-can"></i></button>
+                                <button @click.prevent="store.deleteMyChapter(chapter.slug)"><i class="fa-solid fa-trash-can"></i></button>
                             </p>
                         </td>
                     </tr>
@@ -84,31 +84,20 @@
     </div>
 
     <div class="d-flex justify-content-center">
-        <Pagination :data="chapters" :limit="4" @pagination-change-page="getChapters"></Pagination>
+        <Pagination :data="store.chapters" :limit="4" @pagination-change-page="store.getChapters"></Pagination>
     </div>
 </template>
 
 <script setup>
 import Pagination from 'laravel-vue-pagination'
-import useAdminChapter from '../../services/admin/AdminChaptersService'
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import lang from '../../services/tools/lang'
+import {useAdminChaptersStore} from "../../stores/admin/AdminChaptersStore";
 
-const { chapters, getChapters, search, deleteChapter } = useAdminChapter()
-const query = ref('')
+const store = useAdminChaptersStore()
 const i18n = lang()
 
 onMounted(() => {
-    getChapters(1)
+    store.getChapters(1)
 })
-
-const searchChapter = async () => {
-    await search(query.value)
-}
-
-const deleteMyChapter = async (slug) => {
-    if (confirm(i18n.confirm.deleteChapter)) {
-        await deleteChapter(slug)
-    }
-}
 </script>

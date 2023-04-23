@@ -13,7 +13,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <slot v-for="log in logs.data" :key="log.id">
+                    <slot v-for="log in store.logs.data" :key="log.id">
                         <tr>
                             <td>{{ log.id }}</td>
                             <td>{{ log.username }}</td>
@@ -46,7 +46,7 @@
             </table>
 
             <div class="d-flex justify-content-center">
-                <Pagination :data="logs" :limit="4" @pagination-change-page="getLogs"> </Pagination>
+                <Pagination :data="store.logs" :limit="4" @pagination-change-page="store.getLogs"> </Pagination>
             </div>
         </div>
     </div>
@@ -54,14 +54,14 @@
 
 <script setup>
 import Pagination from 'laravel-vue-pagination'
-import useLogs from '../../services/admin/logsServices'
 import { onMounted } from 'vue'
 import lang from '../../services/tools/lang'
+import {useAdminLogsStore} from "../../stores/admin/AdminLogsStore";
 
-const { logs, getLogs } = useLogs()
+const store = useAdminLogsStore()
 const i18n = lang()
 
 onMounted(() => {
-    getLogs(1)
+    store.getLogs(1)
 })
 </script>

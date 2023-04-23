@@ -1,8 +1,10 @@
-import { ref } from 'vue'
-import {scrollToTop} from "./tools/utils";
+import {defineStore} from "pinia";
+import {ref} from "vue";
+import {scrollToTop} from "../services/tools/utils";
 
-export default function useChapters() {
+export const useChaptersStore = defineStore('chapters', () => {
     const chapters = ref([])
+    const query = ref('')
 
     const getChapters = async (page, slug) => {
         let response = await axios.get('/webapi/books/chapters/' + slug + '?page=' + page)
@@ -10,9 +12,9 @@ export default function useChapters() {
         chapters.value = response.data
     }
 
-    const search = async (query, slug) => {
-        if (query.length > 3) {
-            let response = await axios.get('/webapi/books/chapters/' + slug + '/' + query)
+    const search = async (slug) => {
+        if (query.value.length > 3) {
+            let response = await axios.get('/webapi/books/chapters/' + slug + '/' + query.value)
             chapters.value = response.data
         } else {
             await getChapters(1, slug)
@@ -26,5 +28,5 @@ export default function useChapters() {
         chapters.value.data[index].like = !chapter.like
     }
 
-    return { chapters, getChapters, search, likeChapter }
-}
+    return { chapters, query, getChapters, search, likeChapter }
+})

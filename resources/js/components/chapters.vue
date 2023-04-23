@@ -1,28 +1,19 @@
 <script setup>
 import Pagination from 'laravel-vue-pagination'
-import { onMounted, ref } from 'vue'
-import useChapters from '../services/ChaptersService'
+import { onMounted } from 'vue'
 import lang from '../services/tools/lang'
+import {useChaptersStore} from "../stores/ChaptersStore";
 
 const props = defineProps({
     slug: String,
 })
 
-const { chapters, getChapters, search, likeChapter } = useChapters()
-const query = ref('')
+const store = useChaptersStore()
 const i18n = lang()
 
 onMounted(() => {
-    getChapters(1, props.slug)
+    store.getChapters(1, props.slug)
 })
-
-const searchBook = async () => {
-    await search(query.value, props.slug)
-}
-
-const like = async index => {
-    await likeChapter(index)
-}
 </script>
 
 <template>
@@ -32,12 +23,12 @@ const like = async index => {
                 <div class="input__icon__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchBook" :placeholder="i18n.search" />
+                <input v-model="store.query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="store.search(props.slug)" :placeholder="i18n.search" />
             </form>
         </div>
 
         <div class="articles mt-6">
-            <slot v-for="(chapter, index) in chapters.data" :key="chapter.id">
+            <slot v-for="(chapter, index) in store.chapters.data" :key="chapter.id">
                 <article class="card" :class="chapter.like !== false ? 'card__like' : ''">
                     <a :href="chapter.url + '/' + slug + '/' + chapter.slug" class="card__img">
                         <img :src="chapter.image" :alt="chapter.name" width="280" height="100" />
@@ -50,7 +41,7 @@ const like = async index => {
                                 <i class="fa-regular fa-clock mr-2"></i>
                                 {{ chapter.created_at }}
                             </span>
-                            <a class="cursor-pointer" @click="like(index)" :class="chapter.like !== false ? 'text-yellow-400' : 'text-gray-500'">
+                            <a class="cursor-pointer" @click="store.likeChapter(index)" :class="chapter.like !== false ? 'text-yellow-400' : 'text-gray-500'">
                                 <i class="fa-star mr-2" :class="chapter.like !== false ? 'fa-solid' : 'fa-regular'"></i>
                             </a>
                         </p>
@@ -60,7 +51,7 @@ const like = async index => {
         </div>
 
         <div class="d-flex justify-content-center">
-            <Pagination :data="chapters" @pagination-change-page="getChapters"></Pagination>
+            <Pagination :data="store.chapters" @pagination-change-page="store.getChapters"></Pagination>
         </div>
     </main>
 </template>

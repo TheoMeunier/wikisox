@@ -1,8 +1,10 @@
-import { ref } from 'vue'
-import {scrollToTop} from "./tools/utils";
+import {defineStore} from "pinia";
+import {ref} from "vue";
+import {scrollToTop} from "../services/tools/utils";
 
-export default function useBooks() {
-    const books = ref([])
+export const useBooksStore = defineStore('books', () => {
+    const books = ref({})
+    const query = ref('')
 
     const getBooks = async page => {
         let response = await axios.get('/webapi/books?page=' + page)
@@ -10,9 +12,9 @@ export default function useBooks() {
         books.value = response.data
     }
 
-    const search = async query => {
-        if (query.length > 3) {
-            let response = await axios.get('/webapi/books/' + query)
+    const search = async () => {
+        if (query.value.length > 3) {
+            let response = await axios.get('/webapi/books/' + query.value)
             books.value = response.data
         } else {
             await getBooks()
@@ -26,5 +28,5 @@ export default function useBooks() {
         books.value.data[index].like = !book.like
     }
 
-    return { books, getBooks, search, likeBook }
-}
+    return {books, query, getBooks, search, likeBook}
+})

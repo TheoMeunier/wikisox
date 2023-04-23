@@ -4,7 +4,7 @@
             <div class="input__icon__icon">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchPage" :placeholder="i18n.search" />
+            <input v-model="store.query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="store.searchPage" :placeholder="i18n.search" />
         </form>
     </div>
     <div class="card__body">
@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <slot v-for="page in pages.data" :key="page.id">
+                <slot v-for="page in store.pages.data" :key="page.id">
                     <tr>
                         <td>{{ page.id }}</td>
                         <td>{{ page.name }}</td>
@@ -39,7 +39,7 @@
                             <a :href="page.url">
                                 <i class="fa-solid fa-pen-to-square mr-2"></i>
                             </a>
-                            <button @click.prevent="deleteMyPage(page.slug)">
+                            <button @click.prevent="store.deleteMyPage(page.slug)">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </td>
@@ -50,31 +50,20 @@
     </div>
 
     <div class="d-flex justify-content-center">
-        <Pagination :data="pages" :limit="4" @pagination-change-page="getPages"></Pagination>
+        <Pagination :data="store.pages" :limit="4" @pagination-change-page="store.getPages"></Pagination>
     </div>
 </template>
 
 <script setup>
 import Pagination from 'laravel-vue-pagination'
-import useAdminPage from '../../services/admin/AdminPagesService'
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import lang from '../../services/tools/lang'
+import {useAdminPagesStore} from "../../stores/admin/AdminPagesStore";
 
-const { pages, getPages, search, deletePage } = useAdminPage()
-const query = ref('')
+const store = useAdminPagesStore()
 const i18n = lang()
 
 onMounted(() => {
-    getPages(1)
+    store.getPages(1)
 })
-
-const searchPage = async () => {
-    await search(query.value)
-}
-
-const deleteMyPage = async (slug) => {
-    if (confirm(i18n.confirm.deletePage)) {
-        await deletePage(slug)
-    }
-}
 </script>

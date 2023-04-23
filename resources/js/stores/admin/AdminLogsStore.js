@@ -1,6 +1,7 @@
-import { ref } from 'vue'
+import {defineStore} from "pinia";
+import {ref} from "vue";
 
-export default function useLogs() {
+export const useAdminLogsStore = defineStore('admin_logs', () => {
     const logs = ref([])
 
     const getLogs = async page => {
@@ -9,4 +10,4 @@ export default function useLogs() {
     }
 
     return { logs, getLogs }
-}
+})

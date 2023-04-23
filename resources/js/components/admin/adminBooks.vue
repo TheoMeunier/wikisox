@@ -4,7 +4,7 @@
             <div class="input__icon__icon">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <input v-model="query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="searchBook" :placeholder="i18n.search" />
+            <input v-model="store.query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="store.searchBook" :placeholder="i18n.search" />
         </form>
     </div>
     <div class="card__body">
@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <slot v-for="book in books.data" :key="books.id">
+                <slot v-for="book in store.books.data" :key="book.id">
                     <tr>
                         <td>
                             <p class="text-gray-900 whitespace-no-wrap">
@@ -68,7 +68,7 @@
                                 <a :href="book.url" class="text-gray-900 whitespace-no-wrap">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                 </a>
-                                <button @click.prevent="deleteMyBook(book.slug)">
+                                <button @click.prevent="store.deleteMyBook(book.slug)">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </p>
@@ -80,31 +80,20 @@
     </div>
 
     <div class="d-flex justify-content-center">
-        <Pagination :data="books" @pagination-change-page="getBooks"></Pagination>
+        <Pagination :data="store.books" @pagination-change-page="store.getBooks"></Pagination>
     </div>
 </template>
 
 <script setup>
 import Pagination from 'laravel-vue-pagination'
-import useAdminBook from '../../services/admin/AdminBooksService'
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import lang from '../../services/tools/lang'
+import {useAdminBooksStore} from "../../stores/admin/AdminBooksStore";
 
-const { books, getBooks, search, deleteBook } = useAdminBook()
-const query = ref('')
+const store = useAdminBooksStore()
 const i18n = lang()
 
 onMounted(() => {
-    getBooks(1)
+    store.getBooks(1)
 })
-
-const searchBook = async () => {
-    await search(query.value)
-}
-
-const deleteMyBook = async slug => {
-    if (confirm(i18n.confirm.deleteBook)) {
-        await deleteBook(slug)
-    }
-}
 </script>
