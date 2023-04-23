@@ -1,15 +1,15 @@
 .breadcrumb {
     @apply flex;
+}
 
-    .breadcrumb__content {
-        @apply inline-flex items-center space-x-1 md:space-x-3;
+.breadcrumb__content {
+    @apply inline-flex items-center space-x-1 md:space-x-3;
+}
 
-        .breadcrumb__menu {
-            @apply inline-flex items-center;
+.breadcrumb__menu {
+    @apply inline-flex items-center;
+}
 
-            a {
-                @apply inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900;
-            }
-        }
-    }
+.breadcrumb__menu a {
+    @apply inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900;
 }

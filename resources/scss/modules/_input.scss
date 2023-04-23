@@ -46,8 +46,6 @@ textarea .form-control {
     @apply mt-2 text-sm text-red-600 dark:text-red-500;
 }
 
-.form__btn__input {
-    input {
-        display: none;
-    }
+.form__btn__input input {
+    display: none;
 }

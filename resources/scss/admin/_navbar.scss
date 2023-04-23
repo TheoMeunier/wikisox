@@ -23,18 +23,18 @@
 .admin__navbar__logo {
     display: flex;
     align-items: center;
+}
 
-    p {
-        margin-left: 8px;
-        font-size: 32px;
-        font-weight: 600;
-    }
+.admin__navbar__logo p {
+    margin-left: 8px;
+    font-size: 32px;
+    font-weight: 600;
 }
 
 .admin__navbar__item {
     @apply p-2 ml-1;
+}
 
-    &:hover {
-        @apply text-indigo-500 bg-indigo-100 rounded-full;
-    }
+.admin__navbar__item:hover {
+    @apply text-indigo-500 bg-indigo-100 rounded-full;
 }
