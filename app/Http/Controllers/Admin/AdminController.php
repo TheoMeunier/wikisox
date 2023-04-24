@@ -19,10 +19,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::query()->count();
-        $books = Book::query()->count();
+        $users    = User::query()->count();
+        $books    = Book::query()->count();
         $chapters = Chapter::query()->count();
-        $pages = Page::query()->count();
+        $pages    = Page::query()->count();
 
         $logs = ActivityLog::query()
             ->with(['causer'])

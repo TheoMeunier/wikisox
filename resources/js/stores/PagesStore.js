@@ -1,5 +1,5 @@
-import {defineStore} from "pinia";
-import {ref} from "vue";
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
 export const usePagesStore = defineStore('pages', () => {
     const pages = ref([])
@@ -7,7 +7,7 @@ export const usePagesStore = defineStore('pages', () => {
 
     const getPages = async (page, slug, slugChapter) => {
         let response = await axios.get('/webapi/books/chapters/' + slug + '/pages/' + slugChapter + '?page=' + page)
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' })
         pages.value = response.data
     }
 

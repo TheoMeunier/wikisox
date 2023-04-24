@@ -17,21 +17,21 @@ return [
         'create' => 'Le livre à bien été créé',
         'update' => 'Le livre à bien été modifié',
         'delete' => 'Le livre à bien été supprimé',
-        'empty' => "Il n'y a pas de livre."
+        'empty'  => "Il n'y a pas de livre.",
     ],
 
     'chapter' => [
         'create' => 'Le chapitre à bien été créé',
         'update' => 'Le chapitre à bien été modifié',
         'delete' => 'Le chapitre à bien été supprimé',
-        'empty' => "Il n'y a pas de chapitre."
+        'empty'  => "Il n'y a pas de chapitre.",
     ],
 
     'page' => [
         'create' => 'La page à bien été créée',
         'update' => 'La page à bien été modifiée',
         'delete' => 'La page à bien été supprimée',
-        'empty' => "Il n'y a pas de page."
+        'empty'  => "Il n'y a pas de page.",
     ],
 
     'user' => [
@@ -41,15 +41,15 @@ return [
     ],
 
     'role' => [
-        'create' => "Le role à bien été créé",
-        'update' => "Le role à bien été modifié",
-        'delete' => "Le role à bien été supprimé",
+        'create' => 'Le role à bien été créé',
+        'update' => 'Le role à bien été modifié',
+        'delete' => 'Le role à bien été supprimé',
     ],
 
     'confirm' => [
         'deleteChapter' => 'Voulez vous vraiment supprimer ce chapitre ?',
-        'deletePage' => 'Voulez vous vraiment supprimer cette page ?',
-        'deleteBook' => 'Voulez vous vraiment supprimer ce livre ?',
-    ]
+        'deletePage'    => 'Voulez vous vraiment supprimer cette page ?',
+        'deleteBook'    => 'Voulez vous vraiment supprimer ce livre ?',
+    ],
 
 ];

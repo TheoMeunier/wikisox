@@ -9,7 +9,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Str;
-use Symfony\Component\HttpFoundation\Request;
 
 class BookController extends Controller
 {
@@ -19,6 +18,7 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::query()->count();
+
         return view('book.index', compact('books'));
     }
 
@@ -82,7 +82,7 @@ class BookController extends Controller
     }
 
     /**
-     * @param string $slug
+     * @param  string  $slug
      * @return RedirectResponse
      */
     public function delete(string $slug): RedirectResponse

@@ -14,20 +14,20 @@ use Symfony\Component\HttpFoundation\Response;
 class ApiProfileController extends Controller
 {
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return JsonResponse
      */
     public function update(Request $request): JsonResponse
     {
         $request->validate([
-            'name' => 'required|min:4',
-            'email' => 'required|email'
+            'name'  => 'required|min:4',
+            'email' => 'required|email',
         ]);
 
         $user = User::where('id', '=', auth()->id())->firstOrFail();
 
         $user->update([
-            'name' => $request->get('name'),
+            'name'  => $request->get('name'),
             'email' => $request->get('email'),
         ]);
 
@@ -37,13 +37,13 @@ class ApiProfileController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return JsonResponse
      */
     public function updatePassword(Request $request): JsonResponse
     {
         $request->validate([
-            'password' => 'required|confirmed|min:6'
+            'password' => 'required|confirmed|min:6',
         ]);
 
         $user = User::where('id', '=', auth()->id())->firstOrFail();

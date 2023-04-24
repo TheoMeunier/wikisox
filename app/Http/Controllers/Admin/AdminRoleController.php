@@ -8,7 +8,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -20,6 +19,7 @@ class AdminRoleController extends Controller
     public function index()
     {
         $roles = Role::all();
+
         return view('admin.roles.index', compact('roles'));
     }
 
@@ -38,14 +38,14 @@ class AdminRoleController extends Controller
      */
     public function edit(int $id)
     {
-        $role = Role::findOrFail($id);
+        $role        = Role::findOrFail($id);
         $permissions = Permission::all();
 
         return view('admin.roles.edit', compact('role', 'permissions'));
     }
 
     /**
-     * @param AdminRoleRequest $request
+     * @param  AdminRoleRequest  $request
      * @return RedirectResponse
      */
     public function store(AdminRoleRequest $request): RedirectResponse
@@ -63,8 +63,8 @@ class AdminRoleController extends Controller
     }
 
     /**
-     * @param AdminRoleRequest $request
-     * @param int $id
+     * @param  AdminRoleRequest  $request
+     * @param  int  $id
      * @return RedirectResponse
      */
     public function update(AdminRoleRequest $request, int $id): RedirectResponse

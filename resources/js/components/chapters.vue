@@ -2,7 +2,7 @@
 import Pagination from 'laravel-vue-pagination'
 import { onMounted } from 'vue'
 import lang from '../services/tools/lang'
-import {useChaptersStore} from "../stores/ChaptersStore";
+import { useChaptersStore } from '../stores/ChaptersStore'
 
 const props = defineProps({
     slug: String,

@@ -1,6 +1,6 @@
-import {defineStore} from "pinia";
-import {ref} from "vue";
-import lang from "../../services/tools/lang";
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import lang from '../../services/tools/lang'
 
 export const useAdminChaptersStore = defineStore('admin_chapters', () => {
     const chapters = ref([])

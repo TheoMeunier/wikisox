@@ -38,7 +38,7 @@
                         <td>{{ user.created_at }}</td>
                         <td>{{ user.updated_at }}</td>
                         <td>
-                            <p  class="flex items-center pointer">
+                            <p class="flex items-center pointer">
                                 <a :href="user.edit">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                 </a>
@@ -59,7 +59,7 @@
 import Pagination from 'laravel-vue-pagination'
 import { onMounted } from 'vue'
 import lang from '../../services/tools/lang'
-import {useAdminUsersStore} from "../../stores/admin/AdminUsersStore";
+import { useAdminUsersStore } from '../../stores/admin/AdminUsersStore'
 
 const store = useAdminUsersStore()
 const i18n = lang()

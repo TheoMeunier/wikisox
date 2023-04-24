@@ -19,5 +19,5 @@ return [
 
     'text' => [
         'changePassword' => "Vous avez oublié votre mot de passe ? Aucun problème. Indiquez-nous simplement votre adresse électronique et nous vous enverrons un lien de réinitialisation du mot de passe qui vous permettra d'en choisir un nouveau.",
-    ]
+    ],
 ];

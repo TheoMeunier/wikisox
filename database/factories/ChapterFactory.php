@@ -2,9 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Book;
 use App\Models\Chapter;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -27,10 +25,10 @@ class ChapterFactory extends Factory
         $name = $this->faker->name;
 
         return [
-            'name' => $name,
-            'slug' => Str::slug($name),
+            'name'        => $name,
+            'slug'        => Str::slug($name),
             'description' => $this->faker->text,
-            'image' => "https://picsum.photos/200/300",
+            'image'       => 'https://picsum.photos/200/300',
         ];
     }
 }

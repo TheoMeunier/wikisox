@@ -27,10 +27,10 @@ class ApiAdminChapterController extends Controller
     }
 
     /**
-     * @param string $slug
+     * @param  string  $slug
      * @return JsonResponse
      */
-    public function delete (string $slug)
+    public function delete(string $slug)
     {
         $chapter = Chapter::query()
             ->where('slug', '=', $slug)

@@ -1,7 +1,7 @@
 <template>
-    <FileManager endpoint="/api"/>
+    <FileManager endpoint="/api" />
 </template>
 
 <script setup>
-import FileManager from "../../filemanager/components/FileManager.vue";
+import FileManager from '../../filemanager/components/FileManager.vue'
 </script>

@@ -27,7 +27,7 @@ class ApiAdminPageController extends Controller
     }
 
     /**
-     * @param string $slug
+     * @param  string  $slug
      * @return JsonResponse
      */
     public function delete(string $slug): JsonResponse

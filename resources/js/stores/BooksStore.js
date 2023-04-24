@@ -1,6 +1,6 @@
-import {defineStore} from "pinia";
-import {ref} from "vue";
-import {scrollToTop} from "../services/tools/utils";
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import { scrollToTop } from '../services/tools/utils'
 
 export const useBooksStore = defineStore('books', () => {
     const books = ref({})
@@ -21,12 +21,12 @@ export const useBooksStore = defineStore('books', () => {
         }
     }
 
-    const likeBook = async (index) => {
+    const likeBook = async index => {
         let book = books.value.data[index]
         await axios.post('/webapi/books/like/' + book.id)
 
         books.value.data[index].like = !book.like
     }
 
-    return {books, query, getBooks, search, likeBook}
+    return { books, query, getBooks, search, likeBook }
 })

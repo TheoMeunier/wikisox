@@ -2,7 +2,7 @@
 import Pagination from 'laravel-vue-pagination'
 import { onMounted } from 'vue'
 import lang from '../services/tools/lang'
-import {usePagesStore} from "../stores/PagesStore";
+import { usePagesStore } from '../stores/PagesStore'
 
 const props = defineProps({
     book: String,
@@ -24,7 +24,14 @@ onMounted(() => {
                 <div class="input__icon__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <input v-model="store.query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="store.searchBook(props.book, props.chapter)" :placeholder="i18n.search" />
+                <input
+                    v-model="store.query"
+                    type="text"
+                    class="input__icon__input w-64"
+                    id="example-search-input"
+                    @keyup="store.searchBook(props.book, props.chapter)"
+                    :placeholder="i18n.search"
+                />
             </form>
         </div>
 

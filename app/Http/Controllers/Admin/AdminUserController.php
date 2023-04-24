@@ -28,6 +28,7 @@ class AdminUserController extends Controller
     public function create()
     {
         $roles = Role::all();
+
         return view('admin.users.create', compact('roles'));
     }
 
@@ -56,10 +57,10 @@ class AdminUserController extends Controller
      */
     public function edit(int $id)
     {
-        $user = User::findOrFail($id);
+        $user  = User::findOrFail($id);
         $roles = Role::all();
 
-        return view('admin.users.edit', compact('user','roles'));
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -89,23 +90,22 @@ class AdminUserController extends Controller
     }
 
     /**
-     * @param User $user
-     * @param string $role
+     * @param  User  $user
+     * @param  string  $role
      * @return void
      */
-    private function addRole (User $user, string $role): void
+    private function addRole(User $user, string $role): void
     {
         $role = Role::findOrFail($role);
         $user->assignRole($role);
     }
 
     /**
-     * @param User $user
-     * @param Role $role
-     *
+     * @param  User  $user
+     * @param  Role  $role
      * @return void
      */
-    private function removeRole (User $user, Role $role): void
+    private function removeRole(User $user, Role $role): void
     {
         $user->removeRole($role);
     }

@@ -6,20 +6,20 @@ return [
     'log'        => 'Logs',
     'info'       => 'Information',
 
-    'books'    => 'Mes Livres',
-    'chapters' => 'Mes Chapitres',
-    'pages'    => 'Mes Pages',
-    'roles'    => 'Mes Roles',
-    'users'    => 'Mes Utilisateurs',
-    'logs'     => 'Les Logs',
+    'books'     => 'Mes Livres',
+    'chapters'  => 'Mes Chapitres',
+    'pages'     => 'Mes Pages',
+    'roles'     => 'Mes Roles',
+    'users'     => 'Mes Utilisateurs',
+    'logs'      => 'Les Logs',
     'dashboard' => 'Dashboard',
     'image'     => 'Mes Images',
 
     'profile' => [
-        'index' => 'Mon Profil',
-        'books' => 'Mes Livres',
+        'index'    => 'Mon Profil',
+        'books'    => 'Mes Livres',
         'chapters' => 'Mes Chapitres',
-        'pages' => 'Mes Pages',
+        'pages'    => 'Mes Pages',
     ],
 
     'book' => [

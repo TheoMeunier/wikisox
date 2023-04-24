@@ -27,10 +27,10 @@ class ApiAdminBookController extends Controller
     }
 
     /**
-     * @param string $slug
+     * @param  string  $slug
      * @return JsonResponse
      */
-    public function delete (string $slug)
+    public function delete(string $slug)
     {
         $book = Book::query()
             ->where('slug', '=', $slug)

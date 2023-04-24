@@ -28,7 +28,6 @@ import IconPlus from '../Icons/IconPlus.vue'
 import { useFoldersStore } from '../../store/FoldersStore.js'
 import { onMounted } from 'vue'
 import { folder } from '../../actions/folder.js'
-import NewFolder from './NewFolder.vue'
 
 const store = useFoldersStore()
 onMounted(() => {

@@ -132,7 +132,7 @@ class PageController extends Controller
     }
 
     /**
-     * @param string $slug
+     * @param  string  $slug
      * @return RedirectResponse
      */
     public function delete(string $slug): RedirectResponse

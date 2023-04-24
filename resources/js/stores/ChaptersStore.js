@@ -1,6 +1,6 @@
-import {defineStore} from "pinia";
-import {ref} from "vue";
-import {scrollToTop} from "../services/tools/utils";
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import { scrollToTop } from '../services/tools/utils'
 
 export const useChaptersStore = defineStore('chapters', () => {
     const chapters = ref([])
@@ -12,7 +12,7 @@ export const useChaptersStore = defineStore('chapters', () => {
         chapters.value = response.data
     }
 
-    const search = async (slug) => {
+    const search = async slug => {
         if (query.value.length > 3) {
             let response = await axios.get('/webapi/books/chapters/' + slug + '/' + query.value)
             chapters.value = response.data
@@ -21,7 +21,7 @@ export const useChaptersStore = defineStore('chapters', () => {
         }
     }
 
-    const likeChapter = async (index) => {
+    const likeChapter = async index => {
         let chapter = chapters.value.data[index]
         await axios.post('/webapi/chapters/like/' + chapter.id)
 

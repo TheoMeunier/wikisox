@@ -13,7 +13,7 @@ return [
         'confirm-password'  => 'Confirmation mot de passe',
         'pseudo'            => 'Pseudo',
         'remember_me'       => 'Se souvenir de moi',
-        'roles'       => 'Rôles',
+        'roles'             => 'Rôles',
     ],
 
     'placeholder' => [
@@ -23,5 +23,5 @@ return [
 
     'select' => [
         'role' => '-- Sélectionner un rôle --',
-    ]
+    ],
 ];

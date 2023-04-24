@@ -1,6 +1,6 @@
-import {defineStore} from "pinia";
-import {ref} from "vue";
-import lang from "../../services/tools/lang";
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import lang from '../../services/tools/lang'
 
 export const useAdminPagesStore = defineStore('admin_pages', () => {
     const pages = ref([])
@@ -22,7 +22,7 @@ export const useAdminPagesStore = defineStore('admin_pages', () => {
     }
 
     const deletePage = async slug => {
-        if (confirm(i18n.confirm.deletePage)){
+        if (confirm(i18n.confirm.deletePage)) {
             await axios.delete('/webapi/admin/pages/delete/' + slug)
             await getPages(1)
         }

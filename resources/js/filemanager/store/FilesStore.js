@@ -3,8 +3,8 @@ import axios from 'axios'
 import { ref } from 'vue'
 import { useFoldersStore } from './FoldersStore.js'
 import { useAlertStore } from './AlertStore.js'
-import {useFileManagerStore} from "./FilemangerStore";
-import lang from "../../services/tools/lang";
+import { useFileManagerStore } from './FilemangerStore'
+import lang from '../../services/tools/lang'
 
 export const useFilesStore = defineStore('filesStore', () => {
     const files = ref({})
@@ -44,7 +44,7 @@ export const useFilesStore = defineStore('filesStore', () => {
     }
 
     async function deleteFile(file) {
-        if (confirm(i18n.filemanager.file.confirm_delete )) {
+        if (confirm(i18n.filemanager.file.confirm_delete)) {
             await axios.delete(storeFileManager.url + '/files/' + file.id, file)
 
             let index = files.value.indexOf(file)

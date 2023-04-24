@@ -3,8 +3,8 @@ import Pagination from 'laravel-vue-pagination'
 import { onMounted } from 'vue'
 import '../services/tools/lang'
 import lang from '../services/tools/lang'
-import {useBooksStore} from "../stores/BooksStore";
-import File from "../filemanager/components/File/File.vue";
+import { useBooksStore } from '../stores/BooksStore'
+import File from '../filemanager/components/File/File.vue'
 
 const store = useBooksStore()
 const i18n = lang()

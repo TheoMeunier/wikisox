@@ -25,9 +25,9 @@ class AdminLogResource extends JsonResource
     {
         /** @var Activity $this */
         return [
-            'id' => $this->id,
-            'event'    => $this->description,
-            'username' => $this->causer->name ?? 'Server',
+            'id'           => $this->id,
+            'event'        => $this->description,
+            'username'     => $this->causer->name  ?? 'Server',
             'subject_name' => $this->subject->name ?? 'Server',
             'created_at'   => Carbon::parse($this->created_at)->format('d/m/Y'),
             'updated_at'   => Carbon::parse($this->updated_at)->format('d/m/Y'),

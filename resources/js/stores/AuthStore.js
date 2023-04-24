@@ -1,11 +1,11 @@
-import {defineStore} from "pinia";
-import {ref} from "vue";
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
 export const useAuthStore = defineStore('auth', () => {
     const auth = ref({})
     const errorsEdit = ref({
         name: '',
-        email: ''
+        email: '',
     })
 
     const getAuthUser = async () => {
@@ -34,5 +34,4 @@ export const useAuthStore = defineStore('auth', () => {
     }
 
     return { auth, getAuthUser, updateUser, updatePassword, errorsEdit, errorsPassword }
-
 })

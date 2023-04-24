@@ -65,10 +65,11 @@ class Book extends Model
         return $logOption->logAll()->logOnlyDirty();
     }
 
-    protected static function boot() {
+    protected static function boot()
+    {
         parent::boot();
 
-        static::deleting(function($book) {
+        static::deleting(function ($book) {
             foreach ($book->chapters as $chapter) {
                 $chapter->pages()->delete();
             }

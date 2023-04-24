@@ -1,7 +1,7 @@
 import { useFoldersStore } from '../store/FoldersStore.js'
 import { useNewFolderStore } from '../store/NewFolderStore.js'
 import { useAlertStore } from '../store/AlertStore.js'
-import lang from "../../services/tools/lang";
+import lang from '../../services/tools/lang'
 
 export async function folder(parent) {
     const store = useFoldersStore()

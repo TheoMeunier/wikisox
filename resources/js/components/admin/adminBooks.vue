@@ -88,7 +88,7 @@
 import Pagination from 'laravel-vue-pagination'
 import { onMounted } from 'vue'
 import lang from '../../services/tools/lang'
-import {useAdminBooksStore} from "../../stores/admin/AdminBooksStore";
+import { useAdminBooksStore } from '../../stores/admin/AdminBooksStore'
 
 const store = useAdminBooksStore()
 const i18n = lang()

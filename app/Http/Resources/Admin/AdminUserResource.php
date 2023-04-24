@@ -22,7 +22,7 @@ class AdminUserResource extends JsonResource
             'id'         => $this->id,
             'name'       => $this->name,
             'email'      => $this->email,
-            'role'      => $this->roles()->first()->name ?? 'Server',
+            'role'       => $this->roles()->first()->name ?? 'Server',
             'verify'     => $this->email_verified_at,
             'edit'       => route('admin.users.edit', ['id' => $this->id]),
             'created_at' => Carbon::parse($this->created_at)->format('d/m/Y'),

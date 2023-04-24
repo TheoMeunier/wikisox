@@ -12,7 +12,7 @@
 <script setup>
 import IconSearch from '../Icons/IconSearch.vue'
 import { useSearchFileStore } from '../../store/SearchFileStore.js'
-import lang from "../../../services/tools/lang";
+import lang from '../../../services/tools/lang'
 
 const store = useSearchFileStore()
 const i18n = lang()
