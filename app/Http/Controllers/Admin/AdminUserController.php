@@ -77,6 +77,7 @@ class AdminUserController extends Controller
         ]);
 
         if ($user->roles()->first() !== null) {
+            /* @phpstan-ignore-next-line  */
             $this->removeRole($user, $user->roles()->first());
         }
 
@@ -101,6 +102,7 @@ class AdminUserController extends Controller
     /**
      * @param User $user
      * @param Role $role
+     *
      * @return void
      */
     private function removeRole (User $user, Role $role): void

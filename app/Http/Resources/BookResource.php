@@ -21,9 +21,9 @@ class BookResource extends JsonResource
         /** @var Book $this */
         return [
             'id'          => $this->id,
-            'name'        => Str::limit($this->name, 20),
+            'name'        => Str::limit($this->name ?? '', 20),
             'slug'        => $this->slug,
-            'description' => Str::limit($this->description, 60),
+            'description' => Str::limit($this->description ?? '', 60),
             'image'       => $this->image,
             'username'    => $this->user->name,
             'created_at'  => Carbon::parse($this->created_at)->diffForHumans(),

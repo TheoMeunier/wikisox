@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -13,6 +14,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        /** @var User $user */
         $user = auth()->user();
         $counts = $user->loadCount(['books', 'chapters', 'pages']);
 
