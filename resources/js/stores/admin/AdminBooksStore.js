@@ -12,7 +12,7 @@ export const useAdminBooksStore = defineStore('admin_books', () => {
         books.value = response.data
     }
 
-    const search = async query => {
+    const search = async () => {
         if (query.value.length > 3) {
             let response = await axios.get('/webapi/admin/books/' + query.value)
             books.value = response.data

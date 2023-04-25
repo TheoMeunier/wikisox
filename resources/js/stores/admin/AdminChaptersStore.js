@@ -12,7 +12,7 @@ export const useAdminChaptersStore = defineStore('admin_chapters', () => {
         chapters.value = response.data
     }
 
-    const search = async query => {
+    const search = async () => {
         if (query.value.length > 3) {
             let response = await axios.get('/webapi/admin/chapters/' + query.value)
             chapters.value = response.data

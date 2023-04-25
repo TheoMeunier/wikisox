@@ -12,7 +12,7 @@ export const useAdminPagesStore = defineStore('admin_pages', () => {
         pages.value = response.data
     }
 
-    const search = async query => {
+    const search = async () => {
         if (query.value.length > 3) {
             let response = await axios.get('/webapi/admin/pages/' + query.value)
             pages.value = response.data
