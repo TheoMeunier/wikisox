@@ -74,7 +74,7 @@
                                 <a :href="chapter.url" class="text-gray-900 whitespace-no-wrap">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                 </a>
-                                <button @click.prevent="store.deleteMyChapter(chapter.slug)"><i class="fa-solid fa-trash-can"></i></button>
+                                <button @click.prevent="store.deleteChapter(chapter.slug)"><i class="fa-solid fa-trash-can"></i></button>
                             </p>
                         </td>
                     </tr>

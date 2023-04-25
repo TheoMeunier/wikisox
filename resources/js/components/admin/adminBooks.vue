@@ -68,7 +68,7 @@
                                 <a :href="book.url" class="text-gray-900 whitespace-no-wrap">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                 </a>
-                                <button @click.prevent="store.deleteMyBook(book.slug)">
+                                <button @click.prevent="store.deleteBook(book.slug)">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </p>
