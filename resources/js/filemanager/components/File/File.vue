@@ -7,7 +7,7 @@
             >
                 <IconCross />
             </div>
-            <img class="w-32 h-32 object-cover" :src="props.file.url" alt="" />
+            <img class="min-w-36 min-h-36 object-cover" :src="props.file.url" alt=""/>
             <p class="text-center mt-2 text-lg break-all">{{ props.file.name.substring(0, 20) }}</p>
         </div>
     </div>
