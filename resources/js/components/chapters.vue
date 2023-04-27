@@ -12,7 +12,9 @@ const store = useChaptersStore()
 const i18n = lang()
 
 onMounted(() => {
-    store.getChapters(1, props.slug)
+    store.props.chapter = props.slug
+
+    store.getChapters()
 })
 </script>
 
