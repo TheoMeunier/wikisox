@@ -25,7 +25,7 @@ onMounted(() => {
                 <div class="input__icon__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <input v-model="store.query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="store.search(props.slug)" :placeholder="i18n.search" />
+                <input v-model="store.query" type="text" class="input__icon__input w-64" id="example-search-input" @keyup="store.search" :placeholder="i18n.search" />
             </form>
         </div>
 
