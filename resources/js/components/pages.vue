@@ -13,7 +13,10 @@ const store = usePagesStore()
 const i18n = lang()
 
 onMounted(() => {
-    store.getPages(1, props.book, props.chapter)
+    store.props.book = props.book
+    store.props.chapter = props.chapter
+
+    store.getPages()
 })
 </script>
 
@@ -29,7 +32,7 @@ onMounted(() => {
                     type="text"
                     class="input__icon__input w-64"
                     id="example-search-input"
-                    @keyup="store.searchBook(props.book, props.chapter)"
+                    @keyup="store.search(props.book, props.chapter)"
                     :placeholder="i18n.search"
                 />
             </form>
