@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use AlAminFirdows\LaravelEditorJs\Facades\LaravelEditorJs;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -43,6 +44,11 @@ class Page extends Model
     public function getLikeAttribute(): bool
     {
         return ! is_null($this->likes->first());
+    }
+
+    public function getContentParseAttribute()
+    {
+        return LaravelEditorJs::render($this->content);
     }
 
     /**
