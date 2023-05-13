@@ -1,12 +1,11 @@
 import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header';
 import NestedList from '@editorjs/nested-list';
-import SimpleImage from '@editorjs/simple-image';
 import Quote from '@editorjs/quote';
-import CodeTool from '@editorjs/code';
 import Warning from '@editorjs/warning';
 import InlineCode from '@editorjs/inline-code';
 import Paragraph from '@editorjs/paragraph';
+import CodeBox from '@bomdi/codebox';
 
 const editor_data = document.getElementById('editor_data')
 const form_page = document.getElementById('form_page')
@@ -65,13 +64,12 @@ if (editorjs) {
                     messagePlaceholder: 'Message',
                 },
             },
-            image: {
-                class: SimpleImage,
-                inlineToolbar: true
-            },
             code: {
-                class: CodeTool,
-                inlineToolbar: true
+                class: CodeBox,
+                inlineToolbar: true,
+                config: {
+                    themeName: 'atom-one-dark',
+                }
             },
             inlineCode: {
                 class: InlineCode,

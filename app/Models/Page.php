@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use AlAminFirdows\LaravelEditorJs\Facades\LaravelEditorJs;
+use App\Services\EditorjsParser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -46,9 +47,13 @@ class Page extends Model
         return ! is_null($this->likes->first());
     }
 
-    public function getContentParseAttribute()
+    /**
+     * @throws \JsonException
+     */
+    public function getContentParseAttribute(): string
     {
-        return LaravelEditorJs::render($this->content);
+        $parser = new EditorjsParser();
+        return $parser->parser($this->content);
     }
 
     /**

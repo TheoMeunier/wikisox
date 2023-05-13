@@ -922,6 +922,11 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
+"@bomdi/codebox@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@bomdi/codebox/-/codebox-2.0.0.tgz#abddc7aa556c5a47458dd3bcdd9ab299bafb6f99"
+  integrity sha512-t1xjfur4wAWfKsoS+KkeARUVxBM43QwIMVxqEmhEhyCI7ixhFSBtda8FWZ9udk/+SRdM6gXPaxd2/yUQfEuDbA==
+
 "@codexteam/icons@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@codexteam/icons/-/icons-0.1.0.tgz#a02885fe8699f69902d05b077b5f1cd48a2ca6b9"
