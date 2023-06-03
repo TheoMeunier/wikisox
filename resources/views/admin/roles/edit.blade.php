@@ -37,6 +37,9 @@
                     </div>
 
                     <div class="flex items-center justify-end mt-4">
+                        <a href="{{ url()->previous() }}" class="btn btn__secondary">
+                            {{ __('button.action.close') }}
+                        </a>
                         <x-button class="ml-3">
                             {{ __('button.action.edit') }}
                         </x-button>

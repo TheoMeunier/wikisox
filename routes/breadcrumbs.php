@@ -10,14 +10,16 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
-    $trail->push('Home', route('dashboard'));
+    $trail->push(__('title.books'), route('book.index'));
 });
 
 Breadcrumbs::for('book', function (BreadcrumbTrail $trail, $book) {
+    $trail->parent('home');
     $trail->push($book->name, route('book.chapter.index', ['slug' => $book->slug]));
 });
 
 Breadcrumbs::for('book.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
     $trail->push(__('title.book.create'));
 });
 
