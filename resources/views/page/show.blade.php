@@ -19,7 +19,7 @@
 
             <div class="min-w-full prose prose-img:rounded-xl prose-a:text-blue-600">
                 <x-markdown>
-                    {!! $page->content_parse !!}
+                    {!! $page->content !!}
                 </x-markdown>
             </div>
         </div>

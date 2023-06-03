@@ -9,7 +9,7 @@
         <div class="p-6 bg-white border-b border-gray-200">
             <h1>{{ __('title.page.edit') }}</h1>
 
-            <form action="{{ route('pages.update', ['slug' => $page->slug]) }}" method="POST" id="form_page">
+            <form action="{{ route('pages.update', ['slug' => $page->slug]) }}" method="POST">
                 @csrf
 
                 <div>
@@ -21,11 +21,7 @@
                         @enderror
                     </div>
                     <div class="mt-10">
-                        <x-label for="description" :value="__('input.label.description')"/>
-                        <x-forms.editor name="content" value="{!! $page->content !!}"></x-forms.editor>
-                        @error('content')
-                        <div class="text-red-500">{{ $message }}</div>
-                        @enderror
+                        <x-forms.mde name="content" value="{!! $page->content !!}"></x-forms.mde>
                     </div>
                 </div>
 

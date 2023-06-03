@@ -48,15 +48,6 @@ class Page extends Model
     }
 
     /**
-     * @throws \JsonException
-     */
-    public function getContentParseAttribute(): string
-    {
-        $parser = new EditorjsParser();
-        return $parser->parser($this->content);
-    }
-
-    /**
      * @return MorphMany
      */
     public function likes(): MorphMany

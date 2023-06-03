@@ -12,8 +12,7 @@
 
             <form
                 action="{{ route('book.chapter.page.create', ['slug' => $chapter->book->slug, 'slugChapter' => $chapter->slug]) }}"
-                method="POST"
-                id="form_page">
+                method="POST">
                 @csrf
 
                 <div>
@@ -26,11 +25,7 @@
                     </div>
 
                     <div>
-                        <x-label for="description" :value="__('input.label.description')"/>
-                        <x-forms.editor name="content" :value="old('content')"/>
-                        @error('content')
-                        <div class="text-red-500">{{ $message }}</div>
-                        @enderror
+                        <x-forms.mde name="content" value="{{ old('content') }}"></x-forms.mde>
                     </div>
                 </div>
 
