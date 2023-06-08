@@ -14,12 +14,13 @@ if (! function_exists('numberFormat')) {
 
 if (! function_exists('recursive_array_replace')) {
     /**
-     * recursive_array_replace.
-     *
-     * @param  mixed  $array
+     * @param string $find
+     * @param string $replace
+     * @param array $array
+     * @param bool $inKey
      * @return array|string
      */
-    function recursive_array_replace(string $find, string $replace, $array, bool $inKey = false)
+    function recursive_array_replace(string $find, string $replace, array $array, bool $inKey = false): array|string
     {
         if (! is_array($array)) {
             if ($inKey) {
