@@ -14,7 +14,6 @@ use Str;
 class ChapterController extends Controller
 {
     /**
-     * @param  string  $slug
      * @return Application|Factory|View
      */
     public function index(string $slug)
@@ -28,7 +27,6 @@ class ChapterController extends Controller
     }
 
     /**
-     * @param  string  $slug
      * @return Application|Factory|View
      */
     public function create(string $slug)
@@ -38,11 +36,6 @@ class ChapterController extends Controller
         return view('chapter.create', compact('book'));
     }
 
-    /**
-     * @param  ChapterRequest  $request
-     * @param  string  $slug
-     * @return RedirectResponse
-     */
     public function store(ChapterRequest $request, string $slug): RedirectResponse
     {
         $book = Book::where('slug', '=', $slug)->firstOrFail();
@@ -62,8 +55,6 @@ class ChapterController extends Controller
     }
 
     /**
-     * @param  string  $slug
-     * @param  string  $slugChapter
      * @return Application|Factory|View
      */
     public function edit(string $slug, string $slugChapter)
@@ -77,11 +68,6 @@ class ChapterController extends Controller
         return view('chapter.edit', compact('book', 'chapter'));
     }
 
-    /**
-     * @param  ChapterRequest  $request
-     * @param  string  $slug
-     * @return RedirectResponse
-     */
     public function update(ChapterRequest $request, string $slug): RedirectResponse
     {
         $chapter = Chapter::with('book')
@@ -99,10 +85,6 @@ class ChapterController extends Controller
             ->with('success', __('flash.chapter.update'));
     }
 
-    /**
-     * @param  string  $slug
-     * @return RedirectResponse
-     */
     public function delete(string $slug): RedirectResponse
     {
         $chapter = Chapter::query()->where('slug', '=', $slug)->firstOrFail();

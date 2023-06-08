@@ -11,10 +11,6 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ApiAdminBookController extends Controller
 {
-    /**
-     * @param  Request  $request
-     * @return AnonymousResourceCollection
-     */
     public function index(Request $request): AnonymousResourceCollection
     {
         $books = Book::query()
@@ -27,7 +23,6 @@ class ApiAdminBookController extends Controller
     }
 
     /**
-     * @param  string  $slug
      * @return JsonResponse
      */
     public function delete(string $slug)

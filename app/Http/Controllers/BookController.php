@@ -30,10 +30,6 @@ class BookController extends Controller
         return view('book.create');
     }
 
-    /**
-     * @param  BookRequest  $request
-     * @return RedirectResponse
-     */
     public function store(BookRequest $request): RedirectResponse
     {
         Book::create([
@@ -50,7 +46,6 @@ class BookController extends Controller
     }
 
     /**
-     * @param  string  $slug
      * @return Application|Factory|View
      */
     public function edit(string $slug)
@@ -60,11 +55,6 @@ class BookController extends Controller
         return view('book.edit', compact('book'));
     }
 
-    /**
-     * @param  BookRequest  $request
-     * @param  string  $slug
-     * @return RedirectResponse
-     */
     public function update(BookRequest $request, string $slug): RedirectResponse
     {
         $book = Book::where('slug', '=', $slug)->firstOrFail();
@@ -81,10 +71,6 @@ class BookController extends Controller
             ->with('success', __('flash.book.update'));
     }
 
-    /**
-     * @param  string  $slug
-     * @return RedirectResponse
-     */
     public function delete(string $slug): RedirectResponse
     {
         $book = Book::query()->where('slug', '=', $slug)->firstOrFail();

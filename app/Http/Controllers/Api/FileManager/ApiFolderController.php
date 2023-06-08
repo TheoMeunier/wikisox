@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Response;
 class ApiFolderController extends AbstractFileManagerController
 {
     /**
-     * @param  string  $folder
      * @return Application|ResponseFactory|\Illuminate\Http\Response
      */
     public function delete(string $folder)
@@ -22,10 +21,6 @@ class ApiFolderController extends AbstractFileManagerController
         return response('', Response::HTTP_NO_CONTENT);
     }
 
-    /**
-     * @param  Request  $request
-     * @return Collection
-     */
     public function index(Request $request): Collection
     {
         $parent = (string) $request->query->get('parent', null);
@@ -39,10 +34,6 @@ class ApiFolderController extends AbstractFileManagerController
         return collect($directories)->map([$this, 'toArray']);
     }
 
-    /**
-     * @param  FolderCreateRequest  $request
-     * @return array
-     */
     public function store(FolderCreateRequest $request): array
     {
         /** @var array $data */
@@ -53,10 +44,6 @@ class ApiFolderController extends AbstractFileManagerController
         return $this->toArray(trim($path, '/'));
     }
 
-    /**
-     * @param  string  $folders
-     * @return array
-     */
     public function toArray(string $folders): array
     {
         $pathinfo = pathinfo($folders);

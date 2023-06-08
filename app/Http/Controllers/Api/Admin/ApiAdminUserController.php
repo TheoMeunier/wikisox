@@ -10,10 +10,6 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ApiAdminUserController extends Controller
 {
-    /**
-     * @param  Request  $request
-     * @return AnonymousResourceCollection
-     */
     public function index(Request $request): AnonymousResourceCollection
     {
         $users = User::query()

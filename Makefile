@@ -46,7 +46,6 @@ cs:  ## code style check
 .PHONY: fix
 fix:  ## code style fix
 	./vendor/bin/pint
-	npx prettier --write 'resources/**/*.+(js|json|scss|sass|css|vue)' '.prettierrc.json' 'composer.json' 'package.json' 'pint.json'
 
 .PHONY: phpstan
 phpstan:  ## phpstan

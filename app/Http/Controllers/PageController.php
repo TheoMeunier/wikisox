@@ -15,8 +15,6 @@ use Str;
 class PageController extends Controller
 {
     /**
-     * @param  string  $slug
-     * @param  string  $slugChapter
      * @return Application|Factory|View
      */
     public function index(string $slug, string $slugChapter)
@@ -33,9 +31,6 @@ class PageController extends Controller
     }
 
     /**
-     * @param  string  $slug
-     * @param  string  $slugChapter
-     * @param  string  $slugPage
      * @return Application|Factory|View
      */
     public function show(string $slug, string $slugChapter, string $slugPage)
@@ -48,8 +43,6 @@ class PageController extends Controller
     }
 
     /**
-     * @param  string  $slug
-     * @param  string  $slugChapter
      * @return Application|Factory|View
      */
     public function create(string $slug, string $slugChapter)
@@ -63,12 +56,6 @@ class PageController extends Controller
         return view('page.create', compact('book', 'chapter'));
     }
 
-    /**
-     * @param  PageRequest  $request
-     * @param  string  $slug
-     * @param  string  $slugChapter
-     * @return RedirectResponse
-     */
     public function store(PageRequest $request, string $slug, string $slugChapter): RedirectResponse
     {
         $chapter = Chapter::where('slug', '=', $slugChapter)
@@ -88,9 +75,6 @@ class PageController extends Controller
     }
 
     /**
-     * @param  string  $slug
-     * @param  string  $slugChapter
-     * @param  string  $slugPage
      * @return Application|Factory|View
      */
     public function edit(string $slug, string $slugChapter, string $slugPage)
@@ -107,11 +91,6 @@ class PageController extends Controller
         return view('page.edit', compact('book', 'chapter', 'page'));
     }
 
-    /**
-     * @param  PageRequest  $request
-     * @param  string  $slug
-     * @return RedirectResponse
-     */
     public function update(PageRequest $request, string $slug): RedirectResponse
     {
         $page = Page::where('slug', '=', $slug)->firstOrFail();
@@ -131,10 +110,6 @@ class PageController extends Controller
             ->with('success', __('flash.page.update'));
     }
 
-    /**
-     * @param  string  $slug
-     * @return RedirectResponse
-     */
     public function delete(string $slug): RedirectResponse
     {
         $page = Page::query()->where('slug', '=', $slug)->firstOrFail();

@@ -12,10 +12,6 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ApiBookController extends Controller
 {
-    /**
-     * @param  Request  $request
-     * @return AnonymousResourceCollection
-     */
     public function index(Request $request): AnonymousResourceCollection
     {
         $books = Book::query()
@@ -26,10 +22,6 @@ class ApiBookController extends Controller
         return BookResource::collection($books);
     }
 
-    /**
-     * @param  Book  $book
-     * @return JsonResponse
-     */
     public function like(Book $book): JsonResponse
     {
         $book->like ? $book->likes()->delete() : $book->likes()->create(['user_id' => auth()->id()]);
@@ -38,7 +30,6 @@ class ApiBookController extends Controller
     }
 
     /**
-     * @param  string  $slug
      * @return JsonResponse|RedirectResponse
      */
     public function delete(string $slug)

@@ -44,10 +44,6 @@ class AdminRoleController extends Controller
         return view('admin.roles.edit', compact('role', 'permissions'));
     }
 
-    /**
-     * @param  AdminRoleRequest  $request
-     * @return RedirectResponse
-     */
     public function store(AdminRoleRequest $request): RedirectResponse
     {
         $role = Role::create([
@@ -62,11 +58,6 @@ class AdminRoleController extends Controller
             ->with('success', __('flash.role.create'));
     }
 
-    /**
-     * @param  AdminRoleRequest  $request
-     * @param  int  $id
-     * @return RedirectResponse
-     */
     public function update(AdminRoleRequest $request, int $id): RedirectResponse
     {
         $role = Role::findOrFail($id);

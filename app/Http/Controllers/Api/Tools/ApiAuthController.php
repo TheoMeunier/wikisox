@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ApiAuthController extends Controller
 {
-    /**
-     * @return AuthResource
-     */
     public function index(): AuthResource
     {
         $user = User::query()

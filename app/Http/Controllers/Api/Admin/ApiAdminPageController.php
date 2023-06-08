@@ -11,10 +11,6 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ApiAdminPageController extends Controller
 {
-    /**
-     * @param  Request  $request
-     * @return AnonymousResourceCollection
-     */
     public function index(Request $request): AnonymousResourceCollection
     {
         $pages = Page::query()
@@ -26,10 +22,6 @@ class ApiAdminPageController extends Controller
         return AdminPageResource::collection($pages);
     }
 
-    /**
-     * @param  string  $slug
-     * @return JsonResponse
-     */
     public function delete(string $slug): JsonResponse
     {
         $page = Page::query()

@@ -16,8 +16,6 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
-     * @return void
      */
     public function run(): void
     {
@@ -26,21 +24,21 @@ class DatabaseSeeder extends Seeder
             ->count(10)
             ->has(
                 Book::factory()
-                ->count(10)
-                ->has(
-                    Chapter::factory()
-                    ->count(5)
-                    ->state(function (array $attributes, Book $book) {
-                        return ['user_id' => $book->user->id];
-                    })
+                    ->count(10)
                     ->has(
-                        Page::factory()
-                        ->count(10)
-                        ->state(function (array $attributes, Chapter $chapter) {
-                            return ['user_id' => $chapter->user->id];
-                        })
+                        Chapter::factory()
+                            ->count(5)
+                            ->state(function (array $attributes, Book $book) {
+                                return ['user_id' => $book->user->id];
+                            })
+                            ->has(
+                                Page::factory()
+                                    ->count(10)
+                                    ->state(function (array $attributes, Chapter $chapter) {
+                                        return ['user_id' => $chapter->user->id];
+                                    })
+                            )
                     )
-                )
             )
             ->create();
 

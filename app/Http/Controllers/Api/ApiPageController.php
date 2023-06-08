@@ -12,12 +12,6 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ApiPageController extends Controller
 {
-    /**
-     * @param  Request  $request
-     * @param  string  $slug
-     * @param  string  $slugChapter
-     * @return AnonymousResourceCollection
-     */
     public function index(Request $request, string $slug, string $slugChapter): AnonymousResourceCollection
     {
         $chapter = Chapter::query()
@@ -33,10 +27,6 @@ class ApiPageController extends Controller
         return PageResource::collection($pages);
     }
 
-    /**
-     * @param  Chapter  $chapter
-     * @return JsonResponse
-     */
     public function like(Chapter $chapter): JsonResponse
     {
         $chapter->like ? $chapter->likes()->delete() : $chapter->likes()->create(['user_id' => auth()->id()]);

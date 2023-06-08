@@ -13,10 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ApiProfileController extends Controller
 {
-    /**
-     * @param  Request  $request
-     * @return JsonResponse
-     */
     public function update(Request $request): JsonResponse
     {
         $request->validate([
@@ -36,10 +32,6 @@ class ApiProfileController extends Controller
         ], Response::HTTP_OK);
     }
 
-    /**
-     * @param  Request  $request
-     * @return JsonResponse
-     */
     public function updatePassword(Request $request): JsonResponse
     {
         $request->validate([

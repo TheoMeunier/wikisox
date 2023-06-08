@@ -11,10 +11,6 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ApiAdminChapterController extends Controller
 {
-    /**
-     * @param  Request  $request
-     * @return AnonymousResourceCollection
-     */
     public function index(Request $request): AnonymousResourceCollection
     {
         $chapters = Chapter::query()
@@ -27,7 +23,6 @@ class ApiAdminChapterController extends Controller
     }
 
     /**
-     * @param  string  $slug
      * @return JsonResponse
      */
     public function delete(string $slug)

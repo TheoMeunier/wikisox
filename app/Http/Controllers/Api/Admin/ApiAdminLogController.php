@@ -9,9 +9,6 @@ use Spatie\Activitylog\Models\Activity;
 
 class ApiAdminLogController extends Controller
 {
-    /**
-     * @return AnonymousResourceCollection
-     */
     public function index(): AnonymousResourceCollection
     {
         $logs = Activity::query()

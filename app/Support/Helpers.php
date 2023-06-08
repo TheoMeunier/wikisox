@@ -13,13 +13,7 @@ if (! function_exists('numberFormat')) {
 }
 
 if (! function_exists('recursive_array_replace')) {
-    /**
-     * @param string $find
-     * @param string $replace
-     * @param array $array
-     * @param bool $inKey
-     * @return array|string
-     */
+
     function recursive_array_replace(string $find, string $replace, array $array, bool $inKey = false): array|string
     {
         if (! is_array($array)) {
@@ -55,7 +49,6 @@ if (! function_exists('pathinfo_dirname')) {
      * pathinfo_dirname.
      *
      * @param    $array
-     * @return null|string
      */
     function pathinfo_dirname(array $info): ?string
     {

@@ -14,10 +14,10 @@ class EditorjsParser
                 case 'paragraph':
                     $html .= $this->parse_paragraphe($block['data']['text']);
                     break;
-                case 'header' :
+                case 'header':
                     $html .= $this->parser_header($block);
                     break;
-                case  'quote' :
+                case 'quote':
                     $html .= $this->parse_blockquote($block);
                     break;
                 case 'list':
@@ -37,24 +37,24 @@ class EditorjsParser
 
     private function parse_paragraphe(string $text): string
     {
-        return '<p>' . $text . '</p>';
+        return '<p>'.$text.'</p>';
     }
 
     private function parser_header(mixed $block): string
     {
-        return '<h' . $block['data']['level'] . '>' . $block['data']['text'] . '</h' . $block['data']['level'] . '>';
+        return '<h'.$block['data']['level'].'>'.$block['data']['text'].'</h'.$block['data']['level'].'>';
     }
 
     private function parse_blockquote(mixed $block): string
     {
-        $text = $block['data']['text'];
-        $caption = !empty($block['data']['caption']) ? $block['data']['caption'] : '';
+        $text    = $block['data']['text'];
+        $caption = ! empty($block['data']['caption']) ? $block['data']['caption'] : '';
 
         $html = '<blockquote class="editor-quote">';
-        $html .= '<p>' . $text . '</p>';
+        $html .= '<p>'.$text.'</p>';
 
-        if (!empty($caption)) {
-            $html .= '<small>- ' . $caption . '</small>';
+        if (! empty($caption)) {
+            $html .= '<small>- '.$caption.'</small>';
         }
 
         $html .= '</blockquote>';
@@ -74,15 +74,15 @@ class EditorjsParser
         foreach ($items as $item) {
             $subItems = $item['items'] ?? [];
 
-            $html .= "<li>";
+            $html .= '<li>';
 
             $html .= $item['content'];
 
-            if (!empty($subItems)) {
+            if (! empty($subItems)) {
                 $html .= $this->parse_list($subItems);
             }
 
-            $html .= "</li>";
+            $html .= '</li>';
         }
 
         $html .= "</$style>";
@@ -92,7 +92,7 @@ class EditorjsParser
 
     private function parse_code(mixed $block): string
     {
-        return '<pre><code class="' . $block['data']['language'] . '">' . $block['data']['code'] . '</code></pre>';
+        return '<pre><code class="'.$block['data']['language'].'">'.$block['data']['code'].'</code></pre>';
     }
 
     private function parse_warning(mixed $block): string
@@ -100,8 +100,8 @@ class EditorjsParser
         $html = '';
 
         $html .= '<div class="warning">';
-        $html .= '<strong>' . $block['data']['title'] . '</strong>';
-        $html .= '<p>' . $block['data']['message'] . '</p>';
+        $html .= '<strong>'.$block['data']['title'].'</strong>';
+        $html .= '<p>'.$block['data']['message'].'</p>';
         $html .= '</div>';
 
         return $html;

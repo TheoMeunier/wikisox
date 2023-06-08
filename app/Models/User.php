@@ -14,6 +14,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property-read Page $page
  * @property-read Chapter $chapter
  * @property-read Book $book
+ *
  * @mixin IdeHelperUser
  */
 class User extends Authenticatable
@@ -52,33 +53,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * @return HasMany
-     */
     public function books(): HasMany
     {
         return $this->hasMany(Book::class);
     }
 
-    /**
-     * @return HasMany
-     */
     public function chapters(): HasMany
     {
         return $this->hasMany(Chapter::class);
     }
 
-    /**
-     * @return HasMany
-     */
     public function pages(): HasMany
     {
         return $this->hasMany(Page::class);
     }
 
-    /**
-     * @return LogOptions
-     */
     public function getActivityLogOptions(): LogOptions
     {
         $logOption = new LogOptions();

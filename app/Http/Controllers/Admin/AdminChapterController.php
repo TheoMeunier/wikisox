@@ -22,7 +22,6 @@ class AdminChapterController extends Controller
     }
 
     /**
-     * @param  string  $slug
      * @return Application|Factory|View
      */
     public function edit(string $slug)
@@ -32,11 +31,6 @@ class AdminChapterController extends Controller
         return view('admin.chapters.edit', compact('chapter'));
     }
 
-    /**
-     * @param  ChapterRequest  $request
-     * @param  string  $slug
-     * @return RedirectResponse
-     */
     public function update(ChapterRequest $request, string $slug): RedirectResponse
     {
         $chapter = Chapter::where('slug', '=', $slug)->firstOrFail();

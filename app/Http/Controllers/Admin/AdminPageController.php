@@ -22,7 +22,6 @@ class AdminPageController extends Controller
     }
 
     /**
-     * @param  string  $slug
      * @return Application|Factory|View
      */
     public function edit(string $slug)
@@ -32,11 +31,6 @@ class AdminPageController extends Controller
         return view('admin.pages.edit', compact('page'));
     }
 
-    /**
-     * @param  PageRequest  $request
-     * @param  string  $slug
-     * @return RedirectResponse
-     */
     public function update(PageRequest $request, string $slug): RedirectResponse
     {
         $page = Page::where('slug', '=', $slug)->firstOrFail();

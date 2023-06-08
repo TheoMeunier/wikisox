@@ -22,7 +22,6 @@ class AdminBookController extends Controller
     }
 
     /**
-     * @param  string  $slug
      * @return Application|Factory|View
      */
     public function edit(string $slug)
@@ -32,11 +31,6 @@ class AdminBookController extends Controller
         return view('admin.books.edit', compact('book'));
     }
 
-    /**
-     * @param  BookRequest  $request
-     * @param  string  $slug
-     * @return RedirectResponse
-     */
     public function update(BookRequest $request, string $slug): RedirectResponse
     {
         $book = Book::where('slug', '=', $slug)->firstOrFail();

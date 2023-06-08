@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 class ApiFileController extends AbstractFileManagerController
 {
     /**
-     * @param  string  $file
      * @return Application|ResponseFactory|\Illuminate\Http\Response
      */
     public function delete(string $file)
@@ -22,7 +21,6 @@ class ApiFileController extends AbstractFileManagerController
     }
 
     /**
-     * @param  Request  $request
      * @return mixed
      */
     public function index(Request $request)
@@ -37,7 +35,6 @@ class ApiFileController extends AbstractFileManagerController
     }
 
     /**
-     * @param  UploadFileRequest  $request
      * @return array<int>
      */
     public function store(UploadFileRequest $request): array
@@ -53,10 +50,6 @@ class ApiFileController extends AbstractFileManagerController
         return $this->toArray($path);
     }
 
-    /**
-     * @param  string  $file
-     * @return array
-     */
     public function toArray(string $file): array
     {
         $info = pathinfo($file);
