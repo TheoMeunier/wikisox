@@ -147,18 +147,14 @@ $previewMessageBg: #d6d6d6;
             margin-bottom: 10px;
         }
 
-        /* Code */
-        code {
-            font-family: monospace;
-            background-color: lightgray;
-            padding: 2px 4px;
-        }
-
         /* Blocs de code */
         pre {
-            background-color: lightgray;
-            padding: 10px;
+            padding: 10px 0;
             overflow: auto;
+
+            code .hljs {
+                padding: 8px !important;
+            }
         }
 
         /* Citations */
