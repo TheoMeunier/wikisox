@@ -166,7 +166,10 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
             Route::delete('/delete/{slug}', 'delete');
         });
 
-        Route::get('/users/{q?}', [ApiAdminUserController::class, 'index']);
+        Route::controller(ApiAdminUserController::class)->prefix('/users')->group(function () {
+            Route::get('/{q?}', 'index');
+            Route::delete('/delete/{user}', 'delete');
+        });
     });
 
     Route::get('/auth', [ApiAuthController::class, 'index']);

@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <slot v-for="user in store.users.data" :key="user.id">
+                <slot v-for="(user) in store.users.data" :key="user.id">
                     <tr>
                         <td>{{ user.id }}</td>
                         <td>{{ user.name }}</td>
@@ -42,6 +42,9 @@
                                 <a :href="user.edit">
                                     <i class="fa-solid fa-pen-to-square mr-2"></i>
                                 </a>
+                                <button v-if="user.role !== 'admin'" @click.prevent="store.deleteUser(user)">
+                                    <i class="fa-solid fa-trash-can mr-2"></i>
+                                </button>
                             </p>
                         </td>
                     </tr>
