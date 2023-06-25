@@ -52,8 +52,8 @@
                         <h1>{{ $page->name }}</h1>
                     </div>
 
-                    <div class="mt-7">
-                        <x-markdown>
+                    <div>
+                        <x-markdown class="prose prose-lg" style="max-width: 100%">
                             {!! $page->content !!}
                         </x-markdown>
                     </div>
