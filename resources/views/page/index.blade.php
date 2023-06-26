@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="font-semibold text-xl text-gray-800 leading-tight">
+        <div class="font-semibold text-xl py-6 text-gray-800 leading-tight">
             {{ Breadcrumbs::render('chapter', $book, $chapter) }}
         </div>
     </x-slot>
