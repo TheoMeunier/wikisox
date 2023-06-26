@@ -6,6 +6,7 @@ export default function useAuthUser() {
         name: '',
         email: '',
     })
+
     const errorsPassword = ref({
         password: '',
         password_confirmation: '',

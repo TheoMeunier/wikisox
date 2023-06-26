@@ -3,9 +3,15 @@ import { ref } from 'vue'
 
 export const useAuthStore = defineStore('auth', () => {
     const auth = ref({})
+    const logs = ref({})
     const errorsEdit = ref({
         name: '',
         email: '',
+    })
+
+    const errorsPassword = ref({
+        password: '',
+        password_confirmation: '',
     })
 
     const getAuthUser = async () => {
@@ -33,5 +39,10 @@ export const useAuthStore = defineStore('auth', () => {
         }
     }
 
-    return { auth, getAuthUser, updateUser, updatePassword, errorsEdit, errorsPassword }
+    const getLogs = async (page) => {
+        let response = await axios.get('/webapi/profile/logs?page=' + page)
+        logs.value = response.data
+    }
+
+    return { auth, logs, getLogs, getAuthUser, updateUser, updatePassword, errorsEdit, errorsPassword }
 })

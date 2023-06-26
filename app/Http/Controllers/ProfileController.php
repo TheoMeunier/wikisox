@@ -9,10 +9,7 @@ use Illuminate\Contracts\View\View;
 
 class ProfileController extends Controller
 {
-    /**
-     * @return Application|Factory|View
-     */
-    public function index()
+    public function index(): Application|Factory|View
     {
         /** @var User $user */
         $user   = auth()->user();
@@ -25,11 +22,13 @@ class ProfileController extends Controller
         return view('profile.index', compact('counts', 'books', 'chapters', 'pages'));
     }
 
-    /**
-     * @return Application|Factory|View
-     */
-    public function edit()
+    public function edit(): Application|Factory|View
     {
         return view('profile.edit');
+    }
+
+    public function actions(): Application|Factory|View
+    {
+        return view('profile.action');
     }
 }

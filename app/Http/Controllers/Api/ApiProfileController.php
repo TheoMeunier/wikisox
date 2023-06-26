@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProfileLogResource;
 use App\Mail\UpdatePassword;
+use App\Models\ActivityLog;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,5 +52,14 @@ class ApiProfileController extends Controller
         return response()->json([
             'message' => 'Password updated successfully',
         ], Response::HTTP_OK);
+    }
+
+    public function logs(): AnonymousResourceCollection
+    {
+        $logs = ActivityLog::query()
+            ->where('causer_id', '=', auth()?->id())
+            ->paginate(8);
+
+        return ProfileLogResource::collection($logs);
     }
 }

@@ -34,6 +34,7 @@ Route::middleware(['auth'])->prefix('/webapi')->group(function () {
     Route::controller(ApiProfileController::class)->prefix('/profile')->group(function () {
         Route::put('/update', 'update');
         Route::put('/update/password', 'updatePassword');
+        Route::get('/logs', 'logs');
     });
 
     Route::prefix('/admin')->group(function () {

@@ -41,6 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(ProfileController::class)->prefix('/profile')->name('profile.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/edit', 'edit')->name('edit');
+        Route::get('/actions', 'actions')->name('actions');
     });
 
     Route::controller(BookController::class)->prefix('/books')->name('book.')->group(function () {

@@ -1,10 +1,4 @@
-<x-app-layout>
-    <x-slot name="header">
-        <div class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('title.profile.index') }}
-        </div>
-    </x-slot>
-
+<x-layouts.profile.layouts>
     <section class="card card__body grid grid-cols-2 mb-8">
         <div class="w-2/4">
             <h2 class="h3">{{ auth()->user()->name }}</h2>
@@ -110,4 +104,4 @@
             <p class="text-center my-4">{{ auth()->user()->name }} {{ __('page/profile.dont_create', ['param' => 'pages']) }}</p>
         @endif
     </section>
-</x-app-layout>
+</x-layouts.profile.layouts>
