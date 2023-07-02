@@ -2,7 +2,7 @@
     <div class="admin__navbar__start">
         <div class="shrink-0 flex items-center ">
             <a href="{{ route('dashboard') }}">
-                <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                <x-icons.application-logo class="block h-10 w-auto fill-current text-gray-600" />
             </a>
             <p class="h3 ml-3">IsoxBook</p>
         </div>
