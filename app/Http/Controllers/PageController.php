@@ -10,7 +10,10 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Str;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class PageController extends Controller
 {
@@ -121,5 +124,39 @@ class PageController extends Controller
                 'slugChapter' => $page->chapter->slug,
             ])
             ->with('success', __('flash.page.delete'));
+    }
+
+    /**
+     * @param string $slug
+     * @return StreamedResponse
+     */
+    public function downloadHtml(string $slug): StreamedResponse
+    {
+        $page    = Page::query()->where('slug', '=', $slug)->first();
+
+        if (!$page) {
+            abort(404, 'Page not found');
+        }
+
+        return response()->streamDownload(function () use ($page, $slug) {
+            echo Str::of($page->content)->markdown();;
+        }, $slug . '.html');
+    }
+
+    /**
+     * @param string $slug
+     * @return StreamedResponse
+     */
+    public function downloadMarkdown(string $slug): StreamedResponse
+    {
+        $page    = Page::query()->where('slug', '=', $slug)->first();
+
+        if (!$page) {
+            abort(404, 'Page not found');
+        }
+
+        return response()->streamDownload(function () use ($page, $slug) {
+            echo $page->content;
+        }, $slug . '.md');
     }
 }

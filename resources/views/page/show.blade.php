@@ -34,6 +34,22 @@
                         </div>
                     @endcanany
 
+                    <div class="flex flex-col mt-4 mb-14">
+                        <h4>{{ __('title.download') }}</h4>
+                        <a href="{{ route('pages.download.html', ['slug' => $page->slug]) }}" class="text-gray-500 mt-6">
+                            <i class="fa-solid fa-file-code mr-2"></i>
+                            {{ __('button.page.download.html') }}
+                        </a>
+                        <a href="{{ route('pages.download.md', ['slug' => $page->slug ]) }}" class="text-gray-500 mt-6">
+                            <i class="fa-brands fa-markdown mr-2"></i>
+                            {{ __('button.page.download.md') }}
+                        </a>
+                        <a href="#" class="text-gray-500 mt-6">
+                            <i class="fa-solid fa-file-pdf mr-2"></i>
+                            {{ __('button.page.download.pdf') }}
+                        </a>
+                    </div>
+
                     <div>
                         <h4>{{ __('title.info') }}</h4>
                         <p class="text-gray-500 mt-6">

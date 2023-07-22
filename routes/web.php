@@ -36,6 +36,8 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(PageController::class)->prefix('/page')->name('pages.')->group(function () {
         Route::post('/{slug}', 'update')->name('update')->middleware('can:page edit');
         Route::delete('/{slug}/delete', 'delete')->name('delete')->middleware('can:page delete');
+        Route::get('/download/html/{slug}', 'downloadHtml')->name('download.html');
+        Route::get('/download/md/{slug}', 'downloadMarkdown')->name('download.md');
     });
 
     Route::controller(ProfileController::class)->prefix('/profile')->name('profile.')->group(function () {
