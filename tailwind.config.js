@@ -7,6 +7,7 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         "./resources/**/*.vue",
+        './vendor/wire-elements/modal/src/ModalComponent.php',
     ],
 
     darkMode: 'class',
