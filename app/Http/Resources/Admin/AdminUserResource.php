@@ -12,9 +12,9 @@ class AdminUserResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  Request  $request
+     * @param Request $request
      */
-    public function toArray($request): array
+    public function toArray(Request $request): array
     {
         /** @var User $this */
         return [

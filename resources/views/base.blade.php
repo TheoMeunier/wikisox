@@ -16,11 +16,14 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/index.js') }}" defer></script>
+    @livewireStyles
 
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body class="font-sans antialiased">
-    {{ $slot }}
+{{ $slot }}
+
+@livewireScripts
 </body>
 </html>

@@ -1,0 +1,11 @@
+.tag {
+    @apply px-3 py-1 rounded-full;
+}
+
+.tag-success {
+    @apply bg-green-100 text-green-500;
+}
+
+.tag-danger {
+    @apply bg-red-300 text-red-500;
+}

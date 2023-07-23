@@ -9,6 +9,8 @@ module.exports = {
         "./resources/**/*.vue",
     ],
 
+    darkMode: 'class',
+
     theme: {
         extend: {
             fontFamily: {
@@ -19,7 +21,7 @@ module.exports = {
             '8xl': '90rem',
             'xs': '320px',
             'md': '448px',
-        }
+        },
     },
 
     plugins: [
