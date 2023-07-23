@@ -13,7 +13,6 @@ if (! function_exists('numberFormat')) {
 }
 
 if (! function_exists('recursive_array_replace')) {
-
     function recursive_array_replace(string $find, string $replace, array $array, bool $inKey = false): array|string
     {
         if (! is_array($array)) {

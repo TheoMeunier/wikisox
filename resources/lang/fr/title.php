@@ -5,7 +5,7 @@ return [
     'action'     => 'Action',
     'log'        => 'Logs',
     'info'       => 'Information',
-    'download' => 'Télécharger',
+    'download'   => 'Télécharger',
 
     'books'     => 'Mes Livres',
     'chapters'  => 'Mes Chapitres',

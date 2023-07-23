@@ -25,7 +25,7 @@ class AdminPagesLivewire extends Component
         $pages = Page::query()
             ->with('user')
             ->where(function ($query) {
-                $query->orWhere('name', 'LIKE', '%' . $this->search . '%');
+                $query->orWhere('name', 'LIKE', '%'.$this->search.'%');
             })
             ->paginate(6);
 

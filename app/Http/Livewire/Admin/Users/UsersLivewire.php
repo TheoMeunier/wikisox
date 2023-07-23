@@ -25,8 +25,8 @@ class UsersLivewire extends Component
         $users = User::query()
             ->with(['roles'])
             ->where(function ($query) {
-                $query->orWhere('name', 'LIKE', '%' . $this->search . '%')
-                    ->orWhere('email', 'LIKE', '%' . $this->search . '%');
+                $query->orWhere('name', 'LIKE', '%'.$this->search.'%')
+                    ->orWhere('email', 'LIKE', '%'.$this->search.'%');
             })
             ->paginate(6);
 

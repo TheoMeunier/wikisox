@@ -18,5 +18,5 @@ return [
     'username'     => 'Utilisateur',
     'subject_name' => 'Sujet',
     'description'  => 'description',
-    'roles' => 'Rôles',
+    'roles'        => 'Rôles',
 ];

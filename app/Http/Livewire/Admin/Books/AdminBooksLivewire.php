@@ -25,7 +25,7 @@ class AdminBooksLivewire extends Component
         $books = Book::query()
             ->with(['user'])
             ->where(function ($query) {
-                $query->orWhere('name', 'LIKE', '%' . $this->search . '%');
+                $query->orWhere('name', 'LIKE', '%'.$this->search.'%');
             })
             ->paginate(6);
 

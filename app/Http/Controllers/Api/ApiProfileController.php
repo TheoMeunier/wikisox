@@ -57,7 +57,7 @@ class ApiProfileController extends Controller
     public function logs(): AnonymousResourceCollection
     {
         $logs = ActivityLog::query()
-            ->where('causer_id', '=', auth()?->id())
+            ->where('causer_id', '=', auth()->id())
             ->paginate(8);
 
         return ProfileLogResource::collection($logs);

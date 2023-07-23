@@ -12,14 +12,14 @@ return [
         'delete' => 'Supprimer mon chapitre',
     ],
     'page' => [
-        'create' => 'Créer une page',
-        'edit'   => 'Modifier ma page',
-        'delete' => 'Supprimer ma page',
+        'create'   => 'Créer une page',
+        'edit'     => 'Modifier ma page',
+        'delete'   => 'Supprimer ma page',
         'download' => [
             'html' => 'Télécharger en HTML',
-            'md' => 'Télécharger en markdown',
-            'pdf' => 'Télécharger en PDF',
-        ]
+            'md'   => 'Télécharger en markdown',
+            'pdf'  => 'Télécharger en PDF',
+        ],
     ],
 
     'action' => [

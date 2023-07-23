@@ -2,10 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Setting;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Cache\Factory;
-use App\Models\Setting;
 
 class SettingServiceProvider extends ServiceProvider
 {
@@ -22,7 +21,7 @@ class SettingServiceProvider extends ServiceProvider
      */
     public function boot(Setting $settings): void
     {
-        $settings = Cache::remember('settings', 60, static function() use ($settings){
+        $settings = Cache::remember('settings', 60, static function () use ($settings) {
             return $settings->query()->pluck('value', 'name')->all();
         });
 

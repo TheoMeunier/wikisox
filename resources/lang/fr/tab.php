@@ -2,8 +2,8 @@
 
 return [
     'profile' => [
-        'index' => 'Profile',
-        'edit' => 'Edit',
+        'index'  => 'Profile',
+        'edit'   => 'Edit',
         'action' => 'Actions',
-    ]
+    ],
 ];
