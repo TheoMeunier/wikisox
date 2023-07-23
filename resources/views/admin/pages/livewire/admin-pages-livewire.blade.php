@@ -8,7 +8,6 @@
         <thead>
         <tr>
             <th>{{ __('table.id') }}</th>
-            <th>{{ __('table.image') }}</th>
             <th>{{ __('table.name') }}</th>
             <th>{{ __('table.slug') }}</th>
             <th>{{ __('table.createdTo') }}</th>
@@ -18,19 +17,16 @@
         </tr>
         </thead>
         <tbody>
-        @forelse($chapters as $chapter)
+        @forelse($pages as $page)
             <tr>
-                <td>{{ $chapter->id }}</td>
+                <td>{{ $page->id }}</td>
+                <td>{{ $page->name }}</td>
+                <td>{{ $page->slug }}</td>
+                <td>{{ $page->user->name }}</td>
+                <td>{{ $page->created_at->format('m/d/Y') }}</td>
+                <td>{{ $page->updated_at->format('m/d/Y') }}</td>
                 <td>
-                    <img src="{{ $chapter->image }}" alt="{{ $chapter->slug }}" width="30" height="50">
-                </td>
-                <td>{{ $chapter->name }}</td>
-                <td>{{ $chapter->slug }}</td>
-                <td>{{ $chapter->user->name }}</td>
-                <td>{{ $chapter->created_at->format('m/d/Y') }}</td>
-                <td>{{ $chapter->updated_at->format('m/d/Y') }}</td>
-                <td>
-                    <x-links.link-icon href="{{ route('admin.chapters.edit', ['slug' => $chapter->slug ]) }}"
+                    <x-links.link-icon href="{{ route('admin.pages.edit', ['slug' => $page->slug ]) }}"
                                        class="text-indigo-500">
                         <x-icons.icon-edit class="h-6 w-6"/>
                     </x-links.link-icon>
@@ -41,14 +37,14 @@
             </tr>
         @empty
             <tr>
-                <td colspan="8" class="text-center">{{ __('table.empty.chapters') }}</td>
+                <td colspan="8" class="text-center">{{ __('table.empty.pages') }}</td>
             </tr>
         @endforelse
         </tbody>
     </table>
 
     <div class="pagination">
-        {{ $chapters->links('components.modules.pagination') }}
+        {{ $pages->links('components.modules.pagination') }}
     </div>
 </div>
 
