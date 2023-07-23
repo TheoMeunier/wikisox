@@ -41,7 +41,7 @@
             </tr>
         @empty
             <tr>
-                <td colspan="8" class="text-center">{{ __('table.empty.users') }}</td>
+                <td colspan="8" class="text-center">{{ __('table.empty.books') }}</td>
             </tr>
         @endforelse
         </tbody>
