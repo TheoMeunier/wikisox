@@ -15,9 +15,19 @@ class AdminBooksLivewire extends Component
 
     public string $search = '';
 
+    /**
+     * @var string[]
+     */
+    protected $listeners = ['refresh-books' => 'refreshBooks'];
+
     public function updatingSearch(): void
     {
         $this->resetPage();
+    }
+
+    public function refreshBooks(): void
+    {
+        $this->render();
     }
 
     public function render(): View|Application|Factory
