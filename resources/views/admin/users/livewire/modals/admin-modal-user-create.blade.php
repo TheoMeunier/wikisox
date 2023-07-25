@@ -50,7 +50,7 @@
             <x-buttons.button-secondary wire:click.prevent="$emit('closeModal')">
                 {{ __('button.action.close') }}
             </x-buttons.button-secondary>
-            <x-buttons.primary-button wire:click.prevent="update()">
+            <x-buttons.primary-button wire:click.prevent="save()">
                 {{ __('button.action.create') }}
             </x-buttons.primary-button>
         </x-slot>
