@@ -6,7 +6,7 @@
                 {{ __('page/profile.information') }}
             </h1>
 
-            <Profile-Edit/>
+            @livewire('profile.profile-update-information-livewire')
         </div>
     </section>
 
@@ -18,7 +18,7 @@
                 {{ __('page/profile.password') }}
             </h1>
 
-            <Profile-Password-Edit/>
+            @livewire('profile.profile-update-password-livewire')
         </div>
     </section>
 </x-layouts.profile.layouts>
