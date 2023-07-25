@@ -44,7 +44,7 @@
                 </td>
                 <td>
                     <p class="text-gray-900 whitespace-no-wrap">
-                        {{ $this->subject->name ?? '' }}
+                        {{ $log->subject->name ?? '' }}
                     </p>
                 </td>
                 <td>
