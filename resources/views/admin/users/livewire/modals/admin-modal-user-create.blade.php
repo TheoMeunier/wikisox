@@ -1,7 +1,7 @@
 <div>
     <x-modules.modal.modal-content>
         <x-slot name="title">
-            <h3>{{ __('title.users.create') }}</h3>
+            <h3>{{ __('title.user.create') }}</h3>
         </x-slot>
 
         <x-slot name="content">
@@ -26,7 +26,7 @@
                 </div>
 
                 <div>
-                    <x-forms.label for="confirm-password" :value="__('input.label.confirm_password')"/>
+                    <x-forms.label for="confirm-password" :value="__('input.label.confirm-password')"/>
                     <x-forms.input wire:model.defer="password_confirmation" class="w-full" type="password"
                                          placeholder="confirm password"/>
                     <x-forms.error :messages="$errors->get('password_confirmation')" class="mt-2" />
@@ -50,7 +50,7 @@
             <x-buttons.button-secondary wire:click.prevent="$emit('closeModal')">
                 {{ __('button.action.close') }}
             </x-buttons.button-secondary>
-            <x-buttons.primary-button wire:click.prevent="save()">
+            <x-buttons.primary-button wire:click.prevent="update()">
                 {{ __('button.action.create') }}
             </x-buttons.primary-button>
         </x-slot>

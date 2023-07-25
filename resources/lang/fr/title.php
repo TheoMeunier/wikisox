@@ -45,6 +45,7 @@ return [
         'systems'   => 'Roles Systèmes',
         'resources' => 'Roles Ressources',
     ],
+
     'user' => [
         'create' => 'Créer un utilisateur',
         'edit'   => 'Modifier mon utilisateur',

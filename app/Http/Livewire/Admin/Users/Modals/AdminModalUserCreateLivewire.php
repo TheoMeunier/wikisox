@@ -20,7 +20,8 @@ class AdminModalUserCreateLivewire extends ModalComponent
     protected  $rules = [
         'name' => 'required|min:3',
         'email' => 'required|email',
-        'password' => 'required|min:6|confirmed'
+        'password' => 'required|min:6|confirmed',
+        'role_id' => 'required'
     ];
 
     public function mount(): void
@@ -28,9 +29,8 @@ class AdminModalUserCreateLivewire extends ModalComponent
         $this->roles = Role::all();
     }
 
-    public function create(): void
+    public function save(): void
     {
-        // TODO Create user and send mail for confirmation
         //TODO :: Add option for choice send mail with password or form password
 
         $this->validate();

@@ -15,9 +15,19 @@ class UsersLivewire extends Component
 
     public string $search = '';
 
+    /**
+     * @var string[]
+     */
+    protected $listeners = ['refresh-users' => 'refreshUser'];
+
     public function updatingSearch(): void
     {
         $this->resetPage();
+    }
+
+    public function refreshUser(): void
+    {
+        $this->render();
     }
 
     public function render(): View|Application|Factory

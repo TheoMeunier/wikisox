@@ -53,12 +53,12 @@
                         <td>{{ $user->created_at->format('m/d/Y') }}</td>
                         <td>{{ $user->updated_at->format('m/d/Y') }}</td>
                         <td>
-                            <x-links.link-icon href="{{ route('admin.users.edit', ['id' => $user->id ]) }}"
+                            <x-links.link-icon wire:click.prevent="$emit('openModal', 'admin.users.modals.admin-modal-user-update-livewire', {{ json_encode(['user' => $user]) }})"
                                                class="text-indigo-500">
                                 <x-icons.icon-edit class="h-6 w-6"/>
                             </x-links.link-icon>
                             @if($user->roles->first() && $user->roles->first()->name !== 'admin')
-                                <x-buttons.btn-icon class="text-red-500">
+                                <x-buttons.btn-icon wire:click.prevent="$emit('openModal', 'admin.users.modals.admin-modal-user-delete-livewire', {{ json_encode(['user' => $user]) }})" class="text-red-500">
                                     <x-icons.icon-trash class="h-6 w-6"/>
                                 </x-buttons.btn-icon>
                             @endif
