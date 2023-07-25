@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\AdminBookController;
 use App\Http\Controllers\Admin\AdminChapterController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminFileController;
-use App\Http\Controllers\Admin\AdminlogController;
+use App\Http\Controllers\Admin\AdminLogController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\AdminRoleController;
 use App\Http\Controllers\Admin\AdminUserController;
@@ -74,7 +74,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
         Route::get('/image', AdminFileController::class)->name('image');
 
-        Route::controller(AdminlogController::class)->prefix('/logs')->name('logs.')->group(function () {
+        Route::controller(AdminLogController::class)->prefix('/logs')->name('logs.')->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/export', 'export')->name('export');
         });
