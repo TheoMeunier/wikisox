@@ -33,19 +33,4 @@ class ApiChapterController extends Controller
 
         return response()->json('ok');
     }
-
-    public function delete(string $slug): JsonResponse
-    {
-        if ($slug) {
-            $chapter = Chapter::where('slug', '=', $slug);
-
-            if ($chapter !== null) {
-                $chapter->delete();
-
-                return response()->json('Chapter Deleted!');
-            }
-        }
-
-        return response()->json('Error in your Deleted!');
-    }
 }

@@ -28,23 +28,4 @@ class ApiBookController extends Controller
 
         return response()->json('ok');
     }
-
-    /**
-     * @return JsonResponse|RedirectResponse
-     */
-    public function delete(string $slug)
-    {
-        if ($slug) {
-            $book = Book::query()
-                ->where('slug', '=', $slug);
-
-            if ($book !== null) {
-                $book->delete();
-
-                return redirect()->route('book.index');
-            }
-        }
-
-        return response()->json('Error in your Deleted!');
-    }
 }
