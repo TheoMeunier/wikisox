@@ -1,4 +1,8 @@
 <div>
+    <div class="flex justify-end py-3">
+        <a href="{{ route('admin.logs.export') }}" class="btn btn__primary">Export</a>
+    </div>
+
     <table>
         <thead>
         <tr>
