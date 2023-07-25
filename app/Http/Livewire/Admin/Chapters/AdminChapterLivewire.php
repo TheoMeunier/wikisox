@@ -15,9 +15,19 @@ class AdminChapterLivewire extends Component
 
     public string $search = '';
 
+    /**
+     * @var string[]
+     */
+    protected $listeners = ['refresh-chapters' => 'refreshChapters'];
+
     public function updatingSearch(): void
     {
         $this->resetPage();
+    }
+
+    public function refreshChapters(): void
+    {
+        $this->render();
     }
 
     public function render(): View|Application|Factory
