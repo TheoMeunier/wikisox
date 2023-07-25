@@ -13,20 +13,20 @@ use Spatie\Permission\Models\Role;
 class AdminModalUserUpdateLivewire extends ModalComponent
 {
     public User $user;
+
     public int $role_id;
 
     public Collection $roles;
 
     protected array $rules = [
-        'user.name' => 'required|min:3',
+        'user.name'  => 'required|min:3',
         'user.email' => 'required|email',
-        'role_id' => 'nullable',
+        'role_id'    => 'nullable',
     ];
-
 
     public function mount(): void
     {
-        $this->roles = Role::all();
+        $this->roles   = Role::all();
         $this->role_id = $this->user->roles->first()->id ?? 0;
     }
 
@@ -35,8 +35,8 @@ class AdminModalUserUpdateLivewire extends ModalComponent
         $this->validate();
 
         $this->user->update([
-            'name' => $this->user->name,
-            'email' => $this->user->email
+            'name'  => $this->user->name,
+            'email' => $this->user->email,
         ]);
 
         $this->assigmentRoles();
@@ -67,10 +67,9 @@ class AdminModalUserUpdateLivewire extends ModalComponent
 
         $userByRole = $this->user->roles->first();
 
-        if (is_null($this->role_id)) {
+        if (! $this->role_id) {
             $user->assignRole($role);
-
-        } else if ($this->role_id != $userByRole->id) {
+        } elseif ($this->role_id != $userByRole->id) {
             $user->removeRole($userByRole);
             $user->assignRole($role);
         }

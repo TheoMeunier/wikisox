@@ -6,7 +6,6 @@ use App\Models\Chapter;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class AdminModalChapterDeleteLivewire extends ModalComponent

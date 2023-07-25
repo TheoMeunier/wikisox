@@ -13,15 +13,23 @@ use Spatie\Permission\Models\Role;
 
 class AdminModalUserCreateLivewire extends ModalComponent
 {
-    public string $name, $email, $password, $password_confirmation;
+    public string $name;
+
+    public string $email;
+
+    public string $password;
+
+    public string $password_confirmation;
+
     public int $role_id;
+
     public Collection $roles;
 
-    protected  $rules = [
-        'name' => 'required|min:3',
-        'email' => 'required|email',
+    protected array $rules = [
+        'name'     => 'required|min:3',
+        'email'    => 'required|email',
         'password' => 'required|min:6|confirmed',
-        'role_id' => 'required'
+        'role_id'  => 'required',
     ];
 
     public function mount(): void
@@ -36,9 +44,9 @@ class AdminModalUserCreateLivewire extends ModalComponent
         $this->validate();
 
         $user = User::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'password' => Hash::make($this->password)
+            'name'     => $this->name,
+            'email'    => $this->email,
+            'password' => Hash::make($this->password),
         ]);
 
         $role = Role::query()

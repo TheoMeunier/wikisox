@@ -30,5 +30,4 @@ class AdminModalUserDeleteLivewire extends ModalComponent
     {
         return 'md';
     }
-
 }

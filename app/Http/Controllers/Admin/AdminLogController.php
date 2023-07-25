@@ -31,14 +31,15 @@ class AdminLogController extends Controller
             $export = new Export();
             $export
                 ->getWriter()
-                ->setDelimiter(";");
+                ->setDelimiter(';');
 
             $export
-                ->build(ActivityLog::all(),
+                ->build(
+                    ActivityLog::all(),
                     ['id', 'log_name', 'description', 'subject_type', 'event', 'subject_id', 'causer_type', 'causer_id', 'properties', 'batch_uuid', 'created_at', 'updated_at'],
-                    ['chunk' => 500])
+                    ['chunk' => 500]
+                )
                 ->download('wiki_logs.csv');
-
         } catch (CannotInsertRecord $e) {
             Log::error($e->getMessage());
         }
