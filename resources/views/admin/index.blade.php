@@ -41,7 +41,10 @@
     </section>
 
     <section class="card card__body">
-        <h2>{{ __('title.logs') }}</h2>
+        <h2>
+            <span class="text-indigo-500 text-3xl"><i class="fa-solid fa-box-archive"></i></span>
+            {{ __('title.logs') }}
+        </h2>
 
         <table class="table">
             <tbody>
@@ -51,29 +54,17 @@
                     <td>{{ $log->causer->name ?? 'Server' }}</td>
                     <td>
                         @if($log->event === 'created')
-                            <p class="whitespace-no-wrap">
-                                <span
-                                    class="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
-                                    <span class="absolute inset-0 rounded-full bg-green-200 opacity-50"></span>
-                                        <span class="relative">{{ __('js.table.action.create') }}</span>
-                                </span>
-                            </p>
+                            <span class="tag tag-success">
+                                {{ __('js.table.action.create') }}
+                            </span>
                         @elseif($log->event === 'updated')
-                            <p class="whitespace-no-wrap">
-                                <span
-                                    class="relative inline-block px-3 py-1 font-semibold leading-tight text-orange-900">
-                                    <span class="absolute inset-0 rounded-full bg-orange-200 opacity-50"></span>
-                                        <span class="relative">{{ __('js.table.action.update') }}</span>
-                                </span>
-                            </p>
+                            <span class="tag tag-warning">
+                                {{ __('js.table.action.update') }}
+                            </span>
                         @elseif($log->event === 'deleted')
-                            <p class="whitespace-no-wrap">
-                                <span
-                                    class="relative inline-block px-3 py-1 font-semibold leading-tight text-red-900">
-                                    <span class="absolute inset-0 rounded-full bg-red-200 opacity-50"></span>
-                                        <span class="relative">{{ __('js.table.action.delete') }}</span>
-                                </span>
-                            </p>
+                            <span class="tag tag-danger">
+                                {{ __('js.table.action.delete') }}
+                            </span>
                         @endif
                     </td>
                     <td>{{ $log->subject->name ?? 'Server' }}</td>
