@@ -50,7 +50,6 @@ class AdminModalUserCreateLivewire extends ModalComponent
         $this->emit('add-flash', 'success', __('flash.users.create'));
         $this->emit('refresh-users');
         $this->closeModal();
-
     }
 
     public function render(): View|Application|Factory
@@ -60,6 +59,6 @@ class AdminModalUserCreateLivewire extends ModalComponent
 
     public static function modalMaxWidth(): string
     {
-        return '4xl';
+        return '3xl';
     }
 }

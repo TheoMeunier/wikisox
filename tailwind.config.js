@@ -17,11 +17,11 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
-        },
-        maxWidth: {
-            '8xl': '90rem',
-            'xs': '320px',
-            'md': '448px',
+            maxWidth: {
+                '8xl': '90rem',
+                'xs': '320px',
+                'md': '448px',
+            },
         },
     },
 
