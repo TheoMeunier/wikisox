@@ -20,6 +20,16 @@ class AdminPagesLivewire extends Component
         $this->resetPage();
     }
 
+    /**
+     * @var string[]
+     */
+    protected $listeners = ['refresh-pages' => 'refreshPages'];
+
+    public function refreshPages(): void
+    {
+        $this->render();
+    }
+
     public function render(): View|Application|Factory
     {
         $pages = Page::query()

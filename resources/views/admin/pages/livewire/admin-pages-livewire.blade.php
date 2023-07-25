@@ -30,7 +30,7 @@
                                        class="text-indigo-500">
                         <x-icons.icon-edit class="h-6 w-6"/>
                     </x-links.link-icon>
-                    <x-buttons.btn-icon class="text-red-500">
+                    <x-buttons.btn-icon wire:click.prevent="$emit('openModal', 'admin.pages.modals.admin-modal-page-delete-livewire', {{ json_encode(['page' => $page]) }})" class="text-red-500">
                         <x-icons.icon-trash class="h-6 w-6"/>
                     </x-buttons.btn-icon>
                 </td>
