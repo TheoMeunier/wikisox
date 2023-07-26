@@ -28,7 +28,9 @@
                                 </a>
                             @endcan
                             @can('book delete')
-                                <form method="post" action="{{ route('book.delete', ['slug' => $book->slug]) }}" style="display: inline-block" onsubmit="return confirm('Etes vous vraiment sur ?')">
+                                <form method="post" action="{{ route('book.delete', ['slug' => $book->slug]) }}"
+                                      style="display: inline-block"
+                                      onsubmit="return confirm('Etes vous vraiment sur ?')">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button class="text-red-500 mt-6">
@@ -53,13 +55,7 @@
                     </div>
                 </div>
                 <div class="col-span-4">
-                    @if($book->chapters->count() > 0)
-                        @livewire('chapter-livewire', ['book' => $book])
-                    @else
-                        <div class="text-center">
-                            <p class="my-12">{{ __('flash.chapter.empty') }}</p>
-                        </div>
-                    @endif
+                    @livewire('chapter-livewire', ['book' => $book])
                 </div>
             </div>
         </div>

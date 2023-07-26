@@ -59,13 +59,7 @@
                 </div>
 
                 <div class="col-span-4">
-                    @if($chapter->pages->count() > 0)
-                        <Pages book="{{ $book->slug }}" chapter="{{ $chapter->slug }}"/>
-                    @else
-                        <div class="text-center">
-                            <p class="my-12">{{ __('flash.page.empty') }}</p>
-                        </div>
-                    @endif
+                    @livewire('page-livewire', ['chapter' => $chapter])
                 </div>
             </div>
         </div>
