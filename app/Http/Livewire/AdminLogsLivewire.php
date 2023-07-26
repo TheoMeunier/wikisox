@@ -16,6 +16,7 @@ class AdminLogsLivewire extends Component
     public function render(): View|Application|Factory
     {
         $logs = ActivityLog::query()
+            ->with(['causer'])
             ->orderBy('created_at', 'DESC')
             ->paginate(8);
 
