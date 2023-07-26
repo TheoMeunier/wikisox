@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-span-4">
                     @if($book->chapters->count() > 0)
-                        <Chapters title="{{ $book->name }}" slug="{{ $book->slug }}"/>
+                        @livewire('chapter-livewire', ['book' => $book])
                     @else
                         <div class="text-center">
                             <p class="my-12">{{ __('flash.chapter.empty') }}</p>
