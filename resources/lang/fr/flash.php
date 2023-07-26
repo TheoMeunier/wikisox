@@ -34,13 +34,13 @@ return [
         'empty'  => "Il n'y a pas de page.",
     ],
 
-    'user' => [
+    'users' => [
         'create' => "L'utilisateur à bien été créé",
         'update' => "L'utilisateur à bien été modifié",
         'delete' => "L'utilisateur à bien été supprimé",
     ],
 
-    'role' => [
+    'roles' => [
         'create' => 'Le role à bien été créé',
         'update' => 'Le role à bien été modifié',
         'delete' => 'Le role à bien été supprimé',
@@ -51,5 +51,10 @@ return [
         'deletePage'    => 'Voulez vous vraiment supprimer cette page ?',
         'deleteBook'    => 'Voulez vous vraiment supprimer ce livre ?',
     ],
+
+    'profile' => [
+        'update_password' => 'Votre mot de passe à bien été modifié',
+        'update_information' => 'Votre profile à bien été modifié',
+    ]
 
 ];

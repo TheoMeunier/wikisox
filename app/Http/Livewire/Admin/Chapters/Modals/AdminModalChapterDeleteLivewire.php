@@ -16,7 +16,7 @@ class AdminModalChapterDeleteLivewire extends ModalComponent
     {
         $this->chapter->delete();
 
-        $this->emit('add-flash', 'success', __('flash.chapters.delete'));
+        $this->emit('add-flash', 'success', __('flash.chapter.delete'));
         $this->emit('refresh-chapters');
         $this->closeModal();
     }

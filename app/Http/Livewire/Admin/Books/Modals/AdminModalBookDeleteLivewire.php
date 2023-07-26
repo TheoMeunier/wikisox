@@ -16,7 +16,7 @@ class AdminModalBookDeleteLivewire extends ModalComponent
     {
         $this->book->delete();
 
-        $this->emit('add-flash', 'success', __('flash.books.delete'));
+        $this->emit('add-flash', 'success', __('flash.book.delete'));
         $this->emit('refresh-books');
         $this->closeModal();
     }

@@ -47,4 +47,5 @@
         </div>
     @endif
 
+    @livewire('components.flash-message-livewire')
 </div>

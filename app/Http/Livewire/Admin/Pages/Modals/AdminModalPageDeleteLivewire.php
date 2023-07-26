@@ -16,7 +16,7 @@ class AdminModalPageDeleteLivewire extends ModalComponent
     {
         $this->page->delete();
 
-        $this->emit('add-flash', 'success', __('flash.pages.delete'));
+        $this->emit('add-flash', 'success', __('flash.page.delete'));
         $this->emit('refresh-pages');
         $this->closeModal();
     }

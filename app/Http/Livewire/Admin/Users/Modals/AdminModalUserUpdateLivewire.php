@@ -41,7 +41,7 @@ class AdminModalUserUpdateLivewire extends ModalComponent
 
         $this->assigmentRoles();
 
-        $this->emit('add-flash', 'success', __('flash.users.edit'));
+        $this->emit('add-flash', 'success', __('flash.users.update'));
         $this->emit('refresh-users');
         $this->closeModal();
     }

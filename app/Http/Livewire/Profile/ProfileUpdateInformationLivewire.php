@@ -33,7 +33,7 @@ class ProfileUpdateInformationLivewire extends Component
             'email' => $this->email,
         ]);
 
-        $this->emit('add-flash', 'success', __('flash.profile.update_password'));
+        $this->emit('add-flash', 'success', __('flash.profile.update_information'));
     }
 
     public function render(): View|Application|Factory
