@@ -11,7 +11,6 @@ use Livewire\WithPagination;
 
 class BookLivewire extends Component
 {
-
     use WithPagination;
 
     public string $search = '';
@@ -31,7 +30,7 @@ class BookLivewire extends Component
         $books = Book::query()
             ->with(['user', 'likes'])
             ->where(function ($query) {
-                $query->orWhere('name', 'LIKE', '%' . $this->search . '%');
+                $query->orWhere('name', 'LIKE', '%'.$this->search.'%');
             })
             ->paginate(12);
 

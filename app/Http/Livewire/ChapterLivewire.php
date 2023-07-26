@@ -15,6 +15,7 @@ class ChapterLivewire extends Component
     use WithPagination;
 
     public string $search = '';
+
     public Book $book;
 
     public function updatingSearch(): void
@@ -33,7 +34,7 @@ class ChapterLivewire extends Component
             ->with(['user', 'likes', 'book'])
             ->where('book_id', '=', $this->book->id)
             ->where(function ($query) {
-                $query->orWhere('name', 'LIKE', '%' . $this->search . '%');
+                $query->orWhere('name', 'LIKE', '%'.$this->search.'%');
             })
             ->paginate(12);
 

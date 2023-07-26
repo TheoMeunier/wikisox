@@ -15,6 +15,7 @@ class PageLivewire extends Component
     use WithPagination;
 
     public string $search = '';
+
     public Chapter $chapter;
 
     public function render(): View|Application|Factory
@@ -22,8 +23,8 @@ class PageLivewire extends Component
         $pages = Page::query()
             ->with(['user', 'chapter'])
             ->where('chapter_id', '=', $this->chapter->id)
-            ->where(function($query) {
-                $query->orWhere('name', 'LIKE', '%' . $this->search . '%');
+            ->where(function ($query) {
+                $query->orWhere('name', 'LIKE', '%'.$this->search.'%');
             })
             ->paginate(12);
 
