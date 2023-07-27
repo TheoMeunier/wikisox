@@ -39,11 +39,6 @@
                             <i class="fa-solid fa-user mr-2"></i>
                             {{ __('nav.profile') }}
                         </x-dropdown-link>
-
-                        <x-dropdown-link :href="route('profile.edit')">
-                            <i class="fa-solid fa-pen mr-2"></i>
-                            {{ __('nav.edit-profile') }}
-                        </x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
