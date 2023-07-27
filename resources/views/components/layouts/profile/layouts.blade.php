@@ -7,7 +7,7 @@
                         @if(auth()->user()->avatar)
                             <img src="{{ Storage::url(auth()->user()->avatar ?? '') }}" class="object-contain" alt="">
                         @else
-                            <x-icons.icon-user class="text-white p-5"/>
+                            <x-icons.icon-user class="text-white p-5 profil-header__svg"/>
                         @endif
                     </div>
                     <div class="profil-header__upload">
