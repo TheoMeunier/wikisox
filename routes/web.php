@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminLogController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\AdminRoleController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Api\ApiProfileController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\PageController;
@@ -117,4 +118,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    //api
+    Route::prefix('/webapi')->group(function() {
+        Route::controller(ApiProfileController::class)->prefix('/profile')->group(function () {
+            Route::post('/avatar', 'uploadAvatar');
+        });
+    });
 });

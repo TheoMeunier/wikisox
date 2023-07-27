@@ -33,6 +33,9 @@ $breakpoint-phone: 769px;
 @import 'admin/navbar';
 @import 'admin/sidebar';
 
+//Pages
+@import 'pages/profile';
+
 // Icons
 @import '~@fortawesome/fontawesome-free/css/fontawesome';
 @import '~@fortawesome/fontawesome-free/css/regular';

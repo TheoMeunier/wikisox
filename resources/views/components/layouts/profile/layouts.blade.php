@@ -1,7 +1,22 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="h-50 p-9">
+        <div class="h-50 py-9 flex items-center">
             <div>
+                <form id="form__avatar" class="profil-header__avatar" enctype="multipart/form-data" method="post">
+                    <div id="wrapper__avatar_img" class="flex w-full h-full">
+                        @if(auth()->user()->avatar)
+                            <img src="{{ Storage::url(auth()->user()->avatar ?? '') }}" class="object-contain" alt="">
+                        @else
+                            <x-icons.icon-user class="text-white p-5"/>
+                        @endif
+                    </div>
+                    <div class="profil-header__upload">
+                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                    </div>
+                    <input type="file" name="avatar">
+                </form>
+            </div>
+            <div class="ml-4">
                 <h2 class="font-semibold">{{ auth()->user()->name }}</h2>
                 <p class="text-gray-800 mt-2">utilisateur depuis : {{ auth()->user()->created_at->diffForHumans(null, true) }}</p>
             </div>
