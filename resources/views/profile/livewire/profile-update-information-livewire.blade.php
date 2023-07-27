@@ -11,7 +11,7 @@
             <x-forms.error :messages="$errors->get('email')" class="mt-2" />
         </div>
     </div>
-    <div class="flex justify-end mt-3">
+    <div class="flex justify-end mt-4">
         <x-buttons.primary-button wire:click.prevent="updateInformation()">
             {{ __('button.action.edit') }}
         </x-buttons.primary-button>

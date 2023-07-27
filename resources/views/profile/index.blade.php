@@ -1,32 +1,4 @@
 <x-layouts.profile.layouts>
-    <section class="card card__body grid grid-cols-2 mb-8">
-        <div class="w-2/4">
-            <h2 class="h3">{{ auth()->user()->name }}</h2>
-            <p class="text-gray-500 mt-2">{{ __('page/profile.created_at') }} {{ auth()->user()->created_at->diffForHumans(null, true) }}</p>
-        </div>
-
-        <div>
-            <h2 class="h5 text-gray-500">{{ __('page/profile.create_content') }}</h2>
-            <div class="grid grid-cols-2 gap-4 mt-2">
-                <div>
-                    <p class="text-red-500">
-                        <i class="fa-solid fa-book-bookmark mr-2"></i>
-                        {{ __('page/profile.books') }} {{ $counts->books_count }}
-                    </p>
-                    <p class="text-cyan-500">
-                        <i class="fa-solid fa-book-open mr-2"></i>
-                        {{ __('page/profile.chapters') }} {{ $counts->chapters_count }}
-                    </p>
-                </div>
-                <div>
-                    <p class="text-emerald-500"><i class="fa-sharp fa-solid fa-file-circle-check mr-2"></i>
-                        {{ __('page/profile.pages') }} {{ $counts->pages_count }}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="card card__body mb-8">
         <h2 class="h3">{{ __('title.profile.books') }}</h2>
 
