@@ -24,8 +24,12 @@
                         @enderror
                     </div>
 
-                    <div>
+                    <div class="mt-6">
+                        <x-label for="name" :value="__('input.label.content')"/>
                         <x-forms.mde name="content" value="{{ old('content') }}"></x-forms.mde>
+                        @error('content')
+                        <div class="text-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 

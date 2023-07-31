@@ -14,7 +14,7 @@
                         @enderror
                     </div>
                     <div class="mt-10">
-                        <x-label for="description" :value="__('input.label.description')"/>
+                        <x-label for="description" :value="__('input.label.content')"/>
                         <x-forms.mde name="content" value="{!!  $page->content  !!}"></x-forms.mde>
                         @error('content')
                         <div class="text-red-500">{{ $message }}</div>
