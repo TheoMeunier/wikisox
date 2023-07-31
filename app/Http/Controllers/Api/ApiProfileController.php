@@ -13,7 +13,7 @@ class ApiProfileController extends Controller
     {
         $file = $request->file('avatar');
         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-        $path = $file->storeAs('public/avatar',$filename . '_' . $file->hashName());
+        $path = $file->storeAs('/avatar',$filename . '_' . $file->hashName(), 'public');
 
         auth()->user()->update([
             'avatar' => $path
