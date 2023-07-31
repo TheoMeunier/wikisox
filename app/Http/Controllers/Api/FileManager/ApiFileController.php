@@ -44,7 +44,7 @@ class ApiFileController extends AbstractFileManagerController
         $folder   = $request->post('folder');
         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         /** @phpstan-ignore-next-line  */
-        $path     = $file->storeAs($folder, $filename.'_'.$file->hashName(), 'public');
+        $path     = $file->storeAs($folder, $filename.'_'.$file->hashName(), 'media');
 
         /* @phpstan-ignore-next-line  */
         return $this->toArray($path);

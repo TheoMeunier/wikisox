@@ -10,6 +10,6 @@ class AbstractFileManagerController extends Controller
 {
     protected function filesysteme(): Filesystem
     {
-        return Storage::disk('public');
+        return Storage::disk('media');
     }
 }
