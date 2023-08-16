@@ -18,7 +18,7 @@ class AdminLogsLivewire extends Component
         $logs = ActivityLog::query()
             ->with(['causer'])
             ->orderBy('created_at', 'DESC')
-            ->paginate(8);
+            ->paginate(9);
 
         return view('admin.logs.livewire.admin-logs-livewire', compact('logs'));
     }

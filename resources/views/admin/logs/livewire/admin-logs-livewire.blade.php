@@ -17,7 +17,7 @@
         <tbody>
         @foreach($logs as $log)
             <tr>
-                <td>
+                <td class="py-4">
                     <p class="text-gray-900 whitespace-no-wrap">
                         {{ $log->id }}
                     </p>

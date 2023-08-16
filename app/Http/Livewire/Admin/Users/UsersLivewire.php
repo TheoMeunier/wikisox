@@ -38,7 +38,7 @@ class UsersLivewire extends Component
                 $query->orWhere('name', 'LIKE', '%'.$this->search.'%')
                     ->orWhere('email', 'LIKE', '%'.$this->search.'%');
             })
-            ->paginate(6);
+            ->paginate(8);
 
         return view('admin.users.livewire.admin-users-livewire', compact('users'));
     }

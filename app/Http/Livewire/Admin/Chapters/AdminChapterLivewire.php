@@ -37,7 +37,7 @@ class AdminChapterLivewire extends Component
             ->where(function ($query) {
                 $query->orWhere('name', 'LIKE', '%'.$this->search.'%');
             })
-            ->paginate(6);
+            ->paginate(8);
 
         return view('admin.chapters.livewire.admin-chapter-livewire', compact('chapters'));
     }
