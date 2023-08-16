@@ -32,7 +32,7 @@
                         {{ $role->updated_at->format('d/m/Y')  }}
                     </p>
                 </td>
-                <td>
+                <td class="@if($role->id === 1) py-7 @endif">
                     @if($role->id !== 1)
                         <x-links.link-icon href="{{ route('admin.roles.edit', ['id' => $role->id ]) }}"
                                            class="text-indigo-500">

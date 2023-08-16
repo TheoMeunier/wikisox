@@ -46,13 +46,13 @@
             {{ __('title.logs') }}
         </h2>
 
-        <table class="table">
+        <table class="table mt-3">
             <tbody>
             @foreach ($logs as $log)
                 <tr>
-                    <td>{{ $log->id }}</td>
-                    <td>{{ $log->causer->name ?? 'Server' }}</td>
-                    <td>
+                    <td class="py-3">{{ $log->id }}</td>
+                    <td class="py-3">{{ $log->causer->name ?? 'Server' }}</td>
+                    <td class="py-3">
                         @if($log->event === 'created')
                             <span class="tag tag-success">
                                 {{ __('js.table.action.create') }}
@@ -67,9 +67,9 @@
                             </span>
                         @endif
                     </td>
-                    <td>{{ $log->subject->name ?? 'Server' }}</td>
-                    <td>{{ $log->created_at->format('d/m/Y') }}</td>
-                    <td>{{ $log->updated_at->format('d/m/Y') }}</td>
+                    <td class="py-3">{{ $log->subject->name ?? 'Server' }}</td>
+                    <td class="py-3">{{ $log->created_at->format('d/m/Y') }}</td>
+                    <td class="py-3">{{ $log->updated_at->format('d/m/Y') }}</td>
                 </tr>
             @endforeach
             </tbody>
