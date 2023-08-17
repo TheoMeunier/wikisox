@@ -3,7 +3,7 @@
         <tbody>
         @foreach ($logs as $log)
             <tr>
-                <td>{{ $log->id }}</td>
+                <td class="py-4">{{ $log->id }}</td>
                 <td>{{ $log->causer->name ?? '' }}</td>
                 <td>
                     @if($log->event === 'created')
