@@ -2,7 +2,6 @@
     <ol class="breadcrumb__content">
         <li class="breadcrumb__menu">
             <a href="{{ route('dashboard') }}">
-                <i class="fa-solid fa-house mr-2 w-4 h-4"></i>
                 Home
             </a>
         </li>
