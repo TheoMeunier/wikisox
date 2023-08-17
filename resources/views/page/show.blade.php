@@ -68,9 +68,9 @@
                         <h1>{{ $page->name }}</h1>
                     </div>
 
-                    <div class="formatted" style="max-width: 100%">
-                        @markdown($page->content)
-                    </div>
+                    <x-markdown class="formatted" style="max-width: 100%">
+                        {!! $page->content !!}
+                    </x-markdown>
                 </div>
             </div>
         </div>
