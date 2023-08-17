@@ -7,7 +7,7 @@ return [
     'profile'        => 'Mon profile',
     'edit-profile'   => 'Editer mon profile',
     'users'          => 'Utilisateurs',
-    'roles'          => 'Roles',
+    'roles'          => 'Rôles',
     'logs'           => 'Logs',
     'create_to'      => 'Créer par :',
     'created_at'     => 'Créer le :',

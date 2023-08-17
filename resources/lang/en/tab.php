@@ -3,7 +3,7 @@
 return [
     'profile' => [
         'index'  => 'Profile',
-        'edit'   => 'Editer',
+        'edit'   => 'Edit',
         'action' => 'Actions',
     ],
 ];
