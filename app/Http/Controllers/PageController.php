@@ -10,6 +10,8 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Knp\Snappy\Pdf;
+use phpDocumentor\Reflection\Types\Compound;
 use Str;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -148,5 +150,17 @@ class PageController extends Controller
         return response()->streamDownload(function () use ($page) {
             echo $page->content;
         }, $slug.'.md');
+    }
+
+    public function downloadPdf(string $slug)
+    {
+        $page = Page::query()
+            ->where('slug', '=', $slug)
+            ->first();
+
+        $html = \view('page.pdf.index', compact('page'))->render();
+        $pdf = \PDF::loadHTML($html);
+
+        return $pdf->download($page->slug . '.pdf');
     }
 }

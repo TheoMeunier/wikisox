@@ -9,6 +9,9 @@ WORKDIR /var/www
 # Get nodejs
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 
+# Get wkhtmltopdf
+RUN echo "deb https://deb.debian.org/debian buster main" > /etc/apt/sources.list.d/wkhtmltopdf.list
+
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -23,7 +26,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     curl \
-    nodejs
+    nodejs \
+    wkhtmltopdf
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*

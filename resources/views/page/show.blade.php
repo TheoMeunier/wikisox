@@ -44,7 +44,7 @@
                             <i class="fa-brands fa-markdown mr-2"></i>
                             {{ __('button.page.download.md') }}
                         </a>
-                        <a href="#" class="text-gray-500 mt-6">
+                        <a href="{{ route('pages.download.pdf', ['slug' => $page->slug ]) }}" class="text-gray-500 mt-6">
                             <i class="fa-solid fa-file-pdf mr-2"></i>
                             {{ __('button.page.download.pdf') }}
                         </a>
