@@ -23,6 +23,7 @@ class ProfileLogActivityLivewire extends Component
         $logs = ActivityLog::query()
             ->with(['causer'])
             ->where('causer_id', '=', auth()->id())
+            ->orderBy('created_at', 'desc')
             ->paginate(8);
 
         return view('profile.livewire.profile-log-activity-livewire', compact('logs'));
