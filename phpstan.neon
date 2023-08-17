@@ -13,6 +13,7 @@ parameters:
     - ./.github
     - ./.scripts
     - ./app/View
+    - ./app/Services/Markdown
     - ./bootstrap/cache
     - ./docker
     - ./node_modules

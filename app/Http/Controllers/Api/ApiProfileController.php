@@ -15,9 +15,13 @@ class ApiProfileController extends Controller
         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $path = $file->storeAs('/avatar',$filename . '_' . $file->hashName(), 'public');
 
-        auth()->user()->update([
-            'avatar' => $path
-        ]);
+        $user = auth()->user();
+
+        if ($user) {
+            $user->update([
+                'avatar' => $path
+            ]);
+        }
 
         return response()->json([
             'path' => Storage::url($path)

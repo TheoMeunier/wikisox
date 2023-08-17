@@ -10,6 +10,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use Knp\Snappy\Pdf;
 use phpDocumentor\Reflection\Types\Compound;
 use Str;
@@ -152,11 +153,11 @@ class PageController extends Controller
         }, $slug.'.md');
     }
 
-    public function downloadPdf(string $slug)
+   public function downloadPdf(string $slug): Response
     {
         $page = Page::query()
             ->where('slug', '=', $slug)
-            ->first();
+            ->firstOrFail();
 
         $html = \view('page.pdf.index', compact('page'))->render();
         $pdf = \PDF::loadHTML($html);

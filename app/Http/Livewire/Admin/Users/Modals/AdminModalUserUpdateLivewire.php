@@ -68,9 +68,11 @@ class AdminModalUserUpdateLivewire extends ModalComponent
         $userByRole = $this->user->roles->first();
 
         if (! $this->role_id) {
+            /** @var User $user*/
             $user->assignRole($role);
-        } elseif ($this->role_id != $userByRole->id) {
-            $user->removeRole($userByRole);
+        } elseif ($this->role_id != $this->user->roles->first()->id) {
+            /** @var User $user*/
+            $user->removeRole($this->user->roles->first());
             $user->assignRole($role);
         }
     }
