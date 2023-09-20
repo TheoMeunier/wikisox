@@ -38,7 +38,8 @@ class Book extends Model
 
     public function likes(): MorphMany
     {
-        return $this->morphMany(Like::class, 'likeable');
+        return $this->morphMany(Like::class, 'likeable')
+            ->where('user_id', auth()->id());
     }
 
     public function user(): BelongsTo
