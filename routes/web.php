@@ -117,7 +117,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::get('/', function () {
-        return view('dashboard');
+        return to_route('book.index');
     })->name('dashboard');
 
     //api
