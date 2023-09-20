@@ -11,7 +11,7 @@ Isoxbook is a wiki tool for creating documentation, simply with a markdown edito
 - Yarn
 - Docker & docker compose if using
 
-## Installation Docker
+## Installation
 
 ```
 git clone https://github.com/TheoMeunier/Isoxbook.git
