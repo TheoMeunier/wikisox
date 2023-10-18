@@ -3,6 +3,7 @@
         @include('admin.layouts.sidebar')
 
         <main class="dashboard-body">
+            @include('components._flash')
             {{ $slot }}
         </main>
     </div>

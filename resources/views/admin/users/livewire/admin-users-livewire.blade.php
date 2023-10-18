@@ -7,9 +7,7 @@
             {{ __('title.users') }}
         </h1>
         <x-buttons.primary-button
-            wire:click.prevent="$emit('openModal', 'admin.users.modals.admin-modal-user-create-livewire')"
-            class="btn btn__primary">
-            <i class="fa-solid fa-plus mr-2"></i>
+            wire:click.prevent="$emit('openModal', 'admin.users.modals.admin-modal-user-create-livewire')">
             {{ __('button.action.create') }}
         </x-buttons.primary-button>
     </div>
@@ -53,7 +51,7 @@
                     </td>
                     <td>{{ $user->created_at->format('m/d/Y') }}</td>
                     <td>{{ $user->updated_at->format('m/d/Y') }}</td>
-                    <td>
+                    <td class="flex gap-2">
                         <button
                             wire:click.prevent="$emit('openModal', 'admin.users.modals.admin-modal-user-update-livewire', {{ json_encode(['user' => $user]) }})"
                             class="table-action text-primary">
@@ -78,7 +76,7 @@
             </tbody>
         </table>
 
-        <div>
+        <div class="pagination">
             {{ $users->links('components.modules.pagination') }}
         </div>
     </div>

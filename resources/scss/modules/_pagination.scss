@@ -1,5 +1,5 @@
 .pagination {
-    @apply max-w-screen-xl mx-auto mt-6 px-4 pb-12 text-gray-600 md:px-8 flex justify-center items-center;
+    @apply max-w-screen-xl mx-auto mt-6 px-4 text-gray-600 md:px-8 flex justify-center items-center;
 }
 
 .pagination-content {
@@ -25,4 +25,3 @@
 .pagination-dots {
     @apply px-3 py-2;
 }
-

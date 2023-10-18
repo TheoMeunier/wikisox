@@ -32,11 +32,11 @@
                         {{ $role->updated_at->format('d/m/Y')  }}
                     </p>
                 </td>
-                <td class="@if($role->id === 1) py-7 @endif">
+                <td class="flex">
                     @if($role->id !== 1)
                         <a href="{{ route('admin.roles.edit', ['id' => $role->id ]) }}"
                                            class="table-action text-primary">
-                            <x-icons.icon-edit class="h-6 w-6"/>
+                            <x-icons.icon-edit class="h-6 w-6"/> {{ __('button.action.edit') }}
                         </a>
                     @endif
                 </td>
