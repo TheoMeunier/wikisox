@@ -21,7 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
-<body class="font-sans antialiased">
+<body>
 {{ $slot }}
 
 @livewireScripts

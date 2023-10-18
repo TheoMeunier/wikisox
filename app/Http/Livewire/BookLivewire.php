@@ -32,7 +32,7 @@ class BookLivewire extends Component
             ->where(function ($query) {
                 $query->orWhere('name', 'LIKE', '%'.$this->search.'%');
             })
-            ->paginate(12);
+            ->paginate(8);
 
         return view('book.livewire.book-livewire', compact('books'));
     }

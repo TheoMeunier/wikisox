@@ -17,6 +17,10 @@ body {
     scroll-margin: 100px 0 0 0;
     word-break: break-word;
     @apply text-gray-700;
+
+    .container {
+        @apply py-14 max-w-8xl mx-auto py-6 px-4 sm:px-6 lg:px-8;
+    }
 }
 
 //modules
@@ -30,6 +34,7 @@ body {
 @import 'modules/modal';
 @import 'modules/pagination';
 @import "modules/tag";
+@import "modules/footer";
 @import 'home';
 
 //tools
