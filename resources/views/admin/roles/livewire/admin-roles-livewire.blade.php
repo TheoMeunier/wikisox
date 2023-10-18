@@ -34,10 +34,10 @@
                 </td>
                 <td class="@if($role->id === 1) py-7 @endif">
                     @if($role->id !== 1)
-                        <x-links.link-icon href="{{ route('admin.roles.edit', ['id' => $role->id ]) }}"
-                                           class="text-indigo-500">
+                        <a href="{{ route('admin.roles.edit', ['id' => $role->id ]) }}"
+                                           class="table-action text-primary">
                             <x-icons.icon-edit class="h-6 w-6"/>
-                        </x-links.link-icon>
+                        </a>
                     @endif
                 </td>
             </tr>

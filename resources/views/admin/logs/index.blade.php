@@ -8,10 +8,8 @@
         </h1>
     </div>
 
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-6 bg-white border-b border-gray-200">
-            @livewire('admin-logs-livewire')
-        </div>
+    <div>
+        @livewire('admin-logs-livewire')
     </div>
 </x-admin.admin-app-layout>
 

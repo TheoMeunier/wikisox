@@ -1,40 +1,92 @@
+// Variables
+// ==================
+$font: 'Inter', sans-serif;
+$font-alt: 'Inter', sans-serif;
+
 h1,
 .h1 {
-    @apply text-5xl;
+    font-family: $font-alt;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 42px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+
+    svg {
+        @apply text-indigo-500;
+    }
 }
 
 h2,
 .h2 {
-    @apply text-4xl;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+
+    svg {
+        @apply text-indigo-500;
+    }
 }
 
 h3,
 .h3 {
-    @apply text-3xl;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+
+    svg {
+        @apply text-indigo-500;
+    }
 }
 
 h4,
 .h4 {
-    @apply text-2xl;
+    font-family: $font-alt;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+
+    svg {
+        @apply text-indigo-500;
+    }
 }
 
 h5,
 .h5 {
-    @apply text-xl;
+    font-family: $font-alt;
+    font-weight: bold;
 }
 
-.link {
-    @apply text-blue-600 hover:underline;
+.hero-title {
+    @apply text-6xl;
+    font-weight: 500;
 }
 
-.text__secondary {
-    @apply text-gray-500;
+.hero-text {
+    @apply text-2xl;
 }
 
-.text__danger {
+.text-danger {
     @apply text-red-500;
 }
 
-.text__warning {
-    @apply text-yellow-400;
+.text-primary {
+    @apply text-indigo-500;
 }
+
+.text-muted {
+    @apply text-gray-500;
+}
+
+.title-border-b {
+    @apply border-b border-gray-200 pb-3;
+}
+

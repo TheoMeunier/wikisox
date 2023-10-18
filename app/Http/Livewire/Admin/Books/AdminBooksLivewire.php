@@ -37,7 +37,7 @@ class AdminBooksLivewire extends Component
             ->where(function ($query) {
                 $query->orWhere('name', 'LIKE', '%'.$this->search.'%');
             })
-            ->paginate(8);
+            ->paginate(10);
 
         return view('admin.books.livewire.admin-books-livewire', compact('books'));
     }
