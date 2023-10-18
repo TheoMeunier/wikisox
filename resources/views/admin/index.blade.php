@@ -1,10 +1,15 @@
 <x-admin.admin-app-layout>
-    <h1>{{ __('title.dashboard') }}</h1>
+    <h1>
+        <span class="text-indigo-500 mr-3">
+            <x-icons.icon-diagrams class="w-8 h-8"/>
+        </span>
+        {{ __('title.dashboard') }}
+    </h1>
 
     <section class="grid grid-cols-4 gap-4 my-6">
         <div class="card card__body flex items-center text-indigo-500">
             <div class="w-1/4">
-                <i class="fa-solid fa-user h2"></i>
+               <x-icons.icon-user-group class="w-10 h-10"/>
             </div>
             <div>
                 <p class="h4">{{ __('title.users') }}</p>
@@ -13,7 +18,7 @@
         </div>
         <div class="card card__body flex items-center text-cyan-500">
             <div class="w-1/4">
-                <i class="fa-solid fa-book-bookmark h2"></i>
+                <x-icons.icon-books class="w-9 h-9"/>
             </div>
             <div>
                 <p class="h4">{{ __('title.books') }}</p>
@@ -22,7 +27,7 @@
         </div>
         <div class="card card__body flex items-center text-emerald-500">
             <div class="w-1/4">
-                <i class="fa-solid fa-book-open h2"></i>
+                <x-icons.icon-folders class="w-9 h-9"/>
             </div>
             <div>
                 <p class="h4">{{ __('title.chapters') }}</p>
@@ -31,7 +36,7 @@
         </div>
         <div class="card card__body flex items-center text-red-500">
             <div class="w-1/4">
-                <i class="fa-sharp fa-solid fa-file-circle-check h2"></i>
+                <x-icons.icon-files class="w-9 h-9"/>
             </div>
             <div>
                 <p class="h4">{{ __('title.pages') }}</p>

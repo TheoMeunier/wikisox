@@ -1,5 +1,5 @@
 <div>
-    <div class="flex justify-end py-3">
+    <div class="flex justify-end pb-3">
         <a href="{{ route('admin.logs.export') }}" class="btn btn__primary">Export</a>
     </div>
 
@@ -62,7 +62,7 @@
         </tbody>
     </table>
 
-    <div>
+    <div class="pagination">
         {{ $logs->links('components.modules.pagination') }}
     </div>
 </div>

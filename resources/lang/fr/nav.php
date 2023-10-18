@@ -14,4 +14,5 @@ return [
     'logout'         => 'Se déconnecter',
     'administration' => 'Administration',
     'image'          => 'Images',
+    'dashboard'          => 'Dashboard',
 ];

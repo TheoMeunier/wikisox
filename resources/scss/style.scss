@@ -8,6 +8,17 @@ $breakpoint-small-screen: 961px;
 $breakpoint-tablet: 769px;
 $breakpoint-phone: 769px;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    scroll-margin: 100px 0 0 0;
+    word-break: break-word;
+    @apply text-gray-700;
+}
+
 //modules
 @import 'modules/alert';
 @import 'modules/card';
@@ -31,14 +42,6 @@ $breakpoint-phone: 769px;
 
 //Admin
 @import 'admin/dashboard';
-@import 'admin/navbar';
-@import 'admin/sidebar';
 
 //Pages
 @import 'pages/profile';
-
-// Icons
-@import '~@fortawesome/fontawesome-free/css/fontawesome';
-@import '~@fortawesome/fontawesome-free/css/regular';
-@import '~@fortawesome/fontawesome-free/css/solid';
-@import '~@fortawesome/fontawesome-free/css/brands';

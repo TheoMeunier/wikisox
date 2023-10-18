@@ -8,7 +8,6 @@
         <thead>
         <tr>
             <th>{{ __('table.id') }}</th>
-            <th>{{ __('table.image') }}</th>
             <th>{{ __('table.name') }}</th>
             <th>{{ __('table.slug') }}</th>
             <th>{{ __('table.createdTo') }}</th>
@@ -21,22 +20,19 @@
         @forelse($books as $book)
             <tr>
                 <td>{{ $book->id }}</td>
-                <td>
-                    <img src="{{ $book->image }}" alt="{{ $book->slug }}" width="30" height="50">
-                </td>
                 <td>{{ $book->name }}</td>
                 <td>{{ $book->slug }}</td>
                 <td>{{ $book->user->name }}</td>
                 <td>{{ $book->created_at->format('m/d/Y') }}</td>
                 <td>{{ $book->updated_at->format('m/d/Y') }}</td>
-                <td>
-                    <x-links.link-icon href="{{ route('admin.book.edit', ['slug' => $book->slug ]) }}"
-                                       class="text-indigo-500">
-                        <x-icons.icon-edit class="h-6 w-6"/>
-                    </x-links.link-icon>
-                    <x-buttons.btn-icon wire:click.prevent="$emit('openModal', 'admin.books.modals.admin-modal-book-delete-livewire', {{ json_encode(['book' => $book]) }})" class="text-red-500">
-                        <x-icons.icon-trash class="h-6 w-6"/>
-                    </x-buttons.btn-icon>
+                <td class="flex gap-2">
+                    <a href="{{ route('admin.book.edit', ['slug' => $book->slug ]) }}"
+                                       class="table-action text-primary">
+                        <x-icons.icon-edit class="h-6 w-6"/> {{ __('button.action.edit') }}
+                    </a>
+                    <button wire:click.prevent="$emit('openModal', 'admin.books.modals.admin-modal-book-delete-livewire', {{ json_encode(['book' => $book]) }})" class="table-action text-danger">
+                        <x-icons.icon-trash class="h-6 w-6"/> {{ __('button.action.delete') }}
+                    </button>
                 </td>
             </tr>
         @empty

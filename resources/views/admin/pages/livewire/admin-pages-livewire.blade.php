@@ -25,14 +25,14 @@
                 <td>{{ $page->user->name }}</td>
                 <td>{{ $page->created_at->format('m/d/Y') }}</td>
                 <td>{{ $page->updated_at->format('m/d/Y') }}</td>
-                <td>
-                    <x-links.link-icon href="{{ route('admin.pages.edit', ['slug' => $page->slug ]) }}"
-                                       class="text-indigo-500">
-                        <x-icons.icon-edit class="h-6 w-6"/>
-                    </x-links.link-icon>
-                    <x-buttons.btn-icon wire:click.prevent="$emit('openModal', 'admin.pages.modals.admin-modal-page-delete-livewire', {{ json_encode(['page' => $page]) }})" class="text-red-500">
-                        <x-icons.icon-trash class="h-6 w-6"/>
-                    </x-buttons.btn-icon>
+                <td class="flex gap-2">
+                    <a href="{{ route('admin.pages.edit', ['slug' => $page->slug ]) }}"
+                                       class="table-action text-primary">
+                        <x-icons.icon-edit class="h-6 w-6"/> {{ __('button.action.edit') }}
+                    </a>
+                    <button wire:click.prevent="$emit('openModal', 'admin.pages.modals.admin-modal-page-delete-livewire', {{ json_encode(['page' => $page]) }})" class="table-action text-danger">
+                        <x-icons.icon-trash class="h-6 w-6"/> {{ __('button.action.delete') }}
+                    </button>
                 </td>
             </tr>
         @empty
