@@ -1,5 +1,5 @@
 <div>
-    <div class="flex justify-between items-center my-4">
+    <div class="justify__between my-4">
         @can('book create')
             <x-links.link-button-primary href="{{ route('book.create') }}">
                 <x-icons.icon-plus class="w-4 h-4"/>

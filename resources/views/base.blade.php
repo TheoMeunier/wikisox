@@ -26,5 +26,6 @@
 
 @livewireScripts
 @livewire('livewire-ui-modal')
+<file-manager endpoint="/api" hidden></file-manager>
 </body>
 </html>

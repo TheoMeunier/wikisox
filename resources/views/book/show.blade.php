@@ -3,9 +3,10 @@
         <div class="justify__between">
             <h1>{{ $book->name }}</h1>
         </div>
+
         <div class="grid grid-cols-5 gap-4">
             <div class="mt-14 flex flex-col">
-                @canany(['book edit', 'book delete'])
+                @canany(['book edit', 'book delete', 'chapter create'])
                     <div class="flex flex-col gap-5 mt-4 mb-14">
                         <h4>{{ __('title.action') }}</h4>
                         @can('chapter create')
@@ -37,16 +38,17 @@
 
                 <div>
                     <h4>{{ __('title.info') }}</h4>
-                    <p class="text-gray-500 mt-6">
-                        <i class="fa-solid fa-user mr-2"></i>
+                    <p class="text-gray-500 mt-6 flex items-center gap-2">
+                        <x-icons.icon-user class="h-5 w-5"/>
                         {{ __('nav.create_to') }} {{ $book->user->name }}
                     </p>
-                    <p class="text-gray-500 mt-6">
-                        <i class="fa-regular fa-clock mr-2"></i>
+                    <p class="text-gray-500 mt-6 flex items-center gap-2">
+                        <x-icons.icon-clock class="h-5 w-5"/>
                         {{ __('nav.created_at') }} {{ $book->created_at->format('d/m/Y') }}
                     </p>
                 </div>
             </div>
+
             <div class="col-span-4">
                 @livewire('chapter-livewire', ['book' => $book])
             </div>

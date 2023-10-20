@@ -43,7 +43,7 @@
                     <x-slot name="content">
                         <!-- Authentication -->
                         <x-dropdown-link :href="route('profile.index')">
-                            <i class="fa-solid fa-user mr-2"></i>
+                            <x-icons.icon-user class="h-5 w-5"/>
                             {{ __('nav.profile') }}
                         </x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
@@ -52,13 +52,15 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                <i class="fa-solid fa-arrow-right-from-bracket mr-2"></i>{{ __('nav.logout') }}
+                                <x-icons.icon-logout class="h-5 w-5"/>
+                                {{ __('nav.logout') }}
                             </x-dropdown-link>
                         </form>
                         @hasrole('admin')
                             <hr>
-                            <x-dropdown-link :href="route('admin.index')" class="text-red-600">
-                                <i class="fa-solid fa-gear mr-2"></i>{{ __('nav.administration') }}
+                            <x-dropdown-link :href="route('admin.index')" class="text-danger">
+                                <x-icons.icon-settings class="h-5 w-5"/>
+                                {{ __('nav.administration') }}
                             </x-dropdown-link>
                         @endhasrole
                     </x-slot>

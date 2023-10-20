@@ -14,12 +14,13 @@ body {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    scroll-margin: 100px 0 0 0;
+    //scroll-margin: 100px 0 0 0;
     word-break: break-word;
+    height: 100vh;
     @apply text-gray-700;
 
     .container {
-        @apply py-14 max-w-8xl mx-auto py-6 px-4 sm:px-6 lg:px-8;
+        @apply py-6 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8;
     }
 }
 
