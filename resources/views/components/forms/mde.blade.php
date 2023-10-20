@@ -1,14 +1,28 @@
 <div class="markdown-editor">
     <div class="editor__toolbar">
         <div class="editor__toolbar__group">
-            <div class="icon" id="bold"><i class="fa fa-bold"></i></div>
-            <div class="icon" id="italic"><i class="fa fa-italic"></i></div>
-            <div class="icon" id="strikethrough"><i class="fa-solid fa-strikethrough"></i></div>
-            <div class="icon" id="code"><i class="fa-solid fa-code"></i></div>
-            <div class="icon" id="link"><i class="fa fa-link"></i></div>
-            <div class="icon" id="image"><i class="fa fa-image" ></i></div>
+            <div class="icon" id="bold">
+                <x-icons.icon-bold class="h-5 w-5"/>
+            </div>
+            <div class="icon" id="italic">
+                <x-icons.icon-italic class="h-5 w-5"/>
+            </div>
+            <div class="icon" id="strikethrough">
+                <x-icons.icon-strikethrough class="h-5 w-5"/>
+            </div>
+            <div class="icon" id="code">
+                <x-icons.icon-code class="h-5 w-5"/>
+            </div>
+            <div class="icon" id="link">
+                <x-icons.icon-link class="h-5 w-5"/>
+            </div>
+            <div class="icon" id="image">
+                <x-icons.icon-image class="h-5 w-5"/>
+            </div>
         </div>
-        <div id="preview" class="icon"><i class="fa-solid fa-eye"></i></div>
+        <div id="preview" class="icon">
+            <x-icons.icon-eyes class="h-5 w-5"/>
+        </div>
     </div>
     <div id="input-output">
         <textarea id="input-area" name="{{ $name }}" rows="30" cols="50">{{ $value }}</textarea>
