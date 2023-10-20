@@ -1,16 +1,11 @@
-<div>
-    <div class="form__btn__input">
-        <div id="btn-open-filemanager" class="card p-5 w-full" style="min-height: 250px; max-height: 250px">
-            <x-input id="input-image-filemanager" class="block mt-1 w-full" name="{{ $name }}" value="{{ $value }}"/>
-            <img
-                    id="img-filemanager"
-                    class="mx-auto"
-                    style="min-width: 315px; max-width: 315px; height: 200px"
-                    src="{{ $value === '' ? asset('images/donwload.svg') : $value}}"
-                    alt="download"
-            />
-        </div>
+<div id="btn-open-filemanager" class="border border-gray-300 rounded-md cursor-pointer shadow-sm h-full min-w-full">
+    <div>
+        <x-input id="input-image-filemanager" class="hidden" name="{{ $name }}" value="{{ $value }}"/>
+        <img
+            id="img-filemanager"
+            src="{{ $value == "" ? asset('images/donwload.svg') : $value }}"
+            alt="download"
+            class="object-fill h-48 min-w-full mx-auto"
+        />
     </div>
-
-    <file-manager endpoint="/api" hidden></file-manager>
 </div>

@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-indigo-50 border-b-2 border-indigo-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -13,6 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('book.index')" :active="request()->routeIs('book.*')">
+                        <x-icons.icon-books class="h-5 w-5"/>
                         {{ __('title.books') }}
                     </x-nav-link>
                 </div>
@@ -22,8 +23,14 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div>{{ Auth::user()->name }}</div>
+                        <button class="flex items-center gap-3 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            <div>
+                                <x-icons.icon-user class="h-5 w-5"/>
+                            </div>
+
+                            <div>
+                                {{ Auth::user()->name }}
+                            </div>
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -36,7 +43,7 @@
                     <x-slot name="content">
                         <!-- Authentication -->
                         <x-dropdown-link :href="route('profile.index')">
-                            <i class="fa-solid fa-user mr-2"></i>
+                            <x-icons.icon-user class="h-5 w-5"/>
                             {{ __('nav.profile') }}
                         </x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
@@ -45,13 +52,15 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                <i class="fa-solid fa-arrow-right-from-bracket mr-2"></i>{{ __('nav.logout') }}
+                                <x-icons.icon-logout class="h-5 w-5"/>
+                                {{ __('nav.logout') }}
                             </x-dropdown-link>
                         </form>
                         @hasrole('admin')
                             <hr>
-                            <x-dropdown-link :href="route('admin.index')" class="text-red-600">
-                                <i class="fa-solid fa-gear mr-2"></i>{{ __('nav.administration') }}
+                            <x-dropdown-link :href="route('admin.index')" class="text-danger">
+                                <x-icons.icon-settings class="h-5 w-5"/>
+                                {{ __('nav.administration') }}
                             </x-dropdown-link>
                         @endhasrole
                     </x-slot>

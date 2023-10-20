@@ -1,3 +1,3 @@
-<a class="btn btn__secondary" {{ $attributes }}>
+<a class="btn btn__primary" {{ $attributes }}>
     {{ $slot }}
 </a>

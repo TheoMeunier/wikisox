@@ -21,10 +21,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
-<body class="font-sans antialiased">
+<body>
 {{ $slot }}
 
 @livewireScripts
 @livewire('livewire-ui-modal')
+<file-manager endpoint="/api" hidden></file-manager>
 </body>
 </html>

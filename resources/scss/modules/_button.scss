@@ -1,9 +1,9 @@
 .btn {
-    @apply inline-flex items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest focus:outline-none focus:ring  disabled:opacity-25 transition ease-in-out duration-150;
+    @apply inline-flex gap-2 items-center px-4 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest focus:outline-none focus:ring  disabled:opacity-25 transition ease-in-out duration-150;
 }
 
 .btn__primary {
-    @apply bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-900 focus:border-indigo-900 ring-indigo-300;
+    @apply bg-gray-900 hover:bg-gray-800 active:bg-gray-900 focus:border-gray-900 ring-gray-300;
 }
 
 .btn__secondary {

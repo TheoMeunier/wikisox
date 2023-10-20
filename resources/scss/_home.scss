@@ -18,6 +18,10 @@
     gap: 16px;
 }
 
+.section-secondary {
+    @apply bg-indigo-50 border-b-2 border-indigo-100;
+}
+
 @media screen and (max-width: $breakpoint-laptop) {
     .home {
         @apply grid grid-cols-5 gap-4;
