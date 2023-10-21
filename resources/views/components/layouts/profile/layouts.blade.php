@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
+    <section class="container">
         <div class="h-50 py-9 flex items-center">
             <div>
                 <form id="form__avatar" class="profil-header__avatar" enctype="multipart/form-data" method="post">
@@ -18,35 +18,36 @@
             </div>
             <div class="ml-4">
                 <h2 class="font-semibold">{{ auth()->user()->name }}</h2>
-                <p class="text-gray-800 mt-2">utilisateur depuis : {{ auth()->user()->created_at->diffForHumans(null, true) }}</p>
+                <p class="text-muted mt-2">utilisateur depuis : {{ auth()->user()->created_at->diffForHumans(null, true) }}</p>
             </div>
         </div>
-        <div class="font-semibold text-3xl text-gray-800 leading-tight">
+        <div class="text-gray-800">
             <div class="border-b border-gray-200">
-                <ul class="flex flex-wrap -mb-px" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
-                    <li class="mr-2" role="presentation">
-                        <a href="{{ route('profile.index') }}" class="inline-block text-gray-500 hover:text-indigo-600 hover:border-indigo-300 hover:border-b-2 rounded-t-lg py-4 px-4 text-sm font-medium text-center flex items-center gap-2 @if(request()->routeIs('profile.index')) text-indigo-600 border-indigo-300 border-b-2 @endif" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile_index" aria-selected="false">
-                            <i class="fa-solid fa-user mr-2"></i>
+                <ul class="flex gap-2" id="tab_profile" role="profile">
+                    <li role="profile">
+                        <a href="{{ route('profile.index') }}" class="flex items-center gap-3 hover:text-indigo-600 hover:border-indigo-500 hover:border-b-2 rounded-t-lg p-4 @if(request()->routeIs('profile.index')) text-indigo-600 border-indigo-500 border-b-2 @endif" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile_index">
+                            <x-icons.icon-user />
                             {{ __('tab.profile.index') }}
                         </a>
                     </li>
-                    <li class="mr-2" role="presentation">
-                        <a href="{{ route('profile.edit') }}" class="inline-block text-gray-500 hover:text-indigo-600 hover:border-indigo-300 hover:border-b-2 rounded-t-lg py-4 px-4 text-sm font-medium text-center flex items-center gap-2 @if(request()->routeIs('profile.edit')) text-indigo-600 border-indigo-300 border-b-2 @endif" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="profile_edit" aria-selected="true">
-                            <i class="fa-solid fa-pen mr-2"></i>
+                    <li role="edit">
+                        <a href="{{ route('profile.edit') }}" class="flex items-center gap-3 hover:text-indigo-600 hover:border-indigo-500 hover:border-b-2 rounded-t-lg p-4 @if(request()->routeIs('profile.edit')) text-indigo-600 border-indigo-500 border-b-2 @endif" id="profile-edit-tab" data-tabs-target="#edit" type="button" role="tab" aria-controls="profile_edit">
+                            <x-icons.icon-edit class="w-6 h-6"/>
                             {{ __('tab.profile.edit') }}
                         </a>
                     </li>
-                    <li class="mr-2" role="presentation">
-                        <a href="{{ route('profile.actions') }}" class="inline-block text-gray-500 hover:text-indigo-600 hover:border-indigo-300 rounded-t-lg py-4 px-4 text-sm font-medium text-center hover:border-b-2 flex items-center gap-2 @if(request()->routeIs('profile.actions')) text-indigo-600 border-indigo-300 border-b-2 @endif" data-tabs-target="#settings" type="button" role="tab" aria-controls=" " aria-selected="false">
-                            <i class="fa-solid fa-box-archive mr-2"></i>
+                    <li role="logs">
+                        <a href="{{ route('profile.actions') }}" class="flex items-center gap-3 hover:text-indigo-600 hover:border-indigo-500 hover:border-b-2 rounded-t-lg p-4 @if(request()->routeIs('profile.actions')) text-indigo-600 border-indigo-500 border-b-2 @endif" id="profile-actions-tab"  data-tabs-target="#logs" type="button" role="tab" aria-controls="profile_logs">
+                            <x-icons.icon-logs />
                             {{ __('tab.profile.action') }}
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-    </x-slot>
+    </section>
 
-    {{ $slot }}
-
+    <section class="container">
+        {{ $slot }}
+    </section>
 </x-app-layout>

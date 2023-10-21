@@ -2,7 +2,7 @@
 
 return [
     'title'       => 'Edit my profile',
-    'information' => 'My information',
+    'information' => 'Information',
     'password'    => 'Password',
 
     'delete' => [
