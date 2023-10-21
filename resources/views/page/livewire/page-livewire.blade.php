@@ -10,8 +10,8 @@
                 <article class="card">
                     <div class="card__body justify__between">
                         <h5 class="card__title border-left">{{ $page->name }}</h5>
-                        <span class="text__secondary">
-                                <i class="fa-regular fa-clock mr-2"></i>
+                        <span class="text-muted flex items-center gap-2">
+                                <x-icons.icon-clock class="h-5 w-5"/>
                                 {{ $page->created_at->diffForHumans() }}
                             </span>
                     </div>
