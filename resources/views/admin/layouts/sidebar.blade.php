@@ -1,7 +1,7 @@
 <aside id="logo-sidebar" class="dashboard-sidebar">
     <div class="dashboard-sidebar__wrapper">
         <x-modules.sidebar.sidebar-menu>
-            <x-modules.sidebar.sidebar-link href="{{ route('admin.index')}}" :active="request()->routeIs('admin.index.*')">
+            <x-modules.sidebar.sidebar-link href="{{ route('admin.index')}}" :active="request()->routeIs('admin.index')">
                 <x-icons.icon-diagrams />
                 {{  __('nav.dashboard') }}
             </x-modules.sidebar.sidebar-link>
