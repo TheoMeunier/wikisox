@@ -13,6 +13,16 @@ class AdminLogsLivewire extends Component
 {
     use WithPagination;
 
+    /**
+     * @var string[]
+     */
+    protected $listeners = ['refresh-logs' => 'refreshLog'];
+
+    public function refreshLog(): void
+    {
+        $this->render();
+    }
+
     public function render(): View|Application|Factory
     {
         $logs = ActivityLog::query()
