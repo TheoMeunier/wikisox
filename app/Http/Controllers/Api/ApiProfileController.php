@@ -11,20 +11,20 @@ class ApiProfileController extends Controller
 {
     public function uploadAvatar(Request $request): JsonResponse
     {
-        $file = $request->file('avatar');
+        $file     = $request->file('avatar');
         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-        $path = $file->storeAs('/avatar',$filename . '_' . $file->hashName(), 'public');
+        $path     = $file->storeAs('/avatar', $filename.'_'.$file->hashName(), 'public');
 
         $user = auth()->user();
 
         if ($user) {
             $user->update([
-                'avatar' => $path
+                'avatar' => $path,
             ]);
         }
 
         return response()->json([
-            'path' => Storage::url($path)
+            'path' => Storage::url($path),
         ]);
     }
 }

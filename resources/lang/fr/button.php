@@ -36,5 +36,6 @@ return [
         'resetPassword'      => 'Modifier mon mot de passe',
         'forgotPassword'     => 'Mot de passe oublié ?',
         'alreadyHaveAccount' => 'Vous avez déjà un compte ?',
+        'delete-account'     => 'Supprimer mon compte',
     ],
 ];

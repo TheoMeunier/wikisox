@@ -21,6 +21,7 @@ return [
         'books'    => 'Mes Livres',
         'chapters' => 'Mes Chapitres',
         'pages'    => 'Mes Pages',
+        'delete'   => 'Supprimer mon compte',
     ],
 
     'book' => [
