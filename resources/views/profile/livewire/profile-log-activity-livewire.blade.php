@@ -6,18 +6,22 @@
                 <td class="py-4">{{ $log->id }}</td>
                 <td>{{ $log->causer->name ?? '' }}</td>
                 <td>
-                    @if($log->event === 'created')
+                    @if($log->description === 'created')
                         <span class="tag tag-success">
-                                {{ __('js.table.action.create') }}
-                            </span>
-                    @elseif($log->event === 'updated')
+                            {{ __('tag.created') }}
+                        </span>
+                    @elseif($log->description === 'updated')
                         <span class="tag tag-warning">
-                                {{ __('js.table.action.update') }}
-                            </span>
-                    @elseif($log->event === 'deleted')
+                        {{ __('tag.updated') }}
+                        </span>
+                    @elseif($log->description === 'deleted')
                         <span class="tag tag-danger">
-                                {{ __('js.table.action.delete') }}
-                            </span>
+                            {{ __('tag.deleted') }}
+                        </span>
+                    @elseif($log->description === 'restored')
+                        <span class="tag tag-primary">
+                            {{ __('tag.restored') }}
+                        </span>
                     @endif
                 </td>
                 <td>{{ $log->subject->name ?? '' }}</td>
