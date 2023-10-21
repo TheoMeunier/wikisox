@@ -6,10 +6,9 @@
             </span>
             {{ __('title.roles') }}
         </h1>
-        <a href="{{ route('admin.roles.create') }}" class="btn btn__primary">
-            <i class="fa-solid fa-plus mr-2"></i>
+        <x-links.link-button-primary href="{{ route('admin.roles.create') }}">
             {{ __('button.action.create') }}
-        </a>
+        </x-links.link-button-primary>
     </div>
 
     <div>

@@ -27,9 +27,9 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-links.link-button-primary href="{{ url()->previous() }}">
+                <x-links.link-button-secondary href="{{ url()->previous() }}">
                     {{ __('button.action.close') }}
-                </x-links.link-button-primary>
+                </x-links.link-button-secondary>
                 <x-button class="ml-3">
                     {{ __('button.action.edit') }}
                 </x-button>
