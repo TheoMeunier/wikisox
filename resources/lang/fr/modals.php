@@ -24,4 +24,9 @@ return [
             'modal'        => 'Vous êtes sur le point de supprimer votre compte, rentrer mot de password pour confirmer cette action',
         ],
     ],
+
+    'logs' => [
+        'restore' => 'Voulez-vous vraiment restorer ma donnée ?',
+        'with' => 'Vouslez-vous ajouter ?'
+    ]
 ];

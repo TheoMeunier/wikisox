@@ -1,6 +1,8 @@
 <div>
     <div class="flex justify-end pb-3">
-        <a href="{{ route('admin.logs.export') }}" class="btn btn__primary">Export</a>
+        <x-links.link-button-primary href="{{ route('admin.logs.export') }}" class="btn btn__primary">
+            {{ __('button.action.export') }}
+        </x-links.link-button-primary>
     </div>
 
     <table>
@@ -12,6 +14,7 @@
             <th>{{ __('table.subject_name') }}</th>
             <th>{{ __('table.createdAt') }}</th>
             <th>{{ __('table.updatedAt') }}</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -36,9 +39,13 @@
                         <span class="tag tag-warning">
                         {{ __('tag.updated') }}
                         </span>
-                    @else
+                    @elseif($log->description === 'deleted')
                         <span class="tag tag-danger">
                             {{ __('tag.deleted') }}
+                        </span>
+                    @elseif($log->description === 'restored')
+                        <span class="tag tag-primary">
+                            {{ __('tag.restored') }}
                         </span>
                     @endif
                 </td>
@@ -56,6 +63,18 @@
                     <p class="text-gray-900 whitespace-no-wrap">
                         {{ $log->updated_at->format('d/m/Y')  }}
                     </p>
+                </td>
+                <td>
+                    @if($log->event === 'deleted' && $log->subject->trashed())
+                        <button
+                            type="button"
+                            class="table-action text-primary"
+                            wire:click.prevent="$emit('openModal', 'admin.logs.modals.admin-logs-modals-restore-livewire', {{ json_encode(['log' => $log]) }})"
+                        >
+                            <x-icons.icon-restore class="w-6 h-6"/>
+                            {{ __('button.action.restore') }}
+                        </button>
+                    @endif
                 </td>
             </tr>
         @endforeach
