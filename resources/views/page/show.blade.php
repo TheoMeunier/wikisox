@@ -57,8 +57,12 @@
             </div>
 
             <div class="col-span-4">
-                <div class="pb-9">
+                <div class="pb-16">
                     <h1>{{ $page->name }}</h1>
+
+                    <div class="mt-4">
+                        {{ Breadcrumbs::render('page', $book, $chapter, $page) }}
+                    </div>
                 </div>
 
                 <x-markdown class="formatted" style="max-width: 100%">

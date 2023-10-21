@@ -1,7 +1,11 @@
 <x-app-layout>
     <section class="container">
-        <div class="justify__between">
+        <div>
             <h1>{{ $book->name }}</h1>
+
+            <div class="mt-4">
+                {{ Breadcrumbs::render('book', $book) }}
+            </div>
         </div>
 
         <div class="grid grid-cols-5 gap-4">

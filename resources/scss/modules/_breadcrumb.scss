@@ -7,9 +7,9 @@
 }
 
 .breadcrumb__menu {
-    @apply inline-flex items-center;
+    @apply inline-flex items-center gap-2 text-gray-400 ;
 }
 
 .breadcrumb__menu a {
-    @apply inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900;
+    @apply inline-flex items-center text-xs font-medium hover:text-indigo-500;
 }
