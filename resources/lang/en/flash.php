@@ -17,27 +17,27 @@ return [
         'create' => 'The book was created with success.',
         'update' => 'The book was updated with success.',
         'delete' => 'The book was deleted with success.',
-        'empty'  => "There is no book.",
+        'empty'  => 'There is no book.',
     ],
 
     'chapter' => [
         'create' => 'The chapter was created with success.',
         'update' => 'The chapter was updated with success.',
         'delete' => 'The chapter was deleted with success.',
-        'empty'  => "There is no chapter.",
+        'empty'  => 'There is no chapter.',
     ],
 
     'page' => [
         'create' => 'The page was created with success',
         'update' => 'The page was updated with success',
         'delete' => 'The page was deleted with success',
-        'empty'  => "There is no chapter.",
+        'empty'  => 'There is no chapter.',
     ],
 
     'users' => [
-        'create' => "The user was created with success",
-        'update' => "The user was updated with success",
-        'delete' => "The user was deleted with success",
+        'create' => 'The user was created with success',
+        'update' => 'The user was updated with success',
+        'delete' => 'The user was deleted with success',
     ],
 
     'roles' => [

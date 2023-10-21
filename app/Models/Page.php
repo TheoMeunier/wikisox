@@ -14,6 +14,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property-read Chapter $chapter
  * @property-read Book $book
  * @property-read User $user
+ *
  * @mixin IdeHelperPage
  */
 class Page extends Model
@@ -42,7 +43,7 @@ class Page extends Model
     public function likes(): MorphMany
     {
         return $this->morphMany(Like::class, 'likeable')
-            ->where('user_id',auth()->id());
+            ->where('user_id', auth()->id());
     }
 
     /**

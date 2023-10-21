@@ -20,11 +20,11 @@ class ProfileUpdateInformationLivewire extends Component
 
     public function mount(): void
     {
-        if (!empty(auth()->user()->name)) {
+        if (! empty(auth()->user()->name)) {
             $this->name  = auth()->user()->name;
         }
 
-        if (!empty(auth()->user()->email)) {
+        if (! empty(auth()->user()->email)) {
             $this->email = auth()->user()->email;
         }
     }

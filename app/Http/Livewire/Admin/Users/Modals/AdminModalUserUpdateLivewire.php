@@ -19,14 +19,14 @@ class AdminModalUserUpdateLivewire extends ModalComponent
     public Collection $roles;
 
     protected array $rules = [
-        'user.name' => 'required|min:3',
+        'user.name'  => 'required|min:3',
         'user.email' => 'required|email',
-        'role_id' => 'required',
+        'role_id'    => 'required',
     ];
 
     public function mount(): void
     {
-        $this->roles = Role::all();
+        $this->roles   = Role::all();
         $this->role_id = $this->user->roles->first()->id ?? 0;
     }
 
@@ -35,11 +35,13 @@ class AdminModalUserUpdateLivewire extends ModalComponent
         $this->validate();
 
         $this->user->update([
-            'name' => $this->user->name,
+            'name'  => $this->user->name,
             'email' => $this->user->email,
         ]);
 
-       if ($this->role_id) $this->assigmentRoles();
+        if ($this->role_id) {
+            $this->assigmentRoles();
+        }
 
         $this->emit('add-flash', 'success', __('flash.users.update'));
         $this->emit('refresh-users');

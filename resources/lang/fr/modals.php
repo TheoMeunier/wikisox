@@ -16,4 +16,12 @@ return [
     'pages' => [
         'delete' => 'Voulez-vous vraiment supprimer cette page ?',
     ],
+
+    'profile' => [
+        'delete' => [
+            'shur'         => "Vous n'êtes pas satisfait du contenu du site ?",
+            'confirmation' => 'Ou vous souhaitez supprimer toutes les informations associées à ce compte ? ',
+            'modal'        => 'Vous êtes sur le point de supprimer votre compte, rentrer mot de password pour confirmer cette action',
+        ],
+    ],
 ];

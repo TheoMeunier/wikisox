@@ -1,9 +1,10 @@
 <?php
 
 return [
-    'title'       => 'Modifier mon profil',
-    'information' => 'Informations',
-    'password'    => 'Mot de passe',
+    'title'             => 'Modifier mon profil',
+    'information'       => 'Informations',
+    'password'          => 'Mot de passe',
+    'delete-account'    => 'Supprimer mon compte',
 
     'delete' => [
         'title'              => 'Supprimer mon compte',

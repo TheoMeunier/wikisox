@@ -121,7 +121,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
 
     //api
-    Route::prefix('/webapi')->group(function() {
+    Route::prefix('/webapi')->group(function () {
         Route::controller(ApiProfileController::class)->prefix('/profile')->group(function () {
             Route::post('/avatar', 'uploadAvatar');
         });

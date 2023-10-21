@@ -16,6 +16,6 @@ return [
     'chapters'       => 'Chapters',
     'pages'          => 'Pages',
 
-    'dont_create' => "has not yet created any :param",
+    'dont_create' => 'has not yet created any :param',
     'created_at'  => 'user since',
 ];
