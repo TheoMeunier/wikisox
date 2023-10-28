@@ -11,20 +11,31 @@ class ApiProfileController extends Controller
 {
     public function uploadAvatar(Request $request): JsonResponse
     {
-        $file     = $request->file('avatar');
-        $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-        $path     = $file->storeAs('/avatar', $filename.'_'.$file->hashName(), 'public');
+        $files = $request->file('avatar');
 
-        $user = auth()->user();
+        if (is_array($files)) {
+            foreach ($files as $file) {
+                $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+                $path     = $file->storeAs('avatar', $filename.'_'.$file->hashName(), 'public');
 
-        if ($user) {
-            $user->update([
-                'avatar' => $path,
-            ]);
+                if ($path) {
+                    auth()->user()?->update([
+                        'avatar' => $path,
+                    ]);
+
+                    return response()->json([
+                        'path' => Storage::url($path),
+                    ]);
+                } else {
+                    return response()->json([
+                        'error' => 'Le fichier n\'a pas été correctement téléchargé',
+                    ], 400);
+                }
+            }
         }
 
         return response()->json([
-            'path' => Storage::url($path),
-        ]);
+            'error' => 'Le fichier n\'a pas été correctement téléchargé',
+        ], 400);
     }
 }

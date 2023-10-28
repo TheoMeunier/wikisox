@@ -7,14 +7,14 @@ return [
     'info'       => 'Information',
     'download'   => 'Télécharger',
 
-    'books'     => 'Mes Livres',
-    'chapters'  => 'Mes Chapitres',
-    'pages'     => 'Mes Pages',
-    'roles'     => 'Mes Roles',
-    'users'     => 'Mes Utilisateurs',
-    'logs'      => 'Les Logs',
-    'dashboard' => 'Dashboard',
-    'image'     => 'Mes Images',
+    'books'       => 'Mes Livres',
+    'chapters'    => 'Mes Chapitres',
+    'pages'       => 'Mes Pages',
+    'roles'       => 'Mes Roles',
+    'users'       => 'Mes Utilisateurs',
+    'logs'        => 'Les Logs',
+    'dashboard'   => 'Dashboard',
+    'image'       => 'Mes Images',
     'restore'     => 'Restorer ma donnée',
 
     'profile' => [

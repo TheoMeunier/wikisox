@@ -27,6 +27,6 @@ return [
 
     'logs' => [
         'restore' => 'Voulez-vous vraiment restorer ma donnée ?',
-        'with' => 'Vouslez-vous ajouter ?'
-    ]
+        'with'    => 'Vouslez-vous ajouter ?',
+    ],
 ];

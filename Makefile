@@ -46,10 +46,11 @@ cs:  ## code style check
 .PHONY: fix
 fix:  ## code style fix
 	./vendor/bin/pint
+	npx prettier --write 'resources/**/*.+(js|json|scss|sass|css)' '.prettierrc.json' 'composer.json' 'package.json' 'pint.json'
 
 .PHONY: phpstan
 phpstan:  ## phpstan
-	vendor/bin/phpstan analyse --memory-limit=2G
+	./vendor/bin/phpstan analyse --memory-limit=2G
 
 .PHONY: test
 test: cs phpstan  ## test this project

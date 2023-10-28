@@ -11,13 +11,14 @@
     position: relative;
     @apply bg-gray-200 border border-gray-200;
 }
-.profil-header__avatar img, .profil-header__svg{
+.profil-header__avatar img,
+.profil-header__svg {
     width: 100%;
     height: 100%;
     border-radius: 110px;
     transition: opacity 0.3s;
 }
-.profil-header__avatar input{
+.profil-header__avatar input {
     cursor: pointer;
     position: absolute;
     top: 0;

@@ -21,8 +21,8 @@
         @apply border-l-2 border-gray-300;
         padding-left: 1rem;
         margin-left: 1rem;
-        padding-bottom: .5rem;
-        padding-top: .5rem;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
         font-size: 1.2rem;
 
         p:last-child {
@@ -68,7 +68,9 @@
         margin-bottom: 30px;
     }
 
-    p, ul, ol {
+    p,
+    ul,
+    ol {
         line-height: 1.6;
     }
 
@@ -137,7 +139,7 @@
     li > code {
         display: inline-block;
         outline: solid 1px var(--border);
-        padding: 0 .2em;
+        padding: 0 0.2em;
         @apply bg-indigo-100 text-indigo-500;
     }
 }
