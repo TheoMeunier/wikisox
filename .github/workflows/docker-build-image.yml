@@ -1,0 +1,141 @@
+name: CI For Prod
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Build-Composer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Copy env prod
+        run: cp .env.prod.example .env
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Install Composer dependencies
+        run: composer install && composer dump-autoload -o
+
+      - name: 'Compress composer folder'
+        run: tar -czvf composer.tgz vendor/
+
+      - name: Upload composer assets
+        uses: actions/upload-artifact@v3
+        with:
+          name: composer
+          path: composer.tgz
+          retention-days: 3
+
+  Build-Nodejs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install Node.js dependencies
+        run: yarn install
+
+      - name: Build assets
+        run: yarn prod
+
+      - name: 'Compress node_modules folder'
+        run: tar -czvf node_modules.tgz node_modules/
+
+      - name: 'Compress public folder'
+        run: tar -czvf public.tgz public/
+
+      - name: Upload node_modules assets
+        uses: actions/upload-artifact@v2
+        with:
+          name: node_modules
+          path: node_modules.tgz
+          retention-days: 3
+
+      - name: Upload public folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: public
+          path: public.tgz
+          retention-days: 3
+
+  Test-lint:
+    runs-on: ubuntu-latest
+    needs: [Build-composer, Build-Nodejs]
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Download composer artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: composer
+
+      - name: Unpack artifacts
+        run: tar xvfz composer.tgz
+
+      - name: Run Laravel lint
+        run: ./vendor/bin/pint -v --test
+
+  Test-Phpstan:
+    runs-on: ubuntu-latest
+    needs: [Build-composer, Build-Nodejs]
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Download composer artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: composer
+
+      - name: Unpack artifacts
+        run: tar xvfz composer.tgz
+
+      - name: Phpstan
+        run: vendor/bin/phpstan analyse --memory-limit=2G
+
+  Test-Prettier:
+    runs-on: ubuntu-latest
+    needs: [Build-composer, Build-Nodejs]
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Download node_modules artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: node_modules
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Unpack artifacts
+        run: tar xvfz node_modules.tgz
+
+      - name: Pettier
+        run: npx prettier --check 'resources/**/*.+(js|json|scss|sass|css)' '.prettierrc.json' 'composer.json' 'package.json' 'pint.json'

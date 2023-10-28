@@ -49,7 +49,7 @@ fix:  ## code style fix
 
 .PHONY: phpstan
 phpstan:  ## phpstan
-	vendor/bin/phpstan analyse --memory-limit=2G
+	./vendor/bin/phpstan analyse --memory-limit=2G
 
 .PHONY: test
 test: cs phpstan  ## test this project
