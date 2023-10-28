@@ -13,6 +13,7 @@ use LivewireUI\Modal\ModalComponent;
 class AdminLogsModalsRestoreLivewire extends ModalComponent
 {
     public string $type;
+
     public ActivityLog $log;
 
     public function mount(): void
@@ -27,11 +28,11 @@ class AdminLogsModalsRestoreLivewire extends ModalComponent
         if ($this->log->subject_id) {
             if ($this->type === ModelsEnum::PAGE) {
                 $restoreDataService->restorePage($this->log->subject_id);
-            } else if ($this->type === ModelsEnum::CHAPTER) {
+            } elseif ($this->type === ModelsEnum::CHAPTER) {
                 $restoreDataService->restoreChapter($this->log->subject_id);
-            } else if ($this->type === ModelsEnum::BOOK) {
+            } elseif ($this->type === ModelsEnum::BOOK) {
                 $restoreDataService->restoreBook($this->log->subject_id);
-            } elseif($this->type === ModelsEnum::USER) {
+            } elseif ($this->type === ModelsEnum::USER) {
                 $restoreDataService->restoreUser($this->log->subject_id);
             }
         }
