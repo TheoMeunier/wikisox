@@ -55,6 +55,8 @@ class AdminModalUserCreateLivewire extends ModalComponent
 
         $user->assignRole($role);
 
+        $user->sendEmailVerificationNotification();
+
         $this->emit('add-flash', 'success', __('flash.users.create'));
         $this->emit('refresh-users');
         $this->closeModal();
