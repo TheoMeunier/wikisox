@@ -6,5 +6,5 @@ return [
     'deleted'   => 'Suppréssion',
     'verify'    => 'Vérifier',
     'notVerify' => 'Non Vérifier',
-    'restored'  => 'Restoré',
+    'restored'  => 'Restaurer',
 ];
