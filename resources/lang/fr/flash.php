@@ -58,4 +58,8 @@ return [
         'delete_error'       => 'Mot de passe incorrect',
     ],
 
+    'logs' => [
+        'restore' => 'La sauvegarde à bien été restaurée',
+    ]
+
 ];
