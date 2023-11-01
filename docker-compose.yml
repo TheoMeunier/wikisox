@@ -18,6 +18,23 @@ services:
     networks:
       - app_network
 
+  # PHP Service
+  queue:
+    build:
+      context: .
+      dockerfile: docker/queue/Dockerfile
+    container_name: ${APP_SLUG}_queue
+    command: php artisan queue:work -v --tries=3
+    restart: unless-stopped
+    environment:
+      SERVICE_NAME: ${APP_SLUG}_queue
+      SERVICE_TAGS: ${APP_ENV}
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - app_network
+
   # Nginx Service
   nginx:
     image: nginx:alpine
