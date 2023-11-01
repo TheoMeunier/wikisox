@@ -6,7 +6,6 @@ return [
     'log'        => 'Logs',
     'info'       => 'Information',
     'download'   => 'Télécharger',
-
     'books'       => 'Mes Livres',
     'chapters'    => 'Mes Chapitres',
     'pages'       => 'Mes Pages',
@@ -23,6 +22,7 @@ return [
         'chapters' => 'Mes Chapitres',
         'pages'    => 'Mes Pages',
         'delete'   => 'Supprimer mon compte',
+        'user-at' => 'Utilisateur depuis : ',
     ],
 
     'book' => [
@@ -30,16 +30,19 @@ return [
         'edit'   => 'Modifier mon livre',
         'delete' => 'Supprimer mon livre',
     ],
+
     'chapter' => [
         'create' => 'Créer un chapitre',
         'edit'   => 'Modifier mon chapitre',
         'delete' => 'Supprimer mon chapitre',
     ],
+
     'page' => [
         'create' => 'Créer une page',
         'edit'   => 'Modifier ma page',
         'delete' => 'Supprimer ma page',
     ],
+
     'role' => [
         'create'    => 'Créer un role',
         'edit'      => 'Modifier mon role',

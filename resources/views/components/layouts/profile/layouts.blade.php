@@ -11,14 +11,14 @@
                         @endif
                     </div>
                     <div class="profil-header__upload">
-                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                        <x-icons.icon-upload class="profil-header__svg"/>
                     </div>
                     <input type="file" name="avatar">
                 </form>
             </div>
             <div class="ml-4">
                 <h2 class="font-semibold">{{ auth()->user()->name }}</h2>
-                <p class="text-muted mt-2">utilisateur depuis : {{ auth()->user()->created_at->diffForHumans(null, true) }}</p>
+                <p class="text-muted mt-2">{{ __('title.profile.user-at') }}{{ auth()->user()->created_at->diffForHumans(null, true) }}</p>
             </div>
         </div>
         <div class="text-gray-800">
