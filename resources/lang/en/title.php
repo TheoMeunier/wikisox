@@ -21,6 +21,8 @@ return [
         'books'    => 'My Books',
         'chapters' => 'My Chapters',
         'pages'    => 'My Pages',
+        'delete'   => 'Delete my account',
+        'user-at' => 'User since: '
     ],
 
     'book' => [

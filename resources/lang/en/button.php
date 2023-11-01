@@ -36,5 +36,8 @@ return [
         'resetPassword'      => 'Reset my password',
         'forgotPassword'     => 'Password forgotten ?',
         'alreadyHaveAccount' => 'You already have an  account ?',
+        'delete-account'     => 'Delete account',
+        'restore'            => 'restore',
+        'export'             => 'Export',
     ],
 ];
