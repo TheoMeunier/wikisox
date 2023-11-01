@@ -56,6 +56,10 @@ return [
         'update_password'    => 'Votre mot de passe à bien été modifié',
         'update_information' => 'Votre profile à bien été modifié',
         'delete_error'       => 'Mot de passe incorrect',
+        'upload-avatar' => [
+            'success' => 'Votre avatar à bien été modifié',
+            'error'   => 'Une erreur est survenue lors de la modification de votre avatar',
+        ]
     ],
 
     'logs' => [
