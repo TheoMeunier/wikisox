@@ -22,7 +22,7 @@ return [
         'chapters' => 'My Chapters',
         'pages'    => 'My Pages',
         'delete'   => 'Delete my account',
-        'user-at' => 'User since: '
+        'user-at'  => 'User since: ',
     ],
 
     'book' => [

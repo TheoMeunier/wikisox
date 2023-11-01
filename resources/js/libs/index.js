@@ -13,7 +13,7 @@ let wrapper = document.querySelector('#wrapper__avatar_img')
 if (avatar_input && wrapper) {
     avatar_input.addEventListener('change', async e => {
         const formData = new FormData()
-        formData.append('avatar', e.target.files[0])
+        formData.append('avatar[]', e.target.files[0])
 
         let response = await axios.post('/webapi/profile/avatar', formData)
 

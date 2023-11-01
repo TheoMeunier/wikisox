@@ -19,7 +19,7 @@ return [
 
     'profile' => [
         'delete' => [
-            'shur'         => "You are not satisfied with the content of the site ?",
+            'shur'         => 'You are not satisfied with the content of the site ?',
             'confirmation' => 'Or you want to delete all the information associated with this account ?',
             'modal'        => 'You are about to delete your account, enter password to confirm this action',
         ],

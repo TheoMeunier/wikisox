@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'navigation' => 'Navigation',
-    'action'     => 'Action',
-    'log'        => 'Logs',
-    'info'       => 'Information',
-    'download'   => 'Télécharger',
+    'navigation'  => 'Navigation',
+    'action'      => 'Action',
+    'log'         => 'Logs',
+    'info'        => 'Information',
+    'download'    => 'Télécharger',
     'books'       => 'Mes Livres',
     'chapters'    => 'Mes Chapitres',
     'pages'       => 'Mes Pages',
@@ -22,7 +22,7 @@ return [
         'chapters' => 'Mes Chapitres',
         'pages'    => 'Mes Pages',
         'delete'   => 'Supprimer mon compte',
-        'user-at' => 'Utilisateur depuis : ',
+        'user-at'  => 'Utilisateur depuis : ',
     ],
 
     'book' => [
