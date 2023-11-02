@@ -28,14 +28,14 @@ class ApiProfileController extends Controller
                     ]);
                 } else {
                     return response()->json([
-                        'error' => 'Le fichier n\'a pas été correctement téléchargé',
+                        'error' => __('flash.profile.upload-avatar.error'),
                     ], 400);
                 }
             }
         }
 
         return response()->json([
-            'error' => 'Le fichier n\'a pas été correctement téléchargé',
+            'error' => __('flash.profile.upload-avatar.error'),
         ], 400);
     }
 }

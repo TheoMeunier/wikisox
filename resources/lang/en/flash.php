@@ -55,6 +55,14 @@ return [
     'profile' => [
         'update_password'    => 'Your password was updated with success',
         'update_information' => 'Your profile was updated with success',
+        'delete_error'       => 'Incorrect password',
+        'upload-avatar'      => [
+            'success' => 'Your avatar was updated with success',
+            'error'   => 'An error has occurred',
+        ],
     ],
 
+    'logs' => [
+        'restore' => 'The element was restored with success',
+    ],
 ];
