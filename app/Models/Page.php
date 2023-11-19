@@ -58,9 +58,9 @@ class Page extends Model
     public function getUrlAttribute(): string
     {
         return route('page.show', [
-            'slug' => $this->chapter->book->slug,
+            'slug'        => $this->chapter->book->slug,
             'slugChapter' => $this->chapter->slug,
-            'slugPage' => $this->slug,
+            'slugPage'    => $this->slug,
         ]);
     }
 

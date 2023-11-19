@@ -15,6 +15,7 @@ return [
     'dashboard'   => 'Dashboard',
     'image'       => 'Mes Images',
     'restore'     => 'Restorer ma donnée',
+    'results'     => 'Résultats',
 
     'profile' => [
         'index'    => 'Mon Profil',

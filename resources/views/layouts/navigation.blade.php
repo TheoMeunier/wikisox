@@ -21,7 +21,7 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6 gap-4 text-muted">
-                @livewire('global-search-livewire')
+                @livewire('search.global-search-livewire')
                 <div>
                     |
                 </div>

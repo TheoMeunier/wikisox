@@ -1,11 +1,12 @@
 <div>
     <div class="p-5">
         <div>
-            <x-input wire:model="search" type="search" class="w-full"
-                     :placeholder="__('input.placeholder.search')"
-                     wire:keydown.prevent.arrow-down="incrementIndex"
-                     wire:keydown.prevent.arrow-up="decrementIndex"
-                     wire:keydown.prevent.enter="selectIndex"
+            <x-forms.input-search wire:model="search" type="search" class="w-full"
+                                  :placeholder="__('input.placeholder.search')"
+                                  wire:keydown.prevent.arrow-down="incrementIndex"
+                                  wire:keydown.prevent.arrow-up="decrementIndex"
+                                  wire:keydown.prevent.enter="selectIndex"
+                                  autofocus
             />
         </div>
 
@@ -21,9 +22,15 @@
                     </div>
                 @endforeach
                 <div class="search-footer">
-                    <a href="">
-                        Voir les <span class="text-indigo-500">{{ $totalResults }}</span> resultats
-                    </a>
+                    <form action="{{ route('home.search', ['search' => $search]) }} }}" method="GET">
+                        <label>
+                            <input hidden name="search" value="{{ $search }}">
+                        </label>
+
+                        <button type="submit">{{ __('button.action.seeMore') }} <span class="text-indigo-500">{{ $totalResults }}</span>
+                           {{ __('title.results') }}
+                        </button>
+                    </form>
                 </div>
             </div>
         @endif
