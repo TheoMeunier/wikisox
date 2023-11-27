@@ -82,6 +82,6 @@
     </table>
 
     <div class="pagination">
-        {{ $logs->links('components.modules.pagination') }}
+        {{ $logs->links('livewire.components.pagination') }}
     </div>
 </div>
