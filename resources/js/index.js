@@ -1,6 +1,6 @@
-import './alphinejs'
-import './file-manager'
-import './markdown-editor'
+import './libs/alphinejs'
+import './libs/file-manager'
+import './libs/markdown-editor'
 import hljs from 'highlight.js'
 
 hljs.highlightAll()

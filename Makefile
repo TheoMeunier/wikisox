@@ -41,7 +41,7 @@ delete:	## delete container
 .PHONY: cs
 cs:  ## code style check
 	./vendor/bin/pint -v --test
-	npx prettier --check 'resources/**/*.+(js|json|scss|sass|css|vue)' '.prettierrc.json' 'composer.json' 'package.json' 'pint.json'
+	npx prettier --check 'resources/**/*.+(js|json|scss|sass|css)' '.prettierrc.json' 'composer.json' 'package.json' 'pint.json'
 
 .PHONY: fix
 fix:  ## code style fix

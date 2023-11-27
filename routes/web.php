@@ -79,7 +79,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
-        Route::get('/image', AdminFileController::class)->name('image');
 
         Route::controller(AdminLogController::class)->prefix('/logs')->name('logs.')->group(function () {
             Route::get('/', 'index')->name('index');
