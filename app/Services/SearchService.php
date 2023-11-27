@@ -17,9 +17,9 @@ class SearchService
     {
         $data = [];
 
-        $pageQuery = $this->buildQuery('page', $search);
+        $pageQuery    = $this->buildQuery('page', $search);
         $chapterQuery = $this->buildQuery('chapter', $search);
-        $bookQuery = $this->buildQuery('book', $search);
+        $bookQuery    = $this->buildQuery('book', $search);
 
         $totalResults = $pageQuery
             ->union($chapterQuery)
@@ -37,22 +37,22 @@ class SearchService
         /** @var Page|Chapter|Book $item */
         foreach ($q->get() as $item) {
             $data[] = [
-                'name' => $item->name,
-                'url' => $this->getUrl($item),
-                'type' => $item->type ?? '',
+                'name'        => $item->name,
+                'url'         => $this->getUrl($item),
+                'type'        => $item->type ?? '',
                 'description' => Str::limit($item->description ?? '', 110),
             ];
         }
 
         return [
-            'results' => $data,
+            'results'      => $data,
             'totalResults' => $totalResults,
         ];
     }
 
     public function searchWithPagination(string $search, int $page = 1): array
     {
-        $data = $this->search($search);
+        $data       = $this->search($search);
         $collection = new Collection($data['results']);
 
         $pagine = new LengthAwarePaginator(
@@ -66,7 +66,7 @@ class SearchService
         );
 
         return [
-            'results' => $pagine->withQueryString(),
+            'results'      => $pagine->withQueryString(),
             'totalResults' => $data['totalResults'],
         ];
     }
@@ -76,13 +76,13 @@ class SearchService
         switch ($item->type) {
             case 'page':
                 return route('book.chapter.page.show', [
-                    'slug' => $item->book_slug,
+                    'slug'        => $item->book_slug,
                     'slugChapter' => $item->chapter_slug,
-                    'slugPage' => Str::slug($item->name),
+                    'slugPage'    => Str::slug($item->name),
                 ]);
             case 'chapter':
                 return route('book.chapter.page.index', [
-                    'slug' => $item->book_slug,
+                    'slug'        => $item->book_slug,
                     'slugChapter' => $item->chapter_slug,
                 ]);
             case 'book':
