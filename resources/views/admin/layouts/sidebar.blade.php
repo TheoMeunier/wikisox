@@ -35,10 +35,6 @@
                 <x-icons.icon-files/>
                 {{  __('nav.pages') }}
             </x-modules.sidebar.sidebar-link>
-            <x-modules.sidebar.sidebar-link href="{{ route('admin.image') }}" :active="request()->routeIs('admin.image.*')">
-                <x-icons.icon-user-group/>
-                {{  __('nav.image') }}
-            </x-modules.sidebar.sidebar-link>
         </x-modules.sidebar.sidebar-menu>
     </div>
 </aside>
