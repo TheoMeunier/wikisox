@@ -2,6 +2,7 @@ import './libs/alphinejs'
 import './libs/file-manager'
 import './libs/markdown-editor'
 import hljs from 'highlight.js'
+import axios from 'axios'
 
 hljs.highlightAll()
 
