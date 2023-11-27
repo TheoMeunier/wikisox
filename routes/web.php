@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin\AdminBookController;
 use App\Http\Controllers\Admin\AdminChapterController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\AdminFileController;
 use App\Http\Controllers\Admin\AdminLogController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\AdminRoleController;
@@ -11,6 +10,7 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Api\ApiProfileController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +29,10 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
+    Route::controller(HomeController::class)->prefix('/')->name('home.')->group(function () {
+        Route::get('/search', 'search')->name('search');
+    });
+
     Route::controller(ChapterController::class)->prefix('/chapter')->name('chapter.')->group(function () {
         Route::post('/{slug}/edit', 'update')->name('update')->middleware('can:chapter edit');
         Route::delete('/{slug}/delete', 'delete')->name('delete')->middleware('can:chapter delete');
@@ -74,7 +78,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
-        Route::get('/image', AdminFileController::class)->name('image');
 
         Route::controller(AdminLogController::class)->prefix('/logs')->name('logs.')->group(function () {
             Route::get('/', 'index')->name('index');

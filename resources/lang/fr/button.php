@@ -39,5 +39,6 @@ return [
         'delete-account'     => 'Supprimer mon compte',
         'restore'            => 'Restaurer',
         'export'             => 'Exporter',
+        'seeMore'            => 'Voir plus',
     ],
 ];

@@ -13,7 +13,7 @@
         "@tailwindcss/forms": "^0.5.2",
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.2",
-        "axios": "^1.6.0",
+        "axios": "^0.21.4",
         "laravel-mix": "^6.0.39",
         "lodash": "^4.17.21",
         "postcss": "^8.4.31",
@@ -25,16 +25,11 @@
     },
     "dependencies": {
         "@alpinejs/focus": "^3.12.3",
-        "@fortawesome/fontawesome-free": "^6.2.1",
         "@tailwindcss/typography": "^0.5.8",
         "codemirror": "5.58.2",
         "filemanager-element": "^0.1.2",
         "highlight.js": "^11.7.0",
-        "laravel-vue-pagination": "^3.0.0",
-        "pinia": "^2.0.35",
         "showdown": "^2.1.0",
-        "showdown-highlight": "^3.1.0",
-        "vue": "^3.2.36",
-        "vue-loader": "^17.0.1"
+        "showdown-highlight": "^3.1.0"
     }
 }

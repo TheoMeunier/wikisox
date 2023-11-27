@@ -7,8 +7,9 @@
     <div class="articles mt-6">
         @forelse($chapters as $chapter)
             <article class="card @if($chapter->like !== false) card__like @endif">
-                <a href="{{ route('book.chapter.page.index', ['slug' => $chapter->book->slug, 'slugChapter' => $chapter->slug]) }}" class="card__img">
-                    <img src="{{ $chapter->image }}" alt="{{ $chapter->name }}" width="280" height="100" />
+                <a href="{{ route('book.chapter.page.index', ['slug' => $chapter->book->slug, 'slugChapter' => $chapter->slug]) }}"
+                   class="card__img">
+                    <img src="{{ $chapter->image }}" alt="{{ $chapter->name }}" width="280" height="100"/>
                 </a>
                 <div class="card__body">
                     <h5 class="card__title">{{ $chapter->name }}</h5>
@@ -18,7 +19,8 @@
                                 <x-icons.icon-clock class="w-5 h-5"/>
                                 {{ $chapter->created_at->diffForHumans() }}
                             </span>
-                        <a wire:click.prevent="likeChapter({{ $chapter }})" class="cursor-pointer @if($chapter->like !== false) text-yellow-400 @endif text-gray-500">
+                        <a wire:click.prevent="likeChapter({{ $chapter }})"
+                           class="cursor-pointer @if($chapter->like !== false) text-yellow-400 @endif text-gray-500">
                             @if($book->like !== true)
                                 <x-icons.icon-start class="w-6 h-6"/>
                             @else
@@ -29,11 +31,9 @@
                 </div>
             </article>
         @empty
-            <div class="text-center">
-                <p class="my-12">{{ __('flash.chapter.empty') }}</p>
-            </div>
-        @endforelse
     </div>
+    <p class="my-12 text-center">{{ __('table.empty.chapters') }}</p>
+    @endforelse
 
     <div class="pagination">
         {{ $chapters->links('components.modules.pagination') }}

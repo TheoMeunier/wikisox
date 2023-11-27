@@ -55,6 +55,15 @@ class Page extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getUrlAttribute(): string
+    {
+        return route('page.show', [
+            'slug'        => $this->chapter->book->slug,
+            'slugChapter' => $this->chapter->slug,
+            'slugPage'    => $this->slug,
+        ]);
+    }
+
     public function getActivityLogOptions(): LogOptions
     {
         $logOption = new LogOptions();

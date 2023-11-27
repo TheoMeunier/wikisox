@@ -1,0 +1,15 @@
+.search {
+    @apply mt-4;
+}
+
+.search-item {
+    @apply flex gap-3 p-2 hover:cursor-pointer hover:bg-indigo-100 hover:text-indigo-500 rounded;
+}
+
+.search-item-active {
+    @apply bg-indigo-100 text-indigo-500;
+}
+
+.search-footer {
+    @apply text-center py-2;
+}

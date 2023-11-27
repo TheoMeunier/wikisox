@@ -19,4 +19,11 @@ return [
     'subject_name' => 'Subject',
     'description'  => 'Description',
     'roles'        => 'Roles',
+
+    'empty' => [
+        'chapters' => 'No chapters',
+        'books'    => 'No books',
+        'users'    => 'No users',
+        'pages'    => 'No pages',
+    ],
 ];

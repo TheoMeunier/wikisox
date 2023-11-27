@@ -19,7 +19,7 @@
             </a>
         @empty
             <div class="text-center">
-                <p class="my-12">{{ __('flash.page.empty') }}</p>
+                <p class="my-12">{{ __('table.empty.pages') }}</p>
             </div>
         @endforelse
     </div>

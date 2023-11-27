@@ -6,7 +6,6 @@ module.exports = {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        "./resources/**/*.vue",
         './vendor/wire-elements/modal/src/ModalComponent.php',
     ],
 
@@ -14,9 +13,6 @@ module.exports = {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
             maxWidth: {
                 '8xl': '90rem',
                 'xs': '320px',

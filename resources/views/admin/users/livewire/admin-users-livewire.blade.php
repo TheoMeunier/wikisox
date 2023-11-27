@@ -77,7 +77,7 @@
         </table>
 
         <div class="pagination">
-            {{ $users->links('components.modules.pagination') }}
+            {{ $users->links('livewire.components.pagination') }}
         </div>
     </div>
 </div>

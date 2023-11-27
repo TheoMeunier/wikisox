@@ -36,11 +36,10 @@
                 </div>
             </article>
         @empty
-            <div class="text-center">
-                <p class="my-12">{{ __('flash.book.empty') }}</p>
-            </div>
-        @endforelse
     </div>
+    <p class="my-12 text-center">{{ __('table.empty.books') }}</p>
+    @endforelse
+
 
     <div class="pagination">
         {{ $books->links('components.modules.pagination') }}
