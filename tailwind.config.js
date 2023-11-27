@@ -14,9 +14,6 @@ module.exports = {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
             maxWidth: {
                 '8xl': '90rem',
                 'xs': '320px',
