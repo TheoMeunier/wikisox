@@ -19,4 +19,11 @@ return [
     'subject_name' => 'Sujet',
     'description'  => 'description',
     'roles'        => 'Rôles',
+
+    'empty' => [
+        'chapters' => 'Aucun chapitre',
+        'books'    => 'Aucun livre',
+        'users'    => 'Aucun utilisateur',
+        'pages'    => 'Aucune page',
+    ],
 ];
