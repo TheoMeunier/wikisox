@@ -30,7 +30,6 @@ class ResetPasswordMail extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('no-replay@wiki.fr', 'Wiki'),
             subject: 'Reset Password Mail',
         );
     }
