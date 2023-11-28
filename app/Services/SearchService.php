@@ -83,7 +83,7 @@ class SearchService
             case 'chapter':
                 return route('book.chapter.page.index', [
                     'slug'        => $item->book_slug,
-                    'slugChapter' => $item->chapter_slug,
+                    'slugChapter' => Str::slug($item->name),
                 ]);
             case 'book':
                 return route('book.chapter.index', [
