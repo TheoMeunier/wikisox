@@ -36,7 +36,7 @@ class ChapterLivewire extends Component
             ->where(function ($query) {
                 $query->orWhere('name', 'LIKE', '%'.$this->search.'%');
             })
-            ->paginate(12);
+            ->paginate(9);
 
         return view('chapter.livewire.chapter-livewire', compact('chapters'));
     }
