@@ -1,10 +1,10 @@
 <x-base-layout>
-    <div id="app">
+    <div class="page-wrapper">
         @include('layouts.navigation')
         @include('components._flash')
 
         <!-- page Content -->
-        <main class="min-h-[83.5vh]">
+        <main class="container">
             {{ $slot }}
         </main>
 

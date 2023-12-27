@@ -1,5 +1,5 @@
 <x-app-layout>
-    <section class="container">
+    <section>
         <div class="grid grid-cols-5 gap-4">
             <div class="flex flex-col">
                 @canany(['page edit', 'page delete'])

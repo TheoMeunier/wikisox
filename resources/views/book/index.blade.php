@@ -1,5 +1,5 @@
 <x-app-layout>
-    <section class="container my-5">
+    <section>
         <div class="justify__between">
             <h1>{{ __('title.books') }}</h1>
             @can('book create')
