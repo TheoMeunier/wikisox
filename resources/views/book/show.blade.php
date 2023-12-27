@@ -1,5 +1,5 @@
 <x-app-layout>
-    <section class="container">
+    <section>
         <div>
             <h1>{{ $book->name }}</h1>
 
