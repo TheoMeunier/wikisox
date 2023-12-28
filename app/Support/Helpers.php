@@ -28,7 +28,7 @@ if (! function_exists('recursive_array_replace')) {
         foreach ($array as $key => $value) {
             if (
                 $inKey &&
-                'integer' !== gettype($key)
+                gettype($key) !== 'integer'
             ) {
                 /** @var string $key */
                 $key = $key;

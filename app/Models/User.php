@@ -15,13 +15,14 @@ use Spatie\Permission\Traits\HasRoles;
  * @property-read Page $page
  * @property-read Chapter $chapter
  * @property-read Book $book
+ *
  * @mixin IdeHelperUser
  */
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-    use LogsActivity;
     use HasRoles;
+    use LogsActivity;
     use SoftDeletes;
 
     /**

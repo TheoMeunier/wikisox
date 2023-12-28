@@ -15,13 +15,14 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property-read Chapter $chapter
  * @property-read Book $book
  * @property-read User $user
+ *
  * @mixin IdeHelperPage
  */
 class Page extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     use LogsActivity;
+    use SoftDeletes;
 
     protected $fillable = [
         'name', 'slug', 'content',

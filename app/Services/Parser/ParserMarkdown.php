@@ -8,7 +8,7 @@ class ParserMarkdown
 {
     public function markdown(?string $content): string
     {
-        if (null === $content) {
+        if ($content === null) {
             return '';
         }
 
