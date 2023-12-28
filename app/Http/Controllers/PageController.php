@@ -134,7 +134,7 @@ class PageController extends Controller
         }
 
         return response()->streamDownload(function () use ($page) {
-            echo Str::of($page->content)->markdown();
+            echo Str::of($page->parse_content)->markdown();
         }, $slug.'.html');
     }
 

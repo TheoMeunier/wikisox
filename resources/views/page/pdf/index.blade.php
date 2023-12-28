@@ -136,7 +136,7 @@
         }
 
         .formatted blockquote {
-            border-left: 2px solid #ccc;
+            border-left: 3px solid #ccc;
             padding-left: 1rem;
             margin-left: 1rem;
             padding-bottom: 0.5rem;
@@ -178,7 +178,7 @@
         }
 
         .formatted pre code {
-            padding: 1em;
+            padding: 1em 2em;
         }
 
         .formatted p,
@@ -257,10 +257,58 @@
             background-color: #f0f4f8;
             color: #3f83f8;
         }
+
+        .message {
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+
+            padding-left: 2rem;
+            padding-bottom: 0.5rem;
+            padding-top: 0.5rem;
+
+            font-size: 1.2rem;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .message svg {
+            margin-right: 2rem;
+            width: 2rem;
+            height: 2rem
+        }
+
+        .message p:last-child {
+            margin-bottom: 0;
+        }
+
+        .message-warning {
+            border-left: 3px solid #fde047;
+        }
+
+        .message-warning svg {
+            color: #fde047;
+        }
+
+        .message-danger {
+            border-left: 3px solid #ef4444;
+        }
+
+        .message-danger svg {
+            color: #ef4444;
+        }
+
+        .message-info {
+            border-left: 3px solid #3b82f6;
+        }
+
+        .message-info svg {
+            color: #3b82f6;
+        }
     </style>
 </head>
 <body class="formatted">
-@markdown($page->content)
+{!! $page->parse_content !!}
 </body>
 </html>
 

@@ -65,9 +65,9 @@
                     </div>
                 </div>
 
-                <x-markdown class="formatted" style="max-width: 100%">
-                    {!! $page->content !!}
-                </x-markdown>
+                <div class="formatted" style="max-width: 100%">
+                    {!! $page->parse_content !!}
+                </div>
             </div>
         </div>
     </section>
