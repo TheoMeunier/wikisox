@@ -20,9 +20,14 @@
 
             <div>
                 <div class="flex justify-between align-items flex-wrap">
-                    @foreach($permissions as $permission)
+                    @foreach($permissions as $key => $permission)
                         <div class="w-1/3">
-                            <x-forms.toggle :label="$permission->name" name="permissions[]" :value="$permission->id"/>
+                            <x-forms.toggle
+                                :label="$permission"
+                                name="permissions[]"
+                                :value="$key"
+                                :checked="$role->hasPermissionTo($key)"
+                            />
                         </div>
                     @endforeach
                 </div>

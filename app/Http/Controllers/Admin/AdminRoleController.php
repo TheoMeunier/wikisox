@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminRoleRequest;
+use App\Models\Role;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
 class AdminRoleController extends Controller
 {
@@ -28,7 +28,7 @@ class AdminRoleController extends Controller
      */
     public function create()
     {
-        $permissions = Permission::all();
+        $permissions = Permission::all()->pluck('name', 'id');
 
         return view('admin.roles.create', compact('permissions'));
     }
@@ -39,7 +39,7 @@ class AdminRoleController extends Controller
     public function edit(int $id)
     {
         $role        = Role::findOrFail($id);
-        $permissions = Permission::all();
+        $permissions = Permission::all()->pluck('name', 'id');
 
         return view('admin.roles.edit', compact('role', 'permissions'));
     }
@@ -55,7 +55,7 @@ class AdminRoleController extends Controller
         }
 
         return redirect()->route('admin.roles.index')
-            ->with('success', __('flash.role.create'));
+            ->with('success', __('flash.roles.create'));
     }
 
     public function update(AdminRoleRequest $request, int $id): RedirectResponse
@@ -69,6 +69,6 @@ class AdminRoleController extends Controller
         $role->syncPermissions($request->get('permissions'));
 
         return redirect()->route('admin.roles.index')
-            ->with('success', __('flash.role.update'));
+            ->with('success', __('flash.roles.update'));
     }
 }
