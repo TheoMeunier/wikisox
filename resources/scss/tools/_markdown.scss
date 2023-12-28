@@ -18,8 +18,8 @@
     }
 
     blockquote {
-        @apply border-l-2 border-gray-300;
-        padding-left: 1rem;
+        @apply border-l-4 border-gray-300 rounded;
+        padding-left: 2rem;
         margin-left: 1rem;
         padding-bottom: 0.5rem;
         padding-top: 0.5rem;
@@ -75,7 +75,7 @@
     }
 
     p:first-child {
-        margin-top: 0px !important;
+        margin-top: 0 !important;
     }
 
     ul {
@@ -139,7 +139,40 @@
     li > code {
         display: inline-block;
         outline: solid 1px var(--border);
-        padding: 0 0.2em;
+        padding: 0 0.5em;
         @apply bg-indigo-100 text-indigo-500;
+    }
+
+    .message {
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+
+        padding-left: 2rem;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+
+        font-size: 1.2rem;
+
+        @apply flex items-center;
+
+        svg {
+            @apply mr-8 w-8 h-8;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .message-warning {
+        @apply border-l-4 border-yellow-300 rounded;
+    }
+
+    .message-danger {
+        @apply border-l-4 border-red-500 rounded;
+    }
+
+    .message-info {
+        @apply border-l-4 border-blue-500 rounded;
     }
 }

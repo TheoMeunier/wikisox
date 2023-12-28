@@ -19,6 +19,9 @@
             <div class="icon" id="image">
                 <x-icons.icon-image class="h-5 w-5"/>
             </div>
+            <div class="icon" id="alert">
+                <x-icons.icon-alert-message class="h-5 w-5"/>
+            </div>
         </div>
         <div id="preview" class="icon">
             <x-icons.icon-eyes class="h-5 w-5"/>

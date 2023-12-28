@@ -4,7 +4,6 @@ import 'codemirror/mode/markdown/markdown.js'
 import 'codemirror/theme/neo.css'
 import showdown from 'showdown'
 import { FileManager } from 'filemanager-element'
-import hljs from 'highlight.js'
 import showdownHighlight from 'showdown-highlight'
 
 // -------------------------------------------
@@ -21,6 +20,7 @@ const italicButton = document.querySelector('#italic')
 const codeButton = document.querySelector('#code')
 const linkButton = document.querySelector('#link')
 const previewButton = document.querySelector('#preview')
+const alertbutton = document.querySelector('#alert')
 
 // -------------------------------------------
 // FILE MANAGER
@@ -120,6 +120,14 @@ if (textarea) {
 
         fileManager.addEventListener('close', () => {
             fileManager.setAttribute('hidden', '')
+        })
+    }
+
+    // add alert
+    if (alertbutton) {
+        alertbutton.addEventListener('click', () => {
+            editor.replaceSelection(':::warning\n\n:::')
+            editor.focus()
         })
     }
 }
