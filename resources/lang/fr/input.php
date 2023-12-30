@@ -14,6 +14,8 @@ return [
         'pseudo'            => 'Pseudo',
         'remember_me'       => 'Se souvenir de moi',
         'roles'             => 'Rôles',
+        'link'              => 'Lien',
+        'time'              => 'Combien de temps ?',
     ],
 
     'placeholder' => [

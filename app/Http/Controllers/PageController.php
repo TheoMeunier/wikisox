@@ -44,6 +44,21 @@ class PageController extends Controller
         return view('page.show', compact('book', 'chapter', 'page'));
     }
 
+    public function showSharePage(string $token): Application|Factory|View
+    {
+        $page = Page::where('share_page', '=', $token)->first();
+
+        if ($page && $page->share_expired_at < now()) {
+            $page->share_page       = null;
+            $page->share_expired_at = null;
+            $page->save();
+
+            abort(404, 'Page not found');
+        }
+
+        return view('page.share.index', compact('page'));
+    }
+
     /**
      * @return Application|Factory|View
      */
