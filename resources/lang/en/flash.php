@@ -32,6 +32,7 @@ return [
         'update' => 'The page was updated with success',
         'delete' => 'The page was deleted with success',
         'empty'  => 'There is no chapter.',
+        'share'  => 'The share link was copied with success',
     ],
 
     'users' => [

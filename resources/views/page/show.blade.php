@@ -2,15 +2,17 @@
     <section>
         <div class="grid grid-cols-5 gap-4">
             <div class="flex flex-col">
-                @canany(['page edit', 'page delete'])
-                    <div class="flex flex-col gap-5 mt-4 mb-14">
-                        <h4>{{ __('title.action') }}</h4>
+                <div class="flex flex-col gap-5 mt-4 mb-14">
+                    <h4>{{ __('title.action') }}</h4>
+                    @livewire('pages.page-share-livewire', ['page' => $page])
+                    @canany(['page edit', 'page delete'])
                         @can('page edit')
-                            <x-links.link-secondary  href="{{ route('book.chapter.page.edit', ['slug' => $book->slug, 'slugChapter' => $chapter->slug, 'slugPage' => $page->slug]) }}"
-                               class="text-blue-500 my-6">
+                            <x-links.link-secondary
+                                href="{{ route('book.chapter.page.edit', ['slug' => $book->slug, 'slugChapter' => $chapter->slug, 'slugPage' => $page->slug]) }}"
+                                class="text-blue-500 my-6">
                                 <x-icons.icon-edit class="w-5 h-5"/>
                                 {{ __('button.page.edit') }}
-                            </x-links.link-secondary >
+                            </x-links.link-secondary>
                         @endcan
                         @can('page delete')
                             <form method="POST" action="{{ route('pages.delete', ['slug' => $page->slug]) }}"
@@ -24,20 +26,23 @@
                                 </x-buttons.btn-link-danger>
                             </form>
                         @endcan
-                    </div>
+                </div>
                 @endcanany
 
                 <div class="flex flex-col gap-5 mt-4 mb-14">
                     <h4>{{ __('title.download') }}</h4>
-                    <x-links.link-mounted href="{{ route('pages.download.html', ['slug' => $page->slug]) }}" class="text-gray-500 mt-6">
+                    <x-links.link-mounted href="{{ route('pages.download.html', ['slug' => $page->slug]) }}"
+                                          class="text-gray-500 mt-6">
                         <x-icons.icon-file-html/>
                         {{ __('button.page.download.html') }}
-                    </x-links.link-mounted >
-                    <x-links.link-mounted href="{{ route('pages.download.md', ['slug' => $page->slug ]) }}" class="text-gray-500 mt-6">
+                    </x-links.link-mounted>
+                    <x-links.link-mounted href="{{ route('pages.download.md', ['slug' => $page->slug ]) }}"
+                                          class="text-gray-500 mt-6">
                         <x-icons.icon-file-edit/>
                         {{ __('button.page.download.md') }}
                     </x-links.link-mounted>
-                    <x-links.link-mounted  href="{{ route('pages.download.pdf', ['slug' => $page->slug ]) }}" class="text-gray-500 mt-6">
+                    <x-links.link-mounted href="{{ route('pages.download.pdf', ['slug' => $page->slug ]) }}"
+                                          class="text-gray-500 mt-6">
                         <x-icons.icon-file-image/>
                         {{ __('button.page.download.pdf') }}
                     </x-links.link-mounted>

@@ -42,6 +42,7 @@ return [
         'create' => 'Créer une page',
         'edit'   => 'Modifier ma page',
         'delete' => 'Supprimer ma page',
+        'share'  => 'Partager la page',
     ],
 
     'role' => [
@@ -56,5 +57,10 @@ return [
         'create' => 'Créer un utilisateur',
         'edit'   => 'Modifier mon utilisateur',
         'delete' => 'Supprimer mon utilisateur',
+    ],
+
+    'nav' => [
+        'admin' => 'Administration',
+        'login' => 'Connexion',
     ],
 ];

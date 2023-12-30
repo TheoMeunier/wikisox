@@ -41,6 +41,7 @@ return [
         'create' => 'Create a page',
         'edit'   => 'Edit this page',
         'delete' => 'Delete this page',
+        'share'  => 'Share the page',
     ],
     'role' => [
         'create'    => 'Create a role',
@@ -54,5 +55,10 @@ return [
         'create' => 'Create a user',
         'edit'   => 'Edit this user',
         'delete' => 'Delete this user',
+    ],
+
+    'nav' => [
+        'admin' => 'Administration',
+        'login' => 'Login',
     ],
 ];

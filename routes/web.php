@@ -130,3 +130,5 @@ Route::middleware(['auth'])->group(function () {
         });
     });
 });
+
+Route::get('/pages/{token}', [PageController::class, 'showSharePage'])->name('pages.share');

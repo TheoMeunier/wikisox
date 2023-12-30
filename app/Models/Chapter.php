@@ -19,8 +19,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Chapter extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     use LogsActivity;
+    use SoftDeletes;
 
     /**
      * @var string[]

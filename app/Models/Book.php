@@ -18,8 +18,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Book extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     use LogsActivity;
+    use SoftDeletes;
 
     /**
      * @var string[]
