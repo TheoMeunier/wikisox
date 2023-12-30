@@ -32,6 +32,7 @@ return [
         'update' => 'La page à bien été modifiée',
         'delete' => 'La page à bien été supprimée',
         'empty'  => "Il n'y a pas de page.",
+        'share'  => 'Le lien de partage à bien été copié',
     ],
 
     'users' => [

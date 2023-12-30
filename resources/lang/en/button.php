@@ -15,6 +15,7 @@ return [
         'create'   => 'Create a page',
         'edit'     => 'Edit ma page',
         'delete'   => 'Delete ma page',
+        'share'    => 'Share the page',
         'download' => [
             'html' => 'Download to HTML',
             'md'   => 'Download to markdown',
@@ -40,5 +41,6 @@ return [
         'restore'            => 'restore',
         'export'             => 'Export',
         'seeMore'            => 'See More',
+        'copy'               => 'Copy',
     ],
 ];
