@@ -15,7 +15,6 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property-read Chapter $chapter
  * @property-read Book $book
  * @property-read User $user
- *
  * @mixin IdeHelperPage
  */
 class Page extends Model
