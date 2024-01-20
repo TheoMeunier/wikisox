@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\ApiProfileController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,8 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(HomeController::class)->prefix('/')->name('home.')->group(function () {
         Route::get('/search', 'search')->name('search');
     });
+
+    Route::get('/image/{path}', [ImageController::class, 'show'])->name('image.show');
 
     Route::controller(ChapterController::class)->prefix('/chapter')->name('chapter.')->group(function () {
         Route::post('/{slug}/edit', 'update')->name('update')->middleware('can:chapter edit');
