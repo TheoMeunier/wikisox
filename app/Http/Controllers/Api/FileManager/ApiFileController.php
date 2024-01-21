@@ -53,14 +53,14 @@ class ApiFileController extends AbstractFileManagerController
     public function toArray(string $file): array
     {
         $info = pathinfo($file);
-        $disk = $this->filesysteme();
+        $link = $this->filesysteme()->url($file);
 
         return [
             'id'        => $file,
             'name'      => $info['basename'],
-            'url'       => $disk->url($file),
+            'url'       => $link,
             'folder'    => pathinfo_dirname($info),
-            'thumbnail' => $disk->url($file),
+            'thumbnail' => $link,
         ];
     }
 }

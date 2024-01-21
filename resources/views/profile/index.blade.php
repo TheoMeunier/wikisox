@@ -7,7 +7,7 @@
                 @foreach($books as $book)
                     <article class="card">
                         <div class="card__img">
-                            <img src="{{ $book->image }}" alt="{{ $book->name }}" width="280" height="100"/>
+                            <img src="{{ $book->getImageUrl(332, 225) }}" alt="{{ $book->name }}"/>
                         </div>
                         <div class="card__body">
                             <h5 class="card__title">{{ $book->name }}</h5>
@@ -40,7 +40,7 @@
                                 <p class="card__text">{{ $chapter->description }}</p>
                             </div>
                             <div class="flex justify-center">
-                                <img src="{{ $chapter->image }}" alt="{{ $chapter->image }}" width="100" height="100">
+                                <img src="{{ $chapter->getImageUrl(100, 100) }}" alt="{{ $chapter->image }}" width="100" height="100">
                             </div>
                         </div>
                     </article>

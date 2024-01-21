@@ -2,6 +2,7 @@
 
 namespace App\Services\Parser;
 
+use App\Services\Glide\GlideImageService;
 use Parsedown;
 
 class ParserMarkdown
@@ -30,6 +31,18 @@ class ParserMarkdown
             $content
         );
 
+        //Parser image:
+        $content = (string) preg_replace_callback(
+            '/<img[^>]+src=["\']([^"\']+)["\'][^>]*>/',
+            function ($matches) {
+                $image = '/media/'.$matches[1];
+                $link  = $this->glideUrl($image);
+
+                return '<img src="'.$link.'" alt="'.$image.'">';
+            },
+            $content
+        );
+
         return $content;
     }
 
@@ -52,5 +65,10 @@ class ParserMarkdown
         ];
 
         return $icons[$type];
+    }
+
+    private function glideUrl(string $image): string
+    {
+        return GlideImageService::getLinkImage($image);
     }
 }
