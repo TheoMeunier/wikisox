@@ -111,7 +111,14 @@ if (textarea) {
     // add image
     if (fileManager) {
         fileManager.addEventListener('selectfile', e => {
-            const syntax = '![' + e.detail.url + '](' + e.detail.url + ')'
+            let syntax = null
+
+            if (e.detail.folder !== null) {
+                syntax = '![' + e.detail.name + '](' + e.detail.folder + '/' + e.detail.name + ')'
+            } else {
+                syntax = '![' + e.detail.name + '](' + e.detail.name + ')'
+            }
+
             editor.replaceSelection(syntax)
             editor.focus()
 

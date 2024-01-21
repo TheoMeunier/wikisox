@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/search', 'search')->name('search');
     });
 
-    Route::get('/image/{path}', [ImageController::class, 'show'])->name('image.show');
+    Route::get('/images/{path}', [ImageController::class, 'show'])->where('path', '.*')->name('images.show');
 
     Route::controller(ChapterController::class)->prefix('/chapter')->name('chapter.')->group(function () {
         Route::post('/{slug}/edit', 'update')->name('update')->middleware('can:chapter edit');

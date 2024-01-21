@@ -17,7 +17,7 @@
                 </div>
                 <div class="w-1/4 mt-4">
                     <x-label for="image" :value="__('input.label.image')"/>
-                    <x-forms.image :name="'image'" value="{{ $book->image }}"/>
+                    <x-forms.image :name="'image'" value="{{ $book->getImageUrl(326, 192) }}"/>
                     @error('image')
                     <div class="text-red-500">{{ $message }}</div>
                     @enderror
