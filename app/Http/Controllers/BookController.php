@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
 use App\Models\Book;
+use App\Services\FileSystem\FileSystemService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -35,7 +36,7 @@ class BookController extends Controller
         Book::create([
             'name'        => $request->get('name'),
             'slug'        => Str::slug($request->get('name')),
-            'image'       => $request->get('image'),
+            'image'       => FileSystemService::PARENT_PATH.$request->get('image'),
             'description' => $request->get('description'),
             'user_id'     => auth()->id(),
         ]);
@@ -62,7 +63,7 @@ class BookController extends Controller
         $book->update([
             'name'        => $request->get('name'),
             'slug'        => Str::slug($request->get('name')),
-            'image'       => $request->get('image'),
+            'image'       => FileSystemService::PARENT_PATH.$request->get('image'),
             'description' => $request->get('description'),
         ]);
 
