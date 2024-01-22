@@ -144,19 +144,18 @@
     }
 
     .message {
-        margin-left: 1rem;
         margin-bottom: 1rem;
 
         padding-left: 2rem;
-        padding-bottom: 0.5rem;
-        padding-top: 0.5rem;
+        padding-bottom: 0.7rem;
+        padding-top: 0.7rem;
 
-        font-size: 1.2rem;
+        font-size: 1rem;
 
         @apply flex items-center;
 
         svg {
-            @apply mr-8 w-8 h-8;
+            @apply mr-8 w-6 h-6;
         }
 
         p:last-child {
@@ -165,14 +164,26 @@
     }
 
     .message-warning {
-        @apply border-l-4 border-yellow-300 rounded;
+        @apply border-l-4 border-yellow-400 rounded bg-yellow-100;
+
+        svg {
+            @apply text-yellow-500;
+        }
     }
 
     .message-danger {
-        @apply border-l-4 border-red-500 rounded;
+        @apply border-l-4 border-red-500 rounded bg-red-100;
+
+        svg {
+            @apply text-red-500;
+        }
     }
 
     .message-info {
-        @apply border-l-4 border-blue-500 rounded;
+        @apply border-l-4 border-blue-500 rounded bg-blue-100;
+
+        svg {
+            @apply text-blue-500;
+        }
     }
 }
