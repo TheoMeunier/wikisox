@@ -259,14 +259,13 @@
         }
 
         .message {
-            margin-left: 1rem;
             margin-bottom: 1rem;
 
             padding-left: 2rem;
-            padding-bottom: 0.5rem;
-            padding-top: 0.5rem;
+            padding-bottom: 0.7rem;
+            padding-top: 0.7rem;
 
-            font-size: 1.2rem;
+            font-size: 1rem;
 
             display: flex;
             align-items: center;
@@ -274,8 +273,8 @@
 
         .message svg {
             margin-right: 2rem;
-            width: 2rem;
-            height: 2rem
+            width: 1.5rem;
+            height: 1.5rem
         }
 
         .message p:last-child {
@@ -284,6 +283,7 @@
 
         .message-warning {
             border-left: 3px solid #fde047;
+            background-color: #fef9c3;
         }
 
         .message-warning svg {
@@ -292,6 +292,7 @@
 
         .message-danger {
             border-left: 3px solid #ef4444;
+            background-color: #fee2e2;
         }
 
         .message-danger svg {
@@ -300,6 +301,7 @@
 
         .message-info {
             border-left: 3px solid #3b82f6;
+            background-color: #dbeafe;
         }
 
         .message-info svg {
