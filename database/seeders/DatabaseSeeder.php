@@ -20,44 +20,46 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //dev
-        User::factory()
-            ->count(10)
-            ->has(
-                Book::factory()
-                    ->count(10)
-                    ->has(
-                        Chapter::factory()
-                            ->count(5)
-                            ->state(function (array $attributes, Book $book) {
-                                return ['user_id' => $book->user->id];
-                            })
-                            ->has(
-                                Page::factory()
-                                    ->count(10)
-                                    ->state(function (array $attributes, Chapter $chapter) {
-                                        return ['user_id' => $chapter->user->id];
-                                    })
-                            )
-                    )
-            )
-            ->create();
+        if (config('app.env') === 'dev') {
+            User::factory()
+                ->count(10)
+                ->has(
+                    Book::factory()
+                        ->count(10)
+                        ->has(
+                            Chapter::factory()
+                                ->count(5)
+                                ->state(function (array $attributes, Book $book) {
+                                    return ['user_id' => $book->user->id];
+                                })
+                                ->has(
+                                    Page::factory()
+                                        ->count(10)
+                                        ->state(function (array $attributes, Chapter $chapter) {
+                                            return ['user_id' => $chapter->user->id];
+                                        })
+                                )
+                        )
+                )
+                ->create();
+        }
 
         //prod
         $this->call([
             PermissionsSeed::class,
         ]);
 
-        $role        = Role::create(['name' => 'admin']);
+        $role = Role::create(['name' => 'admin']);
         $permissions = Permission::all();
 
         $role->syncPermissions($permissions);
 
         $user = User::create([
-            'name'              => 'Administrator',
-            'email'             => 'admin@isoxbook.fr',
+            'name' => 'Administrator',
+            'email' => 'admin@isoxbook.fr',
             'email_verified_at' => now(),
-            'password'          => Hash::make('admin'),
-            'remember_token'    => Str::random(10),
+            'password' => Hash::make('admin'),
+            'remember_token' => Str::random(10),
         ]);
 
         $user->assignRole($role);
