@@ -20,7 +20,7 @@ class ParserMarkdown
 
         //parse note (warning, info, danger)
         $content = (string) preg_replace_callback(
-            '/<p>:::(warning|info|danger)<\/p>\s*<p>(.*?)<\/p>\s*<p>:::<\/p>/s',
+            '/(?:<p>\s*)?:::(warning|info|danger)\s*(.*?)\s*:::(?:<\/p>\s*)?/s',
             function ($matches) {
                 $icon  = $this->getIcon($matches[1]);
                 $class = 'message message-'.$matches[1];
