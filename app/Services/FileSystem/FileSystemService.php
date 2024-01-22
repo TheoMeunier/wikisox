@@ -4,8 +4,9 @@ namespace App\Services\FileSystem;
 
 class FileSystemService
 {
-    public const PARENT_PATH = 'media/';
 
+    public const PARENT_PATH = 'media/';
+  
     public static function getImageName(string $link): ?string
     {
         $pattern = self::pattern();
