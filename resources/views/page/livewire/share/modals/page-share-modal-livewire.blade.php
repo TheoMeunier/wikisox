@@ -5,23 +5,30 @@
         </x-slot>
 
         <x-slot name="content">
-            <div class="grid grid-cols-2 gap-4">
+            @if(!$is_exist)
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <x-forms.label for="name" :value="__('input.label.link')"/>
+                        <x-forms.input id="share-page-input" wire:model.defer="link" class="w-full" type="text"/>
+                    </div>
+                    <div>
+                        <x-forms.label for="name" :value="__('input.label.time')"/>
+                        <x-forms.select wire:model.defer="hour" class="w-full">
+                            <option value="1">1 h</option>
+                            <option value="6">6 h</option>
+                            <option value="12">12 h</option>
+                            <option value="24">24 h</option>
+                            <option value="48">48 h</option>
+                        </x-forms.select>
+                        <x-forms.error :messages="$errors->get('hour')" class="mt-2"/>
+                    </div>
+                </div>
+            @else
                 <div>
                     <x-forms.label for="name" :value="__('input.label.link')"/>
-                    <x-forms.input id="share-page-input" wire:model.defer="link" class="w-full" type="text"/>
+                    <x-forms.input id="share-page-input" value="{{ $page->share_page }}" class="w-full" type="text"/>
                 </div>
-                <div>
-                    <x-forms.label for="name" :value="__('input.label.time')"/>
-                    <x-forms.select wire:model.defer="hour" class="w-full">
-                        <option value="1">1 h</option>
-                        <option value="6">6 h</option>
-                        <option value="12">12 h</option>
-                        <option value="24">24 h</option>
-                        <option value="48">48 h</option>
-                    </x-forms.select>
-                    <x-forms.error :messages="$errors->get('hour')" class="mt-2"/>
-                </div>
-            </div>
+            @endif
         </x-slot>
 
         <x-slot name="footer">
