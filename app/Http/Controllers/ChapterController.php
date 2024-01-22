@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ChapterRequest;
 use App\Models\Book;
 use App\Models\Chapter;
+use App\Services\FileSystem\FileSystemService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -43,7 +44,7 @@ class ChapterController extends Controller
         Chapter::create([
             'name'        => $request->get('name'),
             'slug'        => Str::slug($request->get('name')),
-            'image'       => $request->get('image'),
+            'image'       => FileSystemService::PARENT_PATH.$request->get('image'),
             'description' => $request->get('description'),
             'book_id'     => $book->id,
             'user_id'     => auth()->id(),
@@ -76,7 +77,7 @@ class ChapterController extends Controller
         $chapter->update([
             'name'        => $request->get('name'),
             'slug'        => Str::slug($request->get('name')),
-            'image'       => $request->get('image'),
+            'image'       => FileSystemService::PARENT_PATH.$request->get('image'),
             'description' => $request->get('description'),
         ]);
 
