@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Pages\Modals;
 
-use App\Models\Book;
 use App\Models\Page;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -26,13 +25,13 @@ class PageShareModalLivewire extends ModalComponent
     public function mount(): void
     {
         $this->is_exist = $this->isExistLinkShare();
-        $this->token = Str::random(64);
-        $this->link = route('pages.share', $this->token);
+        $this->token    = Str::random(64);
+        $this->link     = route('pages.share', $this->token);
     }
 
     public function createShare(): void
     {
-        $this->page->share_page = $this->token;
+        $this->page->share_page       = $this->token;
         $this->page->share_expired_at = Carbon::now()->addHours($this->hour);
         $this->page->save();
 
@@ -47,10 +46,9 @@ class PageShareModalLivewire extends ModalComponent
 
     private function isExistLinkShare(): bool
     {
-
         if (
             $this->page->share_page === null
-            && $this->page->share_exipired_at <= now()
+            && $this->page->share_expired_at <= now()
         ) {
             return false;
         }
