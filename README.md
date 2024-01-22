@@ -42,4 +42,9 @@ git clone https://github.com/TheoMeunier/wikisox.git
 - Generate storage link with `php artisan storage:link`
 - Enjoy :)
 
+# License
+
+This project is protected by a MIT license: [LICENCE](../LICENSE)
+
+
 
