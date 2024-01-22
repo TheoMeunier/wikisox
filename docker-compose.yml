@@ -22,7 +22,7 @@ services:
   queue:
     build:
       context: .
-      dockerfile: docker/queue/Dockerfile
+      dockerfile: docker/php/Dockerfile
     container_name: ${APP_SLUG}_queue
     command: php artisan queue:work -v --tries=3
     restart: unless-stopped
