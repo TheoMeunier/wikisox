@@ -1,7 +1,7 @@
 {
-    "name": "tm/isoxbook",
+    "name": "tm/wikisox",
     "type": "project",
-    "description": "Isoxbook is a wiki tool for creating documentation",
+    "description": "Wikisox is a wiki tool for creating documentation",
     "keywords": [
         "framework",
         "laravel"

@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Administrator',
-            'email' => 'admin@isoxbook.fr',
+            'email' => 'admin@wikisox.fr',
             'email_verified_at' => now(),
             'password' => Hash::make('admin'),
             'remember_token' => Str::random(10),
