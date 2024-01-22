@@ -39,7 +39,7 @@ class AdminBookController extends Controller
         $book->update([
             'name'        => $request->get('name'),
             'slug'        => Str::slug($request->get('name')),
-            'image'       => FileSystemService::getImageName($request->get('image')),
+            'image'       => FileSystemService::PARENT_PATH.$request->get('image'),
             'description' => $request->get('description'),
         ]);
 
