@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Trait\Model\ImageTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -20,6 +21,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Chapter extends Model
 {
     use HasFactory;
+    use ImageTrait;
     use LogsActivity;
     use SoftDeletes;
 

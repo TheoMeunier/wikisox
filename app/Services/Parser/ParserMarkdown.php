@@ -2,6 +2,7 @@
 
 namespace App\Services\Parser;
 
+use App\Services\Glide\GlideImageService;
 use Parsedown;
 
 class ParserMarkdown
@@ -19,13 +20,25 @@ class ParserMarkdown
 
         //parse note (warning, info, danger)
         $content = (string) preg_replace_callback(
-            '/<p>:::(warning|info|danger)<\/p>\s*<p>(.*?)<\/p>\s*<p>:::<\/p>/s',
+            '/(?:<p>\s*)?:::(warning|info|danger)\s*(.*?)\s*:::(?:<\/p>\s*)?/s',
             function ($matches) {
                 $icon  = $this->getIcon($matches[1]);
                 $class = 'message message-'.$matches[1];
 
                 return '<div class="'.$class.'">'
                     .$icon.$matches[2].'</div>';
+            },
+            $content
+        );
+
+        //Parser image:
+        $content = (string) preg_replace_callback(
+            '/<img[^>]+src=["\']([^"\']+)["\'][^>]*>/',
+            function ($matches) {
+                $image = '/media/'.$matches[1];
+                $link  = $this->glideUrl($image);
+
+                return '<img src="'.$link.'" alt="'.$image.'">';
             },
             $content
         );
@@ -52,5 +65,10 @@ class ParserMarkdown
         ];
 
         return $icons[$type];
+    }
+
+    private function glideUrl(string $image): string
+    {
+        return GlideImageService::getLinkImage($image);
     }
 }

@@ -20,10 +20,13 @@ class PageShareModalLivewire extends ModalComponent
 
     public int $hour = 1;
 
+    public bool $is_exist;
+
     public function mount(): void
     {
-        $this->token = Str::random(64);
-        $this->link  = route('pages.share', $this->token);
+        $this->is_exist = $this->isExistLinkShare();
+        $this->token    = Str::random(64);
+        $this->link     = route('pages.share', $this->token);
     }
 
     public function createShare(): void
@@ -39,5 +42,17 @@ class PageShareModalLivewire extends ModalComponent
     public function render(): View|Application|Factory
     {
         return view('page.livewire.share.modals.page-share-modal-livewire');
+    }
+
+    private function isExistLinkShare(): bool
+    {
+        if (
+            $this->page->share_page === null
+            && $this->page->share_expired_at <= now()
+        ) {
+            return false;
+        }
+
+        return true;
     }
 }

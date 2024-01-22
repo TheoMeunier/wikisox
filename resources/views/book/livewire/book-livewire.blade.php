@@ -9,7 +9,7 @@
             @foreach($books as $book)
                 <article class="card @if($book->like !== false) card__like @endif">
                     <a href="{{ route('book.chapter.index', ['slug' => $book->slug]) }}" class="card__img">
-                        <img src="{{ $book->image }}" alt="{{ $book->name }}" width="280" height="100"/>
+                        <img src="{{ $book->getImageUrl(332, 225) }}" alt="{{ $book->name }}" width="332" height="225"/>
                     </a>
                     <div class="card__body">
                         <h5 class="card__title">{{ $book->name }}</h5>

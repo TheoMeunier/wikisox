@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ChapterRequest;
 use App\Models\Chapter;
+use App\Services\FileSystem\FileSystemService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -38,7 +39,7 @@ class AdminChapterController extends Controller
         $chapter->update([
             'name'        => $request->get('name'),
             'slug'        => Str::slug($request->get('name')),
-            'image'       => $request->get('image'),
+            'image'       => FileSystemService::getImageName($request->get('image')),
             'description' => $request->get('description'),
         ]);
 

@@ -10,7 +10,7 @@
                 <article class="card @if($chapter->like !== false) card__like @endif">
                     <a href="{{ route('book.chapter.page.index', ['slug' => $chapter->book->slug, 'slugChapter' => $chapter->slug]) }}"
                        class="card__img">
-                        <img src="{{ $chapter->image }}" alt="{{ $chapter->name }}" width="280" height="100"/>
+                        <img src="{{ $chapter->getImageUrl(355, 255) }}" alt="{{ $chapter->name }}" width="355" height="225"/>
                     </a>
                     <div class="card__body">
                         <h5 class="card__title">{{ $chapter->name }}</h5>

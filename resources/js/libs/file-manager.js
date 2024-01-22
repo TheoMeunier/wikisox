@@ -22,7 +22,12 @@ if (filemanager) {
 
     filemanager.addEventListener('selectfile', e => {
         if (null !== inputImage) {
-            inputImage.value = e.detail.url
+            if (e.detail.folder !== null) {
+                inputImage.value = e.detail.folder + '/' + e.detail.name
+            } else {
+                inputImage.value = e.detail.name
+            }
+
             image.src = e.detail.url
         }
 
