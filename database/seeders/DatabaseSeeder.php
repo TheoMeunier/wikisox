@@ -49,17 +49,17 @@ class DatabaseSeeder extends Seeder
             PermissionsSeed::class,
         ]);
 
-        $role = Role::create(['name' => 'admin']);
+        $role        = Role::create(['name' => 'admin']);
         $permissions = Permission::all();
 
         $role->syncPermissions($permissions);
 
         $user = User::create([
-            'name' => 'Administrator',
-            'email' => 'admin@wikisox.fr',
+            'name'              => 'Administrator',
+            'email'             => 'admin@wikisox.fr',
             'email_verified_at' => now(),
-            'password' => Hash::make('admin'),
-            'remember_token' => Str::random(10),
+            'password'          => Hash::make('admin'),
+            'remember_token'    => Str::random(10),
         ]);
 
         $user->assignRole($role);
