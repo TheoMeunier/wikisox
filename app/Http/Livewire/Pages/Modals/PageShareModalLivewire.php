@@ -46,13 +46,10 @@ class PageShareModalLivewire extends ModalComponent
 
     private function isExistLinkShare(): bool
     {
-        if (
-            $this->page->share_page === null
-            && $this->page->share_expired_at <= now()
-        ) {
-            return false;
+        if ($this->page->share_page !== null && $this->page->share_expired_at > Carbon::now()) {
+            return true;
         }
 
-        return true;
+        return false;
     }
 }
