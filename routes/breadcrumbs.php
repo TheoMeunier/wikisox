@@ -25,5 +25,5 @@ Breadcrumbs::for('chapter', function (BreadcrumbTrail $trail, $book, $chapter) {
 
 Breadcrumbs::for('page', function (BreadcrumbTrail $trail, $book, $chapter, $page) {
     $trail->parent('chapter', $book, $chapter);
-    $trail->push($page->name, route('book.chapter.page.show', ['slug' => $book->slug, 'slugChapter' => $chapter->slug, 'slugPage' => $page->slug]));
+    $trail->push($page->name, route('book.chapter.page.show', ['slug' => $book->slug, 'slugChapter' => $chapter->slug, 'slugPage' => $page->slug, 'id' => $page->id]));
 });

@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use PDF;
 use Str;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -35,11 +36,14 @@ class PageController extends Controller
     /**
      * @return Application|Factory|View
      */
-    public function show(string $slug, string $slugChapter, string $slugPage)
+    public function show(string $slug, string $slugChapter, string $slugPage, string $id)
     {
         $book    = Book::where('slug', '=', $slug)->first();
         $chapter = Chapter::where('slug', '=', $slugChapter)->first();
-        $page    = Page::where('slug', '=', $slugPage)->first();
+        $page    = Page::query()
+            ->where('slug', '=', $slugPage)
+            ->where('id', '=', $id)
+            ->firstOrFail();
 
         return view('page.show', compact('book', 'chapter', 'page'));
     }
@@ -94,7 +98,7 @@ class PageController extends Controller
     /**
      * @return Application|Factory|View
      */
-    public function edit(string $slug, string $slugChapter, string $slugPage)
+    public function edit(string $slug, string $slugChapter, string $slugPage, string $id)
     {
         $book = Book::where('slug', '=', $slug)
             ->first();
@@ -102,15 +106,20 @@ class PageController extends Controller
         $chapter = Chapter::where('slug', '=', $slugChapter)
             ->first();
 
-        $page = Page::where('slug', '=', $slugPage)
+        $page = Page::query()
+            ->where('slug', '=', $slugPage)
+            ->where('id', '=', $id)
             ->first();
 
         return view('page.edit', compact('book', 'chapter', 'page'));
     }
 
-    public function update(PageRequest $request, string $slug): RedirectResponse
+    public function update(PageRequest $request, string $slug, string $id): RedirectResponse
     {
-        $page = Page::where('slug', '=', $slug)->firstOrFail();
+        $page = Page::query()
+            ->where('slug', '=', $slug)
+            ->where('id', '=', $id)
+            ->firstOrFail();
 
         $page->update([
             'name'    => $request->get('name'),
@@ -123,13 +132,18 @@ class PageController extends Controller
                 'slug'        => $page->chapter->book->slug,
                 'slugChapter' => $page->chapter->slug,
                 'slugPage'    => $page->slug,
+                'id'          => $page->id,
             ])
             ->with('success', __('flash.page.update'));
     }
 
-    public function delete(string $slug): RedirectResponse
+    public function delete(string $slug, string $id): RedirectResponse
     {
-        $page = Page::query()->where('slug', '=', $slug)->firstOrFail();
+        $page = Page::query()
+            ->where('slug', '=', $slug)
+            ->where('id', '=', $id)
+            ->firstOrFail();
+
         $page->delete();
 
         return redirect()
@@ -140,9 +154,12 @@ class PageController extends Controller
             ->with('success', __('flash.page.delete'));
     }
 
-    public function downloadHtml(string $slug): StreamedResponse
+    public function downloadHtml(string $slug, string $id): StreamedResponse
     {
-        $page    = Page::query()->where('slug', '=', $slug)->first();
+        $page    = Page::query()
+            ->where('slug', '=', $slug)
+            ->where('id', '=', $id)
+            ->first();
 
         if (! $page) {
             abort(404, 'Page not found');
@@ -153,9 +170,12 @@ class PageController extends Controller
         }, $slug.'.html');
     }
 
-    public function downloadMarkdown(string $slug): StreamedResponse
+    public function downloadMarkdown(string $slug, string $id): StreamedResponse
     {
-        $page    = Page::query()->where('slug', '=', $slug)->first();
+        $page    = Page::query()
+            ->where('slug', '=', $slug)
+            ->where('id', '=', $id)
+            ->first();
 
         if (! $page) {
             abort(404, 'Page not found');
@@ -166,14 +186,15 @@ class PageController extends Controller
         }, $slug.'.md');
     }
 
-    public function downloadPdf(string $slug): Response
+    public function downloadPdf(string $slug, string $id): Response
     {
         $page = Page::query()
             ->where('slug', '=', $slug)
+            ->where('id', '=', $id)
             ->firstOrFail();
 
-        $html = \view('page.pdf.index', compact('page'))->render();
-        $pdf  = \PDF::loadHTML($html);
+        $html = view('page.pdf.index', compact('page'))->render();
+        $pdf  = PDF::loadHTML($html);
 
         return $pdf->download($page->slug.'.pdf');
     }

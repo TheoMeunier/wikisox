@@ -42,11 +42,23 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::controller(PageController::class)->prefix('/page')->name('pages.')->group(function () {
-        Route::post('/{slug}', 'update')->name('update')->middleware('can:page edit');
-        Route::delete('/{slug}/delete', 'delete')->name('delete')->middleware('can:page delete');
-        Route::get('/download/html/{slug}', 'downloadHtml')->name('download.html');
-        Route::get('/download/md/{slug}', 'downloadMarkdown')->name('download.md');
-        Route::get('/download/pdf/{slug}', 'downloadPdf')->name('download.pdf');
+        Route::post('/{slug}-{id}', 'update')
+            ->name('update')
+            ->middleware('can:page edit')
+            ->where(['id' => '[0-9]+', 'slug' => '[a-z0-9\-]+']);
+        Route::delete('/{slug}-{id}/delete', 'delete')
+            ->name('delete')
+            ->middleware('can:page delete')
+            ->where(['id' => '[0-9]+', 'slug' => '[a-z0-9\-]+']);
+        Route::get('/download/html/{slug}-{id}', 'downloadHtml')
+            ->name('download.html')
+            ->where(['id' => '[0-9]+', 'slug' => '[a-z0-9\-]+']);
+        Route::get('/download/md/{slug}-{id}', 'downloadMarkdown')
+            ->name('download.md')
+            ->where(['id' => '[0-9]+', 'slug' => '[a-z0-9\-]+']);
+        Route::get('/download/pdf/{slug}-{id}', 'downloadPdf')
+            ->name('download.pdf')
+            ->where(['id' => '[0-9]+', 'slug' => '[a-z0-9\-]+']);
     });
 
     Route::controller(ProfileController::class)->prefix('/profile')->name('profile.')->group(function () {
@@ -73,8 +85,13 @@ Route::middleware(['auth'])->group(function () {
                 Route::get('/', 'index')->name('index');
                 Route::get('/create', 'create')->name('create')->middleware('can:page create');
                 Route::post('/create', 'store')->name('store')->middleware('can:page create');
-                Route::get('/{slugPage}', 'show')->name('show');
-                Route::get('/{slugPage}/edit', 'edit')->name('edit')->middleware('can:page edit');
+                Route::get('/{slugPage}-{id}', 'show')
+                    ->name('show')
+                    ->where(['id' => '[0-9]+', 'slugPage' => '[a-z0-9\-]+']);
+                Route::get('/{slugPage}-{id}/edit', 'edit')
+                    ->name('edit')
+                    ->where(['id' => '[0-9]+', 'slugPage' => '[a-z0-9\-]+'])
+                    ->middleware('can:page edit');
             });
         });
     });
