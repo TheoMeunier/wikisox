@@ -6,7 +6,7 @@
 
     <div class="mt-6">
         @forelse($pages as $page)
-            <a href="{{ route('book.chapter.page.show', ['slug' => $page->chapter->book->slug, 'slugChapter' => $page->chapter->slug, 'slugPage' => $page->slug]) }}">
+            <a href="{{ route('book.chapter.page.show', ['slug' => $page->chapter->book->slug, 'slugChapter' => $page->chapter->slug, 'slugPage' => $page->slug, 'id' => $page->id]) }}">
                 <article class="card">
                     <div class="card__body justify__between">
                         <h5 class="card__title border-left">{{ $page->name }}</h5>

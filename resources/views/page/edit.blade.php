@@ -2,7 +2,7 @@
     <section class="container">
         <h1>{{ __('title.page.edit') }}</h1>
 
-        <form action="{{ route('pages.update', ['slug' => $page->slug]) }}" method="POST">
+        <form action="{{ route('pages.update', ['slug' => $page->slug, 'id' => $page->id]) }}" method="POST">
             @csrf
 
             <div>
