@@ -20,27 +20,29 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //dev
-        User::factory()
-            ->count(10)
-            ->has(
-                Book::factory()
-                    ->count(10)
-                    ->has(
-                        Chapter::factory()
-                            ->count(5)
-                            ->state(function (array $attributes, Book $book) {
-                                return ['user_id' => $book->user->id];
-                            })
-                            ->has(
-                                Page::factory()
-                                    ->count(10)
-                                    ->state(function (array $attributes, Chapter $chapter) {
-                                        return ['user_id' => $chapter->user->id];
-                                    })
-                            )
-                    )
-            )
-            ->create();
+        if (config('app.env') === 'dev') {
+            User::factory()
+                ->count(10)
+                ->has(
+                    Book::factory()
+                        ->count(10)
+                        ->has(
+                            Chapter::factory()
+                                ->count(5)
+                                ->state(function (array $attributes, Book $book) {
+                                    return ['user_id' => $book->user->id];
+                                })
+                                ->has(
+                                    Page::factory()
+                                        ->count(10)
+                                        ->state(function (array $attributes, Chapter $chapter) {
+                                            return ['user_id' => $chapter->user->id];
+                                        })
+                                )
+                        )
+                )
+                ->create();
+        }
 
         //prod
         $this->call([
@@ -54,7 +56,7 @@ class DatabaseSeeder extends Seeder
 
         $user = User::create([
             'name'              => 'Administrator',
-            'email'             => 'admin@isoxbook.fr',
+            'email'             => 'admin@wikisox.fr',
             'email_verified_at' => now(),
             'password'          => Hash::make('admin'),
             'remember_token'    => Str::random(10),

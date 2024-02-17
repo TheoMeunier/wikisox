@@ -1,6 +1,6 @@
-# Isoxbook
+# Wikisox
 
-Isoxbook is a wiki tool for creating documentation, simply with a markdown editor and th we can share these documentations with our team.
+Wikisox is a wiki tool for creating documentation, simply with a markdown editor and th we can share these documentations with our team.
 
 ## Prerequisites
 
@@ -14,9 +14,9 @@ Isoxbook is a wiki tool for creating documentation, simply with a markdown edito
 ## Installation
 
 ```
-git clone https://github.com/TheoMeunier/Isoxbook.git
+git clone https://github.com/TheoMeunier/wikisox.git
 ```
-- `cd Isoxbook`
+- `cd wikisox`
 - Move .env.example or .env.prod.example to .env and edit it according to your project
 - Run installation dependencies php `composer install`
 - Run either `yarn dev` or `yarn prod`
@@ -27,9 +27,9 @@ git clone https://github.com/TheoMeunier/Isoxbook.git
 
 ## Installation Docker
 ```
-git clone https://github.com/TheoMeunier/Isoxbook.git
+git clone https://github.com/TheoMeunier/wikisox.git
 ```
-- `cd Isoxbook`
+- `cd wikisox`
 - Move .env.example or .env.prod.example to .env and edit it according to your project
 - Move docker-compose.yml to docker-compose.prod.yml
 - Start containers with `docker-compose up -d`
@@ -41,5 +41,10 @@ git clone https://github.com/TheoMeunier/Isoxbook.git
 - Generate migration and default user with `php artisan migrate --seed`
 - Generate storage link with `php artisan storage:link`
 - Enjoy :)
+
+# License
+
+This project is protected by a MIT license: [LICENCE](../LICENSE)
+
 
 

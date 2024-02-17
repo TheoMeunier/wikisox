@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/index.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('js/index.js') }}" defer></script>
     @livewireStyles
 
     <!-- Styles -->

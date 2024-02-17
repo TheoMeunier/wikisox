@@ -2,8 +2,10 @@ import './libs/alphinejs'
 import './libs/file-manager'
 import './libs/markdown-editor'
 import hljs from 'highlight.js'
+import CopyButtonPlugin from 'highlightjs-copy'
 import axios from 'axios'
 
+hljs.addPlugin(new CopyButtonPlugin())
 hljs.highlightAll()
 
 //avatar
