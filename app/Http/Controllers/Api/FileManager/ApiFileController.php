@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\FileManager;
 use App\Http\Requests\UploadFileRequest;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -44,7 +45,7 @@ class ApiFileController extends AbstractFileManagerController
         $folder   = $request->post('folder');
         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         /** @phpstan-ignore-next-line  */
-        $path     = $file->storeAs($folder, $filename.'_'.$file->hashName(), 'media');
+        $path     = $file->storeAs($folder, Str::slug($filename.'_'.$file->hashName()), 'media');
 
         /* @phpstan-ignore-next-line  */
         return $this->toArray($path);
