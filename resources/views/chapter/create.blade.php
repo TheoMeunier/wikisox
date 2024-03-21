@@ -15,7 +15,7 @@
                     <div class="text-red-500">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="w-1/4 mt-4">
+                <div class="sm:w-1/4 mt-4">
                     <x-label for="image" :value="__('input.label.image')"/>
                     <x-forms.image :name="'image'" value="{{  old('image') }}"/>
                     @error('image')

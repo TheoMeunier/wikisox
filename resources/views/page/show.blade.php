@@ -1,6 +1,6 @@
 <x-app-layout>
     <section>
-        <div class="grid grid-cols-5 gap-4">
+        <div class="md:grid md:grid-cols-5 flex flex-col-reverse gap-4">
             <div class="flex flex-col">
                 <div class="flex flex-col gap-5 mt-4 mb-14">
                     <h4>{{ __('title.action') }}</h4>
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="col-span-4">
+            <div class="md:col-span-4">
                 <div class="pb-16">
                     <h1>{{ $page->name }}</h1>
 

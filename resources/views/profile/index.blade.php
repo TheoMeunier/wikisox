@@ -3,7 +3,7 @@
         <h2 class="h3">{{ __('title.profile.books') }}</h2>
 
         @if($books->count() > 0)
-            <div class="grid grid-cols-4 gap-5 mt-3">
+            <div class="grid sm:grid-cols-3 xl:grid-cols-4 gap-5 mt-3">
                 @foreach($books as $book)
                     <article class="card">
                         <div class="card__img">
@@ -27,7 +27,7 @@
         @endif
     </div>
 
-    <div class="grid grid-cols-2 gap-5">
+    <div class="grid sm:grid-cols-2 gap-5">
         <div>
             <h2 class="h3">{{ __('title.profile.chapters') }}</h2>
 
