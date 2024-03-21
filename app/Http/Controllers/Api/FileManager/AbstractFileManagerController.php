@@ -10,6 +10,12 @@ class AbstractFileManagerController extends Controller
 {
     protected function filesysteme(): Filesystem
     {
-        return Storage::disk('media');
+        $conf = config('filesystems.default');
+
+        if ($conf === 's3') {
+            return Storage::disk('s3-media');
+        } else {
+            return Storage::disk('media');
+        }
     }
 }
