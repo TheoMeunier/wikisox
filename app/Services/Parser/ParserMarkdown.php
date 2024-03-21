@@ -35,7 +35,7 @@ class ParserMarkdown
         $content = (string) preg_replace_callback(
             '/<img[^>]+src=["\']([^"\']+)["\'][^>]*>/',
             function ($matches) {
-                $image = '/media/'.$matches[1];
+                $image = $matches[1];
                 $link  = $this->glideUrl($image);
 
                 return '<img src="'.$link.'" alt="'.$image.'">';

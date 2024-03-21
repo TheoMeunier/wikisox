@@ -17,12 +17,12 @@ class GlideImageService
 
     public static function getDriver(): FilesystemOperator
     {
-        $conf = config('filesystems.disks');
+        $conf = config('filesystems.default');
 
         if ($conf === 's3') {
-            Storage::disk('s3')->getDriver();
+            return Storage::disk('s3-media')->getDriver();
         }
 
-        return Storage::disk('public')->getDriver();
+        return Storage::disk('media')->getDriver();
     }
 }

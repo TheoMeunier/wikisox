@@ -45,7 +45,7 @@ class ApiFileController extends AbstractFileManagerController
         $folder   = $request->post('folder');
         $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         /** @phpstan-ignore-next-line  */
-        $path     = $file->storeAs($folder, Str::slug($filename.'_'.$file->hashName()), 'media');
+        $path     = $file->storeAs($folder, Str::slug($filename.'_'.$file->hashName()), $this->getFilesystem());
 
         /* @phpstan-ignore-next-line  */
         return $this->toArray($path);
@@ -54,7 +54,7 @@ class ApiFileController extends AbstractFileManagerController
     public function toArray(string $file): array
     {
         $info = pathinfo($file);
-        $link = $this->filesysteme()->url($file);
+        $link = $this->getUrlLink($file);
 
         return [
             'id'        => $file,

@@ -44,7 +44,7 @@ class ChapterController extends Controller
         Chapter::create([
             'name'        => $request->get('name'),
             'slug'        => Str::slug($request->get('name')),
-            'image'       => FileSystemService::PARENT_PATH.$request->get('image'),
+            'image'       => $request->get('image'),
             'description' => $request->get('description'),
             'book_id'     => $book->id,
             'user_id'     => auth()->id(),
@@ -77,7 +77,7 @@ class ChapterController extends Controller
         $chapter->update([
             'name'        => $request->get('name'),
             'slug'        => Str::slug($request->get('name')),
-            'image'       => FileSystemService::PARENT_PATH.$request->get('image'),
+            'image'       => $request->get('image'),
             'description' => $request->get('description'),
         ]);
 
