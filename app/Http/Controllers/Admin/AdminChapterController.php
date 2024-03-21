@@ -39,7 +39,7 @@ class AdminChapterController extends Controller
         $chapter->update([
             'name'        => $request->get('name'),
             'slug'        => Str::slug($request->get('name')),
-            'image'       => FileSystemService::PARENT_PATH.$request->get('image'),
+            'image'       => $request->get('image'),
             'description' => $request->get('description'),
         ]);
 

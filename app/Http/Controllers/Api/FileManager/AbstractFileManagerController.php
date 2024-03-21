@@ -18,4 +18,26 @@ class AbstractFileManagerController extends Controller
             return Storage::disk('media');
         }
     }
+
+    protected function getFilesystem(): string
+    {
+        $conf = config('filesystems.default');
+
+        if ($conf === 's3') {
+            return 's3-media';
+        } else {
+            return 'media';
+        }
+    }
+
+    protected function getUrlLink(string $file): string
+    {
+        $conf = config('filesystems.default');
+
+        if ($conf === 's3') {
+            return $this->filesysteme()->temporaryUrl($file, now()->addMinutes(5));
+        } else {
+            return $this->filesysteme()->url($file);
+        }
+    }
 }
