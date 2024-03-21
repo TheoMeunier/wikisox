@@ -1,5 +1,5 @@
 <div>
-    <div class="flex justify-end mb-4">
+    <div class="flex justify-center md:justify-end mt-6 md:mt-0 mb-4">
         <x-input wire:model="search" type="search"
                  :placeholder="__('input.placeholder.search')"/>
     </div>

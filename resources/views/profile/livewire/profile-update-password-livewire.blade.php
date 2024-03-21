@@ -1,5 +1,5 @@
 <div>
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid sm:grid-cols-2 gap-4">
         <div>
             <x-forms.label for="password" :value="__('input.label.password')"/>
             <x-forms.input wire:model.defer="password" class="w-full" type="password"/>

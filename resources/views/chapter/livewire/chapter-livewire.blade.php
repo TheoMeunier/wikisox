@@ -1,11 +1,11 @@
 <div>
-    <div class="flex justify-end mb-4">
+    <div class="flex justify-center md:justify-end mt-6 sm:mt-0 mb-4">
         <x-input wire:model="search" type="search"
                  :placeholder="__('input.placeholder.search')"/>
     </div>
 
     @if(count($chapters) > 0)
-        <div class="articles mt-6">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
             @foreach($chapters as $chapter)
                 <article class="card @if($chapter->like !== false) card__like @endif">
                     <a href="{{ route('book.chapter.page.index', ['slug' => $chapter->book->slug, 'slugChapter' => $chapter->slug]) }}"

@@ -5,7 +5,7 @@
     </div>
 
     @if(count($books) > 0)
-        <div class="articles__books mt-6">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-6">
             @foreach($books as $book)
                 <article class="card @if($book->like !== false) card__like @endif">
                     <a href="{{ route('book.chapter.index', ['slug' => $book->slug]) }}" class="card__img">

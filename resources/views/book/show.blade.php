@@ -8,8 +8,8 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-5 gap-4">
-            <div class="mt-14 flex flex-col">
+        <div class="md:grid md:grid-cols-5 flex flex-col-reverse gap-4">
+            <div class="sm:mt-14 flex flex-col">
                 @canany(['book edit', 'book delete', 'chapter create'])
                     <div class="flex flex-col gap-5 mt-4 mb-14">
                         <h4>{{ __('title.action') }}</h4>
@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <div class="col-span-4">
+            <div class="md:col-span-4 gap-4">
                 @livewire('chapter-livewire', ['book' => $book])
             </div>
         </div>
