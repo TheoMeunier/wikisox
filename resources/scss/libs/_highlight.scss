@@ -106,3 +106,13 @@ code {
         @apply my-2;
     }
 }
+
+.hljs-copy {
+    float: right;
+    cursor: pointer;
+    margin-right: 10px;
+    border: 1px solid #7d7a7a;
+    color: #cccccc;
+    padding: 2px 8px;
+    border-radius: 3px;
+}
